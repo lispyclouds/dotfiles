@@ -115,4 +115,3 @@ source $HOME/.cargo/env
 
 alias clj="lein exec"
 alias lr="lein repl"
-alias λ="lr"
