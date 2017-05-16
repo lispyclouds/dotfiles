@@ -93,14 +93,17 @@ source $ZSH/oh-my-zsh.sh
 
 alias v=vagrant
 alias vdu="v destroy -f && v up && v ssh"
-alias u="brew update                                 &&  \
-         brew upgrade                                &&  \
-         brew cleanup                                &&  \
-         brew cu -a -y                               &&  \
-         brew cask cleanup                           &&  \
-         rustup self update                          &&  \
-         rustup update                               &&  \
-         git -C $ZSH/custom/themes/powerlevel9k pull &&  \
+alias u="brew update                                 && \
+         brew upgrade                                && \
+         brew cleanup                                && \
+         brew cu -a -y                               && \
+         brew cask cleanup                           && \
+         rustup self update                          && \
+         rustup update                               && \
+         git -C ~/.vim_runtime pull                  && \
+         git -C ~/.vim/bundle/Vundle.vim pull        && \
+         vim +PluginUpdate +qall                     && \
+         git -C $ZSH/custom/themes/powerlevel9k pull && \
          git -C $ZSH_CUSTOM/plugins/zsh-autosuggestions pull"
 
 export GOPATH=$HOME/.go
@@ -115,3 +118,4 @@ source $HOME/.cargo/env
 
 alias clj="lein exec"
 alias lr="lein repl"
+alias gcmsg="git commit -S -m"
