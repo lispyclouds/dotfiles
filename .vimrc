@@ -33,3 +33,4 @@ set clipboard=unnamed
 
 filetype plugin on
 
+let NERDTreeShowHidden=1
