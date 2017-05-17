@@ -12,6 +12,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-surround'
 Plugin 'bhurlow/vim-parinfer'
 Plugin 'jceb/vim-orgmode'
+Plugin 'rust-lang/rust.vim'
 
 call vundle#end()
 
@@ -34,3 +35,4 @@ set clipboard=unnamed
 filetype plugin on
 
 let NERDTreeShowHidden=1
+let g:rustfmt_autosave=1
