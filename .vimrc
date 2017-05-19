@@ -12,6 +12,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'bhurlow/vim-parinfer'
 Plugin 'jceb/vim-orgmode'
 Plugin 'rust-lang/rust.vim'
+Plugin 'jreybert/vimagit'
 
 call vundle#end()
 
@@ -35,3 +36,7 @@ filetype plugin on
 
 let NERDTreeShowHidden=1
 let g:rustfmt_autosave=1
+
+set listchars=tab:>-,trail:-
+set list
+
