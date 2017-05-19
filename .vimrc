@@ -1,3 +1,5 @@
+" Only after https://github.com/amix/vimrc has been installed.
+
 set nocompatible
 filetype off
 
