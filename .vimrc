@@ -13,6 +13,7 @@ Plugin 'bhurlow/vim-parinfer'
 Plugin 'jceb/vim-orgmode'
 Plugin 'rust-lang/rust.vim'
 Plugin 'jreybert/vimagit'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 call vundle#end()
 
@@ -36,6 +37,9 @@ filetype plugin on
 
 let NERDTreeShowHidden=1
 let g:rustfmt_autosave=1
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'c'
 
 set listchars=tab:>-,trail:-
 set list
