@@ -102,7 +102,7 @@ alias u="brew update                                 && \
          rustup update                               && \
          git -C ~/.vim_runtime pull                  && \
          git -C ~/.vim/bundle/Vundle.vim pull        && \
-         vim +PluginUpdate +qall                     && \
+         vim +PluginClean +PluginUpdate +qall        && \
          git -C $ZSH/custom/themes/powerlevel9k pull && \
          git -C $ZSH_CUSTOM/plugins/zsh-autosuggestions pull"
 
