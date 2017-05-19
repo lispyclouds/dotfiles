@@ -8,7 +8,6 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'cespare/vim-toml'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-surround'
 Plugin 'bhurlow/vim-parinfer'
 Plugin 'jceb/vim-orgmode'
