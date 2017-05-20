@@ -46,3 +46,4 @@ let g:ctrlp_working_path_mode = 'c'
 set listchars=tab:>-,trail:-
 set list
 
+map <leader>r :NERDTreeFind<cr>
