@@ -30,10 +30,9 @@ source ~/.vim_runtime/my_configs.vim
 catch
 endtry
 
-set guifont=Hack:h16
+set guifont=Inconsolata-dz:h16
 set nu
 set clipboard=unnamed
-
 filetype plugin on
 
 let NERDTreeShowHidden=1
@@ -46,3 +45,4 @@ set listchars=tab:>-,trail:-
 set list
 
 map <leader>r :NERDTreeFind<cr>
+map <C-n> :NERDTreeToggle<CR>
