@@ -15,6 +15,7 @@ Plugin 'jceb/vim-orgmode'
 Plugin 'rust-lang/rust.vim'
 Plugin 'jreybert/vimagit'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'tweekmonster/wstrip.vim'
 
 call vundle#end()
 
@@ -40,6 +41,7 @@ let g:rustfmt_autosave=1
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'c'
+let g:wstrip_auto = 1
 
 set listchars=tab:>-,trail:-
 set list
