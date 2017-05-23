@@ -16,6 +16,7 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'jreybert/vimagit'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'udalov/kotlin-vim'
 
 call vundle#end()
 
@@ -40,7 +41,7 @@ let NERDTreeShowHidden=1
 let g:rustfmt_autosave=1
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'c'
+let g:ctrlp_working_path_mode = 'w'
 
 map <leader>r :NERDTreeFind<cr>
 map <C-n> :NERDTreeToggle<CR>
