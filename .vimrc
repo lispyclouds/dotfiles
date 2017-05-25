@@ -17,6 +17,7 @@ Plugin 'jreybert/vimagit'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'udalov/kotlin-vim'
+Plugin 'mileszs/ack.vim'
 
 call vundle#end()
 
@@ -32,16 +33,22 @@ source ~/.vim_runtime/my_configs.vim
 catch
 endtry
 
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
 set guifont=Inconsolata-dz:h16
 set nu
 set clipboard=unnamed
 filetype plugin on
 
 let NERDTreeShowHidden=1
-let g:rustfmt_autosave=1
+
+let g:rustfmt_autosave = 1
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'w'
+let g:ctrlp_show_hidden = 1
 
 map <leader>r :NERDTreeFind<cr>
 map <C-n> :NERDTreeToggle<CR>
