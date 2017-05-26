@@ -18,6 +18,8 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'udalov/kotlin-vim'
 Plugin 'mileszs/ack.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 call vundle#end()
 
