@@ -52,6 +52,8 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'w'
 let g:ctrlp_show_hidden = 1
 
+let mapleader = "\<Space>"
+
 map <leader>f :NERDTreeFind<CR>
 map <leader>n :NERDTreeToggle<CR>
 
