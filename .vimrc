@@ -44,6 +44,11 @@ set nu
 set clipboard=unnamed
 filetype plugin on
 
+if has("gui_macvim")
+    set macligatures
+    set guifont=Fira\ Code:h17
+endif
+
 let NERDTreeShowHidden=1
 
 let g:rustfmt_autosave = 1
