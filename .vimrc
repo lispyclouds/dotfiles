@@ -36,7 +36,7 @@ catch
 endtry
 
 if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
+    let g:ackprg = 'ag --vimgrep'
 endif
 
 set guifont=Inconsolata-dz:h16
