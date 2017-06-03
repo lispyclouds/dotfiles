@@ -39,7 +39,6 @@ if executable('ag')
     let g:ackprg = 'ag --vimgrep'
 endif
 
-set guifont=Inconsolata-dz:h16
 set nu
 set clipboard=unnamed
 filetype plugin on
