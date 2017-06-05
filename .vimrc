@@ -20,6 +20,7 @@ Plugin 'udalov/kotlin-vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'luochen1990/rainbow'
 
 call vundle#end()
 
@@ -55,6 +56,7 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'w'
 let g:ctrlp_show_hidden = 1
+let g:rainbow_active = 1
 
 let mapleader = "\<Space>"
 
