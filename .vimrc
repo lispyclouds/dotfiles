@@ -21,6 +21,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'luochen1990/rainbow'
+Plugin 'airblade/vim-gitgutter'
 
 call vundle#end()
 
@@ -42,6 +43,8 @@ endif
 
 set nu
 set clipboard=unnamed
+set updatetime=250
+
 filetype plugin on
 
 if has("gui_macvim")
@@ -57,6 +60,8 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'w'
 let g:ctrlp_show_hidden = 1
 let g:rainbow_active = 1
+let g:gitgutter_enabled = 1
+let g:gitgutter_realtime = 1
 
 let mapleader = "\<Space>"
 
