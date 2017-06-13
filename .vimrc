@@ -44,6 +44,7 @@ endif
 set nu
 set clipboard=unnamed
 set updatetime=250
+set colorcolumn=80
 
 filetype plugin on
 
