@@ -45,8 +45,6 @@ set nu
 set clipboard=unnamed
 set updatetime=250
 set colorcolumn=80
-set textwidth=74
-set formatoptions=at1
 let g:NERDTreeWinPos = "left"
 
 filetype plugin on
