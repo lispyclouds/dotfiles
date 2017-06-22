@@ -45,7 +45,7 @@ set nu
 set clipboard=unnamed
 set updatetime=250
 set colorcolumn=80
-let g:NERDTreeWinPos = "left"
+set textwidth=80
 
 filetype plugin on
 
@@ -64,6 +64,7 @@ let g:ctrlp_show_hidden = 1
 let g:rainbow_active = 1
 let g:gitgutter_enabled = 1
 let g:gitgutter_realtime = 1
+let g:NERDTreeWinPos = "left"
 
 let mapleader = "\<Space>"
 
