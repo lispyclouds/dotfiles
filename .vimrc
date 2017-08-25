@@ -1,4 +1,6 @@
-" Only after https://github.com/amix/vimrc has been installed.
+" Only after the following are installed:
+" - https://github.com/amix/vimrc has been installed.
+" - https://github.com/VundleVim/Vundle.vim
 
 set nocompatible
 filetype off
@@ -22,6 +24,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'luochen1990/rainbow'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'cespare/vim-toml'
 
 call vundle#end()
 
@@ -65,8 +68,6 @@ let g:rainbow_active = 1
 let g:gitgutter_enabled = 1
 let g:gitgutter_realtime = 1
 let g:NERDTreeWinPos = "left"
-
-let mapleader = "\<Space>"
 
 map <leader>f :NERDTreeFind<CR>
 map <leader>n :NERDTreeToggle<CR>

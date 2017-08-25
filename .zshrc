@@ -100,9 +100,9 @@ alias u="brew update                                 && \
          brew cask cleanup                           && \
          rustup self update                          && \
          rustup update                               && \
+         vim +PluginUpdate +qall                     && \
          git -C ~/.vim_runtime pull                  && \
          git -C ~/.vim/bundle/Vundle.vim pull        && \
-         vim +PluginClean +PluginUpdate +qall        && \
          git -C $ZSH/custom/themes/powerlevel9k pull && \
          git -C $ZSH_CUSTOM/plugins/zsh-autosuggestions pull"
 
@@ -110,6 +110,8 @@ export GOPATH=$HOME/.go
 
 export MP_FULLNAME='Rahul De'
 export MP_SITETYPE=max
+export PATH="/usr/local/opt/llvm/bin:$PATH"
+alias cc=clang
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
