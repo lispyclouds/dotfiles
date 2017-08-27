@@ -25,6 +25,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'luochen1990/rainbow'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'cespare/vim-toml'
+Plugin '907th/vim-auto-save'
 
 call vundle#end()
 
@@ -68,6 +69,7 @@ let g:rainbow_active = 1
 let g:gitgutter_enabled = 1
 let g:gitgutter_realtime = 1
 let g:NERDTreeWinPos = "left"
+let g:auto_save = 1
 
 map <leader>f :NERDTreeFind<CR>
 map <leader>n :NERDTreeToggle<CR>
