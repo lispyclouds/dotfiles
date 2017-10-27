@@ -69,7 +69,6 @@ let g:rainbow_active = 1
 let g:gitgutter_enabled = 1
 let g:gitgutter_realtime = 1
 let g:NERDTreeWinPos = "left"
-let g:auto_save = 1
 
 map <leader>f :NERDTreeFind<CR>
 map <leader>n :NERDTreeToggle<CR>

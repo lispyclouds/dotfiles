@@ -3,8 +3,6 @@ export ZSH=/Users/47/.oh-my-zsh
 
 source virtualenvwrapper.sh
 
-JAVA_HOME=$(/usr/libexec/java_home)
-
 eval "$(thefuck --alias)"
 
 # Set name of the theme to load.
@@ -12,8 +10,8 @@ eval "$(thefuck --alias)"
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status)
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -93,24 +91,28 @@ source $ZSH/oh-my-zsh.sh
 
 alias v=vagrant
 alias vdu="v destroy -f && v up && v ssh"
-alias u="brew update                                 && \
-         brew upgrade                                && \
-         brew cleanup                                && \
-         brew cu -a -y                               && \
-         brew cask cleanup                           && \
-         rustup self update                          && \
-         rustup update                               && \
-         vim +PluginUpdate +qall                     && \
-         git -C ~/.vim_runtime pull                  && \
-         git -C ~/.vim/bundle/Vundle.vim pull        && \
-         git -C $ZSH/custom/themes/powerlevel9k pull && \
-         git -C $ZSH_CUSTOM/plugins/zsh-autosuggestions pull"
+alias u="brew update                                          && \
+         brew upgrade                                         && \
+         brew cleanup                                         && \
+         brew cu -a -y                                        && \
+         brew cask cleanup                                    && \
+         rustup self update                                   && \
+         rustup update                                        && \
+         vim +PluginUpdate +qall                              && \
+         git -C ~/.vim_runtime pull                           && \
+         git -C ~/.vim/bundle/Vundle.vim pull                 && \
+         git -C $ZSH/custom/themes/powerlevel9k pull          && \
+         git -C $ZSH_CUSTOM/plugins/zsh-autosuggestions pull  && \
+         brew uninstall python --ignore-dependencies || true"
 
 export GOPATH=$HOME/.go
+export JAVA_HOME=$(/usr/libexec/java_home)
+
+export L="G8)-2Taa'ZL&!EK8"
 
 export MP_FULLNAME='Rahul De'
 export MP_SITETYPE=max
-export PATH="/usr/local/opt/llvm/bin:$PATH"
+export PATH="/usr/local/opt/llvm/bin:/Users/47/.local/bin:$PATH"
 alias cc=clang
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
@@ -121,3 +123,8 @@ source $HOME/.cargo/env
 alias clj="lein exec"
 alias lr="lein repl"
 alias gcmsg="git commit -S -m"
+alias j8='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)'
+
+bindkey -v
+export KEYTIMEOUT=1
+bindkey '^r' history-incremental-search-backward
