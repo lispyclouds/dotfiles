@@ -11,7 +11,7 @@ eval "$(thefuck --alias)"
 # time that oh-my-zsh is loaded.
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vi_mode)
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -52,7 +52,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git autojump sudo zsh-autosuggestions)
+plugins=(git autojump sudo zsh-autosuggestions vi-mode)
 
 # User configuration
 
@@ -125,6 +125,4 @@ alias lr="lein repl"
 alias gcmsg="git commit -S -m"
 alias j8='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)'
 
-bindkey -v
 export KEYTIMEOUT=1
-bindkey '^r' history-incremental-search-backward
