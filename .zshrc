@@ -96,8 +96,8 @@ alias u="brew update                                          && \
          brew cleanup                                         && \
          brew cu -a -y                                        && \
          brew cask cleanup                                    && \
-         rustup self update                                   && \
-         rustup update                                        && \
+         rustup self update                                   || \
+         rustup update                                        || \
          vim +PluginUpdate +qall                              && \
          git -C ~/.vim_runtime pull                           && \
          git -C ~/.vim/bundle/Vundle.vim pull                 && \
