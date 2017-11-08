@@ -25,7 +25,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'luochen1990/rainbow'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'cespare/vim-toml'
-Plugin '907th/vim-auto-save'
+Plugin 'tpope/vim-fugitive'
 
 call vundle#end()
 
