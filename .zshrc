@@ -52,7 +52,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git autojump sudo zsh-autosuggestions vi-mode)
+plugins=(git autojump sudo zsh-autosuggestions vi-mode zsh-autosuggestions zsh-syntax-highlighting)
 
 # User configuration
 
@@ -102,7 +102,6 @@ alias u="brew update                                          && \
          git -C ~/.vim_runtime pull                           && \
          git -C ~/.vim/bundle/Vundle.vim pull                 && \
          git -C $ZSH/custom/themes/powerlevel9k pull          && \
-         git -C $ZSH_CUSTOM/plugins/zsh-autosuggestions pull  && \
          brew uninstall python --ignore-dependencies || true"
 
 export GOPATH=$HOME/.go
@@ -117,7 +116,6 @@ alias cc=clang
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOME/.cargo/env
 
 alias clj="lein exec"
@@ -125,6 +123,7 @@ alias lr="lein repl"
 alias gcmsg="git commit -S -m"
 alias j8='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)'
 
+# Compat for vim mode zle
 export KEYTIMEOUT=1
 
 # start typing + [Up-Arrow] - fuzzy find history forward
@@ -139,3 +138,6 @@ if [[ "${terminfo[kcud1]}" != "" ]]; then
   zle -N down-line-or-beginning-search
   bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
 fi
+
+# Keep this at the end
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
