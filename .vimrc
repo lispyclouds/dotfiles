@@ -26,6 +26,8 @@ Plugin 'luochen1990/rainbow'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'cespare/vim-toml'
 Plugin 'tpope/vim-fugitive'
+Plugin 'guns/vim-clojure-static'
+Plugin 'tpope/vim-fireplace'
 
 call vundle#end()
 
