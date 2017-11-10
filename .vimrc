@@ -28,6 +28,8 @@ Plugin 'cespare/vim-toml'
 Plugin 'tpope/vim-fugitive'
 Plugin 'guns/vim-clojure-static'
 Plugin 'tpope/vim-fireplace'
+Plugin 'venantius/vim-cljfmt'
+Plugin 'vim-scripts/paredit.vim'
 
 call vundle#end()
 
