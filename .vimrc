@@ -31,7 +31,7 @@ Plugin 'tpope/vim-fireplace'
 Plugin 'venantius/vim-cljfmt'
 Plugin 'vim-scripts/paredit.vim'
 Plugin 'junegunn/goyo.vim'
-Plugin 'dracula/vim'
+Plugin 'hzchirs/vim-material'
 
 call vundle#end()
 
@@ -54,10 +54,17 @@ endif
 set nu
 set clipboard=unnamed
 set updatetime=250
-set colorcolumn=80
 set textwidth=80
 
 filetype plugin on
+syntax on
+
+colorscheme vim-material
+set background=dark
+
+if (has("termguicolors"))
+    set termguicolors
+endif
 
 if has("gui_macvim")
     set macligatures
@@ -75,11 +82,11 @@ let g:rainbow_active = 1
 let g:gitgutter_enabled = 1
 let g:gitgutter_realtime = 1
 let g:NERDTreeWinPos = "left"
+let g:airline_theme='material'
 
 map <leader>f :NERDTreeFind<CR>
 map <leader>n :NERDTreeToggle<CR>
 
 autocmd BufEnter * EnableStripWhitespaceOnSave
 
-syntax on
-color dracula
+
