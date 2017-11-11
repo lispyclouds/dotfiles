@@ -5,18 +5,6 @@
 set nocompatible
 filetype off
 
-set runtimepath+=~/.vim_runtime
-
-source ~/.vim_runtime/vimrcs/basic.vim
-source ~/.vim_runtime/vimrcs/filetypes.vim
-source ~/.vim_runtime/vimrcs/plugins_config.vim
-source ~/.vim_runtime/vimrcs/extended.vim
-
-try
-source ~/.vim_runtime/my_configs.vim
-catch
-endtry
-
 set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
@@ -45,6 +33,18 @@ Plugin 'vim-scripts/paredit.vim'
 Plugin 'junegunn/goyo.vim'
 
 call vundle#end()
+
+set runtimepath+=~/.vim_runtime
+
+source ~/.vim_runtime/vimrcs/basic.vim
+source ~/.vim_runtime/vimrcs/filetypes.vim
+source ~/.vim_runtime/vimrcs/plugins_config.vim
+source ~/.vim_runtime/vimrcs/extended.vim
+
+try
+source ~/.vim_runtime/my_configs.vim
+catch
+endtry
 
 if executable('ag')
     let g:ackprg = 'ag --vimgrep'
