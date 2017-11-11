@@ -31,6 +31,7 @@ Plugin 'tpope/vim-fireplace'
 Plugin 'venantius/vim-cljfmt'
 Plugin 'vim-scripts/paredit.vim'
 Plugin 'junegunn/goyo.vim'
+Plugin 'dracula/vim'
 
 call vundle#end()
 
@@ -79,3 +80,6 @@ map <leader>f :NERDTreeFind<CR>
 map <leader>n :NERDTreeToggle<CR>
 
 autocmd BufEnter * EnableStripWhitespaceOnSave
+
+syntax on
+color dracula
