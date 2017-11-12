@@ -89,5 +89,3 @@ map <leader>f :NERDTreeFind<CR>
 map <leader>n :NERDTreeToggle<CR>
 
 autocmd BufEnter * EnableStripWhitespaceOnSave
-
-
