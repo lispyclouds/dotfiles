@@ -120,7 +120,6 @@ source $HOME/.cargo/env
 
 alias clj="lein exec"
 alias lr="lein repl"
-alias gcmsg="git commit -S -m"
 alias j8='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)'
 
 # Compat for vim mode zle
