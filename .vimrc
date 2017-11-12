@@ -1,5 +1,5 @@
 " Only after the following are installed:
-" - https://github.com/amix/vimrc has been installed.
+" - https://github.com/amix/vimrc
 " - https://github.com/VundleVim/Vundle.vim
 
 set nocompatible
