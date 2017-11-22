@@ -33,6 +33,7 @@ Plugin 'venantius/vim-cljfmt'
 Plugin 'vim-scripts/paredit.vim'
 Plugin 'junegunn/goyo.vim'
 Plugin 'hzchirs/vim-material'
+Plugin 'fatih/vim-go'
 
 call vundle#end()
 
