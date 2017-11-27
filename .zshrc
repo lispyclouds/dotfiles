@@ -101,8 +101,7 @@ alias u="brew update                                          && \
          vim +PluginUpdate +qall                              && \
          git -C ~/.vim_runtime pull                           && \
          git -C ~/.vim/bundle/Vundle.vim pull                 && \
-         git -C $ZSH/custom/themes/powerlevel9k pull          && \
-         brew uninstall python --ignore-dependencies || true"
+         git -C $ZSH/custom/themes/powerlevel9k pull"
 
 export GOPATH=$HOME/.go
 export JAVA_HOME=$(/usr/libexec/java_home)
