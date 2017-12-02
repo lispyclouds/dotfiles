@@ -206,7 +206,7 @@ set nu
 set clipboard=unnamed " Use system clipboard
 set updatetime=250
 set textwidth=80 " Wrap text after 80 chars
-
+set cursorline " Highlight current line
 
 """"""""""""""""""""""""""""""
 " => Visual mode related
