@@ -177,6 +177,7 @@ set nobackup
 set nowb
 set noswapfile
 
+" Install https://github.com/ntpeters/vim-better-whitespace
 autocmd BufEnter * EnableStripWhitespaceOnSave
 
 
