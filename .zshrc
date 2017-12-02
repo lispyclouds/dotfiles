@@ -99,7 +99,6 @@ alias u="brew update                                          && \
          rustup self update                           || true && \
          rustup update                                || true && \
          vim +PluginUpdate +qall                              && \
-         git -C ~/.vim_runtime pull                           && \
          git -C ~/.vim/bundle/Vundle.vim pull                 && \
          git -C $ZSH/custom/themes/powerlevel9k pull"
 
