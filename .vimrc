@@ -3,14 +3,24 @@
 "       rahul@mailbox.org
 "       https://github.com/lispyclouds
 "
-" Derives: https://github.com/amix/vimrc
+" Derives:
+"       - https://github.com/amix/vimrc
+"
+" Prerquisites:
+"       - Vim 8+
+"       - https://github.com/VundleVim/Vundle.vim
+"       - https://github.com/tonsky/FiraCode
+"
+" Instructions:
+"       - Install the prerequisites
+"       - Replace ~/.vimrc with this
+"       - Run in commandline: vim +PluginClean +PluginInstall +qall
+"       - Buy me a beer and Enjoy!
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vundle Plugins
-" => Install https://github.com/VundleVim/Vundle.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 set nocompatible
 filetype off
 
@@ -177,7 +187,6 @@ set nobackup
 set nowb
 set noswapfile
 
-" Install https://github.com/ntpeters/vim-better-whitespace
 autocmd BufEnter * EnableStripWhitespaceOnSave
 
 
@@ -207,6 +216,7 @@ set clipboard=unnamed " Use system clipboard
 set updatetime=250
 set textwidth=80 " Wrap text after 80 chars
 set cursorline " Highlight current line
+
 
 """"""""""""""""""""""""""""""
 " => Visual mode related
@@ -389,7 +399,7 @@ endfunction
 
 
 """"""""""""""""""""""""""""""
-" => Python section
+" => Python
 """"""""""""""""""""""""""""""
 let python_highlight_all = 1
 au FileType python syn keyword pythonDecorator True None False self
@@ -413,7 +423,7 @@ au FileType python set indentkeys-=0#
 
 
 """"""""""""""""""""""""""""""
-" => JavaScript section
+" => JavaScript
 """""""""""""""""""""""""""""""
 au FileType javascript setl fen
 au FileType javascript setl nocindent
@@ -482,7 +492,6 @@ elseif has("unix")
     set gfn=Monospace\ 11
 endif
 
-" Install https://github.com/tonsky/FiraCode
 if has("gui_macvim")
     set macligatures
     set guifont=Fira\ Code:h17
