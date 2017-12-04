@@ -50,7 +50,7 @@ Plugin 'tpope/vim-fireplace'
 Plugin 'venantius/vim-cljfmt'
 Plugin 'vim-scripts/paredit.vim'
 Plugin 'junegunn/goyo.vim'
-Plugin 'hzchirs/vim-material'
+Plugin 'tyrannicaltoucan/vim-quantum'
 Plugin 'fatih/vim-go'
 
 call vundle#end()
@@ -156,9 +156,6 @@ set foldcolumn=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
 syntax enable
-
-" Airline Theme
-let g:airline_theme='material'
 
 " Enable 256 colors palette in Gnome Terminal
 if $COLORTERM == 'gnome-terminal'
@@ -510,11 +507,13 @@ set guioptions-=L
 
 " Colorscheme
 set background=dark
-colorscheme vim-material
 
-if has("gui_macvim")
-    set transparency=7
-endif
+let g:quantum_black=1
+let g:quantum_italics=1
+colorscheme quantum
+
+let g:airline_theme='quantum'
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Turn persistent undo on
