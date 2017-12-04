@@ -512,6 +512,9 @@ set guioptions-=L
 set background=dark
 colorscheme vim-material
 
+if has("gui_macvim")
+    set transparency=7
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Turn persistent undo on
