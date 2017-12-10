@@ -24,7 +24,7 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'VundleVim/Vundle.vim'
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'jceb/vim-orgmode'
@@ -40,9 +40,9 @@ Plug 'luochen1990/rainbow'
 Plug 'airblade/vim-gitgutter'
 Plug 'cespare/vim-toml'
 Plug 'tpope/vim-fugitive'
-Plug 'guns/vim-clojure-static'
-Plug 'tpope/vim-fireplace'
-Plug 'venantius/vim-cljfmt'
+Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+Plug 'venantius/vim-cljfmt', { 'for': 'clojure' }
 Plug 'vim-scripts/paredit.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'tyrannicaltoucan/vim-quantum'
