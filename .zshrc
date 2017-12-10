@@ -98,8 +98,7 @@ alias u="brew update                                          && \
          brew cask cleanup                                    && \
          rustup self update                           || true && \
          rustup update                                || true && \
-         vim +PluginUpdate +qall                              && \
-         git -C ~/.vim/bundle/Vundle.vim pull                 && \
+         vim +PlugUpdate +qall                                && \
          git -C $ZSH/custom/themes/powerlevel9k pull"
 
 export GOPATH=$HOME/.go

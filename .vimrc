@@ -7,54 +7,49 @@
 "       - https://github.com/amix/vimrc
 "
 " Prerquisites:
-"       - VIM 8+ or NeoVIM
-"       - https://github.com/VundleVim/Vundle.vim
-"       - https://github.com/tonsky/FiraCode
+"       - NeoVIM or VIM 8+
+"       - https://github.com/junegunn/vim-plug
+"       - https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode
 "
 " Instructions:
 "       - Install the prerequisites
 "       - Replace ~/.vimrc with this
-"       - Run in commandline: vim +PluginClean +PluginInstall +qall
+"       - Run in commandline: vim +PlugClean +PlugInstall +qall
 "       - Buy me a beer and Enjoy!
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Vundle Plugins
+" => Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set nocompatible
-filetype off
+call plug#begin('~/.vim/plugged')
 
-set rtp+=~/.vim/bundle/Vundle.vim
+Plug 'VundleVim/Vundle.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-surround'
+Plug 'jceb/vim-orgmode'
+Plug 'rust-lang/rust.vim'
+Plug 'jreybert/vimagit'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'udalov/kotlin-vim'
+Plug 'mileszs/ack.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'luochen1990/rainbow'
+Plug 'airblade/vim-gitgutter'
+Plug 'cespare/vim-toml'
+Plug 'tpope/vim-fugitive'
+Plug 'guns/vim-clojure-static'
+Plug 'tpope/vim-fireplace'
+Plug 'venantius/vim-cljfmt'
+Plug 'vim-scripts/paredit.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'tyrannicaltoucan/vim-quantum'
+Plug 'fatih/vim-go'
+Plug 'ryanoasis/vim-devicons'
 
-call vundle#begin()
-
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'tpope/vim-surround'
-Plugin 'jceb/vim-orgmode'
-Plugin 'rust-lang/rust.vim'
-Plugin 'jreybert/vimagit'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'udalov/kotlin-vim'
-Plugin 'mileszs/ack.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'luochen1990/rainbow'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'cespare/vim-toml'
-Plugin 'tpope/vim-fugitive'
-Plugin 'guns/vim-clojure-static'
-Plugin 'tpope/vim-fireplace'
-Plugin 'venantius/vim-cljfmt'
-Plugin 'vim-scripts/paredit.vim'
-Plugin 'junegunn/goyo.vim'
-Plugin 'tyrannicaltoucan/vim-quantum'
-Plugin 'fatih/vim-go'
-Plugin 'ryanoasis/vim-devicons'
-
-call vundle#end()
+call plug#end()
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
