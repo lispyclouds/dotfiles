@@ -52,6 +52,7 @@ Plugin 'vim-scripts/paredit.vim'
 Plugin 'junegunn/goyo.vim'
 Plugin 'tyrannicaltoucan/vim-quantum'
 Plugin 'fatih/vim-go'
+Plugin 'ryanoasis/vim-devicons'
 
 call vundle#end()
 
@@ -491,7 +492,7 @@ endif
 
 if has("gui_macvim")
     set macligatures
-    set guifont=Fira\ Code:h17
+    set guifont=FiraCode-Retina:h17
 endif
 
 if (has("termguicolors"))
