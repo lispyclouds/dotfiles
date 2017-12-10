@@ -7,7 +7,7 @@
 "       - https://github.com/amix/vimrc
 "
 " Prerquisites:
-"       - Vim 8+
+"       - VIM 8+ or NeoVIM
 "       - https://github.com/VundleVim/Vundle.vim
 "       - https://github.com/tonsky/FiraCode
 "
