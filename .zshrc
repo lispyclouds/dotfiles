@@ -115,9 +115,8 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 source $HOME/.cargo/env
 
-alias clj="lein exec"
-alias lr="lein repl"
 alias j8='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)'
+alias vim=nvim
 
 # Compat for vim mode zle
 export KEYTIMEOUT=1
