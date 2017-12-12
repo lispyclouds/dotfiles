@@ -32,7 +32,7 @@ Plug 'cespare/vim-toml', { 'for': 'rust' }
 Plug 'jreybert/vimagit'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'udalov/kotlin-vim'
+Plug 'udalov/kotlin-vim', { 'for': 'kotlin' }
 Plug 'mileszs/ack.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
