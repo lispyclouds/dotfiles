@@ -145,6 +145,14 @@ endif
 " Add a bit extra margin to the left
 set foldcolumn=1
 
+" Line numbering and width
+set number
+set relativenumber
+set clipboard=unnamed " Use system clipboard
+set updatetime=250
+set textwidth=80 " Wrap text after 80 chars
+set cursorline " Highlight current line
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
@@ -203,13 +211,6 @@ set tw=500
 set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
-
-set number
-set relativenumber
-set clipboard=unnamed " Use system clipboard
-set updatetime=250
-set textwidth=80 " Wrap text after 80 chars
-set cursorline " Highlight current line
 
 
 """"""""""""""""""""""""""""""
