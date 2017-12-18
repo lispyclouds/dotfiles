@@ -204,7 +204,8 @@ set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
 
-set nu
+set number
+set relativenumber
 set clipboard=unnamed " Use system clipboard
 set updatetime=250
 set textwidth=80 " Wrap text after 80 chars
