@@ -10,9 +10,75 @@ eval "$(thefuck --alias)"
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vi_mode)
-ZSH_THEME="powerlevel9k/powerlevel9k"
+# ORDER
+SPACESHIP_PROMPT_ORDER=(
+  dir
+  git
+  vi_mode
+  exit_code
+  char
+)
+
+# PROMPT
+SPACESHIP_PROMPT_SYMBOL="➜"
+SPACESHIP_PROMPT_ADD_NEWLINE=true
+SPACESHIP_PROMPT_SEPARATE_LINE=false
+SPACESHIP_PROMPT_PREFIXES_SHOW=true
+SPACESHIP_PROMPT_SUFFIXES_SHOW=true
+SPACESHIP_PROMPT_DEFAULT_PREFIX="via "
+SPACESHIP_PROMPT_DEFAULT_SUFFIX=" "
+
+# DIR
+SPACESHIP_DIR_SHOW=true
+SPACESHIP_DIR_PREFIX="in "
+SPACESHIP_DIR_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
+SPACESHIP_DIR_TRUNC=3
+SPACESHIP_DIR_COLOR="cyan"
+
+# GIT
+SPACESHIP_GIT_SHOW=true
+SPACESHIP_GIT_PREFIX="on "
+SPACESHIP_GIT_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
+SPACESHIP_GIT_SYMBOL=" "
+
+# GIT BRANCH
+SPACESHIP_GIT_BRANCH_SHOW=true
+SPACESHIP_GIT_BRANCH_PREFIX="$SPACESHIP_GIT_SYMBOL"
+SPACESHIP_GIT_BRANCH_SUFFIX=""
+SPACESHIP_GIT_BRANCH_COLOR="magenta"
+
+# GIT STATUS
+SPACESHIP_GIT_STATUS_SHOW=true
+SPACESHIP_GIT_STATUS_PREFIX=" ["
+SPACESHIP_GIT_STATUS_SUFFIX="]"
+SPACESHIP_GIT_STATUS_COLOR="red"
+SPACESHIP_GIT_STATUS_UNTRACKED="?"
+SPACESHIP_GIT_STATUS_ADDED="+"
+SPACESHIP_GIT_STATUS_MODIFIED="!"
+SPACESHIP_GIT_STATUS_RENAMED="»"
+SPACESHIP_GIT_STATUS_DELETED="✘"
+SPACESHIP_GIT_STATUS_STASHED="$"
+SPACESHIP_GIT_STATUS_UNMERGED="="
+SPACESHIP_GIT_STATUS_AHEAD="⇡"
+SPACESHIP_GIT_STATUS_BEHIND="⇣"
+SPACESHIP_GIT_STATUS_DIVERGED="⇕"
+
+# VI_MODE
+SPACESHIP_VI_MODE_SHOW=true
+SPACESHIP_VI_MODE_PREFIX=""
+SPACESHIP_VI_MODE_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
+SPACESHIP_VI_MODE_INSERT="[I]"
+SPACESHIP_VI_MODE_NORMAL="[N]"
+SPACESHIP_VI_MODE_COLOR="white"
+
+# EXIT CODE
+SPACESHIP_EXIT_CODE_SHOW=true
+SPACESHIP_EXIT_CODE_PREFIX="("
+SPACESHIP_EXIT_CODE_SUFFIX=") "
+SPACESHIP_EXIT_CODE_SYMBOL="✘ "
+SPACESHIP_EXIT_CODE_COLOR="red"
+
+ZSH_THEME="spaceship"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -98,8 +164,7 @@ alias u="brew update                                          && \
          brew cask cleanup                                    && \
          rustup self update                           || true && \
          rustup update                                || true && \
-         vim +PlugUpdate +qall                                && \
-         git -C $ZSH/custom/themes/powerlevel9k pull"
+         vim +PlugUpdate +qall"
 
 export GOPATH=$HOME/.go
 export JAVA_HOME=$(/usr/libexec/java_home)
@@ -136,3 +201,6 @@ fi
 
 # Keep this at the end
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+
+source "/Users/47/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
