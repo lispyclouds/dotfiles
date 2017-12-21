@@ -10,6 +10,7 @@ eval "$(thefuck --alias)"
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 
+# Spaceship theme: https://github.com/denysdovhan/spaceship-zsh-theme
 # ORDER
 SPACESHIP_PROMPT_ORDER=(
   dir
@@ -201,6 +202,3 @@ fi
 
 # Keep this at the end
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-
-source "/Users/47/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
