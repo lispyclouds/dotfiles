@@ -47,6 +47,8 @@ Plug 'junegunn/goyo.vim'
 Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'ryanoasis/vim-devicons'
+Plug 'roxma/nvim-completion-manager'
+Plug 'clojure-vim/async-clj-omni', { 'for': 'clojure' }
 
 call plug#end()
 
