@@ -4,6 +4,4 @@ windows:
       layout: even-horizontal
       panes:
           - lein repl
-          - commands:
-            - vimr ~/Documents/expts/clojure
-            focus: true
+          - vimr ~/Documents/expts/clojure
