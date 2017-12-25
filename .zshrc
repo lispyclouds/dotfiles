@@ -184,6 +184,7 @@ source $HOME/.cargo/env
 alias j8='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)'
 alias vim=nvim
 alias play="itermocil clj"
+alias cat="highlight -O truecolor"
 
 # Compat for vim mode zle
 export KEYTIMEOUT=1
