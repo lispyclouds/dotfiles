@@ -48,6 +48,7 @@ Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'ryanoasis/vim-devicons'
 Plug 'clojure-vim/async-clj-omni', { 'for': 'clojure' }
+Plug 'easymotion/vim-easymotion'
 if has('nvim')
     Plug 'roxma/nvim-completion-manager'
 endif
