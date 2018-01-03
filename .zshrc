@@ -119,7 +119,7 @@ ZSH_THEME="spaceship"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git autojump sudo zsh-autosuggestions vi-mode zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git autojump sudo zsh-autosuggestions vi-mode zsh-syntax-highlighting)
 
 # User configuration
 
@@ -175,6 +175,7 @@ export L="G8)-2Taa'ZL&!EK8"
 export MP_FULLNAME='Rahul De'
 export MP_SITETYPE=max
 export PATH="/usr/local/opt/llvm/bin:/Users/47/.local/bin:$PATH"
+export EDITOR=nvim
 alias cc=clang
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
@@ -201,6 +202,8 @@ if [[ "${terminfo[kcud1]}" != "" ]]; then
   zle -N down-line-or-beginning-search
   bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
 fi
+
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Keep this at the end
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
