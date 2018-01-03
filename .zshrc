@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/47/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 source virtualenvwrapper.sh
 
