@@ -49,6 +49,9 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'ryanoasis/vim-devicons'
 Plug 'clojure-vim/async-clj-omni', { 'for': 'clojure' }
 Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-speeddating'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 if has('nvim')
     Plug 'roxma/nvim-completion-manager'
 endif
@@ -155,7 +158,6 @@ set number
 set relativenumber
 set clipboard=unnamed " Use system clipboard
 set updatetime=250
-set textwidth=80 " Wrap text after 80 chars
 set cursorline " Highlight current line
 
 
@@ -209,9 +211,8 @@ set smarttab
 set shiftwidth=4
 set tabstop=4
 
-" Linebreak on 500 characters
-set lbr
-set tw=500
+" Linebreak on 80 characters
+set tw=80
 
 set ai "Auto indent
 set si "Smart indent
@@ -473,6 +474,7 @@ let g:gitgutter_realtime = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:rustfmt_autosave = 1
 let g:rainbow_active = 1
+let g:vim_markdown_folding_disabled = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
