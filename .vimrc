@@ -52,6 +52,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-speeddating'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+Plug 'hashivim/vim-terraform'
 if has('nvim')
     Plug 'roxma/nvim-completion-manager'
 endif
