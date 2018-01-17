@@ -26,7 +26,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
-Plug 'jceb/vim-orgmode'
+Plug 'jceb/vim-orgmode', { 'for': 'org' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'rust' }
 Plug 'jreybert/vimagit'
@@ -51,9 +51,9 @@ Plug 'clojure-vim/async-clj-omni', { 'for': 'clojure' }
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-speeddating'
 Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
-Plug 'hashivim/vim-terraform'
-Plug 'python-mode/python-mode'
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
+Plug 'python-mode/python-mode', { 'for': 'python' }
 if has('nvim')
     Plug 'roxma/nvim-completion-manager'
 endif
