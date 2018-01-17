@@ -53,6 +53,7 @@ Plug 'tpope/vim-speeddating'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'hashivim/vim-terraform'
+Plug 'python-mode/python-mode'
 if has('nvim')
     Plug 'roxma/nvim-completion-manager'
 endif
