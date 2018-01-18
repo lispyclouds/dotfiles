@@ -478,6 +478,7 @@ let g:rustfmt_autosave = 1
 let g:rainbow_active = 1
 let g:vim_markdown_folding_disabled = 1
 let g:pymode_folding = 0
+let g:airline#extensions#tabline#enabled = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
