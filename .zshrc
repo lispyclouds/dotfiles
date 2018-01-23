@@ -33,7 +33,7 @@ SPACESHIP_PROMPT_DEFAULT_SUFFIX=" "
 SPACESHIP_DIR_SHOW=true
 SPACESHIP_DIR_PREFIX="in "
 SPACESHIP_DIR_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
-SPACESHIP_DIR_TRUNC=0
+SPACESHIP_DIR_TRUNC=3
 SPACESHIP_DIR_COLOR="cyan"
 
 # GIT
@@ -204,6 +204,8 @@ if [[ "${terminfo[kcud1]}" != "" ]]; then
 fi
 
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+alias ltev='. ~/Documents/repos/local/bin/load_cluster_env.sh test && unset CLIQZ_DMZ_GATEWAY'
 
 # Keep this at the end
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
