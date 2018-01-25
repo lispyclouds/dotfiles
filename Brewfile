@@ -38,7 +38,7 @@ brew "elixir"
 brew "emscripten"
 brew "exa"
 brew "faac"
-brew "gettext"
+brew "gettext", link: true
 brew "flex"
 brew "fortune"
 brew "gmp"
