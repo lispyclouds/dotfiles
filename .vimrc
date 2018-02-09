@@ -52,7 +52,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-speeddating'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
-Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
+Plug 'hashivim/vim-terraform'
 Plug 'python-mode/python-mode', { 'for': 'python' }
 if has('nvim')
     Plug 'roxma/nvim-completion-manager'

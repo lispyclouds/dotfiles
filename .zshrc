@@ -16,6 +16,7 @@ SPACESHIP_PROMPT_ORDER=(
   dir
   git
   vi_mode
+  pyenv
   exit_code
   char
 )
