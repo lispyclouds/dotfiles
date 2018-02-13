@@ -206,7 +206,8 @@ fi
 
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-alias ltev='. ~/Documents/repos/local/bin/load_cluster_env.sh primary && unset CLIQZ_DMZ_GATEWAY'
+alias ltev='. ~/Documents/repos/local/bin/load_cluster_env.sh test && unset CLIQZ_DMZ_GATEWAY'
+alias lpev='. ~/Documents/repos/local/bin/load_cluster_env.sh primary && unset CLIQZ_DMZ_GATEWAY'
 
 # Keep this at the end
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
