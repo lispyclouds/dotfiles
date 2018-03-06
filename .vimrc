@@ -54,6 +54,7 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'hashivim/vim-terraform'
 Plug 'python-mode/python-mode', { 'for': 'python' }
+Plug 'henrik/vim-indexed-search'
 if has('nvim')
     Plug 'roxma/nvim-completion-manager'
 endif
