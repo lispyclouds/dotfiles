@@ -50,7 +50,6 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'clojure-vim/async-clj-omni', { 'for': 'clojure' }
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-speeddating'
-Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'hashivim/vim-terraform'
 Plug 'python-mode/python-mode', { 'for': 'python' }
