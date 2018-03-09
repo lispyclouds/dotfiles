@@ -175,7 +175,7 @@ export L="G8)-2Taa'ZL&!EK8"
 
 export MP_FULLNAME='Rahul De'
 export MP_SITETYPE=max
-export PATH="/usr/local/opt/llvm/bin:/Users/47/.local/bin:$PATH"
+export PATH="/usr/local/opt/llvm/bin:/Users/47/.local/bin:/usr/local/opt/python@2/bin:$PATH"
 export EDITOR=nvim
 alias cc=clang
 
