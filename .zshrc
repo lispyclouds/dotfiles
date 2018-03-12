@@ -187,6 +187,8 @@ alias j8='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)'
 alias vim=nvim
 alias play="itermocil clj"
 alias c="highlight -O truecolor"
+alias ncargo='rustup run nightly cargo'
+alias nrustc='rustup run nightly rustc'
 
 # Compat for vim mode zle
 export KEYTIMEOUT=1
