@@ -44,7 +44,8 @@ Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'venantius/vim-cljfmt', { 'for': 'clojure' }
 Plug 'vim-scripts/paredit.vim'
 Plug 'junegunn/goyo.vim'
-Plug 'tyrannicaltoucan/vim-quantum'
+"Plug 'tyrannicaltoucan/vim-quantum'
+Plug 'joshdick/onedark.vim'
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'ryanoasis/vim-devicons'
 Plug 'clojure-vim/async-clj-omni', { 'for': 'clojure' }
@@ -503,9 +504,9 @@ set background=dark
 
 let g:quantum_black=1
 let g:quantum_italics=1
-colorscheme quantum
+colorscheme onedark
 
-let g:airline_theme='quantum'
+let g:airline_theme='onedark'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
