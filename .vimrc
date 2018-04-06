@@ -159,7 +159,7 @@ set foldcolumn=1
 " Line numbering and width
 set number
 set relativenumber
-set clipboard=unnamed " Use system clipboard
+set clipboard=unnamedplus " Use system clipboard
 set updatetime=250
 set cursorline " Highlight current line
 
