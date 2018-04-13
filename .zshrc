@@ -124,6 +124,8 @@ alias play="itermocil clj"
 alias c="highlight -O truecolor"
 alias ncargo='rustup run nightly cargo'
 alias nrustc='rustup run nightly rustc'
+alias rc='docker rm -f `docker ps -aq`'
+alias ri='docker image rm -f `docker image ls -aq`'
 
 # Compat for vim mode zle
 export KEYTIMEOUT=1
