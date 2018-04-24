@@ -44,7 +44,6 @@ Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'venantius/vim-cljfmt', { 'for': 'clojure' }
 Plug 'vim-scripts/paredit.vim'
 Plug 'junegunn/goyo.vim'
-"Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'joshdick/onedark.vim'
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'ryanoasis/vim-devicons'
