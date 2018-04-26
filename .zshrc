@@ -118,7 +118,8 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 source $HOME/.cargo/env
 
-alias j8='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)'
+alias graal='export JAVA_HOME=~/Downloads/graalvm/Contents/Home'
+alias jvm='export JAVA_HOME=$(/usr/libexec/java_home)'
 alias vim=nvim
 alias play="itermocil clj"
 alias c="highlight -O truecolor"
