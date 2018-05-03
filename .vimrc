@@ -53,6 +53,7 @@ Plug 'tpope/vim-speeddating'
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'hashivim/vim-terraform'
 Plug 'henrik/vim-indexed-search'
+Plug 'tell-k/vim-autopep8', { 'for': 'python' }
 if has('nvim')
     Plug 'roxma/nvim-completion-manager'
 endif
@@ -475,9 +476,7 @@ let g:gitgutter_realtime = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:rainbow_active = 1
 let g:vim_markdown_folding_disabled = 1
-let g:pymode_folding = 0
-let g:pymode_python = 'python3'
-
+let g:autopep8_disable_show_diff=1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => GUI related
