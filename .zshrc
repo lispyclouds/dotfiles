@@ -127,6 +127,10 @@ alias ncargo='rustup run nightly cargo'
 alias nrustc='rustup run nightly rustc'
 alias rc='docker rm -f `docker ps -aq`'
 alias ri='docker image rm -f `docker image ls -aq`'
+alias dil='docker image ls'
+alias dps='docker ps -a'
+alias dir='docker image rm'
+alias dr='docker rm'
 
 # Compat for vim mode zle
 export KEYTIMEOUT=1
