@@ -56,6 +56,7 @@ Plug 'henrik/vim-indexed-search'
 Plug 'tell-k/vim-autopep8', { 'for': 'python' }
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 if has('nvim')
     Plug 'roxma/nvim-completion-manager'
 endif
