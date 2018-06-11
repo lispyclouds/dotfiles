@@ -42,9 +42,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'venantius/vim-cljfmt', { 'for': 'clojure' }
-Plug 'vim-scripts/paredit.vim'
+Plug 'bhurlow/vim-parinfer'
 Plug 'junegunn/goyo.vim'
-Plug 'joshdick/onedark.vim'
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'ryanoasis/vim-devicons'
 Plug 'clojure-vim/async-clj-omni', { 'for': 'clojure' }
@@ -60,6 +59,9 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 if has('nvim')
     Plug 'roxma/nvim-completion-manager'
 endif
+
+" Colorscheme
+Plug 'joshdick/onedark.vim'
 
 call plug#end()
 
