@@ -101,7 +101,7 @@ alias u="brew update                                          && \
          git -C $ZSH/custom/themes/powerlevel9k pull          && \
          rustup self update                           || true && \
          rustup update                                || true && \
-         vim +PlugUpdate +qall"
+         vim +PlugClean +PlugUpdate +qall"
 
 export GOPATH=$HOME/.go
 export JAVA_HOME=$(/usr/libexec/java_home)
@@ -110,7 +110,7 @@ export L="G8)-2Taa'ZL&!EK8"
 
 export MP_FULLNAME='Rahul De'
 export MP_SITETYPE=max
-export PATH="/usr/local/opt/llvm/bin:/Users/47/.local/bin:/usr/local/opt/python@2/bin:$PATH"
+export PATH="/usr/local/opt/llvm/bin:/Users/$(whoami)/.local/bin:/usr/local/opt/python@2/bin:$PATH"
 export EDITOR=nvim
 alias cc=clang
 
