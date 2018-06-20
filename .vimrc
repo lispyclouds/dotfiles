@@ -52,7 +52,7 @@ Plug 'tpope/vim-speeddating'
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'hashivim/vim-terraform'
 Plug 'henrik/vim-indexed-search'
-Plug 'tell-k/vim-autopep8', { 'for': 'python' }
+Plug 'ambv/black', { 'for': 'python' }
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -481,7 +481,7 @@ let g:gitgutter_realtime = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:rainbow_active = 1
 let g:vim_markdown_folding_disabled = 1
-let g:autopep8_disable_show_diff=1
+let g:black_linelength=80
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => GUI related
