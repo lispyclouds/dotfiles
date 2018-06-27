@@ -132,6 +132,10 @@ alias dps='docker ps -a'
 alias dir='docker image rm'
 alias dr='docker rm'
 
+di() {
+    docker image rm $(docker images -q | head -${1-"1"})
+}
+
 # Compat for vim mode zle
 export KEYTIMEOUT=1
 
