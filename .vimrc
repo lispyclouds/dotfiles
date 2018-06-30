@@ -56,9 +56,6 @@ Plug 'ambv/black', { 'for': 'python' }
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-if has('nvim')
-    Plug 'roxma/nvim-completion-manager'
-endif
 
 " Colorscheme
 Plug 'joshdick/onedark.vim'
