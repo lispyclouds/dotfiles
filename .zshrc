@@ -1,8 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
-source virtualenvwrapper.sh
-
+eval "$(pyenv init -)"
 eval "$(thefuck --alias)"
 
 # Set name of the theme to load.
