@@ -2,3 +2,4 @@ set surround
 set clipboard=unnamed
 set number
 set relativenumber
+set showmode
