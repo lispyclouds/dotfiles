@@ -48,19 +48,25 @@
 "
 " Prerquisites:
 "       - NeoVIM or VIM 8+
-"       - https://github.com/junegunn/vim-plug
 "       - https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode
 "
 " Instructions:
 "       - Install the prerequisites
 "       - Replace ~/.vimrc with this
 "       - Run in commandline: vim +PlugClean +PlugInstall +qall
-"       - Buy me a beer and Enjoy!
+"       - Buy me a dunkel mass beer and enjoy!
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -93,9 +99,8 @@ Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'hashivim/vim-terraform'
 Plug 'henrik/vim-indexed-search'
 Plug 'ambv/black', { 'for': 'python' }
-Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'w0rp/ale'
 
 " Colorscheme
 Plug 'joshdick/onedark.vim'
@@ -519,6 +524,8 @@ let g:gitgutter_realtime = 1
 let g:rainbow_active = 1
 let g:vim_markdown_folding_disabled = 1
 let g:black_linelength=80
+let g:airline#extensions#ale#enabled = 1
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => GUI related
