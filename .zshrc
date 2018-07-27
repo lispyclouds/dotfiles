@@ -100,8 +100,7 @@ alias u="brew update                                          && \
          git -C $ZSH/custom/themes/powerlevel9k pull          && \
          rustup self update                           || true && \
          rustup update                                || true && \
-         vim +PlugClean +PlugUpdate +qall                     && \
-         vim +edit test.py +BlackUpgrade +qall" # Hack to load Black, then upgrade it.
+         vim +PlugClean +PlugUpdate +qall"
 
 export GOPATH=$HOME/.go
 export JAVA_HOME=$(/usr/libexec/java_home)
