@@ -10,7 +10,7 @@ eval "$(thefuck --alias)"
 # time that oh-my-zsh is loaded.
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(virtualenv vi_mode status)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(virtualenv status)
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
 
 ZSH_THEME="powerlevel9k/powerlevel9k"
@@ -53,7 +53,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git autojump sudo zsh-autosuggestions vi-mode zsh-syntax-highlighting)
+plugins=(git autojump sudo zsh-autosuggestions zsh-syntax-highlighting)
 
 # User configuration
 
@@ -134,22 +134,6 @@ alias dr='docker rm'
 di() {
     docker image rm $(docker images -q | head -${1-"1"})
 }
-
-# Compat for vim mode zle
-export KEYTIMEOUT=1
-
-# start typing + [Up-Arrow] - fuzzy find history forward
-if [[ "${terminfo[kcuu1]}" != "" ]]; then
-  autoload -U up-line-or-beginning-search
-  zle -N up-line-or-beginning-search
-  bindkey "${terminfo[kcuu1]}" up-line-or-beginning-search
-fi
-# start typing + [Down-Arrow] - fuzzy find history backward
-if [[ "${terminfo[kcud1]}" != "" ]]; then
-  autoload -U down-line-or-beginning-search
-  zle -N down-line-or-beginning-search
-  bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
-fi
 
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
