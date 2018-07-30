@@ -244,8 +244,6 @@ set nobackup
 set nowb
 set noswapfile
 
-autocmd BufEnter * EnableStripWhitespaceOnSave
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
@@ -266,6 +264,8 @@ set tw=80
 set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
+
+autocmd BufEnter * EnableStripWhitespaceOnSave
 
 
 """"""""""""""""""""""""""""""
@@ -628,16 +628,10 @@ iab xdate <c-r>=strftime("%d/%m/%y %H:%M:%S")<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Omni complete functions
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Ack searching and cope displaying
 "    requires ack.vim - it's much better than vimgrep/grep
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Use the the_silver_searcher if possible
+" Use ripgrep if possible
 if executable('rg')
     let g:ackprg = 'rg --vimgrep --smart-case'
 endif
