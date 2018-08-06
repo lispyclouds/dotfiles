@@ -119,6 +119,7 @@ source $HOME/.cargo/env
 
 alias graal='export JAVA_HOME=~/Downloads/graalvm/Contents/Home'
 alias jvm='export JAVA_HOME=$(/usr/libexec/java_home)'
+alias ni='~/Downloads/graalvm/Contents/Home/bin/native-image'
 alias vim=nvim
 alias play="itermocil clj"
 alias c="highlight -O truecolor"
