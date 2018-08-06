@@ -103,7 +103,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'w0rp/ale'
 
 " Colorscheme
-Plug 'joshdick/onedark.vim'
+Plug 'tyrannicaltoucan/vim-deep-space'
 
 call plug#end()
 
@@ -548,11 +548,9 @@ set guioptions-=L
 " Colorscheme
 set background=dark
 
-let g:quantum_black=1
-let g:quantum_italics=1
-colorscheme onedark
+colorscheme deep-space
 
-let g:airline_theme='onedark'
+let g:airline_theme='deep_space'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
