@@ -94,9 +94,8 @@ alias v=vagrant
 alias vdu="v destroy -f && v up && v ssh"
 alias u="brew update                                          && \
          brew upgrade                                         && \
-         brew cleanup                                         && \
          brew cu -a -y                                        && \
-         brew cask cleanup                                    && \
+         brew cleanup                                         && \
          git -C $ZSH/custom/themes/powerlevel9k pull          && \
          rustup self update                           || true && \
          rustup update                                || true && \
