@@ -103,7 +103,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'w0rp/ale'
 
 " Colorscheme
-Plug 'tyrannicaltoucan/vim-deep-space'
+Plug 'tyrannicaltoucan/vim-quantum'
 
 call plug#end()
 
@@ -548,10 +548,14 @@ set guioptions-=L
 
 " Colorscheme
 set background=dark
+set termguicolors
 
-colorscheme deep-space
+let g:quantum_black=1
+let g:quantum_italics=1
 
-let g:airline_theme='deep_space'
+colorscheme quantum
+
+let g:airline_theme='quantum'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
