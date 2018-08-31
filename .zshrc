@@ -101,6 +101,13 @@ alias u="brew update                                          && \
          rustup update                                || true && \
          vim +PlugClean +PlugUpdate +qall"
 
+if [ ! -f ~/.lispy_first_setup_complete ]
+then
+    sudo ln -s /usr/local/sbin/mount_ntfs "/Volumes/Macintosh HD/sbin/mount_ntfs"
+
+    touch ~/.lispy_first_setup_complete
+fi
+
 export GOPATH=$HOME/.go
 export JAVA_HOME=$(/usr/libexec/java_home)
 
