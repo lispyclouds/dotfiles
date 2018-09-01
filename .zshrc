@@ -99,7 +99,7 @@ alias u="brew update                                          && \
          git -C $ZSH/custom/themes/powerlevel9k pull          && \
          rustup self update                           || true && \
          rustup update                                || true && \
-         vim +PlugClean +PlugUpdate +qall"
+         vim +PlugUpgrade +PlugClean +PlugUpdate +qall"
 
 if [ ! -f ~/.lispy_first_setup_complete ]
 then
