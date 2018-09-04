@@ -128,7 +128,6 @@ alias jvm='export JAVA_HOME=$(/usr/libexec/java_home)'
 alias ni='~/Downloads/graalvm/Contents/Home/bin/native-image'
 alias vim=nvim
 alias play="itermocil clj"
-alias c="highlight -O truecolor"
 alias ncargo='rustup run nightly cargo'
 alias nrustc='rustup run nightly rustc'
 alias rc='docker rm -f `docker ps -aq`'
