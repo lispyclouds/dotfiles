@@ -90,7 +90,6 @@ Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'venantius/vim-cljfmt', { 'for': 'clojure' }
 Plug 'bhurlow/vim-parinfer'
 Plug 'junegunn/goyo.vim'
-Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'ryanoasis/vim-devicons'
 Plug 'clojure-vim/async-clj-omni', { 'for': 'clojure' }
 Plug 'easymotion/vim-easymotion'
