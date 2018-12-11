@@ -357,6 +357,10 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (if (fboundp 'mac-auto-operator-composition-mode)
       (mac-auto-operator-composition-mode))
+
+  (evil-leader/set-key
+    "q q" 'spacemacs/frame-killer)
+
   (evil-define-key 'normal global-map (kbd "C-a") 'evil-numbers/inc-at-pt)
   (evil-define-key 'normal global-map (kbd "C-x") 'evil-numbers/dec-at-pt)
   )
