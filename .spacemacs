@@ -361,6 +361,9 @@ you should place your code here."
   (evil-leader/set-key
     "q q" 'spacemacs/frame-killer)
 
+  (spacemacs/set-leader-keys-for-major-mode
+    'clojure-mode "ep" 'cider-eval-sexp-at-point)
+
   (evil-define-key 'normal global-map (kbd "C-a") 'evil-numbers/inc-at-pt)
   (evil-define-key 'normal global-map (kbd "C-x") 'evil-numbers/dec-at-pt)
   )
