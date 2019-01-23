@@ -100,6 +100,7 @@ Plug 'henrik/vim-indexed-search'
 Plug 'ambv/black', { 'for': 'python' }
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'w0rp/ale'
+Plug 'manicmaniac/coconut.vim'
 
 " Colorscheme
 Plug 'tyrannicaltoucan/vim-quantum'
