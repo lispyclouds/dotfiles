@@ -12,7 +12,7 @@ POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(virtualenv status)
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
 
-ZSH_THEME="powerlevel9k/powerlevel9k"
+# ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -145,11 +145,9 @@ di() {
 
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-alias ltev='. ~/Documents/repos/local/bin/load_cluster_env.sh test && unset CLIQZ_DMZ_GATEWAY'
-alias lpev='. ~/Documents/repos/local/bin/load_cluster_env.sh primary && unset CLIQZ_DMZ_GATEWAY'
-
 setopt HIST_SAVE_NO_DUPS
 setopt HIST_REDUCE_BLANKS
 
 # Keep this at the end
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
