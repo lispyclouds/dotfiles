@@ -139,6 +139,22 @@ alias dps='docker ps -a'
 alias dir='docker image rm'
 alias dr='docker rm'
 
+zclone() {
+    url="${1}"
+    name="${url##*/}"
+    dir="${name%.*}"
+
+    mkdir ${dir}
+    cd ${dir}
+    git init
+    git remote add origin ${url}
+    git config user.name "Rahul De"
+    git config user.email "rahul.de@zalando.de"
+    git config user.signingKey "AC8335A1FC063D39BB71DBD7D6959EE451EA8C21"
+    git config commit.gpgSign true
+    git pull ${url}
+}
+
 di() {
     docker image rm $(docker images -q | head -${1-"1"})
 }
