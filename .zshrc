@@ -122,6 +122,7 @@ alias cc=clang
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 source $HOME/.cargo/env
+source $HOME/.poetry/env
 
 alias graal='export JAVA_HOME=~/Downloads/graalvm/Contents/Home'
 alias jvm='export JAVA_HOME=$(/usr/libexec/java_home)'
