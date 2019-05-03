@@ -95,7 +95,6 @@ alias u="brew update                                          && \
          brew upgrade                                         && \
          brew cu -a -y                                        && \
          brew cleanup                                         && \
-         git -C $ZSH/custom/themes/powerlevel9k pull          && \
          git -C ~/.emacs.d pull                               && \
          rustup self update                           || true && \
          rustup update                                || true && \
