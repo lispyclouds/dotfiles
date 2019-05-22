@@ -104,7 +104,8 @@ values."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(atom-one-dark-theme
                                       base16-theme
-                                      dracula-theme)
+                                      dracula-theme
+                                      flycheck-clj-kondo)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -379,6 +380,10 @@ you should place your code here."
   (evil-define-key 'normal global-map (kbd "C-x") 'evil-numbers/dec-at-pt)
 
   (spacemacs/toggle-evil-safe-lisp-structural-editing-on-register-hooks)
+
+  (require 'flycheck-clj-kondo)
+
+  (setq evil-want-fine-undo t)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
