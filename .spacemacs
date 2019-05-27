@@ -96,6 +96,7 @@ values."
      ;;        shell-default-position 'bottom)
      ;; spell-checking
      ;; syntax-checking
+     treemacs
      version-control
      )
    ;; List of additional packages that will be installed without being
@@ -346,7 +347,7 @@ values."
    ;; (default nil)
    dotspacemacs-whitespace-cleanup 'trailing
 
-   dotspacemacs-mode-line-theme '(spacemacs :separator arrow-fade :separator-scale 1.2)
+   dotspacemacs-mode-line-theme '(doom :separator arrow-fade :separator-scale 1.2)
 
    dotspacemacs-enable-server t
    ))
