@@ -388,13 +388,17 @@ you should place your code here."
 
   (spacemacs/toggle-evil-safe-lisp-structural-editing-on-register-hooks)
 
-  (require 'flycheck-clj-kondo)
-
   (setq evil-want-fine-undo t)
 
-  (require 'clojure-mode)
-  (put-clojure-indent 'attempt-all 1)
-  (put-clojure-indent 'let-flow 1)
+  (use-package clojure-mode
+    :ensure t
+    :config
+    (require 'flycheck-clj-kondo)
+    (put-clojure-indent 'attempt-all 1)
+    (put-clojure-indent 'let-flow 1)
+    (put-clojure-indent 'rest/get 1)
+    (put-clojure-indent 'rest/post 1)
+    (put-clojure-indent 'rest/delete 1))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

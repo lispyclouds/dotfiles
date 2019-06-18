@@ -12,7 +12,7 @@ POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(virtualenv status)
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
 
-# ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -96,6 +96,7 @@ alias u="brew update                                          && \
          brew cu -a -y                                        && \
          brew cleanup                                         && \
          git -C ~/.emacs.d pull                               && \
+         git -C $ZSH_CUSTOM/themes/powerlevel10k pull         && \
          rustup self update                           || true && \
          rustup update                                || true && \
          vim +PlugUpgrade +PlugClean +PlugUpdate +qall"
@@ -166,4 +167,3 @@ setopt HIST_REDUCE_BLANKS
 
 # Keep this at the end
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
