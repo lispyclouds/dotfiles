@@ -141,6 +141,7 @@ alias dil='docker image ls'
 alias dps='docker ps -a'
 alias dir='docker image rm'
 alias dr='docker rm'
+alias rbl='clojure -Sdeps "{:deps {com.bhauman/rebel-readline {:mvn/version \"LATEST\"}}}" -m rebel-readline.main'
 
 zclone() {
     url="${1}"
