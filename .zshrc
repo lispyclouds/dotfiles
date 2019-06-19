@@ -105,6 +105,8 @@ if [ ! -f ~/.lispy_first_setup_complete ]
 then
     sudo ln -s /usr/local/sbin/mount_ntfs "/Volumes/Macintosh HD/sbin/mount_ntfs"
 
+    $(brew --prefix)/opt/fzf/install
+
     touch ~/.lispy_first_setup_complete
 fi
 
@@ -167,3 +169,5 @@ setopt HIST_REDUCE_BLANKS
 
 # Keep this at the end
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
