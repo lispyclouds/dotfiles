@@ -77,7 +77,6 @@ values."
      (python :variables
              python-formatter 'black
              python-test-runner '(pytest nose))
-     go
      yaml
      (markdown :variables markdown-live-preview-engine 'vmd)
      html
