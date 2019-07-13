@@ -110,7 +110,6 @@ values."
    dotspacemacs-additional-packages '(doom-themes
                                       atom-one-dark-theme
                                       base16-theme
-                                      dracula-theme
                                       flycheck-clj-kondo
                                       flycheck-joker)
    ;; A list of packages that cannot be updated.
@@ -185,9 +184,6 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(doom-dracula
-                         dracula
-                         base16-material
-                         atom-one-dark
                          spacemacs-dark
                          spacemacs-light)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
@@ -408,6 +404,11 @@ you should place your code here."
     (put-clojure-indent 'rest/post 1)
     (put-clojure-indent 'rest/delete 1)
     (put-clojure-indent 'when-failed 1))
+
+  (use-package doom-themes
+    :ensure t
+    :config
+    (doom-themes-treemacs-config))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
