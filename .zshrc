@@ -118,6 +118,7 @@ export L="G8)-2Taa'ZL&!EK8"
 export MP_FULLNAME='Rahul De'
 export MP_SITETYPE=max
 export PATH="/usr/local/opt/llvm/bin:/Users/$(whoami)/.local/bin:/usr/local/opt/python@2/bin:$PATH"
+export PATH="/usr/local/opt/ruby/bin:$PATH"
 export EDITOR=nvim
 alias cc=clang
 
@@ -142,6 +143,7 @@ alias dps='docker ps -a'
 alias dir='docker image rm'
 alias dr='docker rm'
 alias rbl='clojure -Sdeps "{:deps {com.bhauman/rebel-readline {:mvn/version \"LATEST\"}}}" -m rebel-readline.main'
+alias ls=exa
 
 zclone() {
     url="${1}"
