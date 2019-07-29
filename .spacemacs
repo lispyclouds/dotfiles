@@ -285,7 +285,7 @@ values."
    ;; If non nil the frame is maximized when Emacs starts up.
    ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
    ;; (default nil) (Emacs 24.4+ only)
-   dotspacemacs-maximized-at-startup t
+   dotspacemacs-maximized-at-startup nil
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
@@ -400,7 +400,8 @@ you should place your code here."
     (put-clojure-indent 'rest/get 1)
     (put-clojure-indent 'rest/post 1)
     (put-clojure-indent 'rest/delete 1)
-    (put-clojure-indent 'when-failed 1))
+    (put-clojure-indent 'when-failed 1)
+    (put-clojure-indent 'try-all 1))
 
   (use-package doom-themes
     :ensure t
@@ -437,7 +438,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(clojure-align-binding-forms
    (quote
-    ("let" "when-let" "when-some" "if-let" "if-some" "binding" "loop" "doseq" "for" "with-open" "with-local-vars" "with-redefs" "f/attempt-all" "d/let-flow")))
+    ("let" "when-let" "when-some" "if-let" "if-some" "binding" "loop" "doseq" "for" "with-open" "with-local-vars" "with-redefs" "f/attempt-all" "d/let-flow" "f/try-all")))
  '(clojure-align-cond-forms
    (quote
     ("condp" "cond" "cond->" "cond->>" "case" "are" "f/ok->")))
