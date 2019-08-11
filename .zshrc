@@ -1,5 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
+export LC_ALL=en_US.UTF-8
 
 eval "$(thefuck --alias)"
 
