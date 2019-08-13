@@ -415,7 +415,6 @@ you should place your code here."
     :demand
     :config
     (centaur-tabs-mode t)
-    (centaur-tabs-inherit-tabbar-faces)
     :bind
     (:map evil-normal-state-map
           ("g t" . centaur-tabs-forward)

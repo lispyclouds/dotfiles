@@ -98,7 +98,7 @@ Plug 'hashivim/vim-terraform'
 Plug 'henrik/vim-indexed-search'
 Plug 'ambv/black', { 'for': 'python' }
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'manicmaniac/coconut.vim'
 Plug 'elixir-editors/vim-elixir'
 
