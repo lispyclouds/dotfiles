@@ -128,8 +128,8 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 source $HOME/.cargo/env
 source $HOME/.poetry/env
 
-alias graal='export JAVA_HOME=~/Downloads/graalvm/Contents/Home && export GRAALVM_HOME=$JAVA_HOME'
-alias jvm='export JAVA_HOME=$(/usr/libexec/java_home)'
+alias graal='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8) && export GRAALVM_HOME=$JAVA_HOME'
+alias hotspot='export JAVA_HOME=$(/usr/libexec/java_home)'
 alias ni='~/Downloads/graalvm/Contents/Home/bin/native-image'
 alias vim=nvim
 alias play="itermocil clj"
