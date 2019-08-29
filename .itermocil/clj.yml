@@ -1,9 +1,0 @@
-windows:
-    - name: clj-repl
-      root: ~/Documents/expts/clojure/playground
-      layout: even-horizontal
-      panes:
-          - lein repl
-          - commands:
-              - cd ..
-              - vimr
