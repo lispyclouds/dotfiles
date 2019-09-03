@@ -71,7 +71,8 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '((clojure :variables
-              clojure-enable-clj-refactor t)
+              clojure-enable-clj-refactor t
+              clojure-enable-linters 'clj-kondo)
      haskell
      elixir
      sql
@@ -111,7 +112,6 @@ values."
    dotspacemacs-additional-packages '(doom-themes
                                       atom-one-dark-theme
                                       base16-theme
-                                      flycheck-clj-kondo
                                       flycheck-joker
                                       centaur-tabs)
    ;; A list of packages that cannot be updated.
@@ -389,15 +389,6 @@ you should place your code here."
   (use-package clojure-mode
     :ensure t
     :config
-    (require 'flycheck-joker)
-    (require 'flycheck-clj-kondo)
-    (dolist (checker '(clj-kondo-clj clj-kondo-cljs clj-kondo-cljc clj-kondo-edn))
-      (setq flycheck-checkers (cons checker (delq checker flycheck-checkers))))
-    (dolist (checkers '((clj-kondo-clj . clojure-joker)
-                        (clj-kondo-cljs . clojurescript-joker)
-                        (clj-kondo-cljc . clojure-joker)
-                        (clj-kondo-edn . edn-joker)))
-      (flycheck-add-next-checker (car checkers) (cons 'error (cdr checkers))))
     (put-clojure-indent 'attempt-all 1)
     (put-clojure-indent 'let-flow 1)
     (put-clojure-indent 'rest/get 1)

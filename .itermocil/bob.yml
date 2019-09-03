@@ -6,7 +6,7 @@ windows:
       - docker run -it --rm --name resource-git -p 8000:8000 bobcd/resource-git
       - docker run -it --rm --name artifact-local -p 8001:8001 bobcd/artifact-local
       - docker run -it --rm --name bob-db -p 5432:5432 -e POSTGRES_DB=bob -e POSTGRES_USER=bob postgres:alpine
-      - cd integration-tests
+      - boot run
       - commands:
-          - echo 'Yes we can!'
+          - cd integration-tests
         focus: true
