@@ -415,6 +415,8 @@ you should place your code here."
   (setq centaur-tabs-set-bar 'left)
 
   (setq mac-right-option-modifier nil)
+
+  (setenv "LC_ALL" "en_US.UTF-8")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
