@@ -120,6 +120,7 @@ export MP_FULLNAME='Rahul De'
 export MP_SITETYPE=max
 export PATH="/usr/local/opt/llvm/bin:/Users/$(whoami)/.local/bin:/usr/local/opt/python@2/bin:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
 export EDITOR=nvim
 alias cc=clang
 
@@ -146,7 +147,7 @@ alias dr='docker rm'
 alias rbl='clojure -Sdeps "{:deps {com.bhauman/rebel-readline {:mvn/version \"LATEST\"}}}" -m rebel-readline.main'
 alias ls=exa
 
-zclone() {
+sclone() {
     url="${1}"
     name="${url##*/}"
     dir="${name%.*}"
@@ -156,9 +157,8 @@ zclone() {
     git init
     git remote add origin ${url}
     git config user.name "Rahul De"
-    git config user.email "rahul.de@zalando.de"
-    git config user.signingKey "AC8335A1FC063D39BB71DBD7D6959EE451EA8C21"
-    git config commit.gpgSign true
+    git config user.email "rahul.de@thoughtworks.com"
+    git config core.sshCommand "ssh -i ~/.ssh/id_rsa_tw -F /dev/null"
     git pull ${url}
 }
 
@@ -170,6 +170,8 @@ source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 setopt HIST_SAVE_NO_DUPS
 setopt HIST_REDUCE_BLANKS
+
+source ~/.stuff.sh
 
 # Keep this at the end
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
