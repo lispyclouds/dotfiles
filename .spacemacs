@@ -103,7 +103,9 @@ values."
      ;;        shell-default-position 'bottom)
      ;; spell-checking
      ;; syntax-checking
-     treemacs
+     (treemacs :variables
+               treemacs-use-follow-mode t
+               treemacs-use-filewatch-mode t)
      version-control
      )
    ;; List of additional packages that will be installed without being
@@ -194,7 +196,7 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("FuraCode Nerd Font"
+   dotspacemacs-default-font '("Cascadia Code"
                                :size 18
                                :weight semi-bold
                                :width normal
