@@ -421,7 +421,13 @@ you should place your code here."
   (setq mac-right-option-modifier nil)
 
   (setenv "LC_ALL" "en_US.UTF-8")
-  )
+
+  ;; Persistent Undo!
+  (setq undo-tree-auto-save-history t
+        undo-tree-history-directory-alist
+        `(("." . ,(concat spacemacs-cache-directory "undo"))))
+  (unless (file-exists-p (concat spacemacs-cache-directory "undo"))
+    (make-directory (concat spacemacs-cache-directory "undo"))))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
