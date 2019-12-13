@@ -72,7 +72,7 @@ values."
    dotspacemacs-configuration-layers
    '((clojure :variables
               clojure-enable-clj-refactor t
-              clojure-enable-linters 'clj-kondo)
+              clojure-enable-linters '(clj-kondo joker))
      haskell
      elixir
      sql
