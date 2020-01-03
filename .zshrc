@@ -1,6 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 export LC_ALL=en_US.UTF-8
+export HISTCONTROL=ignoreboth:erasedups
 
 eval "$(thefuck --alias)"
 
@@ -169,7 +170,14 @@ di() {
 
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+setopt EXTENDED_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_FIND_NO_DUPS
 setopt HIST_SAVE_NO_DUPS
+setopt HIST_BEEP
 setopt HIST_REDUCE_BLANKS
 
 source ~/.stuff.sh
