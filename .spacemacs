@@ -421,13 +421,6 @@ you should place your code here."
 
   (setenv "LC_ALL" "en_US.UTF-8")
 
-  ;; Persistent Undo!
-  (setq undo-tree-auto-save-history t
-        undo-tree-history-directory-alist
-        `(("." . ,(concat spacemacs-cache-directory "undo"))))
-  (unless (file-exists-p (concat spacemacs-cache-directory "undo"))
-    (make-directory (concat spacemacs-cache-directory "undo")))
-
   (add-hook 'terraform-mode-hook 'flycheck-mode)
   (add-hook 'sh-mode-hook 'flycheck-mode))
 
