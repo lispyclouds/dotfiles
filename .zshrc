@@ -96,7 +96,7 @@ alias vdu="v destroy -f && v up && v ssh"
 alias u="brew update                                          && \
          brew upgrade                                         && \
          brew cu -a -y                                        && \
-         brew cleanup                                         && \
+         brew cleanup -s                                      && \
          git -C ~/.emacs.d pull                               && \
          git -C $ZSH_CUSTOM/themes/powerlevel10k pull         && \
          rustup self update                           || true && \
@@ -119,9 +119,10 @@ export L="G8)-2Taa'ZL&!EK8"
 
 export MP_FULLNAME='Rahul De'
 export MP_SITETYPE=max
-export PATH="/usr/local/opt/llvm/bin:/Users/$(whoami)/.local/bin:/usr/local/opt/python@2/bin:$PATH"
+export PATH="/usr/local/opt/llvm/bin:/Users/$(whoami)/.local/bin:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
+export PATH="/Users/$(whoami)/Library/Python/3.7/bin:$PATH"
 export EDITOR=nvim
 alias cc=clang
 
@@ -130,7 +131,7 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 source $HOME/.cargo/env
 source $HOME/.poetry/env
 
-alias graal='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8) && export GRAALVM_HOME=$JAVA_HOME'
+alias graal='export JAVA_HOME=$(/usr/libexec/java_home -v 11) && export GRAALVM_HOME=$JAVA_HOME'
 alias hotspot='export JAVA_HOME=$(/usr/libexec/java_home)'
 alias ni='~/Downloads/graalvm/Contents/Home/bin/native-image'
 alias vim=nvim
