@@ -74,7 +74,7 @@ values."
               clojure-enable-clj-refactor t
               clojure-enable-linters '(clj-kondo joker))
      haskell
-     elixir
+     (elixir :variables elixir-backend 'alchemist)
      sql
      (python :variables
              python-formatter 'black
@@ -105,7 +105,10 @@ values."
      ;; syntax-checking
      (treemacs :variables
                treemacs-use-follow-mode t
-               treemacs-use-filewatch-mode t)
+               treemacs-use-filewatch-mode t
+               treemacs-no-png-images t
+               treemacs-silent-filewatch t
+               treemacs-silent-refresh t)
      version-control
      (javascript :variables
                  js2-basic-offset 2
@@ -399,11 +402,6 @@ you should place your code here."
     (put-clojure-indent 'rest/delete 1)
     (put-clojure-indent 'when-failed 1)
     (put-clojure-indent 'try-all 1))
-
-  (use-package doom-themes
-    :ensure t
-    :config
-    (doom-themes-treemacs-config))
 
   (use-package centaur-tabs
     :demand
