@@ -106,7 +106,6 @@ values."
      (treemacs :variables
                treemacs-use-follow-mode t
                treemacs-use-filewatch-mode t
-               treemacs-no-png-images t
                treemacs-silent-filewatch t
                treemacs-silent-refresh t)
      version-control
@@ -411,6 +410,11 @@ you should place your code here."
     (:map evil-normal-state-map
           ("g t" . centaur-tabs-forward)
           ("g T" . centaur-tabs-backward)))
+
+  (use-package doom-themes
+    :ensure t
+    :config
+    (doom-themes-treemacs-config))
 
   (setq centaur-tabs-set-icons t)
   (setq centaur-tabs-set-bar 'left)
