@@ -102,7 +102,7 @@ Plug 'clojure-vim/async-clj-omni', { 'for': 'clojure' }
 Plug 'eraserhd/parinfer-rust', { 'do': 'cargo build --release' }
 
 " Colorscheme
-Plug 'tyrannicaltoucan/vim-quantum'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()
 
@@ -510,12 +510,9 @@ set guioptions-=L
 set background=dark
 set termguicolors
 
-let g:quantum_black=1
-let g:quantum_italics=1
+colorscheme dracula
 
-colorscheme quantum
-
-let g:airline_theme='quantum'
+let g:airline_theme='dracula'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
