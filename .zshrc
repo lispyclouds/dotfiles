@@ -97,7 +97,6 @@ alias u="brew update                                          && \
          brew upgrade                                         && \
          brew cu -a -y                                        && \
          brew cleanup -s                                      && \
-         git -C ~/.emacs.d pull                               && \
          git -C $ZSH_CUSTOM/themes/powerlevel10k pull         && \
          rustup self update                           || true && \
          rustup update                                || true && \
@@ -115,14 +114,12 @@ fi
 export GOPATH=$HOME/.go
 export JAVA_HOME=$(/usr/libexec/java_home)
 
-export L="G8)-2Taa'ZL&!EK8"
-
-export MP_FULLNAME='Rahul De'
-export MP_SITETYPE=max
-export PATH="/usr/local/opt/llvm/bin:/Users/$(whoami)/.local/bin:$PATH"
-export PATH="/usr/local/opt/ruby/bin:$PATH"
-export PATH="/usr/local/bin:$PATH"
-export PATH="/Users/$(whoami)/Library/Python/3.7/bin:$PATH"
+export PATH="$PATH:/usr/local/opt/llvm/bin:          \
+            /Users/$(whoami)/.local/bin:             \
+            /usr/local/opt/ruby/bin:                 \
+            /usr/local/bin:                          \
+            /Users/$(whoami)/Library/Python/3.7/bin: \
+            /Users/$(whoami)/.vim/plugged/vim-iced/bin"
 export EDITOR=nvim
 alias cc=clang
 
@@ -135,9 +132,6 @@ alias graal='export JAVA_HOME=$(/usr/libexec/java_home -v 11) && export GRAALVM_
 alias hotspot='export JAVA_HOME=$(/usr/libexec/java_home)'
 alias ni='~/Downloads/graalvm/Contents/Home/bin/native-image'
 alias vim=nvim
-alias play="itermocil clj"
-alias ncargo='rustup run nightly cargo'
-alias nrustc='rustup run nightly rustc'
 alias ping='prettyping --nolegend'
 alias cat='bat -p'
 alias rc='docker rm -f `docker ps -aq`'

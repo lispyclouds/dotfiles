@@ -69,12 +69,11 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-Plug 'cespare/vim-toml', { 'for': 'rust' }
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'rust-lang/rust.vim', {'for': 'rust'}
+Plug 'cespare/vim-toml', {'for': 'rust'}
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'mileszs/ack.vim'
 Plug 'vim-airline/vim-airline'
@@ -84,28 +83,30 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'ryanoasis/vim-devicons'
 Plug 'easymotion/vim-easymotion'
-Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 Plug 'hashivim/vim-terraform'
 Plug 'henrik/vim-indexed-search'
-Plug 'ambv/black', { 'for': 'python' }
+Plug 'ambv/black', {'for': 'python'}
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'dense-analysis/ale'
 Plug 'elixir-editors/vim-elixir'
 Plug 'tpope/vim-dispatch'
+Plug 'osyo-manga/vim-over'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'prabirshrestha/asyncomplete.vim'
 
 " Lispy
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-Plug 'tpope/vim-salve', { 'for': 'clojure' }
-Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
-Plug 'venantius/vim-cljfmt', { 'for': 'clojure' }
-Plug 'clojure-vim/async-clj-omni', { 'for': 'clojure' }
-Plug 'eraserhd/parinfer-rust', { 'do': 'cargo build --release' }
+Plug 'liquidz/vim-iced', {'for': 'clojure'}
+Plug 'guns/vim-sexp', {'for': 'clojure'}
+Plug 'liquidz/vim-iced-asyncomplete', {'for': 'clojure'}
+Plug 'guns/vim-clojure-static', {'for': 'clojure'}
+Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'}
 
 " Colorscheme
 Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
@@ -486,7 +487,7 @@ let g:rainbow_active = 1
 let g:vim_markdown_folding_disabled = 1
 let g:black_linelength=80
 let g:airline#extensions#ale#enabled = 1
-
+let g:iced_enable_default_key_mappings = v:true
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => GUI related
