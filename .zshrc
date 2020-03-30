@@ -113,21 +113,22 @@ fi
 
 export GOPATH=$HOME/.go
 export JAVA_HOME=$(/usr/libexec/java_home)
-
-export PATH="$PATH:/usr/local/opt/llvm/bin:          \
-            /Users/$(whoami)/.local/bin:             \
-            /usr/local/opt/ruby/bin:                 \
-            /usr/local/bin:                          \
-            /Users/$(whoami)/Library/Python/3.7/bin: \
-            /Users/$(whoami)/.vim/plugged/vim-iced/bin"
+export PATH="$PATH:/usr/local/opt/llvm/bin:\
+/Users/$(whoami)/.local/bin:\
+/usr/local/opt/ruby/bin:\
+/usr/local/bin:\
+/Users/$(whoami)/Library/Python/3.7/bin:\
+/Users/$(whoami)/.vim/plugged/vim-iced/bin"
 export EDITOR=nvim
-alias cc=clang
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 source $HOME/.cargo/env
 source $HOME/.poetry/env
 
+alias cc=clang
 alias graal='export JAVA_HOME=$(/usr/libexec/java_home -v 11) && export GRAALVM_HOME=$JAVA_HOME'
 alias hotspot='export JAVA_HOME=$(/usr/libexec/java_home)'
 alias ni='~/Downloads/graalvm/Contents/Home/bin/native-image'
