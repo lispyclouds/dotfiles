@@ -94,12 +94,12 @@ Plug 'tpope/vim-dispatch'
 Plug 'osyo-manga/vim-over'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Lispy
 Plug 'liquidz/vim-iced', {'for': 'clojure'}
 Plug 'guns/vim-sexp', {'for': 'clojure'}
-Plug 'liquidz/vim-iced-asyncomplete', {'for': 'clojure'}
+Plug 'liquidz/vim-iced-coc-source', {'for': 'clojure'}
 Plug 'guns/vim-clojure-static', {'for': 'clojure'}
 Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'}
 
