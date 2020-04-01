@@ -206,7 +206,8 @@ set foldcolumn=1
 " Line numbering and width
 set number
 set relativenumber
-set clipboard=unnamedplus " Use system clipboard
+set clipboard=unnamed
+set clipboard+=unnamedplus
 set updatetime=250
 set cursorline " Highlight current line
 
