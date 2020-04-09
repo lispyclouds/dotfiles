@@ -266,6 +266,8 @@ set wrap "Wrap lines
 
 autocmd BufEnter * EnableStripWhitespaceOnSave
 
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
 
 """"""""""""""""""""""""""""""
 " => Visual mode related
