@@ -104,7 +104,7 @@ Plug 'guns/vim-clojure-static', {'for': 'clojure'}
 Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'}
 
 " Colorscheme
-Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'joshdick/onedark.vim'
 
 call plug#end()
 
@@ -514,9 +514,9 @@ set guioptions-=L
 set background=dark
 set termguicolors
 
-colorscheme dracula
+colorscheme onedark
 
-let g:airline_theme='dracula'
+let g:airline_theme='onedark'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
