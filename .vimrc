@@ -549,5 +549,5 @@ if executable('rg')
 endif
 
 if executable("rg")
-    let g:CtrlSpaceGlobCommand = 'rg -g ""'
+    let g:CtrlSpaceGlobCommand = 'rg --vimgrep --smart-case'
 endif
