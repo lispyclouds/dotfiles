@@ -86,7 +86,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 Plug 'hashivim/vim-terraform'
 Plug 'henrik/vim-indexed-search'
-Plug 'ambv/black', {'for': 'python'}
+Plug 'psf/black', {'for': 'python'}
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'dense-analysis/ale'
 Plug 'elixir-editors/vim-elixir'
