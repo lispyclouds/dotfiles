@@ -105,7 +105,7 @@ Plug 'guns/vim-clojure-static', {'for': 'clojure'}
 Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'}
 
 " Colorscheme
-Plug 'joshdick/onedark.vim'
+Plug 'ayu-theme/ayu-vim'
 
 call plug#end()
 
@@ -503,9 +503,9 @@ set guioptions-=L
 set background=dark
 set termguicolors
 
-colorscheme onedark
+colorscheme ayu
 
-let g:airline_theme='onedark'
+let g:airline_theme='ayu'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
