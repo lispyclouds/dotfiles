@@ -1,0 +1,41 @@
+{:binding {:force-nl? true
+           :justify?  true}
+ :fn-map  {"comment"               :flow
+           "component/system-map"  :pair-fn
+           "db-connection"         :arg1-force-nl
+           "defmethod"             :arg1-force-nl
+           "defn"                  :arg1-force-nl
+           "defn-"                 :arg1-force-nl
+           "defrecord"             :arg1-force-nl
+           "do"                    :flow
+           "f/try*"                :flow
+           "f/try-all"             :binding
+           "f/when-failed"         :arg1-force-nl
+           "fn"                    :arg1-force-nl
+           "format"                :gt2-force-nl
+           "if"                    :arg1-force-nl
+           "jdbc/with-transaction" :arg1-force-nl
+           "log/debugf"            :gt2-force-nl
+           "log/errorf"            :gt2-force-nl
+           "log/infof"             :gt2-force-nl
+           "m/defstate"            :arg1-pair
+           "queue-connection"      :arg1-force-nl
+           "start"                 :arg1-force-nl
+           "stop"                  :arg1-force-nl
+           "testing"               :arg1-force-nl
+           "try"                   :flow
+           "vector"                :force-nl-body
+           "when"                  :arg1-force-nl
+           "when-not"              :arg1-force-nl
+           "with-db"               :flow}
+ :list    {:indent-arg  2
+           :respect-nl? true}
+ :map     {:comma?    false
+           :force-nl? true
+           :sort?     false
+           :justify?  true
+           :lift-ns?  false}
+ :pair    {:justify? true}
+ :pair-fn {:hang? false}
+ :style   :community
+ :width   120}

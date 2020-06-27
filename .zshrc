@@ -27,7 +27,7 @@ alias u="brew update                                          && \
          git -C $ZSH/plugins/zsh-autocomplete pull            && \
          rustup self update                           || true && \
          rustup update                                || true && \
-         vim +PlugUpgrade +PlugClean +PlugUpdate +qall"
+         vim +PlugUpgrade +PlugClean +PlugUpdate +CocUpdate +qall"
 
 if [ ! -f ~/.lispy_first_setup_complete ]
 then
