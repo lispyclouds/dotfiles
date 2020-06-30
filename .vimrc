@@ -476,6 +476,7 @@ let g:rainbow_active = 1
 let g:vim_markdown_folding_disabled = 1
 let g:airline#extensions#ale#enabled = 1
 let g:iced_enable_default_key_mappings = v:true
+let g:strip_whitespace_confirm=0
 
 if has("nvim") || has("gui_vimr")
     let g:CtrlSpaceDefaultMappingKey = "<C-space> "
