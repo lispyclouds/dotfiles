@@ -91,7 +91,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'dense-analysis/ale'
 Plug 'elixir-editors/vim-elixir'
 Plug 'tpope/vim-dispatch'
-Plug 'osyo-manga/vim-over'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -502,6 +501,7 @@ set guioptions-=L
 
 " Colorscheme
 set background=dark
+let ayucolor="dark"
 set termguicolors
 
 colorscheme ayu
@@ -509,6 +509,11 @@ colorscheme ayu
 let g:airline_theme='ayu'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+
+" Visual replace preview
+if has("nvim")
+    set inccommand=nosplit
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Turn persistent undo on
