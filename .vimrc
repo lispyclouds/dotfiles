@@ -474,6 +474,10 @@ let g:gitgutter_realtime = 1
 let g:rainbow_active = 1
 let g:vim_markdown_folding_disabled = 1
 let g:airline#extensions#ale#enabled = 1
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
 let g:iced_enable_default_key_mappings = v:true
 let g:strip_whitespace_confirm=0
 
@@ -501,7 +505,7 @@ set guioptions-=L
 
 " Colorscheme
 set background=dark
-let ayucolor="dark"
+let ayucolor="mirage"
 set termguicolors
 
 colorscheme ayu
