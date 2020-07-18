@@ -85,8 +85,6 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'easymotion/vim-easymotion'
 Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 Plug 'hashivim/vim-terraform'
-Plug 'henrik/vim-indexed-search'
-Plug 'psf/black', {'for': 'python'}
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'dense-analysis/ale'
 Plug 'elixir-editors/vim-elixir'
@@ -94,7 +92,6 @@ Plug 'tpope/vim-dispatch'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'vim-ctrlspace/vim-ctrlspace'
 
 " Lispy
 Plug 'liquidz/vim-iced', {'for': 'clojure'}
@@ -130,9 +127,10 @@ let g:mapleader = ","
 " Fast saving
 nmap <leader>w :w!<cr>
 
-" :W sudo saves the file
-" (useful for handling the permission-denied error)
-command! W w !sudo tee % > /dev/null
+" Blame me, cant save without typo-ing!
+command! W  write
+:command WQ wq
+:command Wq wq
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -194,11 +192,6 @@ set noerrorbells
 set novisualbell
 set t_vb=
 set tm=500
-
-" Properly disable sound on errors on MacVim
-if has("gui_macvim")
-    autocmd GUIEnter * set vb t_vb=
-endif
 
 " Add a bit extra margin to the left
 set foldcolumn=1
@@ -281,9 +274,6 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
-map <space> /
-
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
 
@@ -338,9 +328,6 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " Always show the status line
 set laststatus=2
 
-" Format the status line
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell checking
@@ -358,14 +345,6 @@ map <leader>s? z=
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Returns true if paste mode is enabled
-function! HasPaste()
-    if &paste
-        return 'PASTE MODE  '
-    endif
-    return ''
-endfunction
-
 " Don't close window, when deleting a buffer
 command! Bclose call <SID>BufcloseCloseIt()
 function! <SID>BufcloseCloseIt()
@@ -411,43 +390,6 @@ function! VisualSelection(direction, extra_filter) range
 endfunction
 
 
-""""""""""""""""""""""""""""""
-" => Python
-""""""""""""""""""""""""""""""
-let python_highlight_all = 1
-au FileType python syn keyword pythonDecorator True None False self
-
-au BufNewFile,BufRead *.jinja set syntax=htmljinja
-au BufNewFile,BufRead *.mako set ft=mako
-
-au FileType python map <buffer> F :set foldmethod=indent<cr>
-
-au FileType python inoremap <buffer> $r return
-au FileType python inoremap <buffer> $i import
-au FileType python inoremap <buffer> $p print
-au FileType python inoremap <buffer> $f #--- <esc>a
-au FileType python map <buffer> <leader>1 /class
-au FileType python map <buffer> <leader>2 /def
-au FileType python map <buffer> <leader>C ?class
-au FileType python map <buffer> <leader>D ?def
-au FileType python set cindent
-au FileType python set cinkeys-=0#
-au FileType python set indentkeys-=0#
-
-
-""""""""""""""""""""""""""""""
-" => JavaScript
-"""""""""""""""""""""""""""""""
-au FileType javascript setl fen
-au FileType javascript setl nocindent
-
-au FileType javascript imap <c-t> $log();<esc>hi
-au FileType javascript imap <c-a> alert();<esc>hi
-
-au FileType javascript inoremap <buffer> $r return
-au FileType javascript inoremap <buffer> $f //--- PH<esc>FP2xi
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Nerd Tree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -485,6 +427,7 @@ if has("nvim") || has("gui_vimr")
     let g:CtrlSpaceDefaultMappingKey = "<C-space> "
 endif
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => GUI related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -505,7 +448,7 @@ set guioptions-=L
 
 " Colorscheme
 set background=dark
-let ayucolor="mirage"
+let ayucolor="dark"
 set termguicolors
 
 colorscheme ayu
@@ -556,8 +499,4 @@ inoremap $e ""<esc>i
 " Use ripgrep if possible
 if executable('rg')
     let g:ackprg = 'rg --vimgrep --smart-case'
-endif
-
-if executable("rg")
-    let g:CtrlSpaceGlobCommand = 'rg --vimgrep --smart-case'
 endif
