@@ -448,7 +448,7 @@ set guioptions-=L
 
 " Colorscheme
 set background=dark
-let ayucolor="dark"
+let ayucolor="mirage"
 set termguicolors
 
 colorscheme ayu
