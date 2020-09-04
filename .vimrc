@@ -101,7 +101,7 @@ Plug 'guns/vim-clojure-static', {'for': 'clojure'}
 Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'}
 
 " Colorscheme
-Plug 'ayu-theme/ayu-vim'
+Plug 'cocopon/iceberg.vim', { 'as': 'iceberg' }
 
 call plug#end()
 
@@ -451,9 +451,9 @@ set background=dark
 let ayucolor="mirage"
 set termguicolors
 
-colorscheme ayu
+colorscheme iceberg
 
-let g:airline_theme='ayu'
+let g:airline_theme='iceberg'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
