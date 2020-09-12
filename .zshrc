@@ -9,7 +9,7 @@ POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-plugins=(git zsh-autocomplete)
+plugins=(git)
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin"
 
@@ -24,7 +24,6 @@ alias u="brew update                                          && \
          brew cu -a -y                                        && \
          brew cleanup -s                                      && \
          git -C $ZSH_CUSTOM/themes/powerlevel10k pull         && \
-         git -C $ZSH/plugins/zsh-autocomplete pull            && \
          rustup self update                           || true && \
          rustup update                                || true && \
          vim +PlugUpgrade +PlugClean +PlugUpdate +CocUpdate +qall"

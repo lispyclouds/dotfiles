@@ -260,6 +260,8 @@ set wrap "Wrap lines
 autocmd BufEnter * EnableStripWhitespaceOnSave
 
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
+autocmd FileType html setlocal shiftwidth=2 tabstop=2
 
 
 """"""""""""""""""""""""""""""
