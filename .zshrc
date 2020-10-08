@@ -21,7 +21,7 @@ alias v=vagrant
 alias vdu="v destroy -f && v up && v ssh"
 alias u="brew update                                          && \
          brew upgrade                                         && \
-         brew cu -a -y                                        && \
+         brew upgrade --cask                                  && \
          brew cleanup -s                                      && \
          git -C $ZSH_CUSTOM/themes/powerlevel10k pull         && \
          rustup self update                           || true && \
