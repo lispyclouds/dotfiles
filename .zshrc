@@ -67,9 +67,9 @@ alias dil='docker image ls'
 alias dps='docker ps -a'
 alias dir='docker image rm'
 alias dr='docker rm'
-alias rbl='clojure -Sdeps "{:deps {com.bhauman/rebel-readline {:mvn/version \"LATEST\"}}}" -m rebel-readline.main'
+alias rbl='clojure -Sdeps "{:deps {com.bhauman/rebel-readline {:mvn/version \"LATEST\"}}}" -M -m rebel-readline.main'
 alias ls=exa
-alias cljserve='clojure -Sdeps "{:deps {nasus {:mvn/version \"LATEST\"}}}" -m http.server'
+alias cljserve='clojure -Sdeps "{:deps {nasus {:mvn/version \"LATEST\"}}}" -M -m http.server'
 
 di() {
     docker image rm $(docker images -q | head -${1-"1"})
