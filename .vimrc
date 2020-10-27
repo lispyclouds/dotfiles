@@ -101,7 +101,7 @@ Plug 'guns/vim-clojure-static', {'for': 'clojure'}
 Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'}
 
 " Colorscheme
-Plug 'cocopon/iceberg.vim', { 'as': 'iceberg' }
+Plug 'patstockwell/vim-monokai-tasty'
 
 call plug#end()
 
@@ -450,12 +450,12 @@ set guioptions-=L
 
 " Colorscheme
 set background=dark
-let ayucolor="mirage"
 set termguicolors
 
-colorscheme iceberg
+let g:vim_monokai_tasty_italic = 1
+colorscheme vim-monokai-tasty
 
-let g:airline_theme='iceberg'
+let g:airline_theme='monokai_tasty'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
