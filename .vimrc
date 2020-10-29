@@ -426,6 +426,7 @@ let g:iced_enable_default_key_mappings = v:true
 let g:strip_whitespace_confirm=0
 
 if has("nvim") || has("gui_vimr")
+    let g:coc_node_path = '/usr/local/bin/node'
     let g:CtrlSpaceDefaultMappingKey = "<C-space> "
 endif
 

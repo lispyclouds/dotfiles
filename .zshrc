@@ -1,3 +1,7 @@
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(virtualenv status)
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
+
 zstyle ':z4h:'                auto-update      'ask'
 zstyle ':z4h:'                auto-update-days '7'
 zstyle ':z4h:bindkey'         keyboard         'mac'
@@ -71,7 +75,6 @@ export EDITOR=nvim
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export BAT_STYLE=plain
-
 source $HOME/.cargo/env
 source $HOME/.poetry/env
 
