@@ -101,7 +101,7 @@ Plug 'guns/vim-clojure-static', {'for': 'clojure'}
 Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'}
 
 " Colorscheme
-Plug 'patstockwell/vim-monokai-tasty'
+Plug 'sainnhe/sonokai'
 
 call plug#end()
 
@@ -453,10 +453,10 @@ set guioptions-=L
 set background=dark
 set termguicolors
 
-let g:vim_monokai_tasty_italic = 1
-colorscheme vim-monokai-tasty
+let g:sonokai_enable_italic = 1
+colorscheme sonokai
 
-let g:airline_theme='monokai_tasty'
+let g:airline_theme='sonokai'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
