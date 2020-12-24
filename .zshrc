@@ -76,7 +76,6 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export BAT_STYLE=plain
 source $HOME/.cargo/env
-source $HOME/.poetry/env
 
 alias graal='export JAVA_HOME=$(/usr/libexec/java_home -v 11) && export GRAALVM_HOME=$JAVA_HOME'
 alias hotspot='export JAVA_HOME=$(/usr/libexec/java_home)'
@@ -91,8 +90,6 @@ alias rbl='clojure -Sdeps "{:deps {com.bhauman/rebel-readline {:mvn/version \"LA
 alias ls=exa
 
 function di() { docker image rm $(docker images -q | head -${1-"1"}) }
-
-source ~/.stuff.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 bindkey "^[[A" fzf-history-widget
