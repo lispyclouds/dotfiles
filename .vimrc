@@ -70,7 +70,7 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
-Plug 'scrooloose/nerdcommenter'
+Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'rust-lang/rust.vim', {'for': 'rust'}
 Plug 'cespare/vim-toml', {'for': 'rust'}

@@ -49,7 +49,7 @@ eval "$(thefuck --alias)"
 
 alias u="brew update                                          && \
          brew upgrade                                         && \
-         brew cu -ay                                          && \
+         brew upgrade --cask --greedy                         && \
          brew cleanup -s                                      && \
          rustup self update                           || true && \
          rustup update                                || true && \
