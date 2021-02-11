@@ -93,3 +93,5 @@ function di() { docker image rm $(docker images -q | head -${1-"1"}) }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 bindkey "^[[A" fzf-history-widget
+
+source ~/.extras.sh || true

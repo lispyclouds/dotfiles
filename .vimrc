@@ -69,7 +69,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+Plug 'preservim/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'rust-lang/rust.vim', {'for': 'rust'}
@@ -92,6 +92,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Lispy
 Plug 'liquidz/vim-iced', {'for': 'clojure'}
