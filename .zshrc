@@ -70,6 +70,7 @@ export PATH="$PATH:/usr/local/opt/llvm/bin:\
 /Users/$(whoami)/.local/bin:\
 /usr/local/opt/ruby/bin:\
 /usr/local/bin:\
+/usr/local/sbin:\
 /Users/$(whoami)/.vim/plugged/vim-iced/bin"
 export EDITOR=nvim
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow'
