@@ -102,7 +102,7 @@ Plug 'guns/vim-clojure-static', {'for': 'clojure'}
 Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'}
 
 " Colorscheme
-Plug 'sainnhe/sonokai'
+Plug 'sainnhe/edge'
 
 call plug#end()
 
@@ -454,10 +454,11 @@ set guioptions-=L
 set background=dark
 set termguicolors
 
-let g:sonokai_enable_italic = 1
-colorscheme sonokai
+let g:edge_enable_italic = 1
+let g:edge_style = 'aura'
+colorscheme edge
 
-let g:airline_theme='sonokai'
+let g:airline_theme='edge'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
