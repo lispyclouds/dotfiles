@@ -93,6 +93,7 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'andys8/vim-elm-syntax'
 
 " Lispy
 Plug 'liquidz/vim-iced', {'for': 'clojure'}
@@ -422,6 +423,7 @@ let g:airline#extensions#ale#enabled = 1
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
+let g:airline_skip_empty_sections = 1
 let g:airline_right_alt_sep = ''
 let g:iced_enable_default_key_mappings = v:true
 let g:strip_whitespace_confirm=0
@@ -455,7 +457,7 @@ set background=dark
 set termguicolors
 
 let g:edge_enable_italic = 1
-let g:edge_style = 'aura'
+let g:edge_style = 'default'
 colorscheme edge
 
 let g:airline_theme='edge'

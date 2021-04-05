@@ -24,6 +24,11 @@
         "use-metadata-for-privacy?": true,
         "ignore-classpath-directories": true
       }
+    },
+    "elm-lsp": {
+      "command": "elm-language-server",
+      "filetypes": ["elm"],
+      "rootPatterns": ["elm.json"]
     }
   }
 }
