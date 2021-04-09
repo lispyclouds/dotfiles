@@ -32,8 +32,6 @@ autoload -Uz zmv
 function md() { [[ $# == 1 ]] && mkdir -p -- "$1" && cd -- "$1" }
 compdef _directories md
 
-function ssh() { z4h ssh "$@" }
-
 [[ -n $z4h_win_home ]] && hash -d w=$z4h_win_home
 
 alias tree='tree -a -I .git'
