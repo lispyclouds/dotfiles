@@ -103,7 +103,7 @@ Plug 'guns/vim-clojure-static', {'for': 'clojure'}
 Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'}
 
 " Colorscheme
-Plug 'sainnhe/edge'
+Plug 'ghifarit53/tokyonight-vim'
 
 call plug#end()
 
@@ -456,11 +456,11 @@ set guioptions-=L
 set background=dark
 set termguicolors
 
-let g:edge_enable_italic = 1
-let g:edge_style = 'default'
-colorscheme edge
+let g:tokyonight_style = 'night'
+let g:tokyonight_enable_italic = 1
+colorscheme tokyonight
 
-let g:airline_theme='edge'
+let g:airline_theme='tokyonight'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
