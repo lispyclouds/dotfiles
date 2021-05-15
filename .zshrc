@@ -43,7 +43,7 @@ setopt no_auto_menu
 
 eval "$(thefuck --alias)"
 
-[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+eval "$(zoxide init zsh)"
 
 alias u="brew update                                          && \
          brew upgrade                                         && \
@@ -92,5 +92,12 @@ function di() { docker image rm $(docker images -q | head -${1-"1"}) }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 bindkey "^[[A" fzf-history-widget
+
+_bb_tasks() {
+    local matches=(`bb tasks |tail -n +3 |cut -f1 -d ' '`)
+    compadd -a matches
+    _files # autocomplete filenames as well
+}
+compdef _bb_tasks bb
 
 source ~/.extras.sh || true
