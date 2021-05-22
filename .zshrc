@@ -45,13 +45,14 @@ eval "$(thefuck --alias)"
 
 eval "$(zoxide init zsh)"
 
-alias u="brew update                                          && \
-         brew upgrade                                         && \
-         brew upgrade --cask --greedy                         && \
-         brew cleanup -s                                      && \
-         rustup self update                           || true && \
-         rustup update                                || true && \
-         vim +PlugUpgrade +PlugClean +PlugUpdate +CocUpdate +qall"
+alias u="brew update                                              && \
+         brew upgrade                                             && \
+         brew upgrade --cask --greedy                             && \
+         brew cleanup -s                                          && \
+         rustup self update                               || true && \
+         rustup update                                    || true && \
+         vim +PlugUpgrade +PlugClean +PlugUpdate +CocUpdate +qall && \
+         z4h update"
 
 if [ ! -f ~/.lispy_first_setup_complete ]
 then
