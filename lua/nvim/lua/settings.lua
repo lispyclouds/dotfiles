@@ -30,15 +30,16 @@ vim.o.errorbells = false
 vim.o.visualbell = false
 vim.o.tm = 500
 vim.o.foldcolumn = "1"
-vim.o.shiftwidth = 4
-vim.o.tabstop = 4
+vim.o.shiftwidth = 2
+vim.o.tabstop = 2
+vim.o.inccommand = "nosplit"
 
 vim.o.background = "dark"
 vim.o.termguicolors = true
 
 vim.g.tokyonight_style = "night"
 vim.g.tokyonight_enable_italic = true
-vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
+vim.g.tokyonight_sidebars = {"qf", "vista_kind", "terminal", "packer"}
 vim.cmd[[colorscheme tokyonight]]
 
 require("lualine").setup {
@@ -49,3 +50,5 @@ require("lualine").setup {
 
 vim.g.strip_whitespace_confirm = false
 vim.cmd[[autocmd BufEnter * EnableStripWhitespaceOnSave]]
+
+vim.cmd[[let g:iced_enable_default_key_mappings = v:true]]
