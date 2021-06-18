@@ -41,7 +41,6 @@ vim.g.tokyonight_enable_italic = true
 vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
 vim.cmd[[colorscheme tokyonight]]
 
-require("bufferline").setup{}
 require("lualine").setup {
   options = {
     theme = "tokyonight"
