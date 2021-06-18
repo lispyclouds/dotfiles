@@ -46,3 +46,6 @@ require("lualine").setup {
     theme = "tokyonight"
   }
 }
+
+vim.g.strip_whitespace_confirm = false
+vim.cmd[[autocmd BufEnter * EnableStripWhitespaceOnSave]]
