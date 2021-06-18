@@ -38,13 +38,12 @@ vim.o.termguicolors = true
 
 vim.g.tokyonight_style = "night"
 vim.g.tokyonight_enable_italic = true
-vim.cmd("colorscheme tokyonight")
+vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
+vim.cmd[[colorscheme tokyonight]]
 
-vim.g.airline_theme = "tokyonight"
-vim.g.airline_powerline_fonts = 1
-vim.g.airline_left_sep = ""
-vim.g.airline_left_alt_sep = ""
-vim.g.airline_right_sep = ""
-vim.g.airline_skip_empty_sections = 1
-vim.g.airline_right_alt_sep = ""
 require("bufferline").setup{}
+require("lualine").setup {
+  options = {
+    theme = "tokyonight"
+  }
+}
