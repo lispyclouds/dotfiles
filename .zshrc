@@ -88,6 +88,7 @@ alias dil='docker image ls'
 alias dps='docker ps -a'
 alias rbl='clojure -Sdeps "{:deps {com.bhauman/rebel-readline {:mvn/version \"LATEST\"}}}" -M -m rebel-readline.main'
 alias ls=exa
+alias repl='clojure -Sdeps "{:deps {nrepl/nrepl {:mvn/version \"RELEASE\"} cider/cider-nrepl {:mvn/version \"RELEASE\"}}}" -M -m nrepl.cmdline --middleware "[\"cider.nrepl/cider-middleware\"]"'
 
 function di() { docker image rm $(docker images -q | head -${1-"1"}) }
 
@@ -95,7 +96,7 @@ function di() { docker image rm $(docker images -q | head -${1-"1"}) }
 bindkey "^[[A" fzf-history-widget
 
 _bb_tasks() {
-    local matches=(`bb tasks |tail -n +3 |cut -f1 -d ' '`)
+    local matches=(`bb tasks | tail -n +3 | cut -f1 -d ' '`)
     compadd -a matches
     _files # autocomplete filenames as well
 }

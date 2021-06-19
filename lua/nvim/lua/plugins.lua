@@ -9,7 +9,12 @@ end
 
 return require("packer").startup(
   function()
-    use "wbthomason/packer.nvim" -- Packer can manage itself
+    -- Packer can manage itself
+    use "wbthomason/packer.nvim"
+
+    -- Colorscheme
+    use "folke/tokyonight.nvim"
+
     use "kyazdani42/nvim-tree.lua"
     use "kyazdani42/nvim-web-devicons"
     use {
@@ -42,8 +47,10 @@ return require("packer").startup(
       branch = "release",
     }
     use {
-      "hoob3rt/lualine.nvim",
-      requires = {"kyazdani42/nvim-web-devicons", opt = true},
+      "windwp/windline.nvim",
+      config = function()
+        require("wlsample.bubble")
+      end,
     }
     use {
       "lewis6991/gitsigns.nvim",
@@ -52,9 +59,8 @@ return require("packer").startup(
         require('gitsigns').setup()
       end,
     }
-
     use {
-      "liquidz/vim-iced",
+      "Olical/conjure",
       ft = {"clojure"},
     }
     use {
@@ -62,19 +68,8 @@ return require("packer").startup(
       ft = {"clojure"},
     }
     use {
-      "liquidz/vim-iced-coc-source",
-      ft = {"clojure"},
-    }
-    use {
-      "guns/vim-clojure-static",
-      ft = {"clojure"},
-    }
-    use {
       "eraserhd/parinfer-rust",
       run = {"cargo build --release"},
     }
-
-    -- Colorscheme
-    use "folke/tokyonight.nvim"
   end
 )

@@ -42,12 +42,6 @@ vim.g.tokyonight_enable_italic = true
 vim.g.tokyonight_sidebars = {"qf", "vista_kind", "terminal", "packer"}
 vim.cmd[[colorscheme tokyonight]]
 
-require("lualine").setup {
-  options = {
-    theme = "tokyonight"
-  }
-}
-
 vim.g.strip_whitespace_confirm = false
 vim.cmd[[autocmd BufEnter * EnableStripWhitespaceOnSave]]
 
