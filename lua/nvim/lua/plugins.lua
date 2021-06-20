@@ -71,5 +71,6 @@ return require("packer").startup(
       "eraserhd/parinfer-rust",
       run = {"cargo build --release"},
     }
+    use 'famiu/bufdelete.nvim'
   end
 )
