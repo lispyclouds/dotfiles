@@ -1,3 +1,2 @@
 .DS_Store
-lua/coc/
-lua/nvim/plugin/
+nvim/plugin/packer_compiled.lua

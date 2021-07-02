@@ -45,7 +45,7 @@ eval "$(thefuck --alias)"
 
 eval "$(zoxide init zsh)"
 
-alias nvim_update="XDG_CONFIG_HOME=~/code/repos/dotfiles/lua ~/nvim-osx64/bin/nvim +'autocmd User PackerComplete sleep 100m | qall' +PackerSync"
+alias nvim_update="XDG_CONFIG_HOME=~/code/repos/dotfiles/lua nvim +'autocmd User PackerComplete sleep 100m | qall' +PackerSync"
 
 alias u="brew update                                              && \
          brew upgrade                                             && \
@@ -53,7 +53,6 @@ alias u="brew update                                              && \
          brew cleanup -s                                          && \
          rustup self update                               || true && \
          rustup update                                    || true && \
-         vim +PlugUpgrade +PlugClean +PlugUpdate +CocUpdate +qall && \
          nvim_update                                              && \
          z4h update"
 
