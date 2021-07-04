@@ -1,7 +1,13 @@
 vim.g.mapleader = ","
 
-vim.api.nvim_set_keymap("n", "<Leader><CR>", ":noh<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "<Leader>nn", ":NvimTreeToggle<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "<Leader>l", ":BufferLineCycleNext<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "<Leader>h", ":BufferLineCyclePrev<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "<Leader>bc", ":Bwipeout<CR>", {noremap = true, silent = true})
+local normal_mappings = {
+  ["<Leader><CR>"] = ":noh<CR>",
+  ["<Leader>nn"]   = ":NvimTreeToggle<CR>",
+  ["<Leader>l"]    = ":BufferLineCycleNext<CR>",
+  ["<Leader>h"]    = ":BufferLineCyclePrev<CR>",
+  ["<Leader>bc"]   = ":Bwipeout<CR>",
+}
+
+for mapping, action in pairs(normal_mappings) do
+  vim.api.nvim_set_keymap("n", mapping, action, {noremap = true, silent = true})
+end
