@@ -40,4 +40,7 @@
 
 require("plugins")
 require("mappings")
-require("settings")
+require("general")
+require("ux")
+require("persistent_undo")
+require("colorscheme")

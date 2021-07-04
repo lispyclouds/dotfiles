@@ -1,5 +1,5 @@
-local execute = vim.api.nvim_command
-local fn = vim.fn
+local execute      = vim.api.nvim_command
+local fn           = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -28,7 +28,7 @@ return require("packer").startup(
     use {
       "akinsho/nvim-bufferline.lua",
       requires = "kyazdani42/nvim-web-devicons",
-      config = function()
+      config   = function()
         require("bufferline").setup{}
       end,
     }
@@ -55,7 +55,7 @@ return require("packer").startup(
     use {
       "lewis6991/gitsigns.nvim",
       requires = {"nvim-lua/plenary.nvim"},
-      config = function()
+      config   = function()
         require('gitsigns').setup()
       end,
     }
