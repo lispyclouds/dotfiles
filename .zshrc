@@ -45,15 +45,15 @@ eval "$(thefuck --alias)"
 
 eval "$(zoxide init zsh)"
 
-alias nvim_update="nvim +'autocmd User PackerComplete sleep 100m | qall' +PackerSync"
+alias nvim_update="nvim +'autocmd User PackerComplete sleep 100m | qall' +PackerSync +TSUpdate"
 
-alias u="brew update                                              && \
-         brew upgrade                                             && \
-         brew upgrade --cask --greedy                             && \
-         brew cleanup -s                                          && \
-         rustup self update                               || true && \
-         rustup update                                    || true && \
-         nvim_update                                              && \
+alias u="brew update                  && \
+         brew upgrade                 && \
+         brew upgrade --cask --greedy && \
+         brew cleanup -s              && \
+         rustup self update || true   && \
+         rustup update || true        && \
+         nvim_update                  && \
          z4h update"
 
 if [ ! -f ~/.lispy_first_setup_complete ]
