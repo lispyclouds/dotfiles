@@ -32,3 +32,4 @@ vim.o.tabstop        = 2
 vim.g.strip_whitespace_confirm = false
 
 vim.cmd[[autocmd BufEnter * EnableStripWhitespaceOnSave]]
+vim.cmd[[au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=150, on_visual=true}]]
