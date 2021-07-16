@@ -28,6 +28,7 @@ vim.o.timeoutlen     = 500
 vim.o.foldcolumn     = "1"
 vim.o.shiftwidth     = 2
 vim.o.tabstop        = 2
+vim.o.completeopt    = "menuone,noselect"
 
 vim.g.strip_whitespace_confirm = false
 

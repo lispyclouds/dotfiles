@@ -42,9 +42,23 @@ return require("packer").startup(
       ft = {"terraform"},
     }
     use "dense-analysis/ale"
+    use "neovim/nvim-lspconfig"
     use {
-      "neoclide/coc.nvim",
-      branch = "release",
+      "hrsh7th/nvim-compe",
+      config = function()
+        require("compe").setup {
+          enabled      = true;
+          autocomplete = true;
+
+          source = {
+            path     = true;
+            buffer   = true;
+            calc     = true;
+            nvim_lsp = true;
+            nvim_lua = true;
+          };
+        }
+      end,
     }
     use {
       "windwp/windline.nvim",
