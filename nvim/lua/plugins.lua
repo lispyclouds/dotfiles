@@ -47,16 +47,16 @@ return require("packer").startup(
       "hrsh7th/nvim-compe",
       config = function()
         require("compe").setup {
-          enabled      = true;
-          autocomplete = true;
+          enabled      = true,
+          autocomplete = true,
 
           source = {
-            path     = true;
-            buffer   = true;
-            calc     = true;
-            nvim_lsp = true;
-            nvim_lua = true;
-          };
+            path     = true,
+            buffer   = true,
+            calc     = true,
+            nvim_lsp = true,
+            nvim_lua = true,
+          },
         }
       end,
     }

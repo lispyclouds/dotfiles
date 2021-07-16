@@ -1,6 +1,12 @@
 lspconfig = require("lspconfig")
 
-lspconfig.clojure_lsp.setup{}
-lspconfig.terraformls.setup{}
-lspconfig.pyright.setup{}
-lspconfig.gopls.setup{}
+lsps = {
+  "clojure_lsp",
+  "terraformls",
+  "pyright",
+  "gopls",
+}
+
+for _, v in pairs(lsps) do
+  lspconfig[v].setup{}
+end
