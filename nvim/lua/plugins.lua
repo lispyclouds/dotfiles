@@ -12,9 +12,10 @@ local plugins      = {
   ["neovim/nvim-lspconfig"]          = defaults,
   ["famiu/bufdelete.nvim"]           = defaults,
 
-  ["windwp/windline.nvim"] = {
-    config = function()
-      require('wlsample.bubble')
+  ["beauwilliams/statusline.lua"] = {
+    requires = "kosayoda/nvim-lightbulb",
+    config   = function()
+      require("statusline").tabline = false
     end,
   },
   ["nvim-treesitter/nvim-treesitter"] = {
@@ -51,7 +52,7 @@ local plugins      = {
     end,
   },
   ["lewis6991/gitsigns.nvim"] = {
-    requires = {"nvim-lua/plenary.nvim"},
+    requires = "nvim-lua/plenary.nvim",
     config   = function()
       require("gitsigns").setup()
     end,
