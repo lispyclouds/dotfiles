@@ -1,10 +1,11 @@
 local lspconfig = require("lspconfig")
 
 lsps = {
-  "clojure_lsp",
-  "terraformls",
-  "pyright",
-  "gopls",
+  "clojure_lsp", -- brew install brew clojure-lsp/brew/clojure-lsp-native
+  "terraformls", -- brew install hashicorp/tap/terraform-ls
+  "pyright",     -- brew install pyright
+  "gopls",       -- brew install gopls
+  "tsserver",    -- npm install -g typescript typescript-language-server
 }
 
 for _, v in pairs(lsps) do

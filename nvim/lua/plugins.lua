@@ -68,6 +68,11 @@ local plugins      = {
       ft  = "clojure",
       run = "cargo build --release",
     },
+    ["folke/which-key.nvim"] = {
+      config = function()
+        require("which-key").setup{}
+      end,
+    },
   },
 }
 
