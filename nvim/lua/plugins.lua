@@ -72,6 +72,17 @@ local plugins      = {
         require("which-key").setup{}
       end,
     },
+    ["p00f/nvim-ts-rainbow"] = {
+      requires = "neovim/nvim-lspconfig",
+      config   = function()
+        require("nvim-treesitter.configs").setup {
+          rainbow = {
+            enable        = true,
+            extended_mode = true,
+          },
+        }
+      end,
+    },
   },
 }
 
