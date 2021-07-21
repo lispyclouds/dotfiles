@@ -1,6 +1,7 @@
 local fn           = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 local buf_read     = "BufRead"
+local buf_enter    = "BufEnter"
 local plugins      = {
   ["wbthomason/packer.nvim"] = {},
   ["shaunsingh/moonlight.nvim"] = { -- colorscheme
@@ -58,7 +59,7 @@ local plugins      = {
     end,
   },
   ["neovim/nvim-lspconfig"] = {
-    event  = buf_read,
+    event  = buf_enter,
     config = function()
       require("lsp")
     end,
@@ -78,7 +79,7 @@ local plugins      = {
     end,
   },
   ["famiu/bufdelete.nvim"] = {
-    event = "BufEnter",
+    event = buf_enter,
   },
   ["Olical/conjure"] = {
     ft = "clojure",
