@@ -41,11 +41,12 @@ WO;     dN   No        dN                 WKl         :OW             Nx,    ,kW
                           WX0kdl:,,          ,,:cox0XWW
 --]]
 
-require("plugins")
-require("mappings")
+vim.opt.shadafile = "NONE"
+
 require("general")
 require("ux")
+require("plugins")
+require("mappings")
 require("persistent_undo")
-require("colorscheme")
-require("treesitter")
-require("lsp")
+
+vim.opt.shadafile = ""
