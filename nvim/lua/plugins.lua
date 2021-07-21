@@ -68,7 +68,9 @@ local plugins      = {
     event    = buf_read,
     requires = "nvim-lua/plenary.nvim",
     config   = function()
-      require("gitsigns").setup()
+      require("gitsigns").setup {
+        use_internal_diff = false, -- TODO: Remove with https://github.com/lewis6991/gitsigns.nvim/issues/272
+      }
     end,
   },
   ["ntpeters/vim-better-whitespace"] = {
