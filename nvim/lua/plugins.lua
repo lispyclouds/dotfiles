@@ -9,13 +9,6 @@ local plugins      = {
       require("colorscheme")
     end,
   },
-  ["beauwilliams/statusline.lua"] = {
-    event    = buf_read,
-    requires = "kosayoda/nvim-lightbulb",
-    config   = function()
-      require("statusline").tabline = false
-    end,
-  },
   ["nvim-treesitter/nvim-treesitter"] = {
     run    = ":TSUpdate",
     config = function()
@@ -29,17 +22,24 @@ local plugins      = {
       "nvim-lua/plenary.nvim",
     },
   },
-  ["akinsho/nvim-bufferline.lua"] = {
-    requires = "kyazdani42/nvim-web-devicons",
-    config   = function()
-      require("bufferline").setup{}
-    end,
-  },
   ["kyazdani42/nvim-tree.lua"] = {
     cmd = "NvimTreeToggle",
   },
   ["kyazdani42/nvim-web-devicons"] = {
     after = "moonlight.nvim",
+  },
+  ["akinsho/nvim-bufferline.lua"] = {
+    after  = "nvim-web-devicons",
+    config = function()
+      require("bufferline").setup{}
+    end,
+  },
+  ["beauwilliams/statusline.lua"] = {
+    after    = "nvim-bufferline.lua",
+    requires = "kosayoda/nvim-lightbulb",
+    config   = function()
+      require("statusline").tabline = false
+    end,
   },
   ["hrsh7th/nvim-compe"] = {
     event  = "InsertEnter",
