@@ -7,7 +7,6 @@ local plugins      = {
     "kyazdani42/nvim-tree.lua",
     "kyazdani42/nvim-web-devicons",
     "ntpeters/vim-better-whitespace",
-    "dense-analysis/ale",
     "neovim/nvim-lspconfig",
     "famiu/bufdelete.nvim",
   },
@@ -83,6 +82,16 @@ local plugins      = {
         }
       end,
     },
+    ["mfussenegger/nvim-lint"] = {
+      config = function()
+        local sh = {"shellcheck"}
+
+        require("lint").linters_by_ft = {
+          zsh = sh,
+          sh  = sh,
+        }
+      end,
+    },
   },
 }
 
@@ -91,7 +100,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
   vim.api.nvim_command("packadd packer.nvim")
 end
 
-require("packer").startup(
+return require("packer").startup(
   function()
     for _, plugin in pairs(plugins.defaults) do
       use(plugin)
