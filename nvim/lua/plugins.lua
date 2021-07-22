@@ -35,11 +35,10 @@ local plugins      = {
       require("bufferline").setup{}
     end,
   },
-  ["beauwilliams/statusline.lua"] = {
-    after    = "nvim-bufferline.lua",
-    requires = "kosayoda/nvim-lightbulb",
-    config   = function()
-      require("statusline").tabline = false
+  ["datwaft/bubbly.nvim"] = {
+    after  = "nvim-bufferline.lua",
+    config = function()
+      require("statusline")
     end,
   },
   ["hrsh7th/nvim-compe"] = {
@@ -68,9 +67,7 @@ local plugins      = {
     event    = buf_read,
     requires = "nvim-lua/plenary.nvim",
     config   = function()
-      require("gitsigns").setup {
-        use_internal_diff = false, -- TODO: Remove with https://github.com/lewis6991/gitsigns.nvim/issues/272
-      }
+      require("gitsigns").setup()
     end,
   },
   ["ntpeters/vim-better-whitespace"] = {
@@ -97,7 +94,7 @@ local plugins      = {
     ft = "terraform",
   },
   ["folke/which-key.nvim"] = {
-    event  = buf_read,
+    event  = "VimEnter",
     config = function()
       require("which-key").setup{}
     end,
