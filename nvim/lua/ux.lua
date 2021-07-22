@@ -29,5 +29,6 @@ vim.o.foldcolumn     = "1"
 vim.o.shiftwidth     = 2
 vim.o.tabstop        = 2
 vim.o.completeopt    = "menuone,noselect"
+vim.o.shortmess      = "I"
 
 vim.cmd[[autocmd TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=150, on_visual=true}]]

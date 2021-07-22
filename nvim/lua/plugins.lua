@@ -35,10 +35,11 @@ local plugins      = {
       require("bufferline").setup{}
     end,
   },
-  ["datwaft/bubbly.nvim"] = {
-    after  = "nvim-bufferline.lua",
-    config = function()
-      require("statusline")
+  ["beauwilliams/statusline.lua"] = {
+    requires = "kosayoda/nvim-lightbulb",
+    after    = "nvim-bufferline.lua",
+    config   = function()
+      require("statusline").tabline = false
     end,
   },
   ["hrsh7th/nvim-compe"] = {

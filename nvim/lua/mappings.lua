@@ -1,4 +1,4 @@
-vim.g.mapleader = " "
+vim.g.mapleader      = " "
 vim.g.maplocalleader = ","
 
 local normal_mappings = {
@@ -11,6 +11,9 @@ local normal_mappings = {
   ["<Leader>ff"]   = ":Telescope find_files<CR>",
   ["<Leader>s"]    = ":Telescope live_grep<CR>",
   ["<Leader>b"]    = ":Telescope buffers<CR>",
+  ["<Leader>q"]    = ":q<CR>",
+  ["<Leader>qa"]   = ":qall<CR>",
+  ["<Leader>qq"]   = ":qall!<CR>",
 }
 
 for mapping, action in pairs(normal_mappings) do
