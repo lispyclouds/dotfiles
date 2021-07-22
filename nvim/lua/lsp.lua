@@ -6,6 +6,7 @@ lsps = {
   "pyright",     -- brew install pyright
   "gopls",       -- brew install gopls
   "tsserver",    -- npm install -g typescript typescript-language-server
+  "yamlls",      -- npm install -g yaml-language-server
 }
 
 for _, v in pairs(lsps) do
