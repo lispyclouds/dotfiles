@@ -13,5 +13,10 @@ Welcome to my dotfiles, this is my setup on MacOS, Neovim 0.5+ and zsh. Also som
 - Make sure all the installs mentioned in `nvim/lua/lsp.lua` are performed too, remove some if irrelevant
 - Profit
 
+To keep all the plugins updated run
+```sh
+nvim +'autocmd User PackerComplete sleep 100m | qall' +PackerSync +TSUpdate
+```
+
 ### License
 MIT

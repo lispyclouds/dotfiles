@@ -29,7 +29,9 @@ z4h source ~/.iterm2_shell_integration.zsh
 
 autoload -Uz zmv
 
-function md() { [[ $# == 1 ]] && mkdir -p -- "$1" && cd -- "$1" }
+function md() {
+  [[ $# == 1 ]] && mkdir -p -- "$1" && cd -- "$1"
+}
 compdef _directories md
 
 [[ -n $z4h_win_home ]] && hash -d w=$z4h_win_home
@@ -92,7 +94,9 @@ alias rbl='clojure -Sdeps "{:deps {com.bhauman/rebel-readline {:mvn/version \"LA
 alias ls=exa
 alias repl='clojure -Sdeps "{:deps {nrepl/nrepl {:mvn/version \"RELEASE\"} cider/cider-nrepl {:mvn/version \"RELEASE\"}}}" -M -m nrepl.cmdline --middleware "[\"cider.nrepl/cider-middleware\"]"'
 
-function di() { docker image rm $(docker images -q | head -${1-"1"}) }
+function di() {
+  docker image rm $(docker images -q | head -${1-"1"})
+}
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 bindkey "^[[A" fzf-history-widget
