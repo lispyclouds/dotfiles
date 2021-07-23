@@ -8,6 +8,8 @@ require("nvim-treesitter.configs").setup {
     "json",
     "yaml",
     "typescript",
+    "bash",
+    "javascript",
   },
 
   highlight = {
