@@ -30,5 +30,6 @@ vim.o.shiftwidth     = 2
 vim.o.tabstop        = 2
 vim.o.completeopt    = "menuone,noselect"
 vim.o.shortmess      = "I"
+vim.o.guifont        = "JetBrainsMono Nerd Font Mono:h16"
 
 vim.cmd[[autocmd TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=150, on_visual=true}]]
