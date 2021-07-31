@@ -127,6 +127,13 @@ local plugins      = {
       }
     end,
   },
+  ["blackCauldron7/surround.nvim"] = {
+    config = function()
+      require "surround".setup {
+        mappings_style = "surround",
+      }
+    end,
+  },
 }
 
 if fn.empty(fn.glob(install_path)) > 0 then
