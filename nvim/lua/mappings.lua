@@ -14,6 +14,7 @@ local normal_mappings = {
   ["<Leader>q"]    = ":q<CR>",
   ["<Leader>qa"]   = ":qall<CR>",
   ["<Leader>qq"]   = ":qall!<CR>",
+  ["<Leader>pm"]   = ":lua require('ux').pairing_mode()<CR>",
 }
 
 for mapping, action in pairs(normal_mappings) do
