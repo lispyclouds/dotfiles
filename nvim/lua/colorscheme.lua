@@ -1,4 +1,6 @@
 vim.o.background    = "dark"
 vim.o.termguicolors = true
 
-require("kosmikoa")
+vim.g.neon_style = "dark"
+
+vim.cmd[[colorscheme neon]]
