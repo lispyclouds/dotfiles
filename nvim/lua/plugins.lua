@@ -37,9 +37,8 @@ local plugins      = {
     end,
   },
   ["beauwilliams/statusline.lua"] = {
-    requires = "kosayoda/nvim-lightbulb",
-    after    = "nvim-bufferline.lua",
-    config   = function()
+    after  = "nvim-bufferline.lua",
+    config = function()
       require("statusline").tabline = false
     end,
   },
