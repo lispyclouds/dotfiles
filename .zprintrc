@@ -1,20 +1,6 @@
-;   This file is part of Bob.
-;
-;   Bob is free software: you can redistribute it and/or modify
-;   it under the terms of the GNU Affero General Public License as published by
-;   the Free Software Foundation, either version 3 of the License, or
-;   (at your option) any later version.
-;
-;   Bob is distributed in the hope that it will be useful,
-;   but WITHOUT ANY WARRANTY; without even the implied warranty of
-;   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-;   GNU Affero General Public License for more details.
-;
-;   You should have received a copy of the GNU Affero General Public License
-;   along with Bob. If not, see <http://www.gnu.org/licenses/>.
-
 {:binding {:force-nl? true
-           :justify?  true}
+           :justify?  true
+           :justify   {:max-variance 1000}}
  :fn-map  {"comment"               :flow
            "component/system-map"  :pair-fn
            "db-connection"         :arg1-force-nl
@@ -48,9 +34,11 @@
  :map     {:comma?      false
            :sort?       false
            :justify?    true
+           :justify     {:max-variance 1000}
            :respect-nl? true
            :lift-ns?    false}
- :pair    {:justify? true}
+ :pair    {:justify? true
+           :justify  {:max-variance 1000}}
  :pair-fn {:hang? false}
  :style   :community
  :width   120}
