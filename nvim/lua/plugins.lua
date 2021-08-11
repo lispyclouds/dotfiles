@@ -4,7 +4,8 @@ local buf_read     = "BufRead"
 local buf_enter    = "BufEnter"
 local plugins      = {
   ["wbthomason/packer.nvim"] = {},
-  ["rafamadriz/neon"] = { -- colorscheme
+  ["rose-pine/neovim"] = { -- colorscheme
+    as     = "rose-pine",
     after  = "packer.nvim",
     config = function()
       require("colorscheme")
@@ -152,6 +153,7 @@ return require("packer").startup(
         config   = conf.config,
         ft       = conf.ft,
         branch   = conf.branch,
+        as       = conf.as,
       }
     end
   end
