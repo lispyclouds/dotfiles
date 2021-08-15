@@ -4,8 +4,7 @@ local buf_read     = "BufRead"
 local buf_enter    = "BufEnter"
 local plugins      = {
   ["wbthomason/packer.nvim"] = {},
-  ["rose-pine/neovim"] = { -- colorscheme
-    as     = "rose-pine",
+  ["folke/tokyonight.nvim"] = { -- colorscheme
     after  = "packer.nvim",
     config = function()
       require("colorscheme")

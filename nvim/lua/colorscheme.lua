@@ -1,5 +1,5 @@
 vim.o.background    = "dark"
 vim.o.termguicolors = true
 
-vim.g.rose_pine_disable_background = false
-require("rose-pine").set()
+vim.g.tokyonight_style = "night"
+vim.cmd[[colorscheme tokyonight]]
