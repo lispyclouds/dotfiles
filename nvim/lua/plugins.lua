@@ -4,7 +4,8 @@ local buf_read     = "BufRead"
 local buf_enter    = "BufEnter"
 local plugins      = {
   ["wbthomason/packer.nvim"] = {},
-  ["EdenEast/nightfox.nvim"] = { -- colorscheme
+  ["kyazdani42/nvim-web-devicons"] = {},
+  ["Pocco81/Catppuccino.nvim"] = { -- colorscheme
     after  = "packer.nvim",
     config = function()
       require("colorscheme")
@@ -26,9 +27,6 @@ local plugins      = {
   },
   ["kyazdani42/nvim-tree.lua"] = {
     cmd = "NvimTreeToggle",
-  },
-  ["kyazdani42/nvim-web-devicons"] = {
-    after = "kosmikoa.nvim",
   },
   ["akinsho/nvim-bufferline.lua"] = {
     after  = "nvim-web-devicons",
