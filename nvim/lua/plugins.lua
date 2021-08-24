@@ -40,18 +40,18 @@ local plugins      = {
       require("statusline").tabline = false
     end,
   },
-  ["hrsh7th/nvim-compe"] = {
-    event  = "InsertEnter",
-    config = function()
-      require("compe").setup {
-        enabled      = true,
-        autocomplete = true,
-        source       = {
-          path     = true,
-          buffer   = true,
-          calc     = true,
-          nvim_lsp = true,
-          nvim_lua = true,
+  ["hrsh7th/nvim-cmp"] = {
+    requires = {
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-nvim-lua",
+    },
+    config   = function()
+      require("cmp").setup {
+        sources = {
+          { name = "nvim_lsp" },
+          { name = "buffer" },
+          { name = "nvim_lua" },
         },
       }
     end,
