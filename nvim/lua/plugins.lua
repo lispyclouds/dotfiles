@@ -62,6 +62,7 @@ local plugins      = {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-nvim-lua",
+      "hrsh7th/cmp-path",
     },
     config   = function()
       require("cmp").setup {
@@ -69,6 +70,7 @@ local plugins      = {
           { name = "nvim_lsp" },
           { name = "buffer" },
           { name = "nvim_lua" },
+          { name = "path" },
         },
       }
     end,
