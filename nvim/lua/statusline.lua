@@ -21,11 +21,9 @@ require("staline").setup({
     },
     mid = { "lsp" },
     right = {
-      "right_sep",
-      "-file_size",
-      "left_sep",
       " ",
       "right_sep_double",
+      "-file_size",
       "-line_column",
       "left_sep_double",
       " ",
