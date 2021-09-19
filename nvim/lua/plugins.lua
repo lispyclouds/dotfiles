@@ -71,13 +71,6 @@ local plugins = {
       require("gitsigns").setup()
     end,
   },
-  ["ntpeters/vim-better-whitespace"] = {
-    event = buf_read,
-    config = function()
-      vim.g.strip_whitespace_confirm = false
-      vim.cmd([[autocmd BufEnter * EnableStripWhitespaceOnSave]])
-    end,
-  },
   ["famiu/bufdelete.nvim"] = {
     event = buf_enter,
   },

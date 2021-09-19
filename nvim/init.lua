@@ -48,5 +48,6 @@ require("ux")
 require("plugins")
 require("mappings")
 require("persistent_undo")
+require("whitespace")
 
 vim.opt.shadafile = ""
