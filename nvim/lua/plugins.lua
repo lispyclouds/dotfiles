@@ -105,20 +105,6 @@ local plugins = {
       })
     end,
   },
-  ["mfussenegger/nvim-lint"] = {
-    event = buf_read,
-    config = function()
-      local sh = { "shellcheck" }
-
-      vim.cmd([[autocmd BufEnter,InsertLeave,TextChanged * lua require("lint").try_lint()]])
-
-      require("lint").linters_by_ft = {
-        zsh = sh,
-        sh = sh,
-        dockerfile = { "hadolint" },
-      }
-    end,
-  },
   ["blackCauldron7/surround.nvim"] = {
     config = function()
       require("surround").setup({
