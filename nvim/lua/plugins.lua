@@ -27,6 +27,14 @@ local plugins = {
   },
   ["kyazdani42/nvim-tree.lua"] = {
     cmd = "NvimTreeToggle",
+    config = function()
+      require("nvim-tree").setup({
+        update_focused_file = {
+          enable = true,
+          update_cwd = true,
+        },
+      })
+    end,
   },
   ["akinsho/nvim-bufferline.lua"] = {
     after = "nvim-web-devicons",

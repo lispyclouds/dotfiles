@@ -14,6 +14,7 @@ catppuccino.setup({
     which_key = true,
     bufferline = true,
     markdown = true,
+    ts_rainbow = true,
   },
 })
 
