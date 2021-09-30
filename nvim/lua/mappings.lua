@@ -15,6 +15,7 @@ local normal_mappings = {
   ["<Leader>qa"] = ":qall<CR>",
   ["<Leader>qq"] = ":qall!<CR>",
   ["<Leader>pm"] = ":lua require('ux').pairing_mode()<CR>",
+  ["<Leader>ca"] = ":lua vim.lsp.buf.code_action()<CR>",
   ["gd"] = ":lua vim.lsp.buf.definition()<CR>",
 }
 
