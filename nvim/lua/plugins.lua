@@ -88,6 +88,9 @@ local plugins = {
   ["guns/vim-sexp"] = {
     ft = "clojure",
   },
+  ["tpope/vim-sexp-mappings-for-regular-people"] = {
+    ft = "clojure",
+  },
   ["eraserhd/parinfer-rust"] = {
     ft = "clojure",
     run = "cargo build --release",
