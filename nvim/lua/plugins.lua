@@ -56,14 +56,7 @@ local plugins = {
       "hrsh7th/cmp-path",
     },
     config = function()
-      require("cmp").setup({
-        sources = {
-          { name = "nvim_lsp" },
-          { name = "buffer" },
-          { name = "nvim_lua" },
-          { name = "path" },
-        },
-      })
+      require("completion")
     end,
   },
   ["neovim/nvim-lspconfig"] = {
@@ -86,9 +79,6 @@ local plugins = {
     ft = "clojure",
   },
   ["guns/vim-sexp"] = {
-    ft = "clojure",
-  },
-  ["tpope/vim-sexp-mappings-for-regular-people"] = {
     ft = "clojure",
   },
   ["eraserhd/parinfer-rust"] = {

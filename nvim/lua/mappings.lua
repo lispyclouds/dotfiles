@@ -22,3 +22,14 @@ local normal_mappings = {
 for mapping, action in pairs(normal_mappings) do
   vim.api.nvim_set_keymap("n", mapping, action, { noremap = true, silent = true })
 end
+
+local sexp_mappings = {
+  [">)"] = "sexp_capture_next_element",
+  ["<("] = "sexp_capture_prev_element",
+  [">("] = "sexp_emit_head_element",
+  ["<)"] = "sexp_emit_tail_element",
+}
+
+for mapping, action in pairs(sexp_mappings) do
+  vim.api.nvim_command("autocmd FileType clojure nmap <buffer> " .. mapping .. " <Plug>(" .. action .. ")")
+end
