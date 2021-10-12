@@ -33,7 +33,9 @@ vim.o.shortmess = "I"
 vim.o.guifont = "JetBrainsMono Nerd Font Mono:h15"
 vim.o.mouse = "a"
 
-vim.api.nvim_command('autocmd TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=150, on_visual=true}')
+vim.api.nvim_command(
+  'autocmd TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=150, on_visual=true}'
+)
 
 return {
   pairing_mode = function()

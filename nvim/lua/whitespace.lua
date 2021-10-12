@@ -5,7 +5,7 @@ local patterns = {
   [[%s/\%^\n\+//]],
 }
 
-vim.cmd([[autocmd BufWritePre * lua require("whitespace").trim()]])
+vim.cmd('autocmd BufWritePre * lua require("whitespace").trim()')
 
 return {
   trim = function()
