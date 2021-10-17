@@ -42,7 +42,7 @@ local plugins = {
       require("bufferline").setup({})
     end,
   },
-  ["tamton-aquib/staline.nvim"] = {
+  ["windwp/windline.nvim"] = {
     after = "nvim-bufferline.lua",
     config = function()
       require("statusline")
