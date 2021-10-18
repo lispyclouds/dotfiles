@@ -17,7 +17,7 @@ local hl_list = {
 }
 local config = {}
 
-config.divider = { b_components.divider, "" }
+config.divider = { b_components.divider, hl_list.Inactive }
 config.file_name_inactive = { b_components.full_file_name, hl_list.Inactive }
 config.line_col_inactive = { b_components.line_col, hl_list.Inactive }
 config.progress_inactive = { b_components.progress, hl_list.Inactive }
@@ -157,7 +157,7 @@ local explorer = {
   active = {
     { " \u{e5ff} ", { "white", "black_light" } },
     { helper.separators.slant_right, { "black_light", "NormalBg" } },
-    { b_components.divider, "" },
+    config.divider,
     { b_components.file_name("?"), { "NormalFg", "NormalBg" } },
   },
   always_active = true,
@@ -166,6 +166,10 @@ local explorer = {
 
 windline.setup({
   colors_name = function(colors)
+    colors.ActiveBg = "NONE"
+    colors.InactiveBg = "NONE"
+    colors.NormalBg = "NONE"
+
     return colors
   end,
   statuslines = {
