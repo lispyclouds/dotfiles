@@ -61,9 +61,9 @@ config.lsp = {
   text = function(bufnr)
     if lsp_comps.check_lsp(bufnr) then
       return {
-        { lsp_comps.lsp_error({ format = " ? %s" }), "red" },
-        { lsp_comps.lsp_warning({ format = " ? %s" }), "yellow" },
-        { lsp_comps.lsp_hint({ format = " ? %s" }), "blue" },
+        { lsp_comps.lsp_error({ format = " \u{f071} %s" }), "red" },
+        { lsp_comps.lsp_warning({ format = " \u{f071} %s" }), "yellow" },
+        { lsp_comps.lsp_hint({ format = " \u{f685} %s" }), "blue" },
       }
     end
 
@@ -81,7 +81,7 @@ config.file = {
       { b_components.cache_file_icon({ default = "?" }), "default" },
       { " ", "default" },
       { b_components.cache_file_name("[No Name]", "unique") },
-      { b_components.file_modified("? ") },
+      { b_components.file_modified("[+] ") },
       { b_components.cache_file_size() },
     }
   end,
@@ -96,9 +96,8 @@ config.right = {
   text = function()
     return {
       { sep.left_rounded, "sep_before" },
-      { "l/n", "text" },
+      { "\u{fa70}", "text" },
       { b_components.line_col_lua },
-      { "?" },
       { b_components.progress_lua },
       { sep.right_rounded, "sep_after" },
     }
@@ -117,9 +116,9 @@ config.git = {
     if git_comps.is_git(bufnr) then
       return {
         { " " },
-        { git_comps.diff_added({ format = "? %s" }), "green" },
-        { git_comps.diff_removed({ format = " ? %s" }), "red" },
-        { git_comps.diff_changed({ format = " ?%s" }), "blue" },
+        { git_comps.diff_added({ format = "+%s" }), "green" },
+        { git_comps.diff_removed({ format = " -%s" }), "red" },
+        { git_comps.diff_changed({ format = " ~%s" }), "blue" },
       }
     end
 
@@ -138,7 +137,7 @@ local default = {
     config.lsp,
     config.git,
     config.divider,
-    { git_comps.git_branch({ icon = " ? " }), { "green", "black" }, 90 },
+    { git_comps.git_branch({ icon = " \u{e0a0} " }), { "green", "black" }, 90 },
     { " ", hl_list.Active },
     config.right,
     { " ", hl_list.Active },
@@ -156,7 +155,7 @@ local default = {
 local explorer = {
   filetypes = { "NvimTree" },
   active = {
-    { " ? ", { "white", "black_light" } },
+    { " \u{e5ff} ", { "white", "black_light" } },
     { helper.separators.slant_right, { "black_light", "NormalBg" } },
     { b_components.divider, "" },
     { b_components.file_name("?"), { "NormalFg", "NormalBg" } },
