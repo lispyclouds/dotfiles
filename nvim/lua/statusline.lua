@@ -166,10 +166,6 @@ local explorer = {
 
 windline.setup({
   colors_name = function(colors)
-    colors.ActiveBg = "NONE"
-    colors.InactiveBg = "NONE"
-    colors.NormalBg = "NONE"
-
     return colors
   end,
   statuslines = {

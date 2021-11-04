@@ -81,21 +81,21 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export BAT_STYLE=plain
 source $HOME/.cargo/env
 
-alias graal='export JAVA_HOME=$(/usr/libexec/java_home -v 11) && export GRAALVM_HOME=$JAVA_HOME'
+alias graal='export JAVA_HOME=$(/usr/libexec/java_home -v 17) && export GRAALVM_HOME=$JAVA_HOME'
 alias hotspot='export JAVA_HOME=$(/usr/libexec/java_home)'
-alias vim=nvim
+alias v=nvim
 alias ping='prettyping --nolegend'
 alias cat=bat
-alias rc='podman rm -f `podman ps -aq`'
-alias ri='podman image rm -f `docker image ls -aq`'
-alias pil='podman image ls'
-alias pps='podman ps -a'
+alias rc='docker rm -f `docker ps -aq`'
+alias ri='docker image rm -f `docker image ls -aq`'
+alias il='docker image ls'
+alias cps='docker ps -a'
 alias rbl='clojure -Sdeps "{:deps {com.bhauman/rebel-readline {:mvn/version \"LATEST\"}}}" -M -m rebel-readline.main'
 alias ls=exa
 alias repl='clojure -Sdeps "{:deps {nrepl/nrepl {:mvn/version \"RELEASE\"} cider/cider-nrepl {:mvn/version \"RELEASE\"}}}" -M -m nrepl.cmdline --middleware "[\"cider.nrepl/cider-middleware\"]"'
 
 function di() {
-  podman image rm $(podman images -q | head -${1-"1"})
+  docker image rm $(docker images -q | head -${1-"1"})
 }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
