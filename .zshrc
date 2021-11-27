@@ -1,111 +1,109 @@
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(virtualenv status)
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
 
-zstyle ':z4h:'                auto-update      'ask'
-zstyle ':z4h:'                auto-update-days '7'
-zstyle ':z4h:bindkey'         keyboard         'mac'
-zstyle ':z4h:fzf-complete'    fzf-bindings     'tab:down'
-zstyle ':z4h:cd-down'         fzf-bindings     'tab:down'
-zstyle ':z4h:autosuggestions' forward-char     'accept'
-zstyle ':z4h:ssh:*'           send-extra-files '~/.iterm2_shell_integration.zsh'
-zstyle ':z4h:ssh:some-host'   passthrough      'yes'
-zstyle ':zle:up-line-or-beginning-search'   leave-cursor 'yes'
-zstyle ':zle:down-line-or-beginning-search' leave-cursor 'yes'
+zstyle ':z4h:' auto-update      'no'
+zstyle ':z4h:' auto-update-days '28'
+zstyle ':z4h:' prompt-at-bottom 'no'
+zstyle ':z4h:bindkey' keyboard  'pc'
+zstyle ':z4h:autosuggestions' forward-char 'accept'
+zstyle ':z4h:fzf-complete' recurse-dirs 'no'
+zstyle ':z4h:direnv'         enable 'no'
+zstyle ':z4h:direnv:success' notify 'yes'
+zstyle ':z4h:ssh:example-hostname1'   enable 'yes'
+zstyle ':z4h:ssh:*.example-hostname2' enable 'no'
+zstyle ':z4h:ssh:*'                   enable 'no'
+zstyle ':z4h:ssh:*' send-extra-files '~/.nanorc' '~/.env.zsh'
 
 z4h install ohmyzsh/ohmyzsh || return
-z4h init || return
 
-export GPG_TTY=$TTY
+z4h init || return
 
 path=(~/bin $path)
 
-z4h source $Z4H/ohmyzsh/ohmyzsh/lib/diagnostics.zsh
-z4h source $Z4H/ohmyzsh/ohmyzsh/plugins/emoji-clock/emoji-clock.plugin.zsh
-z4h source $Z4H/ohmyzsh/ohmyzsh/plugins/git/git.plugin.zsh
-z4h source $Z4H/ohmyzsh/ohmyzsh/plugins/common-aliases/common-aliases.plugin.zsh
-fpath+=($Z4H/ohmyzsh/ohmyzsh/plugins/supervisor)
-z4h source ~/.iterm2_shell_integration.zsh
+export GPG_TTY=$TTY
+
+z4h source ~/.env.zsh
+z4h source ohmyzsh/ohmyzsh/lib/diagnostics.zsh
+
+z4h load ohmyzsh/ohmyzsh/plugins/emoji-clock
+z4h load ohmyzsh/ohmyzsh/plugins/git
+z4h load ohmyzsh/ohmyzsh/plugins/common-aliases
 
 autoload -Uz zmv
 
-function md() {
-  [[ $# == 1 ]] && mkdir -p -- "$1" && cd -- "$1"
-}
+function md() { [[ $# == 1 ]] && mkdir -p -- "$1" && cd -- "$1" }
 compdef _directories md
 
-[[ -n $z4h_win_home ]] && hash -d w=$z4h_win_home
+# Define named directories: ~w <=> Windows home directory on WSL.
+[[ -z $z4h_win_home ]] || hash -d w=$z4h_win_home
 
 alias tree='tree -a -I .git'
-
 alias ls="${aliases[ls]:-ls} -A"
 
-setopt glob_dots
-setopt no_auto_menu
+setopt glob_dots     # no special treatment for file names with a leading dot
+setopt no_auto_menu  # require an extra TAB press to open the completion menu
 
-eval "$(thefuck --alias)"
+setopt EXTENDED_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_FIND_NO_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_BEEP
 
-eval "$(zoxide init zsh)"
-
-alias nvim_update="nvim +'autocmd User PackerComplete sleep 100m | qall' +PackerSync +TSUpdate"
-
-alias u="brew update                  && \
-         brew upgrade                 && \
-         brew upgrade --cask --greedy && \
-         brew cleanup -s              && \
-         rustup self update || true   && \
-         rustup update || true        && \
-         nvim_update                  && \
-         z4h update"
-
-if [ ! -f ~/.lispy_first_setup_complete ]
-then
-    sudo ln -s /usr/local/sbin/mount_ntfs "/Volumes/Macintosh HD/sbin/mount_ntfs"
-
-    $(brew --prefix)/opt/fzf/install
-
-    touch ~/.lispy_first_setup_complete
-fi
-
-export GOPATH=$HOME/.go
-export JAVA_HOME=$(/usr/libexec/java_home)
-export PATH="$PATH:/usr/local/opt/llvm/bin:\
-/Users/$(whoami)/.local/bin:\
-/usr/local/opt/ruby/bin:\
-/usr/local/bin:\
-/usr/local/sbin:\
-/Users/$(whoami)/.vim/plugged/vim-iced/bin"
 export EDITOR=nvim
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export BAT_STYLE=plain
-source $HOME/.cargo/env
+export GOPATH=$HOME/.go
 
-alias graal='export JAVA_HOME=$(/usr/libexec/java_home -v 17) && export GRAALVM_HOME=$JAVA_HOME'
-alias hotspot='export JAVA_HOME=$(/usr/libexec/java_home)'
-alias v=nvim
-alias ping='prettyping --nolegend'
 alias cat=bat
-alias rc='docker rm -f `docker ps -aq`'
-alias ri='docker image rm -f `docker image ls -aq`'
-alias il='docker image ls'
-alias cps='docker ps -a'
+alias rc='podman rm -f `docker ps -aq`'
+alias ri='podman image rm -f `podman image ls -aq`'
+alias il='podman image ls'
+alias cps='podman ps -a'
 alias rbl='clojure -Sdeps "{:deps {com.bhauman/rebel-readline {:mvn/version \"LATEST\"}}}" -M -m rebel-readline.main'
 alias ls=exa
 alias repl='clojure -Sdeps "{:deps {nrepl/nrepl {:mvn/version \"RELEASE\"} cider/cider-nrepl {:mvn/version \"RELEASE\"}}}" -M -m nrepl.cmdline --middleware "[\"cider.nrepl/cider-middleware\"]"'
+alias nvim_update="nvim +'autocmd User PackerComplete sleep 100m | qall' +PackerSync +TSUpdate"
+
+eval "$(zoxide init zsh)"
+source $HOME/.cargo/env
+
+source /usr/share/fzf/shell/key-bindings.zsh
+bindkey "^[[A" fzf-history-widget
 
 function di() {
-  docker image rm $(docker images -q | head -${1-"1"})
+  podman image rm $(podman images -q | head -${1-"1"})
 }
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-bindkey "^[[A" fzf-history-widget
 
 _bb_tasks() {
     local matches=(`bb tasks | tail -n +3 | cut -f1 -d ' '`)
     compadd -a matches
     _files # autocomplete filenames as well
 }
+
 compdef _bb_tasks bb
 
-source ~/.extras.sh || true
+if [[ `uname` == "Darwin" ]]; then
+  alias u="brew update                  && \
+           brew upgrade                 && \
+           brew upgrade --cask --greedy && \
+           brew cleanup -s              && \
+           rustup self update || true   && \
+           rustup update || true        && \
+           nvim_update                  && \
+           z4h update"
+
+  if [ ! -f ~/.lispy_first_setup_complete ]; then
+    sudo ln -s /usr/local/sbin/mount_ntfs "/Volumes/Macintosh HD/sbin/mount_ntfs"
+    $(brew --prefix)/opt/fzf/install
+    touch ~/.lispy_first_setup_complete
+  fi
+else
+  alias u="sudo dnf update -y         && \
+           rustup self update || true && \
+           rustup update || true      && \
+           nvim_update                && \
+           z4h update"
+fi
