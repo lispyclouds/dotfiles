@@ -2,12 +2,14 @@ POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
 
 zstyle ':z4h:' auto-update      'no'
 zstyle ':z4h:' auto-update-days '28'
+
 zstyle ':z4h:' prompt-at-bottom 'no'
-zstyle ':z4h:bindkey' keyboard  'pc'
 zstyle ':z4h:autosuggestions' forward-char 'accept'
 zstyle ':z4h:fzf-complete' recurse-dirs 'no'
+
 zstyle ':z4h:direnv'         enable 'no'
 zstyle ':z4h:direnv:success' notify 'yes'
+
 zstyle ':z4h:ssh:example-hostname1'   enable 'yes'
 zstyle ':z4h:ssh:*.example-hostname2' enable 'no'
 zstyle ':z4h:ssh:*'                   enable 'no'
@@ -86,6 +88,7 @@ _bb_tasks() {
 compdef _bb_tasks bb
 
 if [[ `uname` == "Darwin" ]]; then
+  zstyle ':z4h:bindkey' keyboard 'mac'
   alias u="brew update                  && \
            brew upgrade                 && \
            brew upgrade --cask --greedy && \
@@ -101,6 +104,7 @@ if [[ `uname` == "Darwin" ]]; then
     touch ~/.lispy_first_setup_complete
   fi
 else
+  zstyle ':z4h:bindkey' keyboard 'pc'
   alias u="sudo dnf update -y         && \
            rustup self update || true && \
            rustup update || true      && \
