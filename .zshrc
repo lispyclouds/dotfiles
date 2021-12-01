@@ -72,8 +72,6 @@ alias nvim_update="nvim +'autocmd User PackerComplete sleep 100m | qall' +Packer
 eval "$(zoxide init zsh)"
 source $HOME/.cargo/env
 
-source /usr/share/fzf/shell/key-bindings.zsh
-bindkey "^[[A" fzf-history-widget
 
 function di() {
   podman image rm $(podman images -q | head -${1-"1"})
@@ -97,7 +95,7 @@ if [[ `uname` == "Darwin" ]]; then
            rustup update || true        && \
            nvim_update                  && \
            z4h update"
-
+  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
   if [ ! -f ~/.lispy_first_setup_complete ]; then
     sudo ln -s /usr/local/sbin/mount_ntfs "/Volumes/Macintosh HD/sbin/mount_ntfs"
     $(brew --prefix)/opt/fzf/install
@@ -105,9 +103,12 @@ if [[ `uname` == "Darwin" ]]; then
   fi
 else
   zstyle ':z4h:bindkey' keyboard 'pc'
+  source /usr/share/fzf/shell/key-bindings.zsh
   alias u="sudo dnf update -y         && \
            rustup self update || true && \
            rustup update || true      && \
            nvim_update                && \
            z4h update"
 fi
+
+bindkey "^[[A" fzf-history-widget
