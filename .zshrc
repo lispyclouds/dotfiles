@@ -6,6 +6,7 @@ zstyle ':z4h:' auto-update-days '28'
 zstyle ':z4h:' prompt-at-bottom 'no'
 zstyle ':z4h:autosuggestions' forward-char 'accept'
 zstyle ':z4h:fzf-complete' recurse-dirs 'no'
+zstyle :z4h: start-tmux 'no'
 
 zstyle ':z4h:direnv'         enable 'no'
 zstyle ':z4h:direnv:success' notify 'yes'
