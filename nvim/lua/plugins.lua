@@ -5,7 +5,8 @@ local buf_enter = "BufEnter"
 local plugins = {
   ["wbthomason/packer.nvim"] = {},
   ["kyazdani42/nvim-web-devicons"] = {},
-  ["folke/tokyonight.nvim"] = { -- colorscheme
+  ["catppuccin/nvim"] = { -- colorscheme
+    as = "catppuccin",
     after = "packer.nvim",
     config = function()
       require("colorscheme")
