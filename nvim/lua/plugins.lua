@@ -14,7 +14,6 @@ local plugins = {
   },
   ["nvim-treesitter/nvim-treesitter"] = {
     run = ":TSUpdate",
-    branch = "0.5-compat",
     config = function()
       require("treesitter")
     end,
