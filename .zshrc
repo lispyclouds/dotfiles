@@ -59,12 +59,13 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export BAT_STYLE=plain
 export GOPATH=$HOME/.go
+export PATH=$PATH:$GOPATH/bin
 
 alias cat=bat
-alias rc='podman rm -f `docker ps -aq`'
-alias ri='podman image rm -f `podman image ls -aq`'
-alias il='podman image ls'
-alias cps='podman ps -a'
+alias rc='docker rm -f `docker ps -aq`'
+alias ri='docker image rm -f `docker image ls -aq`'
+alias il='docker image ls'
+alias cps='docker ps -a'
 alias rbl='clojure -Sdeps "{:deps {com.bhauman/rebel-readline {:mvn/version \"LATEST\"}}}" -M -m rebel-readline.main'
 alias ls=exa
 alias repl='clojure -Sdeps "{:deps {nrepl/nrepl {:mvn/version \"RELEASE\"} cider/cider-nrepl {:mvn/version \"RELEASE\"}}}" -M -m nrepl.cmdline --middleware "[\"cider.nrepl/cider-middleware\"]"'
@@ -75,7 +76,7 @@ source $HOME/.cargo/env
 
 
 function di() {
-  podman image rm $(podman images -q | head -${1-"1"})
+  docker image rm $(docker images -q | head -${1-"1"})
 }
 
 _bb_tasks() {
