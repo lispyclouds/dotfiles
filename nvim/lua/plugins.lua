@@ -5,7 +5,7 @@ local buf_enter = "BufEnter"
 local plugins = {
   ["wbthomason/packer.nvim"] = {},
   ["kyazdani42/nvim-web-devicons"] = {},
-  ["catppuccin/nvim"] = { -- colorscheme
+  ["rebelot/kanagawa.nvim"] = { -- colorscheme
     as = "catppuccin",
     after = "packer.nvim",
     config = function()
@@ -45,7 +45,7 @@ local plugins = {
   ["windwp/windline.nvim"] = {
     after = "nvim-bufferline.lua",
     config = function()
-      require("statusline")
+      require("wlsample.bubble")
     end,
   },
   ["hrsh7th/nvim-cmp"] = {

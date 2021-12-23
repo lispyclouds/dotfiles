@@ -114,3 +114,5 @@ else
 fi
 
 bindkey "^[[A" fzf-history-widget
+
+source ~/.extras.sh > /dev/null 2>&1 || true
