@@ -92,7 +92,7 @@ if [[ `uname` == "Darwin" ]]; then
   alias u="brew update                  && \
            brew upgrade                 && \
            brew upgrade --cask --greedy && \
-           brew cleanup -s              && \
+           brew cleanup --prune=1       && \
            rustup self update || true   && \
            rustup update || true        && \
            nvim_update                  && \
