@@ -67,13 +67,13 @@ alias ri='docker image rm -f `docker image ls -aq`'
 alias il='docker image ls'
 alias cps='docker ps -a'
 alias rbl='clojure -Sdeps "{:deps {com.bhauman/rebel-readline {:mvn/version \"LATEST\"}}}" -M -m rebel-readline.main'
-alias ls=exa
+alias ls=lsd
 alias repl='clojure -Sdeps "{:deps {nrepl/nrepl {:mvn/version \"RELEASE\"} cider/cider-nrepl {:mvn/version \"RELEASE\"}}}" -M -m nrepl.cmdline --middleware "[\"cider.nrepl/cider-middleware\"]"'
 alias nvim_update="nvim +'autocmd User PackerComplete sleep 100m | qall' +PackerSync +TSUpdate"
+alias antq="clojure -Sdeps '{:deps {com.github.liquidz/antq {:mvn/version \"RELEASE\"}}}' -M -m antq.core"
 
 eval "$(zoxide init zsh)"
 source $HOME/.cargo/env
-
 
 function di() {
   docker image rm $(docker images -q | head -${1-"1"})
@@ -107,6 +107,10 @@ else
   zstyle ':z4h:bindkey' keyboard 'pc'
   source /usr/share/fzf/shell/key-bindings.zsh
   alias u="sudo dnf update -y         && \
+           flatpak update             && \
+           brew update                && \
+           brew upgrade               && \
+           brew cleanup -s            && \
            rustup self update || true && \
            rustup update || true      && \
            nvim_update                && \
