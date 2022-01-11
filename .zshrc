@@ -1,7 +1,6 @@
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
 
 zstyle ':z4h:' auto-update      'no'
-zstyle ':z4h:' auto-update-days '28'
 
 zstyle ':z4h:' prompt-at-bottom 'no'
 zstyle ':z4h:autosuggestions' forward-char 'accept'
@@ -9,7 +8,6 @@ zstyle ':z4h:fzf-complete' recurse-dirs 'no'
 zstyle :z4h: start-tmux 'no'
 
 zstyle ':z4h:direnv'         enable 'no'
-zstyle ':z4h:direnv:success' notify 'yes'
 
 zstyle ':z4h:ssh:example-hostname1'   enable 'yes'
 zstyle ':z4h:ssh:*.example-hostname2' enable 'no'
@@ -35,9 +33,6 @@ autoload -Uz zmv
 
 function md() { [[ $# == 1 ]] && mkdir -p -- "$1" && cd -- "$1" }
 compdef _directories md
-
-# Define named directories: ~w <=> Windows home directory on WSL.
-[[ -z $z4h_win_home ]] || hash -d w=$z4h_win_home
 
 alias tree='tree -a -I .git'
 alias ls="${aliases[ls]:-ls} -A"
