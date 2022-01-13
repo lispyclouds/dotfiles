@@ -33,6 +33,9 @@ local plugins = {
           enable = true,
           update_cwd = true,
         },
+        git = {
+          ignore = false,
+        },
       })
     end,
   },
