@@ -24,6 +24,15 @@ local plugins = {
       "nvim-lua/popup.nvim",
       "nvim-lua/plenary.nvim",
     },
+    config = function()
+      require("telescope").setup {
+        pickers = {
+          find_files = {
+            hidden = true,
+          },
+        },
+      }
+    end,
   },
   ["kyazdani42/nvim-tree.lua"] = {
     cmd = "NvimTreeToggle",
@@ -116,7 +125,20 @@ local plugins = {
       })
     end,
   },
-  ["ellisonleao/glow.nvim"] = {},
+  ["mfussenegger/nvim-lint"] = {
+    event = buf_read,
+    config = function()
+      local sh = { "shellcheck" }
+
+      vim.cmd([[autocmd BufEnter,InsertLeave,TextChanged * lua require("lint").try_lint()]])
+
+      require("lint").linters_by_ft = {
+        zsh = sh,
+        sh = sh,
+        dockerfile = { "hadolint" },
+      }
+    end,
+  },
 }
 
 if fn.empty(fn.glob(install_path)) > 0 then
