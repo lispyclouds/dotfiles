@@ -57,10 +57,11 @@ export GOPATH=$HOME/.go
 export PATH=$PATH:$GOPATH/bin
 
 alias cat=bat
-alias rc='docker rm -f `docker ps -aq`'
-alias ri='docker image rm -f `docker image ls -aq`'
-alias il='docker image ls'
-alias cps='docker ps -a'
+alias cengine=podman # default
+alias rc='cengine rm -f `podman ps -aq`'
+alias ri='cengine image rm -f `podman image ls -aq`'
+alias il='cengine image ls'
+alias cps='cengine ps -a'
 alias rbl='clojure -Sdeps "{:deps {com.bhauman/rebel-readline {:mvn/version \"LATEST\"}}}" -M -m rebel-readline.main'
 alias ls=lsd
 alias repl='clojure -Sdeps "{:deps {nrepl/nrepl {:mvn/version \"RELEASE\"} cider/cider-nrepl {:mvn/version \"RELEASE\"}}}" -M -m nrepl.cmdline --middleware "[\"cider.nrepl/cider-middleware\"]"'
@@ -71,7 +72,7 @@ eval "$(zoxide init zsh)"
 source $HOME/.cargo/env
 
 function di() {
-  docker image rm $(docker images -q | head -${1-"1"})
+  cengine image rm $(cengine images -q | head -${1-"1"})
 }
 
 _bb_tasks() {
