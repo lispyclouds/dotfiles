@@ -54,12 +54,12 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export BAT_STYLE=plain
 export GOPATH=$HOME/.go
-export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOPATH/bin:~/.poetry/bin
 
 alias cat=bat
 alias cengine=podman # default
-alias rc='cengine rm -f `podman ps -aq`'
-alias ri='cengine image rm -f `podman image ls -aq`'
+alias rc='cengine rm -f `cengine ps -aq`'
+alias ri='cengine image rm -f `cengine image ls -aq`'
 alias il='cengine image ls'
 alias cps='cengine ps -a'
 alias rbl='clojure -Sdeps "{:deps {com.bhauman/rebel-readline {:mvn/version \"LATEST\"}}}" -M -m rebel-readline.main'
