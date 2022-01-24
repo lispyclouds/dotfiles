@@ -53,10 +53,10 @@ local plugins = {
       require("bufferline").setup({})
     end,
   },
-  ["windwp/windline.nvim"] = {
+  ["beauwilliams/statusline.lua"] = {
     after = "nvim-bufferline.lua",
     config = function()
-      require("wlsample.bubble")
+      require("statusline").tabline = false
     end,
   },
   ["hrsh7th/nvim-cmp"] = {
