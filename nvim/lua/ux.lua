@@ -30,7 +30,7 @@ vim.o.shiftwidth = 2
 vim.o.tabstop = 2
 vim.o.completeopt = "menuone,noselect"
 vim.o.shortmess = "I"
-vim.o.guifont = "JetBrainsMono Nerd Font Mono:h22"
+vim.o.guifont = "JetBrainsMono Nerd Font Mono:h20"
 vim.o.mouse = "a"
 
 vim.api.nvim_command(
