@@ -34,7 +34,7 @@ local plugins = {
     end,
   },
   ["kyazdani42/nvim-tree.lua"] = {
-    cmd = "NvimTreeToggle",
+    event = buf_enter,
     config = function()
       require("nvim-tree").setup({
         update_focused_file = {
