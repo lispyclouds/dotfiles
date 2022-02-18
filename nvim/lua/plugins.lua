@@ -37,6 +37,7 @@ local plugins = {
     event = buf_enter,
     config = function()
       require("nvim-tree").setup({
+        hijack_unnamed_buffer_when_opening = false,
         update_focused_file = {
           enable = true,
           update_cwd = true,
