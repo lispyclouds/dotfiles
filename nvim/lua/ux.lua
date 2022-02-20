@@ -30,8 +30,13 @@ vim.o.shiftwidth = 2
 vim.o.tabstop = 2
 vim.o.completeopt = "menuone,noselect"
 vim.o.shortmess = "I"
-vim.o.guifont = "JetBrainsMono Nerd Font Mono:h20"
 vim.o.mouse = "a"
+
+if vim.loop.os_uname().sysname == "Linux" then
+  vim.o.guifont = "JetBrainsMono Nerd Font Mono:h16"
+else
+  vim.o.guifont = "JetBrainsMono Nerd Font Mono:h20"
+end
 
 vim.api.nvim_command(
   'autocmd TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=150, on_visual=true}'
