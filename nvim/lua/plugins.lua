@@ -2,6 +2,7 @@ local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 local buf_read = "BufRead"
 local buf_enter = "BufEnter"
+local vim_enter = "VimEnter"
 local plugins = {
   ["wbthomason/packer.nvim"] = {},
   ["kyazdani42/nvim-web-devicons"] = {},
@@ -18,7 +19,7 @@ local plugins = {
     end,
   },
   ["nvim-telescope/telescope.nvim"] = {
-    cmd = "Telescope",
+    event = vim_enter,
     requires = {
       "nvim-lua/popup.nvim",
       "nvim-lua/plenary.nvim",
@@ -101,13 +102,13 @@ local plugins = {
     ft = "terraform",
   },
   ["folke/which-key.nvim"] = {
-    event = "VimEnter",
+    event = vim_enter,
     config = function()
       require("which-key").setup({})
     end,
   },
   ["p00f/nvim-ts-rainbow"] = {
-    event = buf_read,
+    event = vim_enter,
     requires = "neovim/nvim-lspconfig",
     config = function()
       require("nvim-treesitter.configs").setup({
