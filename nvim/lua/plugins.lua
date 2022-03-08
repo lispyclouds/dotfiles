@@ -119,13 +119,6 @@ local plugins = {
       })
     end,
   },
-  ["blackCauldron7/surround.nvim"] = {
-    config = function()
-      require("surround").setup({
-        mappings_style = "surround",
-      })
-    end,
-  },
   ["mfussenegger/nvim-lint"] = {
     event = buf_read,
     config = function()
