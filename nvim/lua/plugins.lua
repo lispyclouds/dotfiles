@@ -6,7 +6,8 @@ local vim_enter = "VimEnter"
 local plugins = {
   ["wbthomason/packer.nvim"] = {},
   ["kyazdani42/nvim-web-devicons"] = {},
-  ["EdenEast/nightfox.nvim"] = { -- colorscheme
+  ["catppuccin/nvim"] = { -- colorscheme
+    as = "catppuccin",
     after = "packer.nvim",
     config = function()
       require("colorscheme")
@@ -25,13 +26,13 @@ local plugins = {
       "nvim-lua/plenary.nvim",
     },
     config = function()
-      require("telescope").setup {
+      require("telescope").setup({
         pickers = {
           find_files = {
             hidden = true,
           },
         },
-      }
+      })
     end,
   },
   ["kyazdani42/nvim-tree.lua"] = {

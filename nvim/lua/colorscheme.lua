@@ -1,4 +1,10 @@
 vim.o.background = "dark"
 vim.o.termguicolors = true
 
-require("nightfox").load("nightfox")
+require("catppuccin").load({
+  term_colors = true,
+  integrations = {
+    which_key = true,
+    ts_rainbow = true,
+  },
+})

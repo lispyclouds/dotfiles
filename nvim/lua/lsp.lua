@@ -10,5 +10,5 @@ lsps = {
 }
 
 for _, lsp in pairs(lsps) do
-  lspconfig[lsp].setup{}
+  lspconfig[lsp].setup({})
 end
