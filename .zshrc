@@ -77,12 +77,24 @@ function di() {
 }
 
 _bb_tasks() {
-    local matches=(`bb tasks | tail -n +3 | cut -f1 -d ' '`)
-    compadd -a matches
-    _files # autocomplete filenames as well
+  local matches=(`bb tasks | tail -n +3 | cut -f1 -d ' '`)
+  compadd -a matches
+  _files # autocomplete filenames as well
 }
 
 compdef _bb_tasks bb
+
+function _raw_update() {
+  scripts=(
+    "https://raw.githubusercontent.com/clojure-lsp/clojure-lsp/master/install"
+    "https://raw.githubusercontent.com/babashka/babashka/master/install"
+    "https://download.clojure.org/install/linux-install.sh"
+  )
+
+  for script in ${scripts[*]}; do
+    sudo bash < <(curl -s ${script})
+  done
+}
 
 if [[ `uname` == "Darwin" ]]; then
   zstyle ':z4h:bindkey' keyboard 'mac'
@@ -105,12 +117,10 @@ else
   source /usr/share/fzf/shell/key-bindings.zsh
   alias u="sudo dnf update -y         && \
            flatpak update             && \
-           brew update                && \
-           brew upgrade               && \
-           brew cleanup -s            && \
            rustup self update || true && \
            rustup update || true      && \
            nvim_update                && \
+           _raw_update || true        && \
            z4h update"
 fi
 
