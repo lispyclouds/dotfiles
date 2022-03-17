@@ -1,0 +1,4 @@
+{:tasks {bootstrap-fedora {:doc  "Bootstraps the Fedora 35+ install, add new packages to this."
+                           :task (load-file "tasks/bootstrap-fedora.clj")}
+         zsh-hist-clean   {:doc  "Prints out the unique lines from your zsh history."
+                           :task (load-file "tasks/zsh-hist-clean.clj")}}}

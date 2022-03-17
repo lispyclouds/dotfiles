@@ -64,10 +64,9 @@
        (doall)
        (run! p/check)))
 
-(when (= *file* (System/getProperty "babashka.file"))
-  (-> packages
-      (plan)
-      (exec)))
+(-> packages
+    (plan)
+    (exec))
 
 (comment
   (->cmds ["manager"
