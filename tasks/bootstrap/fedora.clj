@@ -1,17 +1,12 @@
-(ns bootstrap-fedora
+(ns bootstrap.fedora
   (:require [clojure.string :as s]
             [babashka.process :as p]))
 
-(def fedora-version
-  (-> "rpm -E %fedora"
-      (p/sh)
-      (:out)
-      (s/trim-newline)))
-
-(def config
+(defn config
+  [options]
   {"dnf"     {:prep     (format
                           "install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-%s.noarch.rpm"
-                          fedora-version)
+                          (options :fedora-version))
               :cmd      "install -y --setopt=install_weak_deps=False --best"
               :packages ["bat"
                          "black"
@@ -61,12 +56,14 @@
       [install-cmd])))
 
 (defn get-cmds
-  [manager]
-  (when (not (contains? config manager))
-    (throw (Exception. (format "Unknown package manager: %s. Use one of %s"
-                               manager
-                               (s/join ", " (keys config))))))
-  (->cmds manager (config manager)))
+  [manager options]
+  (let [conf         (config options)
+        package-conf (conf manager)]
+    (when (nil? package-conf)
+      (throw (Exception. (format "Unknown package manager: %s. Use one of %s"
+                                 manager
+                                 (s/join ", " (keys conf))))))
+    (->cmds manager package-conf)))
 
 (comment
   (->cmds "manager"
@@ -80,4 +77,4 @@
 
   (:out (p/sh "rpm -E %fedora"))
 
-  (get-cmds "dnf"))
+  (get-cmds "dnf" {:fedora-version "35"}))
