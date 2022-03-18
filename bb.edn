@@ -2,7 +2,8 @@
  :tasks {:requires                 ([clojure.string :as s]
                                     [babashka.process :as p]
                                     [bootstrap.common :as c]
-                                    [bootstrap.fedora :as bf])
+                                    [bootstrap.fedora :as bf]
+                                    [bootstrap.mac :as bm])
          :init                     (defn exec
                                      [cmds]
                                      (run! shell cmds))
@@ -20,5 +21,9 @@
                                                                                  (s/trim-newline))}]
                                                 (bf/config options)))
                                             (run '-bootstrap-fedora {:parallel true}))}
+         bootstrap-mac             {:doc  "Bootstraps a new MacOS installation, assumes brew to be installed."
+                                    :task (-> (bm/config nil)
+                                              (c/get-cmds "brew")
+                                              (exec))}
          zsh-hist-clean            {:doc  "Prints out the unique lines from your zsh history."
                                     :task (load-file "tasks/general/zsh_hist_clean.clj")}}}
