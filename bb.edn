@@ -1,22 +1,24 @@
 {:paths ["tasks"]
  :tasks {:requires                 ([clojure.string :as s]
                                     [babashka.process :as p]
+                                    [bootstrap.common :as c]
                                     [bootstrap.fedora :as bf])
          :init                     (defn exec
                                      [cmds]
                                      (run! shell cmds))
-         -bootstrap-fedora-dnf     (exec (bf/get-cmds "dnf" options))
-         -bootstrap-fedora-flatpak (exec (bf/get-cmds "flatpak" options))
+         -bootstrap-fedora-dnf     (exec (c/get-cmds fedora-config "dnf"))
+         -bootstrap-fedora-flatpak (exec (c/get-cmds fedora-config "flatpak"))
          -bootstrap-fedora-npm     {:depends [-bootstrap-fedora-dnf]
-                                    :task    (exec (bf/get-cmds "npm" options))}
+                                    :task    (exec (c/get-cmds fedora-config "npm"))}
          -bootstrap-fedora         {:depends [-bootstrap-fedora-flatpak -bootstrap-fedora-npm]}
          bootstrap-fedora          {:doc  "Bootstraps the Fedora 35+ install, add new packages to this."
                                     :task (do
-                                            (def options
-                                              {:fedora-version (-> "rpm -E %fedora"
-                                                                   (p/sh)
-                                                                   (:out)
-                                                                   (s/trim-newline))})
+                                            (def fedora-config
+                                              (let [options {:fedora-version (-> "rpm -E %fedora"
+                                                                                 (p/sh)
+                                                                                 (:out)
+                                                                                 (s/trim-newline))}]
+                                                (bf/config options)))
                                             (run '-bootstrap-fedora {:parallel true}))}
          zsh-hist-clean            {:doc  "Prints out the unique lines from your zsh history."
                                     :task (load-file "tasks/general/zsh_hist_clean.clj")}}}

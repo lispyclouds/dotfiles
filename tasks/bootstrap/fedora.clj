@@ -1,6 +1,4 @@
-(ns bootstrap.fedora
-  (:require [clojure.string :as s]
-            [babashka.process :as p]))
+(ns bootstrap.fedora)
 
 (defn config
   [options]
@@ -44,37 +42,3 @@
               :packages ["prettier"
                          "pyright"
                          "yaml-language-server"]}})
-
-(defn ->cmds
-  [manager {:keys [cmd packages prep]}]
-  (let [install-cmd (format "%s %s %s"
-                            manager
-                            cmd
-                            (s/join " " packages))]
-    (if prep
-      [(str manager " " prep) install-cmd]
-      [install-cmd])))
-
-(defn get-cmds
-  [manager options]
-  (let [conf         (config options)
-        package-conf (conf manager)]
-    (when (nil? package-conf)
-      (throw (Exception. (format "Unknown package manager: %s. Use one of %s"
-                                 manager
-                                 (s/join ", " (keys conf))))))
-    (->cmds manager package-conf)))
-
-(comment
-  (->cmds "manager"
-          {:cmd      "install -flag"
-           :packages ["foo" "bar"]
-           :prep     "prep cmd"})
-
-  (->cmds "manager"
-          {:cmd      "install -flag"
-           :packages ["foo" "bar"]})
-
-  (:out (p/sh "rpm -E %fedora"))
-
-  (get-cmds "dnf" {:fedora-version "35"}))
