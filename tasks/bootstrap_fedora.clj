@@ -1,5 +1,6 @@
-(require '[clojure.string :as s]
-         '[babashka.process :as p])
+(ns bootstrap-fedora
+  (:require [clojure.string :as s]
+            [babashka.process :as p]))
 
 (def fedora-version
   (-> "rpm -E %fedora"
@@ -30,6 +31,8 @@
                          "lsd"
                          "neofetch"
                          "neovim"
+                         "nodejs"
+                         "npm"
                          "numix-icon-theme-circle"
                          "rlwrap"
                          "ShellCheck"
@@ -41,10 +44,13 @@
               :packages ["com.getferdi.Ferdi"
                          "com.spotify.Client"
                          "org.signal.Signal"
-                         "org.telegram.desktop"]}})
+                         "org.telegram.desktop"]}
+   "npm"     {:cmd      "install -g"
+              :packages ["prettier"
+                         "yaml-language-server"]}})
 
 (defn ->cmds
-  [[manager {:keys [cmd packages prep]}]]
+  [manager {:keys [cmd packages prep]}]
   (let [install-cmd (format "%s %s %s"
                             manager
                             cmd
@@ -53,20 +59,14 @@
       [(str manager " " prep) install-cmd]
       [install-cmd])))
 
-(defn plan
-  [config]
-  (mapcat ->cmds config))
-
-(defn exec
-  [cmds]
-  (->> cmds
-       (map p/process)
-       (doall)
-       (run! p/check)))
-
-(-> packages
-    (plan)
-    (exec))
+(defn get-cmds
+  [manager]
+  (let [managers (into #{} (keys packages))]
+    (when (not (contains? managers manager))
+      (throw (Exception. (format "Unknown package manager: %s. Use one of %s"
+                                 manager
+                                 (s/join ", " managers))))))
+  (->cmds manager (packages manager)))
 
 (comment
   (->cmds ["manager"
@@ -78,8 +78,6 @@
            {:cmd      "install -flag"
             :packages ["foo" "bar"]}])
 
-  (plan packages)
-
   (:out (p/sh "rpm -E %fedora"))
 
-  (exec ["ls" "ls -alh"]))
+  (get-cmds "dnf"))

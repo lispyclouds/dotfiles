@@ -1,4 +1,14 @@
-{:tasks {bootstrap-fedora {:doc  "Bootstraps the Fedora 35+ install, add new packages to this."
-                           :task (load-file "tasks/bootstrap-fedora.clj")}
-         zsh-hist-clean   {:doc  "Prints out the unique lines from your zsh history."
-                           :task (load-file "tasks/zsh-hist-clean.clj")}}}
+{:paths ["tasks"]
+ :tasks {:requires                 ([bootstrap-fedora :as b])
+         :init                     (defn exec
+                                     [cmds]
+                                     (run! println cmds))
+         -bootstrap-fedora-dnf     (exec (b/get-cmds "dnf"))
+         -bootstrap-fedora-flatpak (exec (b/get-cmds "flatpak"))
+         -bootstrap-fedora-npm     {:depends [-bootstrap-fedora-dnf]
+                                    :task    (exec (b/get-cmds "npm"))}
+         -bootstrap                {:depends [-bootstrap-fedora-flatpak -bootstrap-fedora-npm]}
+         bootstrap-fedora          {:doc  "Bootstraps the Fedora 35+ install, add new packages to this."
+                                    :task (run '-bootstrap {:parallel true})}
+         zsh-hist-clean            {:doc  "Prints out the unique lines from your zsh history."
+                                    :task (load-file "tasks/zsh-hist-clean.clj")}}}
