@@ -105,6 +105,7 @@ if [[ `uname` == "Darwin" ]]; then
            rustup self update || true   && \
            rustup update || true        && \
            nvim_update                  && \
+           npm update -g                && \
            z4h update"
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
   if [ ! -f ~/.lispy_first_setup_complete ]; then
@@ -121,6 +122,7 @@ else
            rustup update || true      && \
            nvim_update                && \
            _raw_update || true        && \
+           sudo npm update -g         && \
            z4h update"
 fi
 

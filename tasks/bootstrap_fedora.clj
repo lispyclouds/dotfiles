@@ -47,6 +47,7 @@
                          "org.telegram.desktop"]}
    "npm"     {:cmd      "install -g"
               :packages ["prettier"
+                         "pyright"
                          "yaml-language-server"]}})
 
 (defn ->cmds
