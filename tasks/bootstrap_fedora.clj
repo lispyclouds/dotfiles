@@ -69,14 +69,14 @@
   (->cmds manager (packages manager)))
 
 (comment
-  (->cmds ["manager"
-           {:cmd      "install -flag"
-            :packages ["foo" "bar"]
-            :prep     "prep cmd"}])
+  (->cmds "manager"
+          {:cmd      "install -flag"
+           :packages ["foo" "bar"]
+           :prep     "prep cmd"})
 
-  (->cmds ["manager"
-           {:cmd      "install -flag"
-            :packages ["foo" "bar"]}])
+  (->cmds "manager"
+          {:cmd      "install -flag"
+           :packages ["foo" "bar"]})
 
   (:out (p/sh "rpm -E %fedora"))
 

@@ -2,7 +2,7 @@
  :tasks {:requires                 ([bootstrap-fedora :as b])
          :init                     (defn exec
                                      [cmds]
-                                     (run! println cmds))
+                                     (run! shell cmds))
          -bootstrap-fedora-dnf     (exec (b/get-cmds "dnf"))
          -bootstrap-fedora-flatpak (exec (b/get-cmds "flatpak"))
          -bootstrap-fedora-npm     {:depends [-bootstrap-fedora-dnf]
