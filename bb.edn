@@ -12,7 +12,7 @@
          -bootstrap-fedora-npm     {:depends [-bootstrap-fedora-dnf]
                                     :task    (exec (c/get-cmds fedora-config "npm"))}
          -bootstrap-fedora         {:depends [-bootstrap-fedora-flatpak -bootstrap-fedora-npm]}
-         bootstrap-fedora          {:doc  "Bootstraps the Fedora 35+ install, add new packages to this."
+         bootstrap-fedora          {:doc  "Bootstraps the Fedora 35+ installation."
                                     :task (do
                                             (def fedora-config
                                               (let [options {:fedora-version (-> "rpm -E %fedora"
@@ -21,9 +21,13 @@
                                                                                  (s/trim-newline))}]
                                                 (bf/config options)))
                                             (run '-bootstrap-fedora {:parallel true}))}
+         -bootstrap-mac            (exec (c/get-cmds mac-config "brew"))
+         -bootstrap-mac-npm        {:depends [-bootstrap-mac]
+                                    :task    (exec (c/get-cmds mac-config "npm"))}
          bootstrap-mac             {:doc  "Bootstraps a new MacOS installation, assumes brew to be installed."
-                                    :task (-> (bm/config nil)
-                                              (c/get-cmds "brew")
-                                              (exec))}
+                                    :task (do
+                                            (def mac-config (bm/config nil))
+
+                                            (run '-bootstrap-mac-npm))}
          zsh-hist-clean            {:doc  "Prints out the unique lines from your zsh history."
                                     :task (load-file "tasks/general/zsh_hist_clean.clj")}}}
