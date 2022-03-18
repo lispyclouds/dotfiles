@@ -8,7 +8,7 @@
       (:out)
       (s/trim-newline)))
 
-(def packages
+(def config
   {"dnf"     {:prep     (format
                           "install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-%s.noarch.rpm"
                           fedora-version)
@@ -61,12 +61,11 @@
 
 (defn get-cmds
   [manager]
-  (let [managers (into #{} (keys packages))]
-    (when (not (contains? managers manager))
-      (throw (Exception. (format "Unknown package manager: %s. Use one of %s"
-                                 manager
-                                 (s/join ", " managers))))))
-  (->cmds manager (packages manager)))
+  (when (not (contains? config manager))
+    (throw (Exception. (format "Unknown package manager: %s. Use one of %s"
+                               manager
+                               (s/join ", " (keys config))))))
+  (->cmds manager (config manager)))
 
 (comment
   (->cmds "manager"
