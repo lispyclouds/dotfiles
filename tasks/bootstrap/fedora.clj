@@ -33,11 +33,12 @@
                          "vlc"
                          "zsh"]}
    "flatpak" {:prep     "remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo"
-              :cmd      "install flathub"
+              :cmd      "install -y flathub"
               :packages ["com.getferdi.Ferdi"
                          "com.spotify.Client"
                          "org.signal.Signal"
-                         "org.telegram.desktop"]}
+                         "org.telegram.desktop"
+                         "us.zoom.Zoom"]}
    "npm"     {:cmd      "install -g"
               :packages ["prettier"
                          "pyright"
