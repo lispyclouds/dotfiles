@@ -56,10 +56,10 @@ local plugins = {
       require("bufferline").setup({})
     end,
   },
-  ["beauwilliams/statusline.lua"] = {
+  ["feline-nvim/feline.nvim"] = {
     after = "nvim-bufferline.lua",
     config = function()
-      require("statusline").tabline = false
+      require("feline").setup()
     end,
   },
   ["hrsh7th/nvim-cmp"] = {
