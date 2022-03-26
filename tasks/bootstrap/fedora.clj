@@ -17,6 +17,7 @@
                          "gnome-shell-extension-gpaste"
                          "gnome-tweaks"
                          "gpaste"
+                         "hadolint"
                          "java-latest-openjdk"
                          "kitty"
                          "libstdc++-devel"
