@@ -3,8 +3,7 @@ vim.g.maplocalleader = ","
 
 local normal_mappings = {
   ["<Leader><CR>"] = ":noh<CR>",
-  ["<Leader>n"] = ":NvimTreeToggle<CR>",
-  ["<Leader>nf"] = ":NvimTreeFindFile<CR>",
+  ["<Leader>n"] = ":Neotree toggle<CR>",
   ["<Leader>l"] = ":BufferLineCycleNext<CR>",
   ["<Leader>h"] = ":BufferLineCyclePrev<CR>",
   ["<Leader>bc"] = ":Bwipeout<CR>",

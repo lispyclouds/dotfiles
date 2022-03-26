@@ -35,17 +35,22 @@ local plugins = {
       })
     end,
   },
-  ["kyazdani42/nvim-tree.lua"] = {
+  ["nvim-neo-tree/neo-tree.nvim"] = {
     event = buf_enter,
+    branch = "v2.x",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+    },
     config = function()
-      require("nvim-tree").setup({
-        hijack_unnamed_buffer_when_opening = false,
-        update_focused_file = {
-          enable = true,
-          update_cwd = true,
-        },
-        git = {
-          ignore = false,
+      require("neo-tree").setup({
+        filesystem = {
+          use_libuv_file_watcher = false,
+          follow_current_file = true,
+          filtered_items = {
+            hide_dotfiles = false,
+            hide_gitignored = false,
+          },
         },
       })
     end,
