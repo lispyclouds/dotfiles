@@ -18,7 +18,7 @@
                          "gnome-tweaks"
                          "gpaste"
                          "hadolint"
-                         "java-latest-openjdk"
+                         "java-latest-openjdk-devel"
                          "kitty"
                          "libstdc++-devel"
                          "libxcb-devel"
