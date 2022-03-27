@@ -34,9 +34,9 @@ vim.o.mouse = "a"
 vim.o.termguicolors = true
 
 if vim.loop.os_uname().sysname == "Linux" then
-  vim.o.guifont = "JetBrainsMono Nerd Font Mono:h16"
+  vim.o.guifont = "JetBrainsMono Nerd Font Mono:h14"
 else
-  vim.o.guifont = "JetBrainsMono Nerd Font Mono:h20"
+  vim.o.guifont = "JetBrainsMono Nerd Font Mono:h14"
 end
 
 vim.api.nvim_command(
