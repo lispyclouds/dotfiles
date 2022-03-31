@@ -64,7 +64,9 @@ local plugins = {
   ["feline-nvim/feline.nvim"] = {
     after = "nvim-bufferline.lua",
     config = function()
-      require("feline").setup()
+      require("feline").setup({
+        components = require("catppuccin.core.integrations.feline"),
+      })
     end,
   },
   ["hrsh7th/nvim-cmp"] = {
