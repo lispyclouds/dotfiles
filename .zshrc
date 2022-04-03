@@ -34,8 +34,7 @@ autoload -Uz zmv
 function md() { [[ $# == 1 ]] && mkdir -p -- "$1" && cd -- "$1" }
 compdef _directories md
 
-alias tree='tree -a -I .git'
-alias ls="${aliases[ls]:-ls} -A"
+alias tree='tree -I .git'
 
 setopt glob_dots     # no special treatment for file names with a leading dot
 setopt no_auto_menu  # require an extra TAB press to open the completion menu

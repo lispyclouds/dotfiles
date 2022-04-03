@@ -10,6 +10,7 @@
                          "black"
                          "bottom"
                          "@development-tools"
+                         "fd-find"
                          "fontconfig-devel"
                          "freetype-devel"
                          "fzf"
