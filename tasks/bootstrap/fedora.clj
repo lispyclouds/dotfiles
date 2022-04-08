@@ -2,9 +2,10 @@
 
 (defn config
   [options]
-  {"dnf"     {:prep     (format
-                          "install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-%s.noarch.rpm"
-                          (options :fedora-version))
+  {"dnf"     {:prep     [(format
+                           "install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-%s.noarch.rpm"
+                           (options :fedora-version))
+                         "config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo"]
               :cmd      "install -y --setopt=install_weak_deps=False --best"
               :packages ["bat"
                          "black"
@@ -31,10 +32,12 @@
                          "papirus-icon-theme"
                          "rlwrap"
                          "ShellCheck"
+                         "terraform"
+                         "terraform-ls"
                          "thunderbird"
                          "vlc"
                          "zsh"]}
-   "flatpak" {:prep     "remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo"
+   "flatpak" {:prep     ["remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo"]
               :cmd      "install -y flathub"
               :packages ["com.getferdi.Ferdi"
                          "com.github.johnfactotum.Foliate"

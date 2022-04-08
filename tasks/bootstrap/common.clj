@@ -6,10 +6,12 @@
   (let [install-cmd (format "%s %s %s"
                             manager
                             cmd
-                            (s/join " " packages))]
-    (if prep
-      [(str manager " " prep) install-cmd]
-      [install-cmd])))
+                            (s/join " " packages))
+        prep-cmds   (if prep
+                      (mapv #(str manager " " %) prep)
+                      [])]
+    (conj prep-cmds install-cmd)
+    [install-cmd]))
 
 (defn get-cmds
   [config manager]
