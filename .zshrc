@@ -88,6 +88,7 @@ function _raw_update() {
     "https://raw.githubusercontent.com/clojure-lsp/clojure-lsp/master/install"
     "https://raw.githubusercontent.com/babashka/babashka/master/install"
     "https://download.clojure.org/install/linux-install.sh"
+    "https://raw.githubusercontent.com/ducaale/xh/master/install.sh"
   )
 
   for script in ${scripts[*]}; do
