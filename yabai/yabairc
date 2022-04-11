@@ -23,17 +23,17 @@ yabai -m config mouse_drop_action            swap
 
 # general space settings
 yabai -m config layout                       bsp
-yabai -m config top_padding                  5
-yabai -m config bottom_padding               5
-yabai -m config left_padding                 5
-yabai -m config right_padding                5
-yabai -m config window_gap                   06
+yabai -m config top_padding                  2
+yabai -m config bottom_padding               2
+yabai -m config left_padding                 2
+yabai -m config right_padding                2
+yabai -m config window_gap                   03
 
 # SIP Required
 # prevent border from being under the active window
 yabai -m config active_window_border_topmost on
 yabai -m config window_shadow                on
 yabai -m config window_opacity               off
-yabai -m config window_border_width          6
+yabai -m config window_border_width          3
 yabai -m config active_window_border_color   0xffff3050
 yabai -m config normal_window_border_color   0xffaaaaaa
