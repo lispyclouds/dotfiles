@@ -32,6 +32,7 @@ vim.o.completeopt = "menuone,noselect"
 vim.o.shortmess = "I"
 vim.o.mouse = "a"
 vim.o.termguicolors = true
+vim.o.laststatus = 3
 
 if vim.loop.os_uname().sysname == "Linux" then
   vim.o.guifont = "JetBrainsMono Nerd Font Mono:h12"

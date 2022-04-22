@@ -1,5 +1,13 @@
 local encoding = "utf-8"
 
+vim.g.do_filetype_lua = 1
+vim.g.did_load_filetypes = 0
+vim.filetype.add({
+  extension = {
+    edn = "clojure",
+  },
+})
+
 vim.o.encoding = encoding
 vim.o.fileencoding = encoding
 vim.o.backup = false

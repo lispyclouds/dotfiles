@@ -2,10 +2,10 @@
   <img src="https://neovim.io/logos/neovim-mark-flat.png" width=200 />
 </div>
 
-Welcome to my dotfiles, this is my setup on MacOS/Fedora 35+, Neovim 0.6+ and zsh. Also some random configs.
+Welcome to my dotfiles, this is my setup on MacOS/Fedora 35+, Neovim 0.7+ and zsh. Also some random configs.
 
 ### Setting up Neovim
-- Ensure Neovim 0.6+ is [installed](https://github.com/neovim/neovim/wiki/Installing-Neovim)
+- Ensure Neovim 0.7+ is [installed](https://github.com/neovim/neovim/wiki/Installing-Neovim)
 - Ensure a recent version of git is installed
 - Make sure a recent Rust [toolchain](https://www.rust-lang.org/tools/install) is present.
 - Put the `nvim` dir here in `~/.config/` or wherever `XDG_CONFIG_HOME` environment var is pointing to.

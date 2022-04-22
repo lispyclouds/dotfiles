@@ -10,25 +10,35 @@ local normal_mappings = {
   ["<Leader>ff"] = ":Telescope find_files<CR>",
   ["<Leader>s"] = ":Telescope live_grep<CR>",
   ["<Leader>b"] = ":Telescope buffers<CR>",
-  ["<Leader>q"] = ":q<CR>",
   ["<Leader>qa"] = ":qall<CR>",
   ["<Leader>qq"] = ":qall!<CR>",
-  ["<Leader>pm"] = ":lua require('ux').pairing_mode()<CR>",
-  ["<Leader>ca"] = ":lua vim.lsp.buf.code_action()<CR>",
-  ["gd"] = ":lua vim.lsp.buf.definition()<CR>",
+  ["<Leader>pm"] = function()
+    require("ux").pairing_mode()
+  end,
+  ["<Leader>ca"] = function()
+    vim.lsp.buf.code_action()
+  end,
+  ["gd"] = function()
+    vim.lsp.buf.definition()
+  end,
 }
 
 for mapping, action in pairs(normal_mappings) do
-  vim.api.nvim_set_keymap("n", mapping, action, { noremap = true, silent = true })
+  vim.keymap.set("n", mapping, action)
 end
 
 local sexp_mappings = {
-  [">)"] = "sexp_capture_next_element",
-  ["<("] = "sexp_capture_prev_element",
-  [">("] = "sexp_emit_head_element",
-  ["<)"] = "sexp_emit_tail_element",
+  [">)"] = "<Plug>(sexp_capture_next_element)",
+  ["<("] = "<Plug>(sexp_capture_prev_element)",
+  [">("] = "<Plug>(sexp_emit_head_element)",
+  ["<)"] = "<Plug>(sexp_emit_tail_element)",
 }
 
 for mapping, action in pairs(sexp_mappings) do
-  vim.api.nvim_command("autocmd FileType clojure nmap <buffer> " .. mapping .. " <Plug>(" .. action .. ")")
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = "clojure",
+    callback = function()
+      vim.keymap.set("n", mapping, action)
+    end,
+  })
 end
