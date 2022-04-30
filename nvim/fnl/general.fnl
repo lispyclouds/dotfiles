@@ -2,10 +2,6 @@
 
 (local encoding "utf-8")
 
-(set vim.g.do_filetype_lua 1)
-(set vim.g.did_load_filetypes 0)
-(vim.filetype.add {:extension {:edn "clojure"}})
-
 (set vim.o.encoding encoding)
 (set vim.o.fileencoding encoding)
 (set vim.o.backup false)

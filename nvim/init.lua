@@ -43,6 +43,14 @@ WO;     dN   No        dN                 WKl         :OW             Nx,    ,kW
 
 vim.opt.shadafile = "NONE"
 
+vim.g.do_filetype_lua  = 1
+vim.g.did_load_filetypes = 0
+vim.filetype.add({
+  extension = {
+    edn = "clojure"
+  }
+})
+
 local execute = vim.api.nvim_command
 local fn = vim.fn
 
