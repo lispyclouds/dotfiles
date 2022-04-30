@@ -43,22 +43,21 @@ WO;     dN   No        dN                 WKl         :OW             Nx,    ,kW
 
 vim.opt.shadafile = "NONE"
 
-vim.g.do_filetype_lua  = 1
+vim.g.do_filetype_lua = 1
 vim.g.did_load_filetypes = 0
 vim.filetype.add({
   extension = {
-    edn = "clojure"
-  }
+    edn = "clojure",
+  },
 })
 
 local execute = vim.api.nvim_command
 local fn = vim.fn
-
-local pack_path = fn.stdpath("data") .. "/site/pack"
+local pack_path = fn.stdpath("data") .. "/site/pack/packer/start"
 local fmt = string.format
 
-function ensure (user, repo)
-  local install_path = fmt("%s/packer/start/%s", pack_path, repo)
+local ensure = function(user, repo)
+  local install_path = fmt("%s/%s", pack_path, repo)
 
   if fn.empty(fn.glob(install_path)) > 0 then
     execute(fmt("!git clone https://github.com/%s/%s %s", user, repo, install_path))
@@ -74,7 +73,7 @@ require("impatient")
 
 vim.g["aniseed#env"] = {
   module = "init",
-  compile = true
+  compile = true,
 }
 
 vim.opt.shadafile = ""
