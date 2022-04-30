@@ -16,8 +16,8 @@
         "<Leader>ff"  ":Telescope find_files<CR>"
         "<Leader>s"   ":Telescope live_grep<CR>"
         "<Leader>pm"  (fn []
-                        (local ux (require :ux))
-                        (ux.pairing_mode))
+                        (let [ux (require :ux)]
+                          (ux.pairing_mode)))
         "<Leader>ca"  (fn []
                         (vim.lsp.buf.code_action))
         "gd"          (fn []
