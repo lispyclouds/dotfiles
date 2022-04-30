@@ -2,8 +2,8 @@ local cmp = require("cmp")
 
 cmp.setup({
   mapping = {
-    ["<Up>"] = cmp.mapping(cmp.mapping.select_prev_item(), {"i", "c"}),
-    ["<Down>"] = cmp.mapping(cmp.mapping.select_next_item(), {"i", "c"}),
+    ["<Up>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
+    ["<Down>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
     ["<CR>"] = cmp.mapping.confirm({ select = true }),
   },
   sources = {

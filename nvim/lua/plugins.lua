@@ -14,6 +14,7 @@ local plugins = {
     end,
   },
   ["nvim-treesitter/nvim-treesitter"] = {
+    event = buf_enter,
     run = ":TSUpdate",
     config = function()
       require("treesitter")
@@ -56,6 +57,7 @@ local plugins = {
     end,
   },
   ["akinsho/nvim-bufferline.lua"] = {
+    event = buf_enter,
     after = "nvim-web-devicons",
     config = function()
       require("bufferline").setup({})
@@ -132,7 +134,12 @@ local plugins = {
     config = function()
       local sh = { "shellcheck" }
 
-      vim.cmd([[autocmd BufEnter,InsertLeave,TextChanged * lua require("lint").try_lint()]])
+      vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave", "TextChanged" }, {
+        pattern = "*",
+        callback = function()
+          require("lint").try_lint()
+        end,
+      })
 
       require("lint").linters_by_ft = {
         zsh = sh,
