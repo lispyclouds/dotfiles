@@ -1,5 +1,5 @@
 (module plugins
-        {require {pack packer}})
+  {require {pack packer}})
 
 (local buf-read "BufRead")
 (local buf-enter "BufEnter")
@@ -33,7 +33,7 @@
                                                    (nt.setup
                                                      {:filesystem {:use_libuv_file_watcher false
                                                                    :follow_current_file    true
-                                                                   :filtered_items         {:hide_dotfiles false
+                                                                   :filtered_items         {:hide_dotfiles   false
                                                                                             :hide_gitignored
                                                                                             false}}})))}
    :akinsho/bufferline.nvim         {:event  buf-enter
@@ -93,12 +93,12 @@
 (pack.startup
   (fn [use]
     (each [plugin conf (pairs plugins)]
-          (use {1         plugin
-                :event    conf.event
-                :cmd      conf.cmd
-                :requires conf.requires
-                :run      conf.run
-                :config   conf.config
-                :ft       conf.ft
-                :branch   conf.branch
-                :as       conf.as}))))
+      (use {1         plugin
+            :event    conf.event
+            :cmd      conf.cmd
+            :requires conf.requires
+            :run      conf.run
+            :config   conf.config
+            :ft       conf.ft
+            :branch   conf.branch
+            :as       conf.as}))))

@@ -1,5 +1,5 @@
 (module lsp
-        {require {conf lspconfig}})
+  {require {conf lspconfig}})
 
 (local lsps
        ["clojure_lsp" ; https://clojure-lsp.io/installation/
@@ -9,5 +9,5 @@
         "yamlls"]) ; npm install -g yaml-language-server
 
 (each [_ lsp (pairs lsps)]
-      (local ls (. conf lsp))
-      (ls.setup {}))
+  (let [ls (. conf lsp)]
+    (ls.setup {})))

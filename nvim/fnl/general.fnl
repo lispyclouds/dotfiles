@@ -29,4 +29,4 @@
         "spec"])
 
 (each [_ plugin (pairs disabled-builtins)]
-      (tset vim.g (.. "loaded_" plugin) 0))
+  (tset vim.g (.. "loaded_" plugin) 0))

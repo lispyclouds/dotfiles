@@ -24,7 +24,7 @@
                         (vim.lsp.buf.definition))})
 
 (each [mapping action (pairs normal-mappings)]
-      (kmap mapping action))
+  (kmap mapping action))
 
 (local sexp-mappings
        {">)" "<Plug>(sexp_capture_next_element)"
@@ -33,7 +33,7 @@
         "<)" "<Plug>(sexp_emit_tail_element)"})
 
 (each [mapping action (pairs sexp-mappings)]
-      (vim.api.nvim_create_autocmd "FileType"
-                                   {:pattern  ["clojure" "fennel"]
-                                    :callback (fn []
-                                                (kmap mapping action))}))
+  (vim.api.nvim_create_autocmd "FileType"
+                               {:pattern  ["clojure" "fennel"]
+                                :callback (fn []
+                                            (kmap mapping action))}))
