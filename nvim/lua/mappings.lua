@@ -1,6 +1,10 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
+local map = function(mapping, action)
+  vim.keymap.set("n", mapping, action, { silent = true })
+end
+
 local normal_mappings = {
   ["<Leader><CR>"] = ":noh<CR>",
   ["<Leader>n"] = ":Neotree toggle<CR>",
@@ -9,9 +13,6 @@ local normal_mappings = {
   ["<Leader>bc"] = ":Bwipeout<CR>",
   ["<Leader>ff"] = ":Telescope find_files<CR>",
   ["<Leader>s"] = ":Telescope live_grep<CR>",
-  ["<Leader>b"] = ":Telescope buffers<CR>",
-  ["<Leader>qa"] = ":qall<CR>",
-  ["<Leader>qq"] = ":qall!<CR>",
   ["<Leader>pm"] = function()
     require("ux").pairing_mode()
   end,
@@ -24,7 +25,7 @@ local normal_mappings = {
 }
 
 for mapping, action in pairs(normal_mappings) do
-  vim.keymap.set("n", mapping, action)
+  map(mapping, action)
 end
 
 local sexp_mappings = {
@@ -38,7 +39,7 @@ for mapping, action in pairs(sexp_mappings) do
   vim.api.nvim_create_autocmd("FileType", {
     pattern = "clojure",
     callback = function()
-      vim.keymap.set("n", mapping, action)
+      map(mapping, action)
     end,
   })
 end

@@ -1,11 +1,10 @@
 local lspconfig = require("lspconfig")
 
 lsps = {
-  "clojure_lsp", -- brew install clojure-lsp/brew/clojure-lsp-native
-  "terraformls", -- brew install hashicorp/tap/terraform-ls
-  "pyright", -- brew install pyright
-  "gopls", -- brew install gopls
-  "tsserver", -- npm install -g typescript typescript-language-server
+  "clojure_lsp", -- https://clojure-lsp.io/installation/
+  "terraformls", -- https://github.com/hashicorp/terraform-ls/blob/main/docs/installation.md
+  "pyright", -- https://github.com/microsoft/pyright#installation
+  "gopls", -- https://pkg.go.dev/golang.org/x/tools/gopls#readme-installation
   "yamlls", -- npm install -g yaml-language-server
 }
 
