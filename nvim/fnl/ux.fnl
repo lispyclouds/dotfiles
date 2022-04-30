@@ -36,11 +36,15 @@
 (set vim.o.termguicolors true)
 (set vim.o.laststatus 3)
 
+(if (= "Linux" (. (vim.loop.os_uname) "sysname"))
+  (set vim.o.guifont "JetBrainsMono Nerd Font Mono:h12")
+  (set vim.o.guifont "JetBrainsMono Nerd Font Mono:h14"))
+
 (vim.api.nvim_create_autocmd "TextYankPost"
                              {:pattern  "*"
                               :callback (fn []
                                           (vim.highlight.on_yank {:higroup "IncSearch" :timeout 100}))})
 
-(if (= "Linux" (. (vim.loop.os_uname) "sysname"))
-  (set vim.o.guifont "JetBrainsMono Nerd Font Mono:h12")
-  (set vim.o.guifont "JetBrainsMono Nerd Font Mono:h14"))
+(defn pairing-mode
+  []
+  (set vim.o.relativenumber (not vim.o.relativenumber)))

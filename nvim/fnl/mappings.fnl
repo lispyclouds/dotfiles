@@ -17,7 +17,7 @@
         "<Leader>s"   ":Telescope live_grep<CR>"
         "<Leader>pm"  (fn []
                         (let [ux (require :ux)]
-                          (ux.pairing_mode)))
+                          (ux.pairing-mode)))
         "<Leader>ca"  (fn []
                         (vim.lsp.buf.code_action))
         "gd"          (fn []
