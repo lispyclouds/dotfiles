@@ -5,13 +5,16 @@
 Welcome to my dotfiles, this is my setup on MacOS/Fedora 35+, Neovim 0.7+ and zsh. Also some random configs.
 
 ### Setting up Neovim
+
+[Fennel](https://fennel-lang.org/) is used to configure nvim.
+
 - Ensure Neovim 0.7+ is [installed](https://github.com/neovim/neovim/wiki/Installing-Neovim)
 - Ensure a recent version of git is installed
 - Make sure a recent Rust [toolchain](https://www.rust-lang.org/tools/install) is present.
 - Copy the `nvim` dir in `~/.config/` or wherever `XDG_CONFIG_HOME` environment var is pointing to.
 - Start neovim with `nvim`. Ignore the first time boot errors, should be gone from subsequent runs.
 - Run `:PackerSync` to download all the plugins and setup neovim.
-- Make sure all the installs mentioned in `nvim/lua/lsp.lua` are performed too. Amend the list to your liking.
+- Make sure all the installs mentioned in `nvim/fnl/lsp.fnl` are performed too. Amend the list to your liking.
 - Profit from the startup time optimisations!
 
 To keep all the plugins updated run
