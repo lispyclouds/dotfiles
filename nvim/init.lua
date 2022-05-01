@@ -43,6 +43,7 @@ WO;     dN   No        dN                 WKl         :OW             Nx,    ,kW
 
 vim.opt.shadafile = "NONE"
 
+-- initial config
 vim.g.do_filetype_lua = 1
 vim.g.did_load_filetypes = 0
 vim.filetype.add({
@@ -51,11 +52,11 @@ vim.filetype.add({
   },
 })
 
+-- bootstrap
 local execute = vim.api.nvim_command
 local fn = vim.fn
 local pack_path = fn.stdpath("data") .. "/site/pack/packer/start"
 local fmt = string.format
-
 local ensure = function(user, repo)
   local install_path = fmt("%s/%s", pack_path, repo)
 
@@ -66,14 +67,23 @@ local ensure = function(user, repo)
 end
 
 ensure("wbthomason", "packer.nvim")
-ensure("Olical", "aniseed")
-ensure("lewis6991", "impatient.nvim")
+ensure("rktjmp", "hotpot.nvim")
 
-require("impatient")
+require("hotpot").setup({
+  provide_require_fennel = true,
+  compiler = {
+    modules = {
+      correlate = true,
+    },
+  },
+})
 
-vim.g["aniseed#env"] = {
-  module = "init",
-  compile = true,
-}
+-- load remaining config in fennel
+require("general")
+require("ux")
+require("plugins")
+require("mappings")
+require("persistent_undo")
+require("whitespace")
 
 vim.opt.shadafile = ""

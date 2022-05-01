@@ -1,9 +1,7 @@
-(module mappings)
-
 (set vim.g.mapleader " ")
 (set vim.g.maplocalleader ",")
 
-(defn- kmap
+(fn kmap
   [mapping action]
   (vim.keymap.set "n" mapping action {:silent true}))
 

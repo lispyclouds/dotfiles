@@ -1,5 +1,4 @@
-(module lsp
-  {require {conf lspconfig}})
+(local conf (require :lspconfig))
 
 (local lsps
        ["clojure_lsp" ; https://clojure-lsp.io/installation/

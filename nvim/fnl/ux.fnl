@@ -1,5 +1,3 @@
-(module general)
-
 (set vim.o.history 1000)
 (set vim.o.scrolloff 7)
 (set vim.o.cmdheight 1)
@@ -45,6 +43,6 @@
                               :callback (fn []
                                           (vim.highlight.on_yank {:higroup "IncSearch" :timeout 100}))})
 
-(defn pairing-mode
-  []
-  (set vim.o.relativenumber (not vim.o.relativenumber)))
+{:pairing-mode (fn
+                 []
+                 (set vim.o.relativenumber (not vim.o.relativenumber)))}

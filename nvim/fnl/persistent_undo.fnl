@@ -1,5 +1,3 @@
-(module persistent_undo)
-
 (local undo-dir (.. vim.env.HOME "/.vim/undodir"))
 (local vfn vim.fn)
 

@@ -1,5 +1,4 @@
-(module plugins
-  {require {pack packer}})
+(local pack (require :packer))
 
 (local buf-read "BufRead")
 (local buf-enter "BufEnter")
@@ -46,8 +45,7 @@
 
 (local plugins
        {:wbthomason/packer.nvim          {}
-        :Olical/aniseed                  {}
-        :lewis6991/impatient.nvim        {}
+        :rktjmp/hotpot.nvim              {}
         :kyazdani42/nvim-web-devicons    {}
         :catppuccin/nvim                 {:as     "catppuccin"
                                           :after  "packer.nvim"

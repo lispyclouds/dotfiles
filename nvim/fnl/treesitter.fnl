@@ -1,5 +1,4 @@
-(module treesitter
-  {require {confs nvim-treesitter.configs}})
+(local confs (require :nvim-treesitter.configs))
 
 (confs.setup {:ensure_installed ["clojure"
                                  "hcl"

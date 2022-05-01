@@ -1,5 +1,3 @@
-(module whitespace)
-
 ; See: https://github.com/cappyzawa/trim.nvim/blob/master/lua/trim/config.lua
 (local patterns
        ["%s/\\s\\+$//e"
@@ -12,9 +10,9 @@
                                           (let [ws (require :whitespace)]
                                             (ws.trim)))})
 
-(defn trim
-  []
-  (let [save (vim.fn.winsaveview)]
-    (each [_ pattern (pairs patterns)]
-      (vim.api.nvim_exec (string.format "silent! %s" pattern) false))
-    (vim.fn.winrestview save)))
+{:trim (fn trim
+         []
+         (let [save (vim.fn.winsaveview)]
+           (each [_ pattern (pairs patterns)]
+             (vim.api.nvim_exec (string.format "silent! %s" pattern) false))
+           (vim.fn.winrestview save)))}

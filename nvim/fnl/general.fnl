@@ -1,5 +1,3 @@
-(module general)
-
 (local encoding "utf-8")
 
 (set vim.o.encoding encoding)

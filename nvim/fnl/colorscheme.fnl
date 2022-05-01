@@ -1,5 +1,4 @@
-(module colorscheme
-  {require {cat catppuccin}})
+(local cat (require :catppuccin))
 
 (set vim.o.background "dark")
 (set vim.o.termguicolors true)
