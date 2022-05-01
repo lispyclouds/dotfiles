@@ -23,8 +23,7 @@
 (fn feline-conf
   []
   (let [f (require :feline)]
-    (f.setup {:components (require
-                            :catppuccin.core.integrations.feline)})))
+    (f.setup {:components (require :catppuccin.core.integrations.feline)})))
 
 (fn rainbow-conf
   []

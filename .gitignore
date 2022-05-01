@@ -1,7 +1,6 @@
 .DS_Store
 nvim/plugin/packer_compiled.lua
-nvim/lua/*.lua
-!nvim/lua/whitespace_patterns.lua
+nvim/lua/
 .nrepl-port
 .clj-kondo/
 .lsp/
