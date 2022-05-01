@@ -1,13 +1,14 @@
 (local confs (require :nvim-treesitter.configs))
 
-(confs.setup {:ensure_installed ["clojure"
+(confs.setup {:ensure_installed ["bash"
+                                 "clojure"
+                                 "fennel"
+                                 "go"
                                  "hcl"
+                                 "javascript"
+                                 "json"
                                  "lua"
                                  "python"
-                                 "go"
-                                 "json"
-                                 "yaml"
                                  "typescript"
-                                 "bash"
-                                 "javascript"]
+                                 "yaml"]
               :highlight        {:enabled true}})
