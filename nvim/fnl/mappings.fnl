@@ -13,13 +13,10 @@
         "<Leader>bc"  ":Bwipeout<CR>"
         "<Leader>ff"  ":Telescope find_files<CR>"
         "<Leader>s"   ":Telescope live_grep<CR>"
-        "<Leader>pm"  (λ []
-                        (let [ux (require :ux)]
-                          (ux.pairing-mode)))
-        "<Leader>ca"  (λ []
-                        (vim.lsp.buf.code_action))
-        "gd"          (λ []
-                        (vim.lsp.buf.definition))})
+        "<Leader>pm"  #(let [ux (require :ux)]
+                         (ux.pairing-mode))
+        "<Leader>ca"  #(vim.lsp.buf.code_action)
+        "gd"          #(vim.lsp.buf.definition)})
 
 (each [mapping action (pairs normal-mappings)]
   (kmap mapping action))
@@ -33,5 +30,4 @@
 (each [mapping action (pairs sexp-mappings)]
   (vim.api.nvim_create_autocmd "FileType"
                                {:pattern  ["clojure" "fennel"]
-                                :callback (λ []
-                                            (kmap mapping action))}))
+                                :callback #(kmap mapping action)}))

@@ -40,10 +40,7 @@
 
 (vim.api.nvim_create_autocmd "TextYankPost"
                              {:pattern  "*"
-                              :callback (λ []
-                                          (vim.highlight.on_yank {:higroup "IncSearch"
-                                                                  :timeout 100}))})
+                              :callback #(vim.highlight.on_yank {:higroup "IncSearch"
+                                                                 :timeout 100})})
 
-{:pairing-mode (λ
-                 []
-                 (set vim.o.relativenumber (not vim.o.relativenumber)))}
+{:pairing-mode #(set vim.o.relativenumber (not vim.o.relativenumber))}

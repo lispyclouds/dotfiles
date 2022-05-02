@@ -36,27 +36,21 @@
         lint (require :lint)]
     (vim.api.nvim_create_autocmd ["BufEnter" "InsertLeave" "TextChanged"]
                                  {:pattern  "*"
-                                  :callback (λ []
-                                              (lint.try_lint))})
+                                  :callback #(lint.try_lint)})
     (set lint.linters_by_ft
          {:zsh        sh
           :sh         sh
           :dockerfile ["hadolint"]})))
-
-(set vim.g.fennel_use_luajit 1) ; for mnacamura/vim-fennel-syntax
 
 (local plugins
        {:wbthomason/packer.nvim          {}
         :rktjmp/hotpot.nvim              {}
         :kyazdani42/nvim-web-devicons    {}
         :catppuccin/nvim                 {:as     "catppuccin"
-                                          :after  "packer.nvim"
-                                          :config (λ []
-                                                    (require :colorscheme))}
+                                          :config #(require :colorscheme)}
         :nvim-treesitter/nvim-treesitter {:event  buf-enter
                                           :run    ":TSUpdate"
-                                          :config (λ []
-                                                    (require :treesitter))}
+                                          :config #(require :treesitter)}
         :nvim-telescope/telescope.nvim   {:event    vim-enter
                                           :requires ["nvim-lua/popup.nvim" "nvim-lua/plenary.nvim"]
                                           :config   telescope-conf}
@@ -65,42 +59,35 @@
                                           :requires ["nvim-lua/plenary.nvim" "MunifTanjim/nui.nvim"]
                                           :config   neotree-conf}
         :akinsho/bufferline.nvim         {:event  buf-enter
-                                          :after  "nvim-web-devicons"
-                                          :config (λ []
-                                                    (let [b (require :bufferline)]
-                                                      (b.setup {})))}
+                                          :config #(let [b (require :bufferline)]
+                                                     (b.setup {}))}
         :feline-nvim/feline.nvim         {:event  buf-enter
-                                          :after  "nvim-web-devicons"
                                           :config feline-conf}
         :hrsh7th/nvim-cmp                {:requires ["hrsh7th/cmp-buffer"
                                                      "hrsh7th/cmp-nvim-lsp"
                                                      "hrsh7th/cmp-nvim-lua"
                                                      "hrsh7th/cmp-path"]
-                                          :config   (λ []
-                                                      (require :completion))}
+                                          :config   #(require :completion)}
         :neovim/nvim-lspconfig           {:event  buf-read
-                                          :config (λ []
-                                                    (require :lsp))}
+                                          :config #(require :lsp)}
         :lewis6991/gitsigns.nvim         {:event    buf-read
                                           :requires ["nvim-lua/plenary.nvim"]
-                                          :config   (λ []
-                                                      (let [gs (require :gitsigns)]
-                                                        (gs.setup {})))}
+                                          :config   #(let [gs (require :gitsigns)]
+                                                       (gs.setup {}))}
         :famiu/bufdelete.nvim            {:event buf-read}
         :Olical/conjure                  {:ft lisps}
         :guns/vim-sexp                   {:ft lisps}
         :eraserhd/parinfer-rust          {:ft  lisps
                                           :run "cargo build --release"}
-        :mnacamura/vim-fennel-syntax     {:ft "fennel"}
+        :mnacamura/vim-fennel-syntax     {:ft     "fennel"
+                                          :config #(set vim.g.fennel_use_luajit 1)}
         :hashivim/vim-terraform          {:ft "terraform"}
         :folke/which-key.nvim            {:event  vim-enter
-                                          :config (λ []
-                                                    (let [wk (require :which-key)]
-                                                      (wk.setup {})))}
+                                          :config #(let [wk (require :which-key)]
+                                                     (wk.setup {}))}
         :p00f/nvim-ts-rainbow            {:event    vim-enter
                                           :requires ["neovim/nvim-lspconfig"]
                                           :config   rainbow-conf}
-
         :mfussenegger/nvim-lint          {:event  buf-read
                                           :config nvim-lint-conf}})
 
