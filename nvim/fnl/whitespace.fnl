@@ -6,10 +6,7 @@
 
 (vim.api.nvim_create_autocmd "BufWritePre"
                              {:pattern  "*"
-                              :callback #(let [ws (require :whitespace)]
-                                           (ws.trim))})
-
-{:trim #(let [save (vim.fn.winsaveview)]
-          (each [_ pattern (pairs patterns)]
-            (vim.api.nvim_exec (string.format "silent! %s" pattern) false))
-          (vim.fn.winrestview save))}
+                              :callback #(let [save (vim.fn.winsaveview)]
+                                           (each [_ pattern (pairs patterns)]
+                                             (vim.api.nvim_exec (string.format "silent! %s" pattern) false))
+                                           (vim.fn.winrestview save))})

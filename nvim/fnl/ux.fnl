@@ -42,5 +42,3 @@
                              {:pattern  "*"
                               :callback #(vim.highlight.on_yank {:higroup "IncSearch"
                                                                  :timeout 100})})
-
-{:pairing-mode #(set vim.o.relativenumber (not vim.o.relativenumber))}

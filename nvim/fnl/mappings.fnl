@@ -13,8 +13,7 @@
         "<Leader>bc"  ":Bwipeout<CR>"
         "<Leader>ff"  ":Telescope find_files<CR>"
         "<Leader>s"   ":Telescope live_grep<CR>"
-        "<Leader>pm"  #(let [ux (require :ux)]
-                         (ux.pairing-mode))
+        "<Leader>pm"  #(set vim.o.relativenumber (not vim.o.relativenumber))
         "<Leader>ca"  #(vim.lsp.buf.code_action)
         "gd"          #(vim.lsp.buf.definition)})
 
