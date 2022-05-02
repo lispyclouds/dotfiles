@@ -43,6 +43,8 @@
           :sh         sh
           :dockerfile ["hadolint"]})))
 
+(set vim.g.fennel_use_luajit 1) ; for mnacamura/vim-fennel-syntax
+
 (local plugins
        {:wbthomason/packer.nvim          {}
         :rktjmp/hotpot.nvim              {}
@@ -76,7 +78,7 @@
                                                      "hrsh7th/cmp-path"]
                                           :config   (fn []
                                                       (require :completion))}
-        :neovim/nvim-lspconfig           {:event  buf-enter
+        :neovim/nvim-lspconfig           {:event  buf-read
                                           :config (fn []
                                                     (require :lsp))}
         :lewis6991/gitsigns.nvim         {:event    buf-read
@@ -84,11 +86,12 @@
                                           :config   (fn []
                                                       (let [gs (require :gitsigns)]
                                                         (gs.setup {})))}
-        :famiu/bufdelete.nvim            {:event buf-enter}
+        :famiu/bufdelete.nvim            {:event buf-read}
         :Olical/conjure                  {:ft lisps}
         :guns/vim-sexp                   {:ft lisps}
         :eraserhd/parinfer-rust          {:ft  lisps
                                           :run "cargo build --release"}
+        :mnacamura/vim-fennel-syntax     {:ft "fennel"}
         :hashivim/vim-terraform          {:ft "terraform"}
         :folke/which-key.nvim            {:event  vim-enter
                                           :config (fn []
