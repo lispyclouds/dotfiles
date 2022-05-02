@@ -5,12 +5,12 @@
 (local vim-enter "VimEnter")
 (local lisps ["clojure" "fennel"])
 
-(fn telescope-conf
+(λ telescope-conf
   []
   (let [t (require :telescope)]
     (t.setup {:pickers {:find_files {:hidden true}}})))
 
-(fn neotree-conf
+(λ neotree-conf
   []
   (let [nt (require :neo-tree)]
     (nt.setup
@@ -19,24 +19,24 @@
                     :filtered_items         {:hide_dotfiles   false
                                              :hide_gitignored false}}})))
 
-(fn feline-conf
+(λ feline-conf
   []
   (let [f (require :feline)]
     (f.setup {:components (require :catppuccin.core.integrations.feline)})))
 
-(fn rainbow-conf
+(λ rainbow-conf
   []
   (let [tc (require :nvim-treesitter.configs)]
     (tc.setup {:rainbow {:enable        true
                          :extended_mode true}})))
 
-(fn nvim-lint-conf
+(λ nvim-lint-conf
   []
   (let [sh   ["shellcheck"]
         lint (require :lint)]
     (vim.api.nvim_create_autocmd ["BufEnter" "InsertLeave" "TextChanged"]
                                  {:pattern  "*"
-                                  :callback (fn []
+                                  :callback (λ []
                                               (lint.try_lint))})
     (set lint.linters_by_ft
          {:zsh        sh
@@ -51,11 +51,11 @@
         :kyazdani42/nvim-web-devicons    {}
         :catppuccin/nvim                 {:as     "catppuccin"
                                           :after  "packer.nvim"
-                                          :config (fn []
+                                          :config (λ []
                                                     (require :colorscheme))}
         :nvim-treesitter/nvim-treesitter {:event  buf-enter
                                           :run    ":TSUpdate"
-                                          :config (fn []
+                                          :config (λ []
                                                     (require :treesitter))}
         :nvim-telescope/telescope.nvim   {:event    vim-enter
                                           :requires ["nvim-lua/popup.nvim" "nvim-lua/plenary.nvim"]
@@ -66,7 +66,7 @@
                                           :config   neotree-conf}
         :akinsho/bufferline.nvim         {:event  buf-enter
                                           :after  "nvim-web-devicons"
-                                          :config (fn []
+                                          :config (λ []
                                                     (let [b (require :bufferline)]
                                                       (b.setup {})))}
         :feline-nvim/feline.nvim         {:event  buf-enter
@@ -76,14 +76,14 @@
                                                      "hrsh7th/cmp-nvim-lsp"
                                                      "hrsh7th/cmp-nvim-lua"
                                                      "hrsh7th/cmp-path"]
-                                          :config   (fn []
+                                          :config   (λ []
                                                       (require :completion))}
         :neovim/nvim-lspconfig           {:event  buf-read
-                                          :config (fn []
+                                          :config (λ []
                                                     (require :lsp))}
         :lewis6991/gitsigns.nvim         {:event    buf-read
                                           :requires ["nvim-lua/plenary.nvim"]
-                                          :config   (fn []
+                                          :config   (λ []
                                                       (let [gs (require :gitsigns)]
                                                         (gs.setup {})))}
         :famiu/bufdelete.nvim            {:event buf-read}
@@ -94,7 +94,7 @@
         :mnacamura/vim-fennel-syntax     {:ft "fennel"}
         :hashivim/vim-terraform          {:ft "terraform"}
         :folke/which-key.nvim            {:event  vim-enter
-                                          :config (fn []
+                                          :config (λ []
                                                     (let [wk (require :which-key)]
                                                       (wk.setup {})))}
         :p00f/nvim-ts-rainbow            {:event    vim-enter
@@ -105,7 +105,7 @@
                                           :config nvim-lint-conf}})
 
 (pack.startup
-  (fn [use]
+  (λ [use]
     (each [plugin conf (pairs plugins)]
       (use {1         plugin
             :event    conf.event

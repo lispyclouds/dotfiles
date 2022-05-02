@@ -1,7 +1,7 @@
 (set vim.g.mapleader " ")
 (set vim.g.maplocalleader ",")
 
-(fn kmap
+(λ kmap
   [mapping action]
   (vim.keymap.set "n" mapping action {:silent true}))
 
@@ -13,12 +13,12 @@
         "<Leader>bc"  ":Bwipeout<CR>"
         "<Leader>ff"  ":Telescope find_files<CR>"
         "<Leader>s"   ":Telescope live_grep<CR>"
-        "<Leader>pm"  (fn []
+        "<Leader>pm"  (λ []
                         (let [ux (require :ux)]
                           (ux.pairing-mode)))
-        "<Leader>ca"  (fn []
+        "<Leader>ca"  (λ []
                         (vim.lsp.buf.code_action))
-        "gd"          (fn []
+        "gd"          (λ []
                         (vim.lsp.buf.definition))})
 
 (each [mapping action (pairs normal-mappings)]
@@ -33,5 +33,5 @@
 (each [mapping action (pairs sexp-mappings)]
   (vim.api.nvim_create_autocmd "FileType"
                                {:pattern  ["clojure" "fennel"]
-                                :callback (fn []
+                                :callback (λ []
                                             (kmap mapping action))}))

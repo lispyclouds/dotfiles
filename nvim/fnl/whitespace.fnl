@@ -6,11 +6,11 @@
 
 (vim.api.nvim_create_autocmd "BufWritePre"
                              {:pattern  "*"
-                              :callback (fn []
+                              :callback (λ []
                                           (let [ws (require :whitespace)]
                                             (ws.trim)))})
 
-{:trim (fn trim
+{:trim (λ trim
          []
          (let [save (vim.fn.winsaveview)]
            (each [_ pattern (pairs patterns)]

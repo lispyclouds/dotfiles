@@ -29,7 +29,7 @@
            "when-not"              :arg1-force-nl
            "with-db"               :flow
            "each"                  :arg1-force-nl
-           "module"                :arg1-force-nl}
+           "λ"                     :arg1-force-nl}
  :list    {:indent-arg  2
            :respect-nl? true}
  :vector  {:respect-nl? true}
