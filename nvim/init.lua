@@ -67,18 +67,8 @@ local ensure = function(user, repo)
 end
 
 ensure("wbthomason", "packer.nvim")
-ensure("rktjmp", "hotpot.nvim")
 
-require("hotpot").setup({
-  provide_require_fennel = true,
-  compiler = {
-    modules = {
-      correlate = true,
-    },
-  },
-})
-
--- load remaining config in fennel
+-- load config
 require("general")
 require("ux")
 require("plugins")
