@@ -6,16 +6,16 @@
   (vim.keymap.set "n" mapping action {:silent true}))
 
 (local normal-mappings
-       {"<Leader><C>" ":noh<CR>"
-        "<Leader>n"   ":Neotree toggle<CR>"
-        "<Leader>l"   ":BufferLineCycleNext<CR>"
-        "<Leader>h"   ":BufferLineCyclePrev<CR>"
-        "<Leader>bc"  ":Bwipeout<CR>"
-        "<Leader>ff"  ":Telescope find_files<CR>"
-        "<Leader>s"   ":Telescope live_grep<CR>"
-        "<Leader>pm"  #(set vim.o.relativenumber (not vim.o.relativenumber))
-        "<Leader>ca"  #(vim.lsp.buf.code_action)
-        "gd"          #(vim.lsp.buf.definition)})
+       {"<Leader><CR>" ":noh<CR>"
+        "<Leader>n"    ":Neotree toggle<CR>"
+        "<Leader>l"    ":BufferLineCycleNext<CR>"
+        "<Leader>h"    ":BufferLineCyclePrev<CR>"
+        "<Leader>bc"   ":Bwipeout<CR>"
+        "<Leader>ff"   ":Telescope find_files<CR>"
+        "<Leader>s"    ":Telescope live_grep<CR>"
+        "<Leader>pm"   #(set vim.o.relativenumber (not vim.o.relativenumber))
+        "<Leader>ca"   #(vim.lsp.buf.code_action)
+        "gd"           #(vim.lsp.buf.definition)})
 
 (each [mapping action (pairs normal-mappings)]
   (kmap mapping action))
