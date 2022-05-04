@@ -16,7 +16,6 @@ vim.o.clipboard = "unnamedplus"
 vim.o.updatetime = 250
 vim.o.incsearch = true
 vim.o.hlsearch = true
-vim.o.inccommand = "nosplit"
 vim.o.lazyredraw = true
 vim.o.magic = true
 vim.o.showmatch = true

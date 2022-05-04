@@ -131,15 +131,16 @@ local plugins = {
     event = buf_read,
     config = function()
       local sh = { "shellcheck" }
+      local lint = require("lint")
 
       vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave", "TextChanged" }, {
         pattern = "*",
         callback = function()
-          require("lint").try_lint()
+          lint.try_lint()
         end,
       })
 
-      require("lint").linters_by_ft = {
+      lint.linters_by_ft = {
         zsh = sh,
         sh = sh,
         dockerfile = { "hadolint" },
