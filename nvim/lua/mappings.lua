@@ -1,7 +1,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
-local function kmap(mapping, action)
+local map = function(mapping, action)
   vim.keymap.set("n", mapping, action, { silent = true })
 end
 
@@ -19,13 +19,13 @@ local normal_mappings = {
   ["<Leader>ca"] = function()
     vim.lsp.buf.code_action()
   end,
-  gd = function()
+  ["gd"] = function()
     vim.lsp.buf.definition()
   end,
 }
 
 for mapping, action in pairs(normal_mappings) do
-  kmap(mapping, action)
+  map(mapping, action)
 end
 
 local sexp_mappings = {
@@ -39,7 +39,7 @@ for mapping, action in pairs(sexp_mappings) do
   vim.api.nvim_create_autocmd("FileType", {
     pattern = { "clojure", "fennel" },
     callback = function()
-      kmap(mapping, action)
+      map(mapping, action)
     end,
   })
 end

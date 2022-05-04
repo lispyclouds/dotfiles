@@ -1,8 +1,8 @@
-local undo_dir = (vim.env.HOME .. "/.vim/undodir")
-local vfn = vim.fn
+local undo_dir = vim.env.HOME .. "/.vim/undodir"
+local fn = vim.fn
 
-if not vfn.isdirectory(undo_dir) then
-  vfn.mkdir(undo_dir, "", 700)
+if not fn.isdirectory(undo_dir) then
+  fn.mkdir(undo_dir, "", 0700)
 end
 
 vim.o.undodir = undo_dir

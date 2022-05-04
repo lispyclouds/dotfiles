@@ -1,16 +1,18 @@
 require("nvim-treesitter.configs").setup({
   ensure_installed = {
-    "bash",
     "clojure",
-    "fennel",
-    "go",
     "hcl",
-    "javascript",
-    "json",
     "lua",
     "python",
-    "typescript",
+    "go",
+    "json",
     "yaml",
+    "typescript",
+    "bash",
+    "javascript",
   },
-  highlight = { enabled = true },
+
+  highlight = {
+    enable = true,
+  },
 })

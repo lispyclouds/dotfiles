@@ -1,3 +1,4 @@
+-- See: https://github.com/cappyzawa/trim.nvim/blob/master/lua/trim/config.lua
 local patterns = {
   [[%s/\s\+$//e]],
   [[%s/\($\n\s*\)\+\%$//]],
