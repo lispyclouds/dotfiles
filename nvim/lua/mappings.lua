@@ -11,8 +11,12 @@ local normal_mappings = {
   ["<Leader>l"] = ":BufferLineCycleNext<CR>",
   ["<Leader>h"] = ":BufferLineCyclePrev<CR>",
   ["<Leader>bc"] = ":Bwipeout<CR>",
-  ["<Leader>ff"] = ":Telescope find_files<CR>",
-  ["<Leader>s"] = ":Telescope live_grep<CR>",
+  ["<Leader>ff"] = function()
+    require("telescope.builtin").find_files()
+  end,
+  ["<Leader>s"] = function()
+    require("telescope.builtin").live_grep()
+  end,
   ["<Leader>pm"] = function()
     vim.o.relativenumber = not vim.o.relativenumber
   end,
