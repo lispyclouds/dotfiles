@@ -1,4 +1,3 @@
-local fn = vim.fn
 local buf_read = "BufRead"
 local buf_enter = "BufEnter"
 local vim_enter = "VimEnter"
@@ -6,10 +5,10 @@ local lisps = { "clojure", "fennel" }
 
 local plugins = {
   ["wbthomason/packer.nvim"] = {},
+  ["lewis6991/impatient.nvim"] = {},
   ["kyazdani42/nvim-web-devicons"] = {},
   ["catppuccin/nvim"] = {
     as = "catppuccin",
-    after = "packer.nvim",
     config = function()
       require("colorscheme")
     end,
@@ -59,13 +58,11 @@ local plugins = {
   },
   ["akinsho/bufferline.nvim"] = {
     event = buf_enter,
-    after = "nvim-web-devicons",
     config = function()
       require("bufferline").setup({})
     end,
   },
   ["feline-nvim/feline.nvim"] = {
-    after = "nvim-bufferline.lua",
     config = function()
       require("feline").setup({
         components = require("catppuccin.core.integrations.feline"),
