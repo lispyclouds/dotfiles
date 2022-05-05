@@ -1,5 +1,4 @@
 local buf_read = "BufRead"
-local buf_enter = "BufEnter"
 local vim_enter = "VimEnter"
 local lisps = { "clojure", "fennel" }
 
@@ -14,7 +13,6 @@ local plugins = {
     end,
   },
   ["nvim-treesitter/nvim-treesitter"] = {
-    event = buf_enter,
     run = ":TSUpdate",
     config = function()
       require("treesitter")
@@ -37,7 +35,7 @@ local plugins = {
     end,
   },
   ["nvim-neo-tree/neo-tree.nvim"] = {
-    event = buf_enter,
+    event = buf_read,
     branch = "v2.x",
     requires = {
       "nvim-lua/plenary.nvim",
@@ -57,12 +55,13 @@ local plugins = {
     end,
   },
   ["akinsho/bufferline.nvim"] = {
-    event = buf_enter,
+    event = buf_read,
     config = function()
       require("bufferline").setup({})
     end,
   },
   ["feline-nvim/feline.nvim"] = {
+    event = buf_read,
     config = function()
       require("feline").setup({
         components = require("catppuccin.core.integrations.feline"),
@@ -81,7 +80,7 @@ local plugins = {
     end,
   },
   ["neovim/nvim-lspconfig"] = {
-    event = buf_enter,
+    event = buf_read,
     config = function()
       require("lsp")
     end,
@@ -94,7 +93,7 @@ local plugins = {
     end,
   },
   ["famiu/bufdelete.nvim"] = {
-    event = buf_enter,
+    event = buf_read,
   },
   ["Olical/conjure"] = {
     ft = lisps,

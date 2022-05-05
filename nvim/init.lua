@@ -41,8 +41,6 @@ WO;     dN   No        dN                 WKl         :OW             Nx,    ,kW
                           WX0kdl:,,          ,,:cox0XWW
 --]]
 
-vim.opt.shadafile = "NONE"
-
 -- initial config
 vim.g.do_filetype_lua = 1
 vim.g.did_load_filetypes = 0
@@ -78,5 +76,3 @@ require("plugins")
 require("mappings")
 require("persistent_undo")
 require("whitespace")
-
-vim.opt.shadafile = ""
