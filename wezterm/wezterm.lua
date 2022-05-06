@@ -32,7 +32,7 @@ return {
   colors = catppuccin,
   keys = {
     {
-      key = "K",
+      key = "Delete",
       mods = "CTRL|SHIFT",
       action = wezterm.action({ ClearScrollback = "ScrollbackAndViewport" }),
     },
@@ -47,9 +47,14 @@ return {
       action = wezterm.action({ SplitHorizontal = { domain = "CurrentPaneDomain" } }),
     },
     {
-      key = "w",
+      key = "W",
       mods = "CTRL|SHIFT",
       action = wezterm.action({ CloseCurrentPane = { confirm = false } }),
+    },
+    {
+      key = "Home",
+      mods = "CTRL|SHIFT",
+      action = "ScrollToTop",
     },
   },
 }
