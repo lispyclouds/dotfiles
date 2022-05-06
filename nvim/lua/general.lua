@@ -5,7 +5,6 @@ vim.o.fileencoding = encoding
 vim.o.backup = false
 vim.o.writebackup = false
 vim.o.swapfile = false
-vim.o.shadafile = "NONE"
 
 local disabled_builtins = {
   "netrw",
