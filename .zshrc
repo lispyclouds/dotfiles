@@ -66,7 +66,6 @@ alias ls=lsd
 alias repl='clojure -Sdeps "{:deps {nrepl/nrepl {:mvn/version \"RELEASE\"} cider/cider-nrepl {:mvn/version \"RELEASE\"}}}" -M -m nrepl.cmdline --middleware "[\"cider.nrepl/cider-middleware\"]"'
 alias nvim_update="nvim +'autocmd User PackerComplete sleep 100m | qall' +PackerSync +TSUpdateSync"
 alias antq="clojure -Sdeps '{:deps {com.github.liquidz/antq {:mvn/version \"RELEASE\"}}}' -M -m antq.core"
-alias ssh="kitty +kitten ssh"
 
 eval "$(zoxide init zsh)"
 source $HOME/.cargo/env
