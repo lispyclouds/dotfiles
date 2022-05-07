@@ -2,12 +2,7 @@ local wezterm = require("wezterm")
 
 -- TODO: Anything better?
 local which_os = function()
-  local home = wezterm.home_dir
-  local starts_with = function(str, prefix)
-    return string.sub(str, 1, string.len(str)) == prefix
-  end
-
-  if starts_with(home, "/Users") then
+  if wezterm.home_dir:find("^/Users") ~= nil then
     return "Mac"
   else
     return "Linux"
@@ -90,7 +85,7 @@ return {
   enable_wayland = true,
   freetype_load_target = "HorizontalLcd",
   font_size = font_size,
-  font = wezterm.font(font),
+  font = wezterm.font(font, { weight = "Bold" }),
   hide_tab_bar_if_only_one_tab = true,
   keys = keymap,
   tab_bar_at_bottom = true,
