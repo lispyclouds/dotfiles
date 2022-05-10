@@ -110,12 +110,6 @@ local plugins = {
   ["hashivim/vim-terraform"] = {
     ft = "terraform",
   },
-  ["folke/which-key.nvim"] = {
-    event = vim_enter,
-    config = function()
-      require("which-key").setup({})
-    end,
-  },
   ["p00f/nvim-ts-rainbow"] = {
     event = vim_enter,
     requires = "neovim/nvim-lspconfig",
