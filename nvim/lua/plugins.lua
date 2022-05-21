@@ -122,24 +122,19 @@ local plugins = {
       })
     end,
   },
-  ["mfussenegger/nvim-lint"] = {
+  ["jose-elias-alvarez/null-ls.nvim"] = {
     event = buf_read,
     config = function()
-      local sh = { "shellcheck" }
-      local lint = require("lint")
+      local nls = require("null-ls")
 
-      vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave", "TextChanged" }, {
-        pattern = "*",
-        callback = function()
-          lint.try_lint()
-        end,
+      nls.setup({
+        sources = {
+          nls.builtins.diagnostics.shellcheck.with({
+            extra_filetypes = { "zsh" },
+          }),
+          nls.builtins.diagnostics.hadolint,
+        },
       })
-
-      lint.linters_by_ft = {
-        zsh = sh,
-        sh = sh,
-        dockerfile = { "hadolint" },
-      }
     end,
   },
 }
