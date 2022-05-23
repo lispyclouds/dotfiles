@@ -91,7 +91,7 @@ function _raw_update() {
   )
 
   for script in ${scripts[*]}; do
-    sudo bash < <(curl -s ${script})
+    sudo XH_BINDIR="/usr/local/bin" bash < <(curl -s ${script})
   done
 }
 
