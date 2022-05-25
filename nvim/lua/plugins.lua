@@ -32,7 +32,7 @@ local plugins = {
             file_ignore_patterns = {
               ".git/",
               ".node_modules/",
-              ".terraform/"
+              ".terraform/",
             },
           },
         },
@@ -145,6 +145,10 @@ local plugins = {
 }
 
 return require("packer").startup(function(use)
+  if vim.loop.os_uname().sysname == "Darwin" then
+    plugins["jjo/vim-cue"] = {}
+  end
+
   for plugin, conf in pairs(plugins) do
     use({
       plugin,
