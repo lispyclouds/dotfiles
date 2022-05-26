@@ -6,8 +6,9 @@ local plugins = {
   ["wbthomason/packer.nvim"] = {},
   ["lewis6991/impatient.nvim"] = {},
   ["kyazdani42/nvim-web-devicons"] = {},
-  ["catppuccin/nvim"] = {
+  ["lispyclouds/nvim"] = {
     as = "catppuccin",
+    branch = "feline",
     config = function()
       require("colorscheme")
     end,
