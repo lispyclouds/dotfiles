@@ -6,7 +6,7 @@ local plugins = {
   ["wbthomason/packer.nvim"] = {},
   ["lewis6991/impatient.nvim"] = {},
   ["kyazdani42/nvim-web-devicons"] = {},
-  ["catppuccin/nvim"] = {
+  ["lispyclouds/nvim"] = {
     as = "catppuccin",
     config = function()
       require("colorscheme")
@@ -69,7 +69,7 @@ local plugins = {
     event = buf_read,
     config = function()
       require("feline").setup({
-        -- components = require("catppuccin.core.integrations.feline"),
+        components = require("catppuccin.core.integrations.feline"),
       })
     end,
   },
