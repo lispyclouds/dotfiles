@@ -26,6 +26,9 @@ local normal_mappings = {
   ["gd"] = function()
     vim.lsp.buf.definition()
   end,
+  ["<Leader>d"] = function()
+    vim.lsp.buf.hover()
+  end,
 }
 
 for mapping, action in pairs(normal_mappings) do
