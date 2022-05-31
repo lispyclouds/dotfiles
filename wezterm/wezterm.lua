@@ -1,20 +1,11 @@
 local wezterm = require("wezterm")
 
--- TODO: Anything better?
-local which_os = function()
-  if wezterm.home_dir:find("^/Users") ~= nil then
-    return "Mac"
-  else
-    return "Linux"
-  end
-end
-
 local font_conf = function()
   local font = "JetBrainsMono Nerd Font Mono"
-  local size = 10.0
+  local size = 12.0
 
-  if which_os() == "Mac" then
-    size = 12.0
+  if wezterm.target_triple == "x86_64-unknown-linux-gnu" then
+    size = 10.0
   end
 
   return font, size
