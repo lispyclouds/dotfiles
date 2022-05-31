@@ -20,33 +20,33 @@ local font_conf = function()
   return font, size
 end
 
-local catppuccin = {
-  foreground = "#D9E0EE",
+local catppuccin_mocha = {
+  foreground = "#CDD6F4",
   background = "#1E1E2E",
   cursor_bg = "#F5E0DC",
   cursor_fg = "#1E1E2E",
   cursor_border = "#F5E0DC",
-  selection_fg = "#575268",
-  selection_bg = "#D9E0EE",
+  selection_fg = "#1E1E2E",
+  selection_bg = "#F5E0DC",
   ansi = {
-    "#6E6C7E",
-    "#F28FAD",
-    "#ABE9B3",
-    "#FAE3B0",
-    "#96CDFB",
+    "#43465A",
+    "#F38BA8",
+    "#A6E3A1",
+    "#F9E2AF",
+    "#87B0F9",
     "#F5C2E7",
-    "#89DCEB",
-    "#C3BAC6",
+    "#94E2D5",
+    "#CDD6F4",
   },
   brights = {
-    "#988BA2",
-    "#F28FAD",
-    "#ABE9B3",
-    "#FAE3B0",
-    "#96CDFB",
+    "#43465A",
+    "#F38BA8",
+    "#A6E3A1",
+    "#F9E2AF",
+    "#87B0F9",
     "#F5C2E7",
-    "#89DCEB",
-    "#D9E0EE",
+    "#94E2D5",
+    "#A1A8C9",
   },
 }
 
@@ -81,7 +81,7 @@ local keymap = {
 local font, font_size = font_conf()
 
 return {
-  colors = catppuccin,
+  colors = catppuccin_mocha,
   enable_wayland = true,
   freetype_load_target = "HorizontalLcd",
   font_size = font_size,
