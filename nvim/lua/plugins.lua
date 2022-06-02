@@ -8,15 +8,11 @@ local plugins = {
   ["kyazdani42/nvim-web-devicons"] = {},
   ["catppuccin/nvim"] = {
     as = "catppuccin",
-    config = function()
-      require("colorscheme")
-    end,
+    config = "require('colorscheme')",
   },
   ["nvim-treesitter/nvim-treesitter"] = {
     run = ":TSUpdate",
-    config = function()
-      require("treesitter")
-    end,
+    config = "require('treesitter')",
   },
   ["nvim-telescope/telescope.nvim"] = {
     event = vim_enter,
@@ -82,15 +78,14 @@ local plugins = {
       "L3MON4D3/LuaSnip",
       "saadparwaiz1/cmp_luasnip",
     },
-    config = function()
-      require("completion")
-    end,
+    config = "require('completion')",
   },
   ["neovim/nvim-lspconfig"] = {
+    requires = {
+      "jose-elias-alvarez/null-ls.nvim",
+    },
     event = buf_read,
-    config = function()
-      require("lsp")
-    end,
+    config = "require('lsp')",
   },
   ["lewis6991/gitsigns.nvim"] = {
     event = buf_read,
@@ -123,21 +118,6 @@ local plugins = {
         rainbow = {
           enable = true,
           extended_mode = true,
-        },
-      })
-    end,
-  },
-  ["jose-elias-alvarez/null-ls.nvim"] = {
-    event = buf_read,
-    config = function()
-      local nls = require("null-ls")
-
-      nls.setup({
-        sources = {
-          nls.builtins.diagnostics.shellcheck.with({
-            extra_filetypes = { "zsh" },
-          }),
-          nls.builtins.diagnostics.hadolint,
         },
       })
     end,
