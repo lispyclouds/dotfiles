@@ -29,6 +29,8 @@ local plugins = {
               ".git/",
               ".node_modules/",
               ".terraform/",
+              ".mypy_cache/",
+              "__pycache__/",
             },
           },
         },
