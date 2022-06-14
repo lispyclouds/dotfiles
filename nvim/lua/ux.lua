@@ -34,9 +34,9 @@ vim.o.termguicolors = true
 vim.o.laststatus = 3
 
 if vim.loop.os_uname().sysname == "Linux" then
-  vim.o.guifont = "JetBrainsMono Nerd Font Mono:h10"
+  vim.o.guifont = "FantasqueSansMono Nerd Font Mono:h12"
 else
-  vim.o.guifont = "JetBrainsMono Nerd Font Mono:h14"
+  vim.o.guifont = "FantasqueSansMono Nerd Font Mono:h16"
 end
 
 vim.api.nvim_create_autocmd("TextYankPost", {
