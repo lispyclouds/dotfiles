@@ -1,33 +1,3 @@
 {:paths ["tasks"]
- :tasks {:requires                 ([clojure.string :as s]
-                                    [babashka.process :as p]
-                                    [bootstrap.common :as c]
-                                    [bootstrap.fedora :as bf]
-                                    [bootstrap.mac :as bm])
-         :init                     (defn exec
-                                     [cmds]
-                                     (run! shell cmds))
-         -bootstrap-fedora-dnf     (exec (c/get-cmds fedora-config "dnf"))
-         -bootstrap-fedora-flatpak (exec (c/get-cmds fedora-config "flatpak"))
-         -bootstrap-fedora-npm     {:depends [-bootstrap-fedora-dnf]
-                                    :task    (exec (c/get-cmds fedora-config "npm"))}
-         -bootstrap-fedora         {:depends [-bootstrap-fedora-flatpak -bootstrap-fedora-npm]}
-         bootstrap-fedora          {:doc  "Bootstraps the Fedora 35+ installation."
-                                    :task (do
-                                            (def fedora-config
-                                              (let [options {:fedora-version (-> "rpm -E %fedora"
-                                                                                 (p/sh)
-                                                                                 (:out)
-                                                                                 (s/trim-newline))}]
-                                                (bf/config options)))
-                                            (run '-bootstrap-fedora {:parallel true}))}
-         -bootstrap-mac-brew       (exec (c/get-cmds mac-config "brew"))
-         -bootstrap-mac-npm        {:depends [-bootstrap-mac-brew]
-                                    :task    (exec (c/get-cmds mac-config "npm"))}
-         -bootstrap-mac            {:depends [-bootstrap-mac-npm]}
-         bootstrap-mac             {:doc  "Bootstraps a new MacOS installation, assumes brew to be installed."
-                                    :task (do
-                                            (def mac-config (bm/config nil))
-                                            (run '-bootstrap-mac))}
-         zsh-hist-clean            {:doc  "Prints out the unique lines from your zsh history."
-                                    :task (load-file "tasks/general/zsh_hist_clean.clj")}}}
+ :tasks {zsh-hist-clean {:doc  "Prints out the unique lines from your zsh history."
+                         :task (load-file "tasks/general/zsh_hist_clean.clj")}}}

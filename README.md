@@ -22,9 +22,9 @@ nvim +'autocmd User PackerComplete sleep 100m | qall' +PackerSync +TSUpdate
 
 ### Bootstrapping new Fedora 35+ or MacOS installations
 
-- Ensure a latest version of [Babashka](https://github.com/babashka/babashka#installation) installed.
+- Ensure a recent version of [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) is installed
 - [Only for MacOS] Ensure [Homebrew](https://brew.sh/) is installed.
-- Run `bb bootstrap-fedora` or `bb bootstrap-mac` from the root of this dir based on the OS.
+- Run `ansible-playbook playbooks/fedora.yml` or `ansible-playbook playbooks/mac.yml` from the root of this dir based on the OS.
 
 ### License
 MIT
