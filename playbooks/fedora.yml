@@ -1,0 +1,76 @@
+---
+- name: Install Fedora packages
+  hosts: localhost
+  become: true
+  vars:
+    packages:
+      - ansible
+      - bat
+      - black
+      - bottom
+      - "@development-tools"
+      - fd-find
+      - fontconfig-devel
+      - freetype-devel
+      - fzf
+      - gcc-c++
+      - gnome-shell-extension-gpaste
+      - gnome-tweaks
+      - gpaste
+      - hadolint
+      - ImageMagick
+      - java-latest-openjdk-devel
+      - libstdc++-devel
+      - libxcb-devel
+      - lsd
+      - neofetch
+      - neovim
+      - nodejs
+      - npm
+      - papirus-icon-theme
+      - podman-compose
+      - rlwrap
+      - ShellCheck
+      - terraform
+      - terraform-ls
+      - thunderbird
+      - vlc
+      - youtube-dl
+      - zsh
+    flatpaks:
+      - com.getferdi.Ferdi
+      - com.github.johnfactotum.Foliate
+      - com.spotify.Client
+      - org.signal.Signal
+      - org.telegram.desktop
+      - us.zoom.Zoom
+  tasks:
+    - name: Prep dnf
+      command: "{{ item }}"
+      with_items:
+        - dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-36.noarch.rpm
+        - dnf config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
+    - name: Installing packages
+      dnf:
+        name: "{{ packages }}"
+        state: present
+        install_weak_deps: no
+      register: result
+      until: result is successful
+    - name: Installing flatpaks
+      flatpak:
+        name: "{{ flatpaks }}"
+        state: present
+      register: result
+      until: result is successful
+    - name: Installing npm packages
+      npm:
+        name: "{{ item }}"
+        state: present
+        global: yes
+      register: result
+      until: result is successful
+      with_items:
+        - prettier
+        - pyright
+        - yaml-language-server
