@@ -147,8 +147,6 @@
       - vlc
       - wezterm
       - zprint
-    npms:
-      - yaml-language-server
   tasks:
     - name: Installing brews
       homebrew:
@@ -164,8 +162,10 @@
       until: result is successful
     - name: Installing npm packages
       npm:
-        name: "{{ npms | join(' ') }}"
+        name: "{{ item }}"
         state: present
         global: yes
       register: result
       until: result is successful
+      with_items:
+        - yaml-language-server
