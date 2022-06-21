@@ -45,10 +45,13 @@
       - org.telegram.desktop
       - us.zoom.Zoom
   tasks:
+    - name: Get Fedora version
+      shell: rpm -E %fedora
+      register: fedora_version
     - name: Prep dnf
       command: "{{ item }}"
       with_items:
-        - dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-36.noarch.rpm
+        - dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ fedora_version.stdout }}.noarch.rpm
         - dnf config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
     - name: Installing packages
       dnf:
