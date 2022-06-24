@@ -6,8 +6,7 @@ local plugins = {
   ["wbthomason/packer.nvim"] = {},
   ["lewis6991/impatient.nvim"] = {},
   ["kyazdani42/nvim-web-devicons"] = {},
-  ["catppuccin/nvim"] = {
-    as = "catppuccin",
+  ["folke/tokyonight.nvim"] = {
     config = "require('colorscheme')",
   },
   ["nvim-treesitter/nvim-treesitter"] = {
@@ -63,11 +62,15 @@ local plugins = {
       require("bufferline").setup({})
     end,
   },
-  ["feline-nvim/feline.nvim"] = {
+  ["nvim-lualine/lualine.nvim"] = {
     event = buf_read,
     config = function()
-      require("feline").setup({
-        components = require("catppuccin.core.integrations.feline"),
+      require("lualine").setup({
+        theme = "tokyonight",
+        options = {
+          section_separators = "",
+          component_separators = "",
+        },
       })
     end,
   },
