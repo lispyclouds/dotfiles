@@ -1,18 +1,13 @@
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
 
-zstyle ':z4h:' auto-update      'no'
+zstyle ':z4h:' auto-update 'no'
 
 zstyle ':z4h:' prompt-at-bottom 'no'
 zstyle ':z4h:autosuggestions' forward-char 'accept'
 zstyle ':z4h:fzf-complete' recurse-dirs 'no'
 zstyle :z4h: start-tmux 'no'
 
-zstyle ':z4h:direnv'         enable 'no'
-
-zstyle ':z4h:ssh:example-hostname1'   enable 'yes'
-zstyle ':z4h:ssh:*.example-hostname2' enable 'no'
-zstyle ':z4h:ssh:*'                   enable 'no'
-zstyle ':z4h:ssh:*' send-extra-files '~/.nanorc' '~/.env.zsh'
+zstyle ':z4h:direnv' enable 'no'
 
 z4h install ohmyzsh/ohmyzsh || return
 
@@ -30,9 +25,6 @@ z4h load ohmyzsh/ohmyzsh/plugins/git
 z4h load ohmyzsh/ohmyzsh/plugins/common-aliases
 
 autoload -Uz zmv
-
-function md() { [[ $# == 1 ]] && mkdir -p -- "$1" && cd -- "$1" }
-compdef _directories md
 
 alias tree='tree -I .git'
 
@@ -68,14 +60,14 @@ alias nvim_update="nvim +'autocmd User PackerComplete sleep 100m | qall' +Packer
 alias antq="clojure -Sdeps '{:deps {com.github.liquidz/antq {:mvn/version \"RELEASE\"}}}' -M -m antq.core"
 
 eval "$(zoxide init zsh)"
-source $HOME/.cargo/env
+source ~/.cargo/env
 
 function di() {
   cengine image rm $(cengine images -q | head -${1-"1"})
 }
 
 _bb_tasks() {
-  local matches=(`bb tasks | tail -n +3 | cut -f1 -d ' '`)
+  local matches=($(bb tasks | tail -n +3 | cut -f1 -d ' '))
   compadd -a matches
   _files # autocomplete filenames as well
 }
@@ -95,7 +87,7 @@ function _raw_update() {
   done
 }
 
-if [[ `uname` == "Darwin" ]]; then
+if [[ $(uname) == "Darwin" ]]; then
   zstyle ':z4h:bindkey' keyboard 'mac'
   alias u="brew update                  && \
            brew upgrade                 && \
@@ -109,7 +101,7 @@ if [[ `uname` == "Darwin" ]]; then
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
   if [ ! -f ~/.lispy_first_setup_complete ]; then
     sudo ln -s /usr/local/sbin/mount_ntfs "/Volumes/Macintosh HD/sbin/mount_ntfs"
-    $(brew --prefix)/opt/fzf/install
+    "$(brew --prefix)/opt/fzf/install"
     touch ~/.lispy_first_setup_complete
   fi
 else
