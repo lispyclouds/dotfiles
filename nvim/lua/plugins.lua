@@ -6,7 +6,7 @@ local plugins = {
   ["wbthomason/packer.nvim"] = {},
   ["lewis6991/impatient.nvim"] = {},
   ["kyazdani42/nvim-web-devicons"] = {},
-  ["folke/tokyonight.nvim"] = {
+  ["rebelot/kanagawa.nvim"] = {
     config = "require('colorscheme')",
   },
   ["nvim-treesitter/nvim-treesitter"] = {
@@ -66,7 +66,7 @@ local plugins = {
     event = buf_read,
     config = function()
       require("lualine").setup({
-        theme = "tokyonight",
+        theme = "kanagawa",
         options = {
           section_separators = "",
           component_separators = "",

@@ -42,7 +42,7 @@ local keymap = {
 local font, font_size = font_conf()
 
 return {
-  color_scheme = "tokyonight",
+  color_scheme = "kanagawabones",
   enable_wayland = true,
   freetype_load_target = "HorizontalLcd",
   font_size = font_size,
