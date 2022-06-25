@@ -34,7 +34,7 @@ vim.o.termguicolors = true
 vim.o.laststatus = 3
 
 if vim.loop.os_uname().sysname == "Linux" then
-  vim.o.guifont = "FantasqueSansMono Nerd Font Mono:h12"
+  vim.o.guifont = "FantasqueSansMono Nerd Font Mono:h12:b"
 else
   vim.o.guifont = "FantasqueSansMono Nerd Font Mono:h16"
 end
