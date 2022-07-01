@@ -3,7 +3,6 @@ local patterns = {
   [[%s/\s\+$//e]],
   [[%s/\($\n\s*\)\+\%$//]],
   [[%s/\%^\n\+//]],
-  [[%s/\(\n\n\)\n\+/\1/]],
 }
 
 vim.api.nvim_create_autocmd("BufWritePre", {
