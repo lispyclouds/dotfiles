@@ -4,8 +4,8 @@ require("luasnip.loaders.from_vscode").lazy_load()
 
 cmp.setup({
   mapping = {
-    ["<Up>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
-    ["<Down>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
+    ["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
+    ["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
     ["<CR>"] = cmp.mapping.confirm({ select = true }),
   },
   sources = {

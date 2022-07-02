@@ -29,6 +29,9 @@ local normal_mappings = {
   ["<Leader>d"] = function()
     vim.lsp.buf.hover()
   end,
+  ["<Leader>h"] = function()
+    require("telescope.builtin").command_history()
+  end,
 }
 
 for mapping, action in pairs(normal_mappings) do
