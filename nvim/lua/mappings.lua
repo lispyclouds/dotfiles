@@ -29,7 +29,7 @@ local normal_mappings = {
   ["<Leader>d"] = function()
     vim.lsp.buf.hover()
   end,
-  ["<Leader>h"] = function()
+  ["<Leader>ch"] = function()
     require("telescope.builtin").command_history()
   end,
 }
