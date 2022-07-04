@@ -57,7 +57,6 @@
       - haskell-stack
       - helm
       - httpie
-      - hub
       - ipython
       - ispell
       - jq
@@ -77,7 +76,6 @@
       - mypy
       - neofetch
       - neovim
-      - ninja
       - nmap
       - nss
       - onefetch
@@ -91,12 +89,9 @@
       - prettier
       - prettyping
       - progress
-      - pulumi
-      - pwgen
       - pyright
       - ripgrep
       - ruby
-      - sbt
       - scc
       - shellcheck
       - sl
