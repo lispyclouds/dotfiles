@@ -51,7 +51,7 @@ local plugins = {
     config = function()
       require("neo-tree").setup({
         filesystem = {
-          use_libuv_file_watcher = false,
+          use_libuv_file_watcher = true,
           follow_current_file = true,
           filtered_items = {
             hide_dotfiles = false,
