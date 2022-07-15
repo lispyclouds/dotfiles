@@ -117,9 +117,6 @@ local plugins = {
     ft = lisps,
     run = "cargo build --release",
   },
-  ["hashivim/vim-terraform"] = {
-    ft = "terraform",
-  },
   ["p00f/nvim-ts-rainbow"] = {
     event = vim_enter,
     requires = "neovim/nvim-lspconfig",
