@@ -1,10 +1,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
-local map = function(mapping, action)
-  vim.keymap.set("n", mapping, action, { silent = true })
-end
-
 local normal_mappings = {
   ["<Leader><CR>"] = ":noh<CR>",
   ["<Leader>n"] = ":Neotree toggle<CR>",
@@ -35,21 +31,5 @@ local normal_mappings = {
 }
 
 for mapping, action in pairs(normal_mappings) do
-  map(mapping, action)
-end
-
-local sexp_mappings = {
-  [">)"] = "<Plug>(sexp_capture_next_element)",
-  ["<("] = "<Plug>(sexp_capture_prev_element)",
-  [">("] = "<Plug>(sexp_emit_head_element)",
-  ["<)"] = "<Plug>(sexp_emit_tail_element)",
-}
-
-for mapping, action in pairs(sexp_mappings) do
-  vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "clojure", "fennel" },
-    callback = function()
-      map(mapping, action)
-    end,
-  })
+  vim.keymap.set("n", mapping, action, { silent = true })
 end

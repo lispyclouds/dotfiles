@@ -110,9 +110,6 @@ local plugins = {
   ["Olical/conjure"] = {
     ft = lisps,
   },
-  ["guns/vim-sexp"] = {
-    ft = lisps,
-  },
   ["eraserhd/parinfer-rust"] = {
     ft = lisps,
     run = "cargo build --release",
