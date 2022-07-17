@@ -1,4 +1,4 @@
-local undo_dir = vim.env.HOME .. "/.vim/undodir"
+local undo_dir = vim.loop.os_homedir() .. "/.vim/undodir"
 local fn = vim.fn
 
 if not fn.isdirectory(undo_dir) then
