@@ -126,6 +126,16 @@ local plugins = {
       })
     end,
   },
+  ["https://git.sr.ht/~whynothugo/lsp_lines.nvim"] = {
+    event = buf_read,
+    config = function()
+      require("lsp_lines").setup()
+
+      vim.diagnostic.config({
+        virtual_text = false,
+      })
+    end,
+  },
 }
 
 return require("packer").startup(function(use)
