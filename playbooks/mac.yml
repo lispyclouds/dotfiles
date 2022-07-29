@@ -126,7 +126,7 @@
       - koekeishiya/formulae/yabai
     casks:
       - eloston-chromium
-      - ferdi
+      - ferdium
       - flux
       - font-fantasque-sans-mono-nerd-font
       - font-fira-code-nerd-font

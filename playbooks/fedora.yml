@@ -38,7 +38,7 @@
       - youtube-dl
       - zsh
     flatpaks:
-      - com.getferdi.Ferdi
+      - org.ferdium.Ferdium
       - com.github.johnfactotum.Foliate
       - com.spotify.Client
       - org.signal.Signal

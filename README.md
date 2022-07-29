@@ -13,7 +13,7 @@ Welcome to my dotfiles, this is my setup on MacOS/Fedora 35+, Neovim 0.7+ and zs
 - Start neovim with `nvim`. Ignore the first time boot errors, should be gone from subsequent runs.
 - Run `:PackerSync` to download all the plugins and setup neovim.
 - Make sure all the installs mentioned in `nvim/lua/lsp.lua` are performed too. Amend the list to your liking.
-- Profit from the startup time optimisations!
+- Profit from the **_Blazingly Fast_** startup time optimisations!
 
 To keep all the plugins updated run
 ```sh
