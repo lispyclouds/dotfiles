@@ -1,7 +1,6 @@
 local buf_read = "BufRead"
 local vim_enter = "VimEnter"
 local lisps = { "clojure", "fennel" }
-local after_cmp = { after = "nvim-cmp" }
 
 local plugins = {
   ["wbthomason/packer.nvim"] = {},
@@ -80,16 +79,17 @@ local plugins = {
       })
     end,
   },
-  ["L3MON4D3/LuaSnip"] = {},
   ["hrsh7th/nvim-cmp"] = {
+    requires = {
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-nvim-lua",
+      "hrsh7th/cmp-path",
+      "L3MON4D3/LuaSnip",
+      "saadparwaiz1/cmp_luasnip",
+    },
     config = "require('completion')",
-    event = buf_read,
   },
-  ["hrsh7th/cmp-nvim-lsp"] = after_cmp,
-  ["hrsh7th/cmp-buffer"] = after_cmp,
-  ["hrsh7th/cmp-nvim-lua"] = after_cmp,
-  ["hrsh7th/cmp-path"] = after_cmp,
-  ["saadparwaiz1/cmp_luasnip"] = after_cmp,
   ["neovim/nvim-lspconfig"] = {
     requires = {
       "jose-elias-alvarez/null-ls.nvim",
