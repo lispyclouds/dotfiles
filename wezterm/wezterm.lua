@@ -11,6 +11,49 @@ local font_conf = function()
   return font, size
 end
 
+local everblush = {
+  foreground = "#dadada",
+  background = "#141b1e",
+  cursor_bg = "#dadada",
+  cursor_fg = "#141b1e",
+  cursor_border = "#dadada",
+  selection_fg = "141b1e",
+  selection_bg = "#dadada",
+  scrollbar_thumb = "#b3b9b8",
+  split = "#dadada",
+  ansi = { "#232a2d", "#e57474", "#8ccf7e", "#e5c76b", "#67b0e8", "#c47fd5", "#6cbfbf", "#b3b9b8" },
+  brights = { "#2d3437", "#ef7d7d", "#96d988", "#f4d67a", "#71baf2", "#ce89df", "#67cbe7", "#bdc3c2" },
+  tab_bar = {
+    background = "#3b4244",
+    active_tab = {
+      bg_color = "#bab3e5",
+      fg_color = "#22292b",
+      intensity = "Normal",
+      underline = "None",
+      italic = false,
+      strikethrough = false,
+    },
+    inactive_tab = {
+      bg_color = "#22292b",
+      fg_color = "#dadada",
+    },
+    inactive_tab_hover = {
+      bg_color = "#8ad8ef",
+      fg_color = "#22292b",
+      italic = true,
+    },
+    new_tab = {
+      bg_color = "#141b1e",
+      fg_color = "#dadada",
+    },
+    new_tab_hover = {
+      bg_color = "#ce89df",
+      fg_color = "#dadada",
+      italic = true,
+    },
+  },
+}
+
 local keymap = {
   {
     key = "Delete",
@@ -42,7 +85,7 @@ local keymap = {
 local font, font_size = font_conf()
 
 return {
-  color_scheme = "kanagawabones",
+  colors = everblush,
   enable_wayland = true,
   freetype_load_target = "HorizontalLcd",
   font_size = font_size,
