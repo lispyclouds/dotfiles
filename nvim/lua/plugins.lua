@@ -6,8 +6,7 @@ local plugins = {
   ["wbthomason/packer.nvim"] = {},
   ["lewis6991/impatient.nvim"] = {},
   ["kyazdani42/nvim-web-devicons"] = {},
-  ["Everblush/everblush.nvim"] = {
-    as = "everblush",
+  ["rebelot/kanagawa.nvim"] = {
     config = "require('colorscheme')",
   },
   ["nvim-treesitter/nvim-treesitter"] = {
@@ -78,7 +77,7 @@ local plugins = {
     event = buf_read,
     config = function()
       require("lualine").setup({
-        theme = "everblush",
+        theme = "kanagawa",
         options = {
           section_separators = "",
           component_separators = "",
