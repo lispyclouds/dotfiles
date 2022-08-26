@@ -5,24 +5,26 @@
   vars:
     brews:
       - ansible
-      - autoconf
       - asdf
       - astyle
-      - aws-vault
-      - python
+      - autoconf
       - awscli
+      - aws-vault
       - bash
       - bat
       - black
+      - borkdude/brew/babashka
       - bottom
       - boxes
       - cfr-decompiler
       - clojure
+      - clojure-lsp/brew/clojure-lsp-native
       - cmatrix
       - colima
       - cowsay
       - curl
       - deno
+      - deviceinsight/packages/kafkactl
       - difftastic
       - docker
       - docker-machine-driver-hyperkit
@@ -52,8 +54,10 @@
       - gpgme
       - gradle
       - grep
+      - gromgit/fuse/ntfs-3g-mac
       - hadolint
       - hashcat
+      - hashicorp/tap/terraform-ls
       - haskell-stack
       - helm
       - httpie
@@ -62,6 +66,8 @@
       - jq
       - jsonnet
       - kind
+      - koekeishiya/formulae/skhd
+      - koekeishiya/formulae/yabai
       - libgit2
       - libscrypt
       - libuv
@@ -90,6 +96,7 @@
       - prettyping
       - progress
       - pyright
+      - python
       - ripgrep
       - ruby
       - scc
@@ -117,13 +124,6 @@
       - zsh
       - zsh-autosuggestions
       - zsh-syntax-highlighting
-      - borkdude/brew/babashka
-      - clojure-lsp/brew/clojure-lsp-native
-      - deviceinsight/packages/kafkactl
-      - gromgit/fuse/ntfs-3g-mac
-      - hashicorp/tap/terraform-ls
-      - koekeishiya/formulae/skhd
-      - koekeishiya/formulae/yabai
     casks:
       - eloston-chromium
       - ferdium

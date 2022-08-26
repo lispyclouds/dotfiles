@@ -33,14 +33,14 @@
       - ShellCheck
       - terraform
       - terraform-ls
-      - thunderbird
       - vlc
       - youtube-dl
       - zsh
     flatpaks:
-      - org.ferdium.Ferdium
       - com.github.johnfactotum.Foliate
       - com.spotify.Client
+      - org.ferdium.Ferdium
+      - org.mozilla.Thunderbird
       - org.signal.Signal
       - org.telegram.desktop
       - us.zoom.Zoom
