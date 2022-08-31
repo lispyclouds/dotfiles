@@ -6,7 +6,8 @@ local plugins = {
   ["wbthomason/packer.nvim"] = {},
   ["lewis6991/impatient.nvim"] = {},
   ["kyazdani42/nvim-web-devicons"] = {},
-  ["rebelot/kanagawa.nvim"] = {
+  ["catppuccin/nvim"] = {
+    as = "catppuccin",
     config = "require('colorscheme')",
   },
   ["nvim-treesitter/nvim-treesitter"] = {
