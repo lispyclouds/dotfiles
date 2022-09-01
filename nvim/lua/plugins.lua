@@ -74,12 +74,16 @@ local plugins = {
       require("bufferline").setup({})
     end,
   },
-  ["feline-nvim/feline.nvim"] = {
+  ["nvim-lualine/lualine.nvim"] = {
     event = buf_read,
     after = "catppuccin",
     config = function()
-      require("feline").setup({
-        components = require("catppuccin.groups.integrations.feline").get(),
+      require("lualine").setup({
+        theme = "catppuccin",
+        options = {
+          section_separators = "",
+          component_separators = "",
+        },
       })
     end,
   },
