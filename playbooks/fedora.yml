@@ -43,6 +43,7 @@
       - org.mozilla.Thunderbird
       - org.signal.Signal
       - org.telegram.desktop
+      - org.wezfurlong.wezterm
       - us.zoom.Zoom
   tasks:
     - name: Get Fedora version
