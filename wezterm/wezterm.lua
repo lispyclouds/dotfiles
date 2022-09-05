@@ -1,4 +1,5 @@
 local wezterm = require("wezterm")
+local act = wezterm.action
 
 local font_conf = function()
   local font = "FantasqueSansMono Nerd Font Mono"
@@ -15,22 +16,25 @@ local keymap = {
   {
     key = "Delete",
     mods = "CTRL|SHIFT",
-    action = wezterm.action({ ClearScrollback = "ScrollbackAndViewport" }),
+    action = act.Multiple({
+      act.ClearScrollback("ScrollbackAndViewport"),
+      act.SendKey({ key = "L", mods = "CTRL" }),
+    }),
   },
   {
     key = "S",
     mods = "CTRL|SHIFT",
-    action = wezterm.action({ SplitHorizontal = { domain = "CurrentPaneDomain" } }),
+    action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }),
   },
   {
     key = "s",
     mods = "CTRL",
-    action = wezterm.action({ SplitVertical = { domain = "CurrentPaneDomain" } }),
+    action = act.SplitVertical({ domain = "CurrentPaneDomain" }),
   },
   {
     key = "W",
     mods = "CTRL|SHIFT",
-    action = wezterm.action({ CloseCurrentPane = { confirm = false } }),
+    action = act.CloseCurrentPane({ confirm = false }),
   },
   {
     key = "Home",
