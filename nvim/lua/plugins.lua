@@ -77,15 +77,7 @@ local plugins = {
   ["nvim-lualine/lualine.nvim"] = {
     event = buf_read,
     after = "catppuccin",
-    config = function()
-      require("lualine").setup({
-        theme = "catppuccin",
-        options = {
-          section_separators = "",
-          component_separators = "",
-        },
-      })
-    end,
+    config = "require('statusline')",
   },
   ["hrsh7th/nvim-cmp"] = {
     requires = {
