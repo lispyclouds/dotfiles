@@ -6,8 +6,7 @@ local plugins = {
   ["wbthomason/packer.nvim"] = {},
   ["lewis6991/impatient.nvim"] = {},
   ["kyazdani42/nvim-web-devicons"] = {},
-  ["catppuccin/nvim"] = {
-    as = "catppuccin",
+  ["sam4llis/nvim-tundra"] = {
     config = "require('colorscheme')",
   },
   ["nvim-treesitter/nvim-treesitter"] = {
@@ -76,7 +75,6 @@ local plugins = {
   },
   ["nvim-lualine/lualine.nvim"] = {
     event = buf_read,
-    after = "catppuccin",
     config = "require('statusline')",
   },
   ["hrsh7th/nvim-cmp"] = {

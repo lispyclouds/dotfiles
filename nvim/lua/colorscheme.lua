@@ -1,21 +1,15 @@
 vim.o.background = "dark"
 vim.o.termguicolors = true
 
-vim.g.catppuccin_flavour = "mocha"
-
-require("catppuccin").setup({
-  dim_inactive = {
-    enabled = true,
-  },
-  term_colors = true,
-  compile = {
-    enabled = true,
-  },
-  integrations = {
-    neotree = {
-      enabled = true,
-    },
+require("nvim-tundra").setup({
+  transparent_background = false,
+  plugins = {
+    lsp = true,
+    treesitter = true,
+    cmp = true,
+    gitsigns = true,
+    telescope = true,
   },
 })
 
-vim.cmd("colorscheme catppuccin")
+vim.cmd("colorscheme tundra")
