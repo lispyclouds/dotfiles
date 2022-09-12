@@ -16,10 +16,7 @@ local keymap = {
   {
     key = "Delete",
     mods = "CTRL|SHIFT",
-    action = act.Multiple({
-      act.ClearScrollback("ScrollbackAndViewport"),
-      act.SendKey({ key = "L", mods = "CTRL" }),
-    }),
+    action = act.ClearScrollback("ScrollbackAndViewport"),
   },
   {
     key = "S",
