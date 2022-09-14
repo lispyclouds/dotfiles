@@ -13,11 +13,14 @@ local plugins = {
     run = ":TSUpdate",
     config = "require('treesitter')",
   },
+  ["nvim-treesitter/nvim-treesitter-context"] = {
+    event = buf_read,
+    requires = { "nvim-treesitter/nvim-treesitter" },
+    config = "require('treesitter-context').setup({})",
+  },
   ["nvim-treesitter/playground"] = {
     event = buf_read,
-    requires = {
-      "nvim-treesitter/nvim-treesitter",
-    },
+    requires = { "nvim-treesitter/nvim-treesitter" },
   },
   ["nvim-telescope/telescope.nvim"] = {
     event = vim_enter,
