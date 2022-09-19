@@ -13,9 +13,6 @@ local normal_mappings = {
   ["<Leader>s"] = function()
     require("telescope.builtin").live_grep()
   end,
-  ["<Leader>ch"] = function()
-    require("telescope.builtin").command_history()
-  end,
   ["<Leader>pm"] = function()
     vim.o.relativenumber = not vim.o.relativenumber
   end,
