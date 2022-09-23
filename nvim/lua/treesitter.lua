@@ -8,6 +8,7 @@ require("nvim-treesitter.configs").setup({
     "json",
     "lua",
     "python",
+    "rust",
     "typescript",
     "yaml",
   },

@@ -45,7 +45,7 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export BAT_STYLE=plain
 export GOPATH=$HOME/.go
-export PATH=$PATH:$GOPATH/bin:~/.poetry/bin
+export PATH=$PATH:$GOPATH/bin
 
 alias cat=bat
 alias cengine=podman # default
