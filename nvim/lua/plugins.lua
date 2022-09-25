@@ -72,9 +72,7 @@ local plugins = {
   },
   ["akinsho/bufferline.nvim"] = {
     event = buf_read,
-    config = function()
-      require("bufferline").setup({})
-    end,
+    config = function() require("bufferline").setup({}) end,
   },
   ["nvim-lualine/lualine.nvim"] = {
     event = buf_read,
@@ -101,9 +99,7 @@ local plugins = {
   ["lewis6991/gitsigns.nvim"] = {
     event = buf_read,
     requires = "nvim-lua/plenary.nvim",
-    config = function()
-      require("gitsigns").setup()
-    end,
+    config = function() require("gitsigns").setup() end,
   },
   ["famiu/bufdelete.nvim"] = {
     event = buf_read,
@@ -146,14 +142,15 @@ return require("packer").startup(function(use)
   for plugin, conf in pairs(plugins) do
     use({
       plugin,
-      event = conf.event,
+      after = conf.after,
+      as = conf.as,
+      branch = conf.branch,
       cmd = conf.cmd,
+      config = conf.config,
+      event = conf.event,
+      ft = conf.ft,
       requires = conf.requires,
       run = conf.run,
-      config = conf.config,
-      ft = conf.ft,
-      branch = conf.branch,
-      as = conf.as,
     })
   end
 end)

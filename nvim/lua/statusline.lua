@@ -19,12 +19,8 @@ local colors = {
 local fn = vim.fn
 
 local conditions = {
-  buffer_not_empty = function()
-    return fn.empty(fn.expand("%:t")) ~= 1
-  end,
-  hide_in_width = function()
-    return fn.winwidth(0) > 80
-  end,
+  buffer_not_empty = function() return fn.empty(fn.expand("%:t")) ~= 1 end,
+  hide_in_width = function() return fn.winwidth(0) > 80 end,
   check_git_workspace = function()
     local filepath = fn.expand("%:p:h")
     local gitdir = fn.finddir(".git", filepath .. ";")
@@ -59,26 +55,18 @@ local config = {
   },
 }
 
-local function ins_left(component)
-  table.insert(config.sections.lualine_c, component)
-end
+local function ins_left(component) table.insert(config.sections.lualine_c, component) end
 
-local function ins_right(component)
-  table.insert(config.sections.lualine_x, component)
-end
+local function ins_right(component) table.insert(config.sections.lualine_x, component) end
 
 ins_left({
-  function()
-    return "▊"
-  end,
+  function() return "▊" end,
   color = { fg = colors.blue },
   padding = { left = 0, right = 1 },
 })
 
 ins_left({
-  function()
-    return ""
-  end,
+  function() return "" end,
   color = function()
     local mode_color = {
       n = colors.red,
@@ -134,9 +122,7 @@ ins_left({
 })
 
 ins_left({
-  function()
-    return "%="
-  end,
+  function() return "%=" end,
 })
 
 ins_right({
@@ -171,9 +157,7 @@ ins_right({
 })
 
 ins_right({
-  function()
-    return "▊"
-  end,
+  function() return "▊" end,
   color = { fg = colors.blue },
   padding = { left = 1 },
 })

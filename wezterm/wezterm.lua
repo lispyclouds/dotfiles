@@ -5,9 +5,7 @@ local font_conf = function()
   local font = "FantasqueSansMono Nerd Font Mono"
   local size = 14.0
 
-  if wezterm.target_triple == "x86_64-unknown-linux-gnu" then
-    size = 12.0
-  end
+  if wezterm.target_triple == "x86_64-unknown-linux-gnu" then size = 12.0 end
 
   return font, size
 end
@@ -66,6 +64,7 @@ local tundra_colors = {
     "#DDD6FE",
     "#A5F3FC",
   },
+
   brights = {
     "#6B7280",
     "#FCA5A5",
