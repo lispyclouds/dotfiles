@@ -105,7 +105,7 @@ local plugins = {
     event = buf_read,
   },
   ["Olical/conjure"] = {
-    ft = table.insert(lisps, "python"),
+    ft = { "clojure", "fennel", "python" },
   },
   ["guns/vim-sexp"] = { -- needed for strict parens
     ft = lisps,
