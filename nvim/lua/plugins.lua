@@ -72,7 +72,7 @@ local plugins = {
   },
   ["akinsho/bufferline.nvim"] = {
     event = buf_read,
-    config = function() require("bufferline").setup({}) end,
+    config = "require('bufferline').setup({})",
   },
   ["nvim-lualine/lualine.nvim"] = {
     event = buf_read,
@@ -99,13 +99,13 @@ local plugins = {
   ["lewis6991/gitsigns.nvim"] = {
     event = buf_read,
     requires = "nvim-lua/plenary.nvim",
-    config = function() require("gitsigns").setup() end,
+    config = "require('gitsigns').setup()",
   },
   ["famiu/bufdelete.nvim"] = {
     event = buf_read,
   },
   ["Olical/conjure"] = {
-    ft = lisps,
+    ft = table.insert(lisps, "python"),
   },
   ["guns/vim-sexp"] = { -- needed for strict parens
     ft = lisps,
