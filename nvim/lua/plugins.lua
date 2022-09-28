@@ -2,6 +2,8 @@ local buf_read = "BufRead"
 local vim_enter = "VimEnter"
 local lisps = { "clojure", "fennel" }
 
+table.unpack = table.unpack or unpack -- Lua 5.1 compatibility
+
 local plugins = {
   ["wbthomason/packer.nvim"] = {},
   ["lewis6991/impatient.nvim"] = {},
@@ -12,11 +14,6 @@ local plugins = {
   ["nvim-treesitter/nvim-treesitter"] = {
     run = ":TSUpdate",
     config = "require('treesitter')",
-  },
-  ["nvim-treesitter/nvim-treesitter-context"] = {
-    event = buf_read,
-    requires = { "nvim-treesitter/nvim-treesitter" },
-    config = "require('treesitter-context').setup({})",
   },
   ["nvim-treesitter/playground"] = {
     event = buf_read,
@@ -108,7 +105,7 @@ local plugins = {
     event = buf_read,
   },
   ["Olical/conjure"] = {
-    ft = { "clojure", "fennel", "python" },
+    ft = { "python", table.unpack(lisps) },
   },
   ["guns/vim-sexp"] = { -- needed for strict parens
     ft = lisps,
