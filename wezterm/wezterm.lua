@@ -13,17 +13,9 @@ local function font_conf()
   return font, size
 end
 
-local function clear_key()
-  local key = "Backspace"
-
-  if is_linux() then key = "Delete" end
-
-  return key
-end
-
 local keymap = {
   {
-    key = clear_key(),
+    key = "Backspace",
     mods = "CTRL|SHIFT",
     action = act.ClearScrollback("ScrollbackAndViewport"),
   },
