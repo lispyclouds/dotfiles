@@ -1,18 +1,29 @@
 local wezterm = require("wezterm")
+
 local act = wezterm.action
 
-local font_conf = function()
+local function is_linux() return wezterm.target_triple == "x86_64-unknown-linux-gnu" end
+
+local function font_conf()
   local font = "FantasqueSansMono Nerd Font Mono"
   local size = 14.0
 
-  if wezterm.target_triple == "x86_64-unknown-linux-gnu" then size = 12.0 end
+  if is_linux() then size = 12.0 end
 
   return font, size
 end
 
+local function clear_key()
+  local key = "Backspace"
+
+  if is_linux() then key = "Delete" end
+
+  return key
+end
+
 local keymap = {
   {
-    key = "Delete",
+    key = clear_key(),
     mods = "CTRL|SHIFT",
     action = act.ClearScrollback("ScrollbackAndViewport"),
   },
