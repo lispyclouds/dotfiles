@@ -7,20 +7,20 @@ vim.o.writebackup = false
 vim.o.swapfile = false
 
 local disabled_builtins = {
-  "netrw",
-  "netrwPlugin",
-  "netrwSettings",
-  "netrwFileHandlers",
-  "tar",
-  "tarPlugin",
+  "2html_plugin",
   "getscript",
   "getscriptPlugin",
-  "vimball",
-  "vimballPlugin",
-  "2html_plugin",
   "logipat",
+  "netrw",
+  "netrwFileHandlers",
+  "netrwPlugin",
+  "netrwSettings",
   "rrhelper",
   "spec",
+  "tar",
+  "tarPlugin",
+  "vimball",
+  "vimballPlugin",
 }
 
 for _, plugin in pairs(disabled_builtins) do
