@@ -1,5 +1,4 @@
 local buf_read = "BufRead"
-local vim_enter = "VimEnter"
 local lisps = { "clojure", "fennel" }
 
 local plugins = {
@@ -18,7 +17,7 @@ local plugins = {
     requires = { "nvim-treesitter/nvim-treesitter" },
   },
   ["nvim-telescope/telescope.nvim"] = {
-    event = vim_enter,
+    event = "VimEnter",
     requires = {
       "nvim-lua/popup.nvim",
       "nvim-lua/plenary.nvim",
@@ -77,22 +76,33 @@ local plugins = {
     config = "require('statusline')",
   },
   ["hrsh7th/nvim-cmp"] = {
-    requires = {
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-nvim-lua",
-      "hrsh7th/cmp-path",
-      "L3MON4D3/LuaSnip",
-      "saadparwaiz1/cmp_luasnip",
-    },
+    event = buf_read,
     config = "require('completion')",
   },
+  ["hrsh7th/cmp-nvim-lsp"] = {
+    after = "nvim-cmp",
+  },
+  ["hrsh7th/cmp-buffer"] = {
+    after = "nvim-cmp",
+  },
+  ["hrsh7th/cmp-nvim-lua"] = {
+    after = "nvim-cmp",
+  },
+  ["hrsh7th/cmp-path"] = {
+    after = "nvim-cmp",
+  },
+  ["L3MON4D3/LuaSnip"] = {
+    after = "nvim-cmp",
+  },
+  ["saadparwaiz1/cmp_luasnip"] = {
+    after = "nvim-cmp",
+  },
   ["neovim/nvim-lspconfig"] = {
-    requires = {
-      "jose-elias-alvarez/null-ls.nvim",
-    },
-    event = buf_read,
+    after = "nvim-cmp",
     config = "require('lsp')",
+  },
+  ["jose-elias-alvarez/null-ls.nvim"] = {
+    after = "nvim-cmp",
   },
   ["lewis6991/gitsigns.nvim"] = {
     event = buf_read,
@@ -113,8 +123,8 @@ local plugins = {
     run = "cargo build --release",
   },
   ["p00f/nvim-ts-rainbow"] = {
-    event = vim_enter,
-    requires = "neovim/nvim-lspconfig",
+    event = buf_read,
+    after = "nvim-lspconfig",
     config = function()
       require("nvim-treesitter.configs").setup({
         rainbow = {
