@@ -47,7 +47,6 @@ vim.o.shadafile = "NONE"
 vim.filetype.add({
   extension = {
     edn = "clojure",
-    star = "python",
   },
 })
 

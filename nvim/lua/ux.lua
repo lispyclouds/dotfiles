@@ -33,11 +33,10 @@ vim.o.updatetime = 100
 vim.o.visualbell = false
 vim.o.wrap = true
 
-if vim.loop.os_uname().sysname == "Linux" then
-  vim.o.guifont = "FantasqueSansMono Nerd Font Mono:h12:b"
-else
-  vim.o.guifont = "FantasqueSansMono Nerd Font Mono:h14"
-end
+local font_name = "FantasqueSansMono Nerd Font"
+local font = font_name .. ":h12:b"
+if vim.loop.os_uname().sysname == "Darwin" then font = font_name .. ":h14" end
+vim.o.guifont = font
 
 vim.api.nvim_create_autocmd("TextYankPost", {
   pattern = "*",

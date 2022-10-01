@@ -5,7 +5,6 @@
   vars:
     brews:
       - ansible
-      - asdf
       - astyle
       - autoconf
       - awscli
@@ -23,14 +22,11 @@
       - colima
       - cowsay
       - curl
-      - deno
       - deviceinsight/packages/kafkactl
       - difftastic
       - docker
-      - docker-machine-driver-hyperkit
       - dog
       - elixir
-      - elm
       - exiftool
       - faac
       - fd
@@ -56,7 +52,6 @@
       - grep
       - gromgit/fuse/ntfs-3g-mac
       - hadolint
-      - hashcat
       - hashicorp/tap/terraform-ls
       - haskell-stack
       - helm
@@ -64,7 +59,6 @@
       - ipython
       - ispell
       - jq
-      - jsonnet
       - kind
       - koekeishiya/formulae/skhd
       - koekeishiya/formulae/yabai
@@ -115,15 +109,12 @@
       - watch
       - websocat
       - wget
-      - wrk
       - xh
       - yarn
       - youtube-dl
       - yq
       - zoxide
       - zsh
-      - zsh-autosuggestions
-      - zsh-syntax-highlighting
     casks:
       - eloston-chromium
       - ferdium
