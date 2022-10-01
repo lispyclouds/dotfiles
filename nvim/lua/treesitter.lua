@@ -6,7 +6,6 @@ require("nvim-treesitter.configs").setup({
     "hcl",
     "javascript",
     "json",
-    "lua",
     "python",
     "rust",
     "typescript",
