@@ -136,6 +136,7 @@ local plugins = {
   },
   ["https://git.sr.ht/~whynothugo/lsp_lines.nvim"] = {
     event = buf_read,
+    after = "nvim-lspconfig",
     config = function()
       require("lsp_lines").setup()
 
