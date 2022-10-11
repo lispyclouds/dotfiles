@@ -80,6 +80,9 @@ local tundra_colors = {
   },
 }
 
+local window_decoration = "TITLE | RESIZE"
+if is_linux() then window_decoration = "RESIZE" end
+
 return {
   colors = tundra_colors,
   enable_wayland = true,
@@ -90,5 +93,5 @@ return {
   hide_tab_bar_if_only_one_tab = true,
   keys = keymap,
   tab_bar_at_bottom = true,
-  window_decorations = "RESIZE",
+  window_decorations = window_decoration,
 }
