@@ -7,6 +7,7 @@ local plugins = {
   ["kyazdani42/nvim-web-devicons"] = {},
   ["sam4llis/nvim-tundra"] = {
     config = "require('colorscheme')",
+    branch = "dev",
   },
   ["nvim-treesitter/nvim-treesitter"] = {
     run = ":TSUpdate",
@@ -115,12 +116,8 @@ local plugins = {
   ["Olical/conjure"] = {
     ft = { "python", unpack(lisps) },
   },
-  ["guns/vim-sexp"] = { -- needed for strict parens
+  ["gpanders/nvim-parinfer"] = {
     ft = lisps,
-  },
-  ["eraserhd/parinfer-rust"] = {
-    ft = lisps,
-    run = "cargo build --release",
   },
   ["p00f/nvim-ts-rainbow"] = {
     event = buf_read,

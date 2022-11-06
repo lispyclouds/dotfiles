@@ -8,7 +8,6 @@ Welcome to my dotfiles, this is my setup on MacOS/Fedora 35+, Neovim 0.8+ and zs
 
 - Ensure Neovim 0.8+ is [installed](https://github.com/neovim/neovim/wiki/Installing-Neovim)
 - Ensure a recent version of git is installed
-- Make sure a recent Rust [toolchain](https://www.rust-lang.org/tools/install) is present.
 - Copy the `nvim` dir in `~/.config/` or wherever `XDG_CONFIG_HOME` environment var is pointing to.
 - Start neovim with `nvim`. Ignore the first time boot errors, should be gone from subsequent runs.
 - Run `:PackerSync` to download all the plugins and setup neovim.
