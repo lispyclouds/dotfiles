@@ -41,7 +41,7 @@ for opt, val in pairs(opts) do
   vim.o[opt] = val
 end
 
-if vim.loop.os_uname().sysname == "Darwin" then font = font_name .. ":h14" end
+if vim.loop.os_uname().sysname == "Darwin" then font = font_name .. ":h16" end
 vim.o.guifont = font
 
 vim.api.nvim_create_autocmd("TextYankPost", {

@@ -6,7 +6,7 @@ local function is_linux() return wezterm.target_triple == "x86_64-unknown-linux-
 
 local function font_conf()
   local font = "FantasqueSansMono Nerd Font Mono"
-  local size = 14.0
+  local size = 16.0
 
   if is_linux() then size = 12.0 end
 
