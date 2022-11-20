@@ -7,7 +7,6 @@ local plugins = {
   ["kyazdani42/nvim-web-devicons"] = {},
   ["sam4llis/nvim-tundra"] = {
     config = "require('colorscheme')",
-    branch = "dev",
   },
   ["nvim-treesitter/nvim-treesitter"] = {
     run = ":TSUpdate",

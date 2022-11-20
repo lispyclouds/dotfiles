@@ -4,11 +4,11 @@ vim.o.termguicolors = true
 require("nvim-tundra").setup({
   transparent_background = false,
   plugins = {
-    lsp = true,
-    treesitter = true,
     cmp = true,
     gitsigns = true,
+    lsp = true,
     telescope = true,
+    treesitter = true,
   },
 })
 
