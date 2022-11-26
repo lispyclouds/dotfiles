@@ -12,10 +12,6 @@ local plugins = {
     run = ":TSUpdate",
     config = "require('treesitter')",
   },
-  ["nvim-treesitter/playground"] = {
-    event = buf_read,
-    requires = { "nvim-treesitter/nvim-treesitter" },
-  },
   ["nvim-telescope/telescope.nvim"] = {
     event = "VimEnter",
     requires = {
@@ -117,6 +113,10 @@ local plugins = {
   },
   ["gpanders/nvim-parinfer"] = {
     ft = lisps,
+  },
+  ["guns/vim-sexp"] = {
+    ft = lisps,
+    config = function() vim.g.sexp_enable_insert_mode_mappings = 0 end,
   },
   ["p00f/nvim-ts-rainbow"] = {
     event = buf_read,
