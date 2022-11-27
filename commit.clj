@@ -21,27 +21,21 @@
   (flush)
   (read-line))
 
-(defn primary-author?
-  [short-name]
-  (= (exec "git config --get user.email")
-     (get-in authors [short-name :email])))
-
 (defn bail!
   [msg]
   (binding [*out* *err*]
     (println msg))
   (System/exit 1))
 
+(defn primary-author?
+  [email short-name]
+  (= email (get-in authors [short-name :email])))
+
 (defn git-status
   []
-  (exec "git status --porcelain"))
-
-(defn git-repo?
-  []
   (try
-    (exec "git config --get remote.origin.url")
-    true
-    (catch Exception _ false)))
+    (exec "git status --porcelain")
+    (catch Exception _ "")))
 
 (defn validate-author
   [short-name]
@@ -52,18 +46,19 @@
 
 (defn make-co-author-msg
   [co-authors]
-  (->> co-authors
-       (filter #(not (primary-author? %)))
-       (map #(authors %))
-       (map #(format "Co-authored-by: %s <%s>"
-                     (% :name)
-                     (% :email)))
-       (str/join \newline)))
+  (let [email (exec "git config --get user.email")]
+    (->> co-authors
+         (filter #(not (primary-author? email %)))
+         (map #(authors %))
+         (map #(format "Co-authored-by: %s <%s>"
+                       (% :name)
+                       (% :email)))
+         (str/join \newline))))
 
 (defn main
   []
   (when (empty? (git-status))
-    (bail! "Nothing to commit"))
+    (bail! "Not a valid git repo or no changes to commit."))
 
   (let [story      (prompt "Story/Feature")
         co-authors (prompt "Co-authors (short-names separated by ,)")
