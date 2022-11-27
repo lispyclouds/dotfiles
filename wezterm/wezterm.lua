@@ -13,11 +13,23 @@ local function font_conf()
   return font, size
 end
 
+local emoji_picker = act.CharSelect({ copy_on_select = false })
+
 local keymap = {
   {
     key = "Backspace",
     mods = "CTRL|SHIFT",
     action = act.ClearScrollback("ScrollbackAndViewport"),
+  },
+  {
+    key = "E",
+    mods = "CTRL|SHIFT",
+    action = emoji_picker,
+  },
+  {
+    key = "e",
+    mods = "CTRL|SHIFT",
+    action = emoji_picker,
   },
   {
     key = "S",
