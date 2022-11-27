@@ -65,10 +65,16 @@
         co-authors (filter seq (str/split co-authors #"\s*,\s*"))
         _ (run! validate-author co-authors)
         message    (prompt "Message")]
-    (exec (format "git commit --cleanup=verbatim -m \"[%s] %s\n\n%s\""
-                  story
-                  message
-                  (make-co-author-msg co-authors)))))
+    (try
+      (exec (format "git commit --cleanup=verbatim -m \"[%s] %s\n\n%s\""
+                    story
+                    message
+                    (make-co-author-msg co-authors)))
+      (catch Exception ex
+        (-> ex
+            (ex-data)
+            (:out)
+            (bail!))))))
 
 (when (= *file* (System/getProperty "babashka.file"))
   (main)
