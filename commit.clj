@@ -1,11 +1,35 @@
 #!/usr/bin/env bb
 
-(require '[babashka.process :as p]
+(require '[babashka.fs :as fs]
+         '[babashka.process :as p]
+         '[clojure.edn :as edn]
+         '[clojure.java.io :as io]
          '[clojure.string :as str])
+
+(import '[java.io PushbackReader])
 
 (def authors
   {"rd" {:name  "Rahul De"
          :email "rahul080327@gmail.com"}})
+
+(def cache-dir (fs/expand-home "~/.cache/commit"))
+
+(def cache-path (str (fs/expand-home "~/.cache/commit/cache.edn")))
+
+(defn read-cache
+  []
+  (if (fs/exists? cache-path)
+    (with-open [r (io/reader cache-path)]
+      (edn/read (PushbackReader. r)))
+    {}))
+
+(defn write-cache
+  [data]
+  (fs/create-dirs cache-dir)
+  (with-open [w (io/writer cache-path)]
+    (binding [*print-length* false
+              *out*          w]
+      (pr data))))
 
 (defn exec
   [cmd]
@@ -16,10 +40,17 @@
       (str/trim)))
 
 (defn prompt
-  [message]
-  (printf "%s: " message)
+  [message default]
+  (printf "%s%s: "
+          message
+          (if default
+            (format "[%s]" default)
+            ""))
   (flush)
-  (read-line))
+  (let [answer (read-line)]
+    (if (empty? answer)
+      (or default "")
+      answer)))
 
 (defn bail!
   [msg]
@@ -60,16 +91,18 @@
   (when (empty? (git-status))
     (bail! "Not a valid git repo or no changes to commit."))
 
-  (let [story      (prompt "Story/Feature")
-        co-authors (prompt "Co-authors (short-names separated by ,)")
-        co-authors (filter seq (str/split co-authors #"\s*,\s*"))
+  (let [{:keys [story co-authors]} (read-cache)
+        story                      (prompt "Story/Feature" story)
+        co-authors                 (prompt "Co-authors (short-names separated by ,)" co-authors)
+        co-authors                 (filter seq (str/split co-authors #"\s*,\s*"))
         _ (run! validate-author co-authors)
-        message    (prompt "Message")]
+        commit-message             (prompt "Message" nil)]
     (try
       (exec (format "git commit --cleanup=verbatim -m \"[%s] %s\n\n%s\""
                     story
-                    message
+                    commit-message
                     (make-co-author-msg co-authors)))
+      (write-cache {:story story :co-authors (str/join ", " co-authors)})
       (catch Exception ex
         (-> ex
             (ex-data)
@@ -77,5 +110,7 @@
             (bail!))))))
 
 (when (= *file* (System/getProperty "babashka.file"))
-  (main)
-  nil)
+  (main))
+
+(comment
+  (write-cache {:foo "bar"}))
