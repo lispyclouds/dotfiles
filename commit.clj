@@ -12,8 +12,6 @@
   {"rd" {:name  "Rahul De"
          :email "rahul080327@gmail.com"}})
 
-(def cache-dir (fs/expand-home "~/.cache/commit"))
-
 (def cache-path (str (fs/expand-home "~/.cache/commit/cache.edn")))
 
 (defn read-cache
@@ -25,7 +23,7 @@
 
 (defn write-cache
   [data]
-  (fs/create-dirs cache-dir)
+  (fs/create-dirs (fs/expand-home "~/.cache/commit"))
   (with-open [w (io/writer cache-path)]
     (binding [*print-length* false
               *out*          w]
