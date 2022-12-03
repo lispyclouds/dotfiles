@@ -13,8 +13,6 @@ local function font_conf()
   return font, size
 end
 
-local emoji_picker = act.CharSelect({ copy_on_select = false })
-
 local keymap = {
   {
     key = "Backspace",
@@ -24,12 +22,7 @@ local keymap = {
   {
     key = "E",
     mods = "CTRL|SHIFT",
-    action = emoji_picker,
-  },
-  {
-    key = "e",
-    mods = "CTRL|SHIFT",
-    action = emoji_picker,
+    action = act.CharSelect({ copy_on_select = false }),
   },
   {
     key = "S",
@@ -55,7 +48,7 @@ local keymap = {
 
 local font, font_size = font_conf()
 
-local tundra_colors = {
+local tundra = {
   foreground = "#D1D5DB",
   background = "#111827",
 
@@ -96,7 +89,7 @@ local window_decoration = "TITLE | RESIZE"
 if is_linux() then window_decoration = "RESIZE" end
 
 return {
-  colors = tundra_colors,
+  colors = tundra,
   enable_wayland = true,
   font_size = font_size,
   font = wezterm.font(font, { weight = "Bold" }),
