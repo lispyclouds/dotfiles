@@ -1,6 +1,7 @@
 #!/usr/bin/env bb
 
-(require '[babashka.fs :as fs]
+(require '[babashka.cli :as cli]
+         '[babashka.fs :as fs]
          '[cheshire.core :as json]
          '[clojure.java.io :as io]
          '[clojure.string :as str]
@@ -16,7 +17,7 @@
       :assets))
 
 (defn download-font
-  [font]
+  [{{:keys [font]} :opts}]
   (println (str "Downloading " font))
   (let [download-link   (->> (get-assets)
                              (filter #(= (str font ".zip") (:name %)))
@@ -31,14 +32,18 @@
     (fs/unzip zip-file install-path {:replace-existing true})))
 
 (defn list-fonts
-  []
+  [& _]
   (->> (get-assets)
        (map :name)
        (map #(str/replace % #"(.zip)" ""))
        (run! println)))
 
+(def table
+  [{:cmds ["download"] :fn download-font :args->opts [:font]}
+   {:cmds ["list"] :fn list-fonts}])
+
 (when (= *file* (System/getProperty "babashka.file"))
-  (run! download-font ["FantasqueSansMono" "JetBrainsMono"]))
+  (cli/dispatch table *command-line-args*))
 
 (comment
   (download-font "FantasqueSansMono")

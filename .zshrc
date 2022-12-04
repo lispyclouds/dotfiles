@@ -107,14 +107,15 @@ if [[ $(uname) == "Darwin" ]]; then
 else
   zstyle ':z4h:bindkey' keyboard 'pc'
   source /usr/share/fzf/shell/key-bindings.zsh
-  alias u="sudo dnf update -y --refresh   && \
-           flatpak update -y              && \
-           rustup self update || true     && \
-           rustup update || true          && \
-           nvim_update                    && \
-           _raw_update || true            && \
-           sudo npm update -g             && \
-           ~/code/repos/dotfiles/nerd.clj && \
+  alias u="sudo dnf update -y --refresh && \
+           flatpak update -y && \
+           rustup self update || true && \
+           rustup update || true && \
+           nvim_update && \
+           _raw_update || true && \
+           sudo npm update -g  && \
+           ~/code/repos/dotfiles/nerd.clj download FantasqueSansMono && \
+           ~/code/repos/dotfiles/nerd.clj download JetBrainsMono && \
            z4h update"
 fi
 
