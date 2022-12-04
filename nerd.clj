@@ -17,19 +17,20 @@
       :assets))
 
 (defn download-font
-  [{{:keys [font]} :opts}]
-  (println (str "Downloading " font))
-  (let [download-link   (->> (get-assets)
-                             (filter #(= (str font ".zip") (:name %)))
-                             first
-                             :browser_download_url)
-        zip-file        (str (fs/create-temp-file))
-        _ (fs/delete-on-exit zip-file)
-        download-stream (:body @(http/get download-link {:as :stream}))
-        install-path    (str (fs/home) "/.local/share/fonts/NerdFonts")]
-    (io/copy download-stream (io/file zip-file))
-    (fs/create-dirs install-path)
-    (fs/unzip zip-file install-path {:replace-existing true})))
+  [{:keys [args]}]
+  (doseq [font args]
+    (println (str "Downloading " font))
+    (let [download-link   (->> (get-assets)
+                               (filter #(= (str font ".zip") (:name %)))
+                               first
+                               :browser_download_url)
+          zip-file        (str (fs/create-temp-file))
+          _ (fs/delete-on-exit zip-file)
+          download-stream (:body @(http/get download-link {:as :stream}))
+          install-path    (str (fs/home) "/.local/share/fonts/NerdFonts")]
+      (io/copy download-stream (io/file zip-file))
+      (fs/create-dirs install-path)
+      (fs/unzip zip-file install-path {:replace-existing true}))))
 
 (defn list-fonts
   [& _]
@@ -39,7 +40,7 @@
        (run! println)))
 
 (def table
-  [{:cmds ["download"] :fn download-font :args->opts [:font]}
+  [{:cmds ["download"] :fn download-font}
    {:cmds ["list"] :fn list-fonts}])
 
 (when (= *file* (System/getProperty "babashka.file"))
