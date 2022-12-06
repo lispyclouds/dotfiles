@@ -14,10 +14,10 @@
 
 (def cache-path (str (fs/expand-home "~/.cache/commit/cache.edn")))
 
-(defn read-cache
-  []
-  (if (fs/exists? cache-path)
-    (with-open [r (io/reader cache-path)]
+(defn read-edn
+  [path]
+  (if (fs/exists? path)
+    (with-open [r (io/reader path)]
       (edn/read (PushbackReader. r)))
     {}))
 
@@ -68,10 +68,12 @@
 
 (defn validate-author
   [short-name]
-  (when-not (contains? authors short-name)
-    (bail! (format "Unrecognised author %s. Choose from: %s"
-                   short-name
-                   (str/join ", " (keys authors))))))
+  (let [conf    (read-edn (str (fs/expand-home "~/.config/commit/conf.edn")))
+        authors (into authors (:authors conf))]
+    (when-not (contains? authors short-name)
+      (bail! (format "Unrecognised author %s. Choose from: %s"
+                     short-name
+                     (str/join ", " (keys authors)))))))
 
 (defn make-co-author-msg
   [co-authors]
@@ -89,7 +91,7 @@
   (when (empty? (git-status))
     (bail! "Not a valid git repo or no changes to commit."))
 
-  (let [{:keys [story co-authors]} (read-cache)
+  (let [{:keys [story co-authors]} (read-edn cache-path)
         story                      (prompt "Story/Feature" story)
         co-authors                 (prompt "Co-authors (short-names separated by ,)" co-authors)
         co-authors                 (filter seq (str/split co-authors #"\s*,\s*"))
