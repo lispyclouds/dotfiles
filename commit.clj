@@ -8,10 +8,6 @@
 
 (import '[java.io PushbackReader])
 
-(def authors
-  {"rd" {:name  "Rahul De"
-         :email "rahul080327@gmail.com"}})
-
 (def cache-path (str (fs/expand-home "~/.cache/commit/cache.edn")))
 
 (defn read-edn
@@ -28,6 +24,13 @@
     (binding [*print-length* false
               *out*          w]
       (pr data))))
+
+(defn get-authors
+  []
+  (let [default {"rd" {:name  "Rahul De"
+                       :email "rahul080327@gmail.com"}}
+        conf    (read-edn (str (fs/expand-home "~/.config/commit/conf.edn")))]
+    (into default (:authors conf))))
 
 (defn exec
   [cmd]
@@ -57,7 +60,7 @@
   (System/exit 1))
 
 (defn primary-author?
-  [email short-name]
+  [authors email short-name]
   (= email (get-in authors [short-name :email])))
 
 (defn git-status
@@ -67,19 +70,17 @@
     (catch Exception _ "")))
 
 (defn validate-author
-  [short-name]
-  (let [conf    (read-edn (str (fs/expand-home "~/.config/commit/conf.edn")))
-        authors (into authors (:authors conf))]
-    (when-not (contains? authors short-name)
-      (bail! (format "Unrecognised author %s. Choose from: %s"
-                     short-name
-                     (str/join ", " (keys authors)))))))
+  [authors short-name]
+  (when-not (contains? authors short-name)
+    (bail! (format "Unrecognised author %s. Choose from: %s"
+                   short-name
+                   (str/join ", " (keys authors))))))
 
 (defn make-co-author-msg
-  [co-authors]
+  [authors co-authors]
   (let [email (exec "git config --get user.email")]
     (->> co-authors
-         (filter #(not (primary-author? email %)))
+         (filter #(not (primary-author? authors email %)))
          (map #(authors %))
          (map #(format "Co-authored-by: %s <%s>"
                        (% :name)
@@ -92,16 +93,17 @@
     (bail! "Not a valid git repo or no changes to commit."))
 
   (let [{:keys [story co-authors]} (read-edn cache-path)
+        authors                    (get-authors)
         story                      (prompt "Story/Feature" story)
         co-authors                 (prompt "Co-authors (short-names separated by ,)" co-authors)
         co-authors                 (filter seq (str/split co-authors #"\s*,\s*"))
-        _ (run! validate-author co-authors)
+        _ (run! #(validate-author authors %) co-authors)
         commit-message             (prompt "Message" nil)]
     (try
       (exec (format "git commit --cleanup=verbatim -m \"[%s] %s\n\n%s\""
                     story
                     commit-message
-                    (make-co-author-msg co-authors)))
+                    (make-co-author-msg authors co-authors)))
       (write-cache {:story story :co-authors (str/join ", " co-authors)})
       (catch Exception ex
         (-> ex
