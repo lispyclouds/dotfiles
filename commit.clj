@@ -92,7 +92,10 @@
   (when (empty? (git-status))
     (bail! "Not a valid git repo or no changes to commit."))
 
-  (let [{:keys [story co-authors]} (read-edn cache-path)
+  (let [no-cache                   (System/getenv "COMMIT_NO_CACHE")
+        {:keys [story co-authors]} (if no-cache
+                                     {}
+                                     (read-edn cache-path))
         authors                    (get-authors)
         story                      (prompt "Story/Feature" story)
         co-authors                 (prompt "Co-authors (short-names separated by ,)" co-authors)
@@ -104,7 +107,8 @@
                     story
                     commit-message
                     (make-co-author-msg authors co-authors)))
-      (write-cache {:story story :co-authors (str/join ", " co-authors)})
+      (when-not no-cache
+        (write-cache {:story story :co-authors (str/join ", " co-authors)}))
       (catch Exception ex
         (-> ex
             (ex-data)
