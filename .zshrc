@@ -114,7 +114,7 @@ else
            nvim_update && \
            _raw_update || true && \
            sudo npm update -g  && \
-           ~/code/repos/dotfiles/nerd.clj download FantasqueSansMono JetBrainsMono && \
+           bb --config ~/code/repos/dotfiles/bb.edn nerd download FantasqueSansMono JetBrainsMono && \
            z4h update"
 fi
 

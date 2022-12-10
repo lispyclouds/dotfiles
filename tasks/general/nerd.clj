@@ -1,11 +1,10 @@
-#!/usr/bin/env bb
-
-(require '[babashka.cli :as cli]
-         '[babashka.fs :as fs]
-         '[cheshire.core :as json]
-         '[clojure.java.io :as io]
-         '[clojure.string :as str]
-         '[org.httpkit.client :as http])
+(ns general.nerd
+  (:require [babashka.cli :as cli]
+            [babashka.fs :as fs]
+            [cheshire.core :as json]
+            [clojure.java.io :as io]
+            [clojure.string :as str]
+            [org.httpkit.client :as http]))
 
 (defn get-assets
   []
@@ -39,12 +38,11 @@
        (map #(str/replace % #"(.zip)" ""))
        (run! println)))
 
-(def table
-  [{:cmds ["download"] :fn download-font}
-   {:cmds ["list"] :fn list-fonts}])
-
-(when (= *file* (System/getProperty "babashka.file"))
-  (cli/dispatch table *command-line-args*))
+(defn -main
+  [opts]
+  (let [table [{:cmds ["download"] :fn download-font}
+               {:cmds ["list"] :fn list-fonts}]]
+    (cli/dispatch table opts)))
 
 (comment
   (download-font "FantasqueSansMono")
