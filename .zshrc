@@ -58,6 +58,8 @@ alias ls=lsd
 alias repl='clojure -J--enable-preview -Sdeps "{:deps {nrepl/nrepl {:mvn/version \"RELEASE\"} cider/cider-nrepl {:mvn/version \"RELEASE\"}}}" -M -m nrepl.cmdline --middleware "[\"cider.nrepl/cider-middleware\"]"'
 alias nvim_update="nvim +'autocmd User PackerComplete sleep 100m | qall' +PackerSync +TSUpdateSync"
 alias antq="clojure -Sdeps '{:deps {com.github.liquidz/antq {:mvn/version \"RELEASE\"}}}' -M -m antq.core"
+alias task="rlwrap bb --config ~/code/repos/dotfiles/bb.edn"
+alias commit="task commit"
 
 eval "$(zoxide init zsh)"
 source ~/.cargo/env
@@ -114,7 +116,7 @@ else
            nvim_update && \
            _raw_update || true && \
            sudo npm update -g  && \
-           bb --config ~/code/repos/dotfiles/bb.edn nerd download FantasqueSansMono JetBrainsMono && \
+           task nerd download FantasqueSansMono JetBrainsMono && \
            z4h update"
 fi
 
