@@ -1,11 +1,9 @@
-#!/usr/bin/env bb
-
-(require '[babashka.cli :as cli]
-         '[babashka.fs :as fs]
-         '[babashka.process :as p]
-         '[clojure.edn :as edn]
-         '[clojure.java.io :as io]
-         '[clojure.string :as str])
+(ns general.commit
+  (:require [babashka.fs :as fs]
+            [babashka.process :as p]
+            [clojure.edn :as edn]
+            [clojure.java.io :as io]
+            [clojure.string :as str]))
 
 (import '[java.io PushbackReader])
 
@@ -88,8 +86,8 @@
                        (% :email)))
          (str/join \newline))))
 
-(defn main
-  [opts]
+(defn -main
+  [{:keys [opts]}]
   (when (empty? (git-status))
     (bail! "Not a valid git repo or no changes to commit."))
 
@@ -115,9 +113,6 @@
             (ex-data)
             (:out)
             (bail!))))))
-
-(when (= *file* (System/getProperty "babashka.file"))
-  (main (cli/parse-opts *command-line-args*)))
 
 (comment
   (write-cache {:foo "bar"}))

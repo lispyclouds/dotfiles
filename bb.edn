@@ -1,3 +1,7 @@
 {:paths ["tasks"]
- :tasks {zsh-hist-clean {:doc  "Prints out the unique lines from your zsh history."
+ :tasks {:requires      ([babashka.cli :as cli]
+                         [general.commit :as commit])
+         commit         {:doc  "Interactively write a commit message with co-authors"
+                         :task (commit/-main (cli/parse-args *command-line-args*))}
+         zsh-hist-clean {:doc  "Prints out the unique lines from your zsh history"
                          :task (load-file "tasks/general/zsh_hist_clean.clj")}}}
