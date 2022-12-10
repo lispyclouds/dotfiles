@@ -1,6 +1,7 @@
 #!/usr/bin/env bb
 
-(require '[babashka.fs :as fs]
+(require '[babashka.cli :as cli]
+         '[babashka.fs :as fs]
          '[babashka.process :as p]
          '[clojure.edn :as edn]
          '[clojure.java.io :as io]
@@ -88,11 +89,11 @@
          (str/join \newline))))
 
 (defn main
-  []
+  [opts]
   (when (empty? (git-status))
     (bail! "Not a valid git repo or no changes to commit."))
 
-  (let [no-cache                   (System/getenv "COMMIT_NO_CACHE")
+  (let [{:keys [no-cache]}         opts
         {:keys [story co-authors]} (if no-cache
                                      {}
                                      (read-edn cache-path))
@@ -116,7 +117,7 @@
             (bail!))))))
 
 (when (= *file* (System/getProperty "babashka.file"))
-  (main))
+  (main (cli/parse-opts *command-line-args*)))
 
 (comment
   (write-cache {:foo "bar"}))
