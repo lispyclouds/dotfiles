@@ -44,14 +44,18 @@
                  (map #(str/replace % #"(.zip)" "")))
        (run! println)))
 
+(defn get-download-meta
+  [args]
+  (get downloads (keyword (first args))))
+
 (defn dispatch-download
   [{:keys [args]}]
-  (let [{:keys [repo location]} (downloads (keyword (first args)))]
+  (let [{:keys [repo location]} (get-download-meta args)]
     (download repo location (rest args))))
 
 (defn dispatch-ls
   [{:keys [args]}]
-  (let [{:keys [repo]} (downloads (keyword (first args)))]
+  (let [{:keys [repo]} (get-download-meta args)]
     (ls repo)))
 
 (defn -main
