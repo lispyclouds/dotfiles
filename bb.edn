@@ -1,10 +1,10 @@
 {:paths ["tasks"]
  :tasks {:requires      ([babashka.cli :as cli]
                          [general.commit :as commit]
-                         [general.nerd :as nerd])
+                         [general.linux :as linux])
          commit         {:doc  "Interactively write a commit message with co-authors"
                          :task (commit/-main (cli/parse-args *command-line-args*))}
-         nerd           {:doc  "Download Nerd Fonts for a Linux system"
-                         :task (nerd/-main *command-line-args*)}
+         linux          {:doc  "Download things for a Linux system"
+                         :task (linux/-main *command-line-args*)}
          zsh-hist-clean {:doc  "Prints out the unique lines from your zsh history"
                          :task (load-file "tasks/general/zsh_hist_clean.clj")}}}

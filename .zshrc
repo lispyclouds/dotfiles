@@ -1,7 +1,6 @@
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
 
 zstyle ':z4h:' auto-update 'no'
-
 zstyle ':z4h:' prompt-at-bottom 'no'
 zstyle ':z4h:autosuggestions' forward-char 'accept'
 zstyle ':z4h:fzf-complete' recurse-dirs 'no'
@@ -116,7 +115,8 @@ else
            nvim_update && \
            _raw_update || true && \
            sudo npm update -g  && \
-           task nerd download FantasqueSansMono JetBrainsMono && \
+           task linux download nerd-fonts FantasqueSansMono JetBrainsMono && \
+           task linux download themes Catppuccin-Mocha-Standard-Blue && \
            z4h update"
 fi
 
