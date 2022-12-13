@@ -113,10 +113,9 @@ local plugins = {
   },
   ["gpanders/nvim-parinfer"] = {
     ft = lisps,
-  },
-  ["guns/vim-sexp"] = {
-    ft = lisps,
-    config = function() vim.g.sexp_enable_insert_mode_mappings = 0 end,
+    config = function()
+      vim.g.parinfer_force_balance = true
+    end,
   },
   ["p00f/nvim-ts-rainbow"] = {
     event = buf_read,
