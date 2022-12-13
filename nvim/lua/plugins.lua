@@ -71,8 +71,11 @@ local plugins = {
     event = buf_read,
     config = "require('statusline')",
   },
-  ["hrsh7th/nvim-cmp"] = {
+  ["L3MON4D3/LuaSnip"] = {
     event = buf_read,
+  },
+  ["hrsh7th/nvim-cmp"] = {
+    after = "LuaSnip",
     config = "require('completion')",
   },
   ["hrsh7th/cmp-nvim-lsp"] = {
@@ -85,9 +88,6 @@ local plugins = {
     after = "nvim-cmp",
   },
   ["hrsh7th/cmp-path"] = {
-    after = "nvim-cmp",
-  },
-  ["L3MON4D3/LuaSnip"] = {
     after = "nvim-cmp",
   },
   ["saadparwaiz1/cmp_luasnip"] = {

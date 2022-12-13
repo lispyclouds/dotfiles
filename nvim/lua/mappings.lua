@@ -16,7 +16,7 @@ local mappings = {
   ["<leader>ff"] = function() require("telescope.builtin").find_files() end,
   ["<leader>f"] = function() require("telescope.builtin").live_grep() end,
   ["<leader>h"] = function() vim.lsp.buf.hover() end,
-  ["<leader>n"] = ":Neotree toggle<CR>",
+  ["<leader>n"] = ":NeoTreeFocusToggle<CR>",
   ["<leader>pm"] = function() vim.o.relativenumber = not vim.o.relativenumber end,
   ["<leader>r"] = function() vim.lsp.buf.rename() end,
 }
