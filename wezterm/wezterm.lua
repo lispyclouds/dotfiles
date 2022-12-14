@@ -5,10 +5,10 @@ local act = wezterm.action
 local function is_linux() return wezterm.target_triple == "x86_64-unknown-linux-gnu" end
 
 local function font_conf()
-  local font = "FantasqueSansMono Nerd Font Mono"
-  local size = 16.0
+  local font = "JetBrainsMono Nerd Font Mono"
+  local size = 14.0
 
-  if is_linux() then size = 12.0 end
+  if is_linux() then size = size - 4.0 end
 
   return font, size
 end

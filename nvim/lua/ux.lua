@@ -1,5 +1,5 @@
-local font_name = "FantasqueSansMono Nerd Font"
-local font = font_name .. ":h12:b"
+local font_name = "JetBrainsMono Nerd Font Mono"
+local font = font_name .. ":h10:b"
 local opts = {
   autoindent = true,
   clipboard = "unnamedplus",
@@ -41,7 +41,7 @@ for opt, val in pairs(opts) do
   vim.o[opt] = val
 end
 
-if vim.loop.os_uname().sysname == "Darwin" then font = font_name .. ":h16" end
+if vim.loop.os_uname().sysname == "Darwin" then font = font_name .. ":h14" end
 vim.o.guifont = font
 
 vim.api.nvim_create_autocmd("TextYankPost", {
