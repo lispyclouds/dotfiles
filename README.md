@@ -21,12 +21,12 @@ nvim +'autocmd User PackerComplete sleep 100m | qall' +PackerSync +TSUpdate
 
 ### Eye Candy
 
-![Screenshot from 2022-10-02 15-28-34](https://user-images.githubusercontent.com/5615588/193448674-f4244cfe-8672-415b-b47d-bf0994fb9be4.png)
-![Screenshot from 2022-10-02 15-29-02](https://user-images.githubusercontent.com/5615588/193448676-824cccd9-e141-4df2-8185-09ae8614985d.png)
-![Screenshot from 2022-10-02 15-29-27](https://user-images.githubusercontent.com/5615588/193448678-d6d5abef-82c2-4d7f-aa21-ef91538892d1.png)
-![Screenshot from 2022-10-02 15-30-02](https://user-images.githubusercontent.com/5615588/193448679-ce0b2cfa-a9a6-42e6-bb0c-80245521ab22.png)
-![Screenshot from 2022-10-02 15-31-39](https://user-images.githubusercontent.com/5615588/193448682-f61ecef4-9857-4e8f-9ecb-8881588ce393.png)
-![Screenshot from 2022-10-02 15-35-52](https://user-images.githubusercontent.com/5615588/193448755-8f9565c1-2a0c-41bc-86a5-7c24ad12d68c.png)
+![Screenshot 2022-12-14 at 14 17 06](https://user-images.githubusercontent.com/5615588/207620185-8295d753-1b3e-4533-8544-7e9744ee9011.png)
+![Screenshot 2022-12-14 at 14 17 43](https://user-images.githubusercontent.com/5615588/207620205-a91295c5-793d-4ffa-b969-7ed745877096.png)
+![Screenshot 2022-12-14 at 14 18 02](https://user-images.githubusercontent.com/5615588/207620218-54385f57-2735-4a90-9b47-f4c0110132d5.png)
+![Screenshot 2022-12-14 at 14 18 20](https://user-images.githubusercontent.com/5615588/207620229-6ed30f2d-9929-430a-ad32-830ce131e890.png)
+![Screenshot 2022-12-14 at 14 18 37](https://user-images.githubusercontent.com/5615588/207620245-e9c252e4-37ab-4e72-8248-4e64f49d917a.png)
+![Screenshot 2022-12-14 at 14 19 30](https://user-images.githubusercontent.com/5615588/207620253-7d875cc2-5ea0-4e77-a3b4-2d6bc4aed3cc.png)
 
 ### Bootstrapping new Fedora 35+ or MacOS installations
 
