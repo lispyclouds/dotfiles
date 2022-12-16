@@ -10,24 +10,26 @@ local lsps = {
 }
 
 local on_attach = function(client, buffer)
+  local buf = vim.lsp.buf
+
   require("impl").map({
-    ["gd"] = vim.lsp.buf.definition,
+    ["gd"] = buf.definition,
     ["<leader>ca"] = {
-      action = vim.lsp.buf.code_action,
+      action = buf.code_action,
       opts = {
         desc = "LSP Code Action",
         buffer = buffer,
       },
     },
     ["<leader>h"] = {
-      action = vim.lsp.buf.hover,
+      action = buf.hover,
       opts = {
         desc = "Show Help",
         buffer = buffer,
       },
     },
     ["<leader>r"] = {
-      action = vim.lsp.buf.rename,
+      action = buf.rename,
       opts = {
         desc = "LSP Rename",
         buffer = buffer,
