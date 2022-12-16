@@ -13,7 +13,9 @@
   [path]
   (if (fs/exists? path)
     (with-open [r (io/reader path)]
-      (edn/read (PushbackReader. r)))
+      (try
+        (edn/read (PushbackReader. r))
+        (catch Exception _ {})))
     {}))
 
 (defn write-cache
