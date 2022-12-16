@@ -37,6 +37,7 @@ local mappings = {
     },
   },
   ["<leader>n"] = ":NeoTreeFocusToggle<CR>",
+  ["<leader>p"] = '"_dP', -- blackhole
   ["<leader>pm"] = {
     action = function() vim.o.relativenumber = not vim.o.relativenumber end,
     opts = {
