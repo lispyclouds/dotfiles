@@ -12,13 +12,13 @@ local mappings = {
   ["<leader>d"] = "d", -- usual
   ["<leader>D"] = "D", -- usual
   ["<leader>ff"] = {
-    action = require("telescope.builtin").find_files,
+    action = function() require("telescope.builtin").find_files() end,
     opts = {
       desc = "Find Files",
     },
   },
   ["<leader>f"] = {
-    action = require("telescope.builtin").live_grep,
+    action = function() require("telescope.builtin").live_grep() end,
     opts = {
       desc = "Live Grep",
     },
