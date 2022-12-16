@@ -9,33 +9,31 @@ local lsps = {
   "yamlls", -- npm install -g yaml-language-server
 }
 
-local on_attach = function(client, bufnr)
-  local mappings = {
+local on_attach = function(client, buffer)
+  require("impl").map({
     ["gd"] = vim.lsp.buf.definition,
     ["<leader>ca"] = {
       action = vim.lsp.buf.code_action,
       opts = {
         desc = "LSP Code Action",
-        buffer = bufnr,
+        buffer = buffer,
       },
     },
     ["<leader>h"] = {
       action = vim.lsp.buf.hover,
       opts = {
-        desc = "Show help",
-        buffer = bufnr,
+        desc = "Show Help",
+        buffer = buffer,
       },
     },
     ["<leader>r"] = {
       action = vim.lsp.buf.rename,
       opts = {
         desc = "LSP Rename",
-        buffer = bufnr,
+        buffer = buffer,
       },
     },
-  }
-
-  require("impl").map(mappings)
+  })
 end
 
 for _, lsp in pairs(lsps) do
