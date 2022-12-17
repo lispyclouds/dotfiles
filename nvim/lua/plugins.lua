@@ -138,6 +138,10 @@ local plugins = {
       })
     end,
   },
+  ["j-hui/fidget.nvim"] = {
+    event = buf_read,
+    config = "require('fidget').setup({})",
+  },
 }
 
 return require("packer").startup(function(use)

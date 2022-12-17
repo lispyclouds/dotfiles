@@ -14,13 +14,13 @@ local mappings = {
   ["<leader>ff"] = {
     action = function() require("telescope.builtin").find_files() end,
     opts = {
-      desc = "Find Files",
+      desc = "[F]ind [F]ile",
     },
   },
   ["<leader>f"] = {
     action = function() require("telescope.builtin").live_grep() end,
     opts = {
-      desc = "Live Grep",
+      desc = "[F]ind in files",
     },
   },
   ["<leader>n"] = ":NeoTreeFocusToggle<CR>",
@@ -28,7 +28,7 @@ local mappings = {
   ["<leader>pm"] = {
     action = function() vim.o.relativenumber = not vim.o.relativenumber end,
     opts = {
-      desc = "Pairing Mode",
+      desc = "[P]airing [M]ode",
     },
   },
 }

@@ -17,21 +17,21 @@ local on_attach = function(client, buffer)
     ["<leader>ca"] = {
       action = buf.code_action,
       opts = {
-        desc = "LSP Code Action",
+        desc = "LSP [C]ode [A]ction",
         buffer = buffer,
       },
     },
     ["<leader>h"] = {
       action = buf.hover,
       opts = {
-        desc = "Show Help",
+        desc = "Show [H]elp",
         buffer = buffer,
       },
     },
     ["<leader>r"] = {
       action = buf.rename,
       opts = {
-        desc = "LSP Rename",
+        desc = "LSP [R]ename",
         buffer = buffer,
       },
     },
