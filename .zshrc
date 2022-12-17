@@ -59,8 +59,10 @@ alias nvim_update="nvim +'autocmd User PackerComplete sleep 100m | qall' +Packer
 alias antq="clojure -Sdeps '{:deps {com.github.liquidz/antq {:mvn/version \"RELEASE\"}}}' -M -m antq.core"
 alias task="rlwrap bb --config ~/code/repos/dotfiles/bb.edn"
 alias commit="task commit"
+alias ou="opam update && opam upgrade"
 
 eval "$(zoxide init zsh)"
+eval "$(opam env)"
 source ~/.cargo/env
 
 function di() {
@@ -90,14 +92,15 @@ function _raw_update() {
 
 if [[ $(uname) == "Darwin" ]]; then
   zstyle ':z4h:bindkey' keyboard 'mac'
-  alias u="brew update                  && \
-           brew upgrade                 && \
+  alias u="brew update && \
+           brew upgrade && \
            brew upgrade --cask --greedy && \
-           brew cleanup --prune=1       && \
-           rustup self update || true   && \
-           rustup update || true        && \
-           nvim_update                  && \
-           npm update -g                && \
+           brew cleanup --prune=1 && \
+           rustup self update || true && \
+           rustup update || true && \
+           ou && \
+           nvim_update && \
+           npm update -g && \
            z4h update"
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
   if [ ! -f ~/.lispy_first_setup_complete ]; then
@@ -112,6 +115,7 @@ else
            flatpak update -y && \
            rustup self update || true && \
            rustup update || true && \
+           ou && \
            nvim_update && \
            _raw_update || true && \
            sudo npm update -g  && \
