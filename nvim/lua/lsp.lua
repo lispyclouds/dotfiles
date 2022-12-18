@@ -38,8 +38,13 @@ local on_attach = function(client, buffer)
   })
 end
 
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
 for _, lsp in pairs(lsps) do
-  lspconfig[lsp].setup({ on_attach = on_attach })
+  lspconfig[lsp].setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+  })
 end
 
 nls.setup({
