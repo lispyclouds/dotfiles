@@ -56,10 +56,13 @@ local execute = vim.api.nvim_command
 local fn = vim.fn
 local pack_path = fn.stdpath("data") .. "/site/pack/packer/start"
 local fmt = string.format
+local bootstrapping = false
 local ensure = function(user, repo)
   local install_path = fmt("%s/%s", pack_path, repo)
 
   if fn.empty(fn.glob(install_path)) > 0 then
+    bootstrapping = true
+
     execute(fmt("!git clone https://github.com/%s/%s %s", user, repo, install_path))
     execute(fmt("packadd %s", repo))
   end
@@ -71,9 +74,16 @@ ensure("lewis6991", "impatient.nvim")
 require("impatient")
 
 -- load config
+require("plugins")
+
+if bootstrapping then
+  print("Neovim is bootstrapping, please wait for the plugins to install and then restart.")
+  require("packer").sync()
+  return
+end
+
 require("general")
 require("ux")
-require("plugins")
 require("mappings")
 require("persistent_undo")
 require("whitespace")

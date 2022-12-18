@@ -1,19 +1,18 @@
 local cmp = require("cmp")
-
-require("luasnip.loaders.from_vscode").lazy_load()
+local mapping = cmp.mapping
 
 cmp.setup({
   mapping = {
-    ["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
-    ["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
-    ["<CR>"] = cmp.mapping.confirm({ select = false }),
+    ["<C-j>"] = mapping(mapping.select_next_item(), { "i", "c" }),
+    ["<C-k>"] = mapping(mapping.select_prev_item(), { "i", "c" }),
+    ["<CR>"] = mapping.confirm({ select = false }),
   },
   sources = {
-    { name = "nvim_lsp" },
     { name = "buffer" },
+    { name = "luasnip" },
+    { name = "nvim_lsp" },
     { name = "nvim_lua" },
     { name = "path" },
-    { name = "luasnip" },
   },
   snippet = {
     expand = function(args) require("luasnip").lsp_expand(args.body) end,

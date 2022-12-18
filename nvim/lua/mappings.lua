@@ -1,4 +1,7 @@
-local mappings = {
+vim.g.mapleader = " "
+vim.g.maplocalleader = ","
+
+require("impl").map({
   ["c"] = '"_c', -- blackhole
   ["C"] = '"_C', -- blackhole
   ["d"] = '"_d', -- blackhole
@@ -31,9 +34,4 @@ local mappings = {
       desc = "[P]airing [M]ode",
     },
   },
-}
-
-vim.g.mapleader = " "
-vim.g.maplocalleader = ","
-
-require("impl").map(mappings)
+})

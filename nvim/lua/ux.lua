@@ -1,6 +1,7 @@
 local font_name = "JetBrainsMono Nerd Font Mono"
 local font = font_name .. ":h10:b"
-local opts = {
+
+require("impl").setopts({
   autoindent = true,
   clipboard = "unnamedplus",
   cmdheight = 1,
@@ -35,11 +36,7 @@ local opts = {
   updatetime = 100,
   visualbell = false,
   wrap = true,
-}
-
-for opt, val in pairs(opts) do
-  vim.o[opt] = val
-end
+})
 
 if vim.loop.os_uname().sysname == "Darwin" then font = font_name .. ":h14" end
 vim.o.guifont = font

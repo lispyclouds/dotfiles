@@ -71,12 +71,12 @@ local plugins = {
     event = buf_read,
     config = "require('statusline')",
   },
-  ["L3MON4D3/LuaSnip"] = {
-    event = buf_read,
-  },
   ["hrsh7th/nvim-cmp"] = {
-    after = "LuaSnip",
+    event = buf_read,
     config = "require('completion')",
+  },
+  ["L3MON4D3/LuaSnip"] = {
+    after = "nvim-cmp",
   },
   ["hrsh7th/cmp-nvim-lsp"] = {
     after = "nvim-cmp",
