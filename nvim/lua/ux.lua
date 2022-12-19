@@ -1,6 +1,3 @@
-local font_name = "JetBrainsMono Nerd Font Mono"
-local font = font_name .. ":h10:b"
-
 require("impl").setopts({
   autoindent = true,
   clipboard = "unnamedplus",
@@ -38,8 +35,13 @@ require("impl").setopts({
   wrap = true,
 })
 
-if vim.loop.os_uname().sysname == "Darwin" then font = font_name .. ":h14" end
-vim.o.guifont = font
+if vim.fn.has("gui_running") then
+  local font_name = "JetBrainsMono Nerd Font Mono"
+  local font = font_name .. ":h10:b"
+
+  if vim.loop.os_uname().sysname == "Darwin" then font = font_name .. ":h14" end
+  vim.o.guifont = font
+end
 
 vim.api.nvim_create_autocmd("TextYankPost", {
   pattern = "*",
