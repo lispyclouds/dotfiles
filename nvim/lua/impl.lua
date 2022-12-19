@@ -4,8 +4,8 @@ return {
       local opts = {}
 
       if type(action) == "table" then
-        opts = action["opts"]
-        action = action["action"]
+        opts = action.opts
+        action = action.action
       end
 
       opts["silent"] = true

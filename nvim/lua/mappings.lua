@@ -1,5 +1,7 @@
-vim.g.mapleader = " "
-vim.g.maplocalleader = ","
+local leader = " "
+
+vim.g.mapleader = leader
+vim.g.maplocalleader = leader
 
 require("impl").map({
   ["c"] = '"_c', -- blackhole

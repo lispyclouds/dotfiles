@@ -35,7 +35,7 @@ require("impl").setopts({
   wrap = true,
 })
 
-if vim.fn.has("gui_running") then
+if vim.fn.has("gui_running") == 1 or vim.g.neovide then
   local font_name = "JetBrainsMono Nerd Font Mono"
   local font = font_name .. ":h10:b"
 
