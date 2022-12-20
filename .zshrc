@@ -55,7 +55,6 @@ alias cps='cengine ps -a'
 alias rbl='clojure -Sdeps "{:deps {com.bhauman/rebel-readline {:mvn/version \"LATEST\"}}}" -M -m rebel-readline.main'
 alias ls=lsd
 alias repl='clojure -J--enable-preview -Sdeps "{:deps {nrepl/nrepl {:mvn/version \"RELEASE\"} cider/cider-nrepl {:mvn/version \"RELEASE\"}}}" -M -m nrepl.cmdline --middleware "[\"cider.nrepl/cider-middleware\"]"'
-alias nvim_update="nvim +'autocmd User PackerComplete sleep 100m | qall' +PackerSync +TSUpdateSync"
 alias antq="clojure -Sdeps '{:deps {com.github.liquidz/antq {:mvn/version \"RELEASE\"}}}' -M -m antq.core"
 alias task="rlwrap bb --config ~/code/repos/dotfiles/bb.edn"
 alias commit="task commit"
@@ -99,7 +98,6 @@ if [[ $(uname) == "Darwin" ]]; then
            rustup self update || true && \
            rustup update || true && \
            ou && \
-           nvim_update && \
            npm update -g && \
            z4h update"
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -116,7 +114,6 @@ else
            rustup self update || true && \
            rustup update || true && \
            ou && \
-           nvim_update && \
            _raw_update || true && \
            sudo npm update -g  && \
            task linux download nerd-fonts FantasqueSansMono JetBrainsMono && \

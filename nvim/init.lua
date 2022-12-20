@@ -69,7 +69,39 @@ vim.filetype.add({
 })
 
 if not bootstrapping then
-  require("lazy").setup("plugins", {})
+  lazy_opts = {
+    checker = {
+      enabled = true,
+      notify = false,
+      frequency = 3600,
+    },
+    change_detection = {
+      enabled = true,
+      notify = false,
+    },
+    performance = {
+      rtp = {
+        disabled_plugins = {
+          "2html_plugin",
+          "getscript",
+          "getscriptPlugin",
+          "logipat",
+          "netrw",
+          "netrwFileHandlers",
+          "netrwPlugin",
+          "netrwSettings",
+          "rrhelper",
+          "spec",
+          "tar",
+          "tarPlugin",
+          "vimball",
+          "vimballPlugin",
+        },
+      },
+    },
+  }
+
+  require("lazy").setup("plugins", lazy_opts)
 
   require("general")
   require("ux")
