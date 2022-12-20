@@ -43,7 +43,24 @@ WO;     dN   No        dN                 WKl         :OW             Nx,    ,kW
 
 vim.o.shadafile = "NONE"
 
--- initial config
+local bootstrapping = false
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+
+if not vim.loop.fs_stat(lazypath) then
+  bootstrapping = true
+
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "--single-branch",
+    "https://github.com/folke/lazy.nvim.git",
+    lazypath,
+  })
+end
+
+vim.opt.runtimepath:prepend(lazypath)
+
 vim.filetype.add({
   extension = {
     edn = "clojure",
@@ -51,41 +68,14 @@ vim.filetype.add({
   },
 })
 
--- bootstrap
-local execute = vim.api.nvim_command
-local fn = vim.fn
-local pack_path = fn.stdpath("data") .. "/site/pack/packer/start"
-local fmt = string.format
-local bootstrapping = false
-local ensure = function(user, repo)
-  local install_path = fmt("%s/%s", pack_path, repo)
+if not bootstrapping then
+  require("lazy").setup("plugins", {})
 
-  if fn.empty(fn.glob(install_path)) > 0 then
-    bootstrapping = true
-
-    execute(fmt("!git clone https://github.com/%s/%s %s", user, repo, install_path))
-    execute(fmt("packadd %s", repo))
-  end
+  require("general")
+  require("ux")
+  require("mappings")
+  require("persistent_undo")
+  require("whitespace")
 end
-
-ensure("wbthomason", "packer.nvim")
-ensure("lewis6991", "impatient.nvim")
-
-require("impatient")
-
--- load config
-require("plugins")
-
-if bootstrapping then
-  print("Neovim is bootstrapping, please wait for the plugins to install and then restart.")
-  require("packer").sync()
-  return
-end
-
-require("general")
-require("ux")
-require("mappings")
-require("persistent_undo")
-require("whitespace")
 
 vim.o.shadafile = ""

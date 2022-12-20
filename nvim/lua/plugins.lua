@@ -1,20 +1,22 @@
 local buf_read = "BufRead"
 local lisps = { "clojure", "fennel" }
 
-local plugins = {
-  ["wbthomason/packer.nvim"] = {},
-  ["lewis6991/impatient.nvim"] = {},
-  ["kyazdani42/nvim-web-devicons"] = {},
-  ["sam4llis/nvim-tundra"] = {
-    config = "require('colorscheme')",
+return {
+  "folke/lazy.nvim",
+  "kyazdani42/nvim-web-devicons",
+  {
+    "sam4llis/nvim-tundra",
+    config = function() require("colorscheme") end,
   },
-  ["nvim-treesitter/nvim-treesitter"] = {
-    run = ":TSUpdate",
-    config = "require('treesitter')",
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function() require("treesitter") end,
   },
-  ["nvim-telescope/telescope.nvim"] = {
+  {
+    "nvim-telescope/telescope.nvim",
     event = "VimEnter",
-    requires = {
+    dependencies = {
       "nvim-lua/popup.nvim",
       "nvim-lua/plenary.nvim",
     },
@@ -40,10 +42,11 @@ local plugins = {
       })
     end,
   },
-  ["nvim-neo-tree/neo-tree.nvim"] = {
+  {
+    "nvim-neo-tree/neo-tree.nvim",
     event = buf_read,
     branch = "v2.x",
-    requires = {
+    dependencies = {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
     },
@@ -63,61 +66,63 @@ local plugins = {
       })
     end,
   },
-  ["akinsho/bufferline.nvim"] = {
+  {
+    "akinsho/bufferline.nvim",
     event = buf_read,
-    config = "require('bufferline').setup({})",
+    config = function() require("bufferline").setup({}) end,
   },
-  ["nvim-lualine/lualine.nvim"] = {
+  {
+    "nvim-lualine/lualine.nvim",
     event = buf_read,
-    config = "require('statusline')",
+    config = function() require("statusline") end,
   },
-  ["hrsh7th/nvim-cmp"] = {
+  {
+    "hrsh7th/nvim-cmp",
     event = buf_read,
-    config = "require('completion')",
+    config = function() require("completion") end,
+    dependencies = {
+      "L3MON4D3/LuaSnip",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-nvim-lua",
+      "hrsh7th/cmp-path",
+      "saadparwaiz1/cmp_luasnip",
+      "jose-elias-alvarez/null-ls.nvim",
+    },
   },
-  ["L3MON4D3/LuaSnip"] = {
-    after = "nvim-cmp",
+  {
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      "hrsh7th/nvim-cmp",
+    },
+    config = function() require("lsp") end,
   },
-  ["hrsh7th/cmp-nvim-lsp"] = {
-    after = "nvim-cmp",
-  },
-  ["hrsh7th/cmp-buffer"] = {
-    after = "nvim-cmp",
-  },
-  ["hrsh7th/cmp-nvim-lua"] = {
-    after = "nvim-cmp",
-  },
-  ["hrsh7th/cmp-path"] = {
-    after = "nvim-cmp",
-  },
-  ["saadparwaiz1/cmp_luasnip"] = {
-    after = "nvim-cmp",
-  },
-  ["neovim/nvim-lspconfig"] = {
-    after = "nvim-cmp",
-    config = "require('lsp')",
-  },
-  ["jose-elias-alvarez/null-ls.nvim"] = {
-    after = "nvim-cmp",
-  },
-  ["lewis6991/gitsigns.nvim"] = {
+  {
+    "lewis6991/gitsigns.nvim",
     event = buf_read,
-    requires = "nvim-lua/plenary.nvim",
-    config = "require('gitsigns').setup()",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    config = function() require("gitsigns").setup() end,
   },
-  ["famiu/bufdelete.nvim"] = {
+  {
+    "famiu/bufdelete.nvim",
     event = buf_read,
   },
-  ["Olical/conjure"] = {
+  {
+    "Olical/conjure",
     ft = { "python", unpack(lisps) },
   },
-  ["gpanders/nvim-parinfer"] = {
+  {
+    "gpanders/nvim-parinfer",
     ft = lisps,
     config = function() vim.g.parinfer_force_balance = true end,
   },
-  ["p00f/nvim-ts-rainbow"] = {
-    event = buf_read,
-    after = "nvim-lspconfig",
+  {
+    "p00f/nvim-ts-rainbow",
+    dependencies = {
+      "neovim/nvim-lspconfig",
+    },
     config = function()
       require("nvim-treesitter.configs").setup({
         rainbow = {
@@ -127,9 +132,11 @@ local plugins = {
       })
     end,
   },
-  ["https://git.sr.ht/~whynothugo/lsp_lines.nvim"] = {
-    event = buf_read,
-    after = "nvim-lspconfig",
+  {
+    url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    dependencies = {
+      "neovim/nvim-lspconfig",
+    },
     config = function()
       require("lsp_lines").setup()
 
@@ -138,25 +145,9 @@ local plugins = {
       })
     end,
   },
-  ["j-hui/fidget.nvim"] = {
+  {
+    "j-hui/fidget.nvim",
     event = buf_read,
-    config = "require('fidget').setup({})",
+    config = function() require("fidget").setup({}) end,
   },
 }
-
-return require("packer").startup(function(use)
-  for plugin, conf in pairs(plugins) do
-    use({
-      plugin,
-      after = conf.after,
-      as = conf.as,
-      branch = conf.branch,
-      cmd = conf.cmd,
-      config = conf.config,
-      event = conf.event,
-      ft = conf.ft,
-      requires = conf.requires,
-      run = conf.run,
-    })
-  end
-end)
