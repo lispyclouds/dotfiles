@@ -48,6 +48,7 @@ local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
 if not vim.loop.fs_stat(lazypath) then
   bootstrapping = true
+  print("nvim is bootstrapping, please restart when the UI is ready")
 
   vim.fn.system({
     "git",
@@ -72,8 +73,6 @@ if not bootstrapping then
   require("general")
   require("ux")
   require("mappings")
-  require("persistent_undo")
-  require("whitespace")
   require("lazy").setup("plugins", {
     checker = {
       enabled = true,
