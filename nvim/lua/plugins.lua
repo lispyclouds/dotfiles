@@ -1,5 +1,4 @@
 local buf_read = "BufRead"
-local lisps = { "clojure", "fennel" }
 
 return {
   "kyazdani42/nvim-web-devicons",
@@ -77,7 +76,7 @@ return {
   },
   {
     "hrsh7th/nvim-cmp",
-    event = buf_read,
+    event = "InsertEnter",
     config = function() require("completion") end,
     dependencies = {
       "L3MON4D3/LuaSnip",
@@ -91,6 +90,7 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
+    event = buf_read,
     dependencies = {
       "hrsh7th/nvim-cmp",
     },
@@ -110,15 +110,16 @@ return {
   },
   {
     "Olical/conjure",
-    ft = { "python", unpack(lisps) },
+    event = buf_read,
   },
   {
     "gpanders/nvim-parinfer",
-    ft = lisps,
+    event = buf_read,
     config = function() vim.g.parinfer_force_balance = true end,
   },
   {
     "p00f/nvim-ts-rainbow",
+    event = buf_read,
     dependencies = {
       "neovim/nvim-lspconfig",
     },
@@ -133,6 +134,7 @@ return {
   },
   {
     url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    event = buf_read,
     dependencies = {
       "neovim/nvim-lspconfig",
     },
