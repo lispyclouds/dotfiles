@@ -69,14 +69,13 @@ vim.filetype.add({
 })
 
 if not bootstrapping then
-  lazy_opts = {
+  local lazy_opts = {
     checker = {
       enabled = true,
       notify = false,
       frequency = 3600,
     },
     change_detection = {
-      enabled = true,
       notify = false,
     },
     performance = {

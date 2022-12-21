@@ -2,7 +2,6 @@ local buf_read = "BufRead"
 local lisps = { "clojure", "fennel" }
 
 return {
-  "folke/lazy.nvim",
   "kyazdani42/nvim-web-devicons",
   {
     "sam4llis/nvim-tundra",
@@ -44,7 +43,7 @@ return {
   },
   {
     "nvim-neo-tree/neo-tree.nvim",
-    event = buf_read,
+    cmd = "NeoTreeFocusToggle",
     branch = "v2.x",
     dependencies = {
       "nvim-lua/plenary.nvim",
