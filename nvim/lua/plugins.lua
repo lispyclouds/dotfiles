@@ -4,7 +4,20 @@ return {
   "kyazdani42/nvim-web-devicons",
   {
     "sam4llis/nvim-tundra",
-    config = function() require("colorscheme") end,
+    config = function()
+      require("nvim-tundra").setup({
+        transparent_background = false,
+        plugins = {
+          cmp = true,
+          gitsigns = true,
+          lsp = true,
+          telescope = true,
+          treesitter = true,
+        },
+      })
+
+      vim.cmd("colorscheme tundra")
+    end,
   },
   {
     "nvim-treesitter/nvim-treesitter",

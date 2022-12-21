@@ -1,5 +1,6 @@
 require("impl").setopts({
   autoindent = true,
+  background = "dark",
   clipboard = "unnamedplus",
   cmdheight = 1,
   completeopt = "menuone,noselect",
