@@ -69,6 +69,11 @@ vim.filetype.add({
 })
 
 if not bootstrapping then
+  require("general")
+  require("ux")
+  require("mappings")
+  require("persistent_undo")
+  require("whitespace")
   require("lazy").setup("plugins", {
     checker = {
       enabled = true,
@@ -99,12 +104,6 @@ if not bootstrapping then
       },
     },
   })
-
-  require("general")
-  require("ux")
-  require("mappings")
-  require("persistent_undo")
-  require("whitespace")
 end
 
 vim.o.shadafile = ""
