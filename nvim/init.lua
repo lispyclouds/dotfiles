@@ -69,7 +69,7 @@ vim.filetype.add({
 })
 
 if not bootstrapping then
-  local lazy_opts = {
+  require("lazy").setup("plugins", {
     checker = {
       enabled = true,
       notify = false,
@@ -98,9 +98,7 @@ if not bootstrapping then
         },
       },
     },
-  }
-
-  require("lazy").setup("plugins", lazy_opts)
+  })
 
   require("general")
   require("ux")

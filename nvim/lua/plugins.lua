@@ -8,12 +8,13 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
+    lazy = true,
     build = ":TSUpdate",
     config = function() require("treesitter") end,
   },
   {
     "nvim-telescope/telescope.nvim",
-    event = "VimEnter",
+    lazy = true,
     dependencies = {
       "nvim-lua/popup.nvim",
       "nvim-lua/plenary.nvim",
@@ -67,7 +68,12 @@ return {
   {
     "akinsho/bufferline.nvim",
     event = buf_read,
+    cmd = { "BufferLineCyclePrev", "BufferLineCycleNext" },
     config = function() require("bufferline").setup({}) end,
+  },
+  {
+    "famiu/bufdelete.nvim",
+    cmd = { "Bwipeout" },
   },
   {
     "nvim-lualine/lualine.nvim",
@@ -103,10 +109,6 @@ return {
       "nvim-lua/plenary.nvim",
     },
     config = function() require("gitsigns").setup() end,
-  },
-  {
-    "famiu/bufdelete.nvim",
-    event = buf_read,
   },
   {
     "Olical/conjure",
