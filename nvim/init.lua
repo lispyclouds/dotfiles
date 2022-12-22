@@ -43,12 +43,10 @@ WO;     dN   No        dN                 WKl         :OW             Nx,    ,kW
 
 vim.o.shadafile = "NONE"
 
-local bootstrapping = false
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
 if not vim.loop.fs_stat(lazypath) then
-  bootstrapping = true
-  print("nvim is bootstrapping, please restart when the UI is ready")
+  print("nvim is bootstrapping.")
 
   vim.fn.system({
     "git",
@@ -69,40 +67,33 @@ vim.filetype.add({
   },
 })
 
-if not bootstrapping then
-  require("general")
-  require("ux")
-  require("mappings")
-  require("lazy").setup("plugins", {
-    checker = {
-      enabled = true,
-      notify = false,
-      frequency = 3600,
-    },
-    change_detection = {
-      notify = false,
-    },
-    performance = {
-      rtp = {
-        disabled_plugins = {
-          "2html_plugin",
-          "getscript",
-          "getscriptPlugin",
-          "logipat",
-          "netrw",
-          "netrwFileHandlers",
-          "netrwPlugin",
-          "netrwSettings",
-          "rrhelper",
-          "spec",
-          "tar",
-          "tarPlugin",
-          "vimball",
-          "vimballPlugin",
-        },
+require("general")
+require("ux")
+require("mappings")
+require("lazy").setup("plugins", {
+  change_detection = {
+    notify = false,
+  },
+  performance = {
+    rtp = {
+      disabled_plugins = {
+        "2html_plugin",
+        "getscript",
+        "getscriptPlugin",
+        "logipat",
+        "netrw",
+        "netrwFileHandlers",
+        "netrwPlugin",
+        "netrwSettings",
+        "rrhelper",
+        "spec",
+        "tar",
+        "tarPlugin",
+        "vimball",
+        "vimballPlugin",
       },
     },
-  })
-end
+  },
+})
 
 vim.o.shadafile = ""
