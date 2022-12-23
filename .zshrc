@@ -59,7 +59,7 @@ alias antq="clojure -Sdeps '{:deps {com.github.liquidz/antq {:mvn/version \"RELE
 alias task="rlwrap bb --config ~/code/repos/dotfiles/bb.edn"
 alias commit="task commit"
 alias ou="opam update && opam upgrade"
-alias nvim_update='nvim --headless "+Lazy! sync" +qa'
+alias nsync='nvim --headless "+Lazy! sync" +qa'
 
 eval "$(zoxide init zsh)"
 eval "$(opam env)"
@@ -98,7 +98,7 @@ if [[ $(uname) == "Darwin" ]]; then
            brew cleanup --prune=1 && \
            rustup self update || true && \
            rustup update || true && \
-           nvim_update && \
+           nsync && \
            ou && \
            npm update -g && \
            z4h update"
@@ -115,7 +115,7 @@ else
            flatpak update -y && \
            rustup self update || true && \
            rustup update || true && \
-           nvim_update && \
+           nsync && \
            ou && \
            _raw_update || true && \
            sudo npm update -g  && \
