@@ -59,7 +59,7 @@ alias antq="clojure -Sdeps '{:deps {com.github.liquidz/antq {:mvn/version \"RELE
 alias task="rlwrap bb --config ~/code/repos/dotfiles/bb.edn"
 alias commit="task commit"
 alias ou="opam update && opam upgrade"
-alias nsync='nvim --headless "+Lazy! sync" +qa'
+alias nsync='nvim --headless "+Lazy! sync" +TSUpdateSync +qa'
 
 eval "$(zoxide init zsh)"
 eval "$(opam env)"
