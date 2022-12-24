@@ -5,6 +5,7 @@ local lsps = {
   "gopls", -- https://pkg.go.dev/golang.org/x/tools/gopls#readme-installation
   "pyright", -- https://github.com/microsoft/pyright#installation
   "ocamllsp", -- opam install ocaml-lsp-server
+  "ruff_lsp", -- pip install ruff-lsp
   "terraformls", -- https://github.com/hashicorp/terraform-ls/blob/main/docs/installation.md
   "yamlls", -- npm install -g yaml-language-server
 }
