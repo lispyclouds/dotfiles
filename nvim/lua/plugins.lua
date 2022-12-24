@@ -33,27 +33,25 @@ return {
       "nvim-lua/popup.nvim",
       "nvim-lua/plenary.nvim",
     },
-    config = function()
-      require("telescope").setup({
-        defaults = {
-          layout_config = {
-            prompt_position = "top",
+    config = {
+      defaults = {
+        layout_config = {
+          prompt_position = "top",
+        },
+      },
+      pickers = {
+        find_files = {
+          hidden = true,
+          file_ignore_patterns = {
+            ".git/",
+            ".node_modules/",
+            ".terraform/",
+            ".mypy_cache/",
+            "__pycache__/",
           },
         },
-        pickers = {
-          find_files = {
-            hidden = true,
-            file_ignore_patterns = {
-              ".git/",
-              ".node_modules/",
-              ".terraform/",
-              ".mypy_cache/",
-              "__pycache__/",
-            },
-          },
-        },
-      })
-    end,
+      },
+    },
   },
   {
     "nvim-neo-tree/neo-tree.nvim",
@@ -63,27 +61,25 @@ return {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
     },
-    config = function()
-      require("neo-tree").setup({
-        window = {
-          width = 25,
+    config = {
+      window = {
+        width = 25,
+      },
+      filesystem = {
+        use_libuv_file_watcher = true,
+        follow_current_file = true,
+        filtered_items = {
+          hide_dotfiles = false,
+          hide_gitignored = false,
         },
-        filesystem = {
-          use_libuv_file_watcher = true,
-          follow_current_file = true,
-          filtered_items = {
-            hide_dotfiles = false,
-            hide_gitignored = false,
-          },
-        },
-      })
-    end,
+      },
+    },
   },
   {
     "akinsho/bufferline.nvim",
     event = buf_read,
     cmd = { "BufferLineCyclePrev", "BufferLineCycleNext" },
-    config = function() require("bufferline").setup({}) end,
+    config = true,
   },
   {
     "famiu/bufdelete.nvim",
@@ -122,7 +118,7 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
-    config = function() require("gitsigns").setup() end,
+    config = true,
   },
   {
     "Olical/conjure",
@@ -165,6 +161,6 @@ return {
   {
     "j-hui/fidget.nvim",
     event = buf_read,
-    config = function() require("fidget").setup({}) end,
+    config = true,
   },
 }
