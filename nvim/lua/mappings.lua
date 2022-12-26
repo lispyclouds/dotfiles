@@ -4,6 +4,12 @@ vim.g.mapleader = leader
 vim.g.maplocalleader = leader
 
 require("impl").map({
+  ["<leader>bf"] = {
+    action = function() require("telescope").extensions.file_browser.file_browser() end,
+    opts = {
+      desc = "[B]rowse [F]iles",
+    },
+  },
   ["c"] = '"_c', -- blackhole
   ["C"] = '"_C', -- blackhole
   ["d"] = '"_d', -- blackhole
@@ -28,7 +34,6 @@ require("impl").map({
       desc = "[F]ind in files",
     },
   },
-  ["<leader>n"] = ":NeoTreeFocusToggle<CR>",
   ["<leader>p"] = '"_dP', -- blackhole
   ["<leader>pm"] = {
     action = function() vim.o.relativenumber = not vim.o.relativenumber end,

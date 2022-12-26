@@ -38,6 +38,7 @@ return {
         layout_config = {
           prompt_position = "top",
         },
+        initial_mode = "normal",
       },
       pickers = {
         find_files = {
@@ -54,26 +55,23 @@ return {
     },
   },
   {
-    "nvim-neo-tree/neo-tree.nvim",
-    cmd = "NeoTreeFocusToggle",
-    branch = "v2.x",
+    "nvim-telescope/telescope-file-browser.nvim",
+    lazy = true,
     dependencies = {
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
+      "nvim-telescope/telescope.nvim",
     },
-    config = {
-      window = {
-        width = 25,
-      },
-      filesystem = {
-        use_libuv_file_watcher = true,
-        follow_current_file = true,
-        filtered_items = {
-          hide_dotfiles = false,
-          hide_gitignored = false,
+    config = function()
+      local ts = require("telescope")
+
+      ts.setup({
+        extensions = {
+          file_browser = {
+            hijack_netrw = true,
+          },
         },
-      },
-    },
+      })
+      ts.load_extension("file_browser")
+    end,
   },
   {
     "akinsho/bufferline.nvim",
