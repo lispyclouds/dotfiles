@@ -44,11 +44,15 @@ WO;     dN   No        dN                 WKl         :OW             Nx,    ,kW
 vim.o.shadafile = "NONE"
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local undo_dir = vim.loop.os_homedir() .. "/.vim/undodir"
 
 if not vim.loop.fs_stat(lazypath) then
   print("nvim is bootstrapping.")
 
-  vim.fn.system({
+  local fn = vim.fn
+  if not fn.isdirectory(undo_dir) then fn.mkdir(undo_dir, "", 0700) end
+
+  fn.system({
     "git",
     "clone",
     "--filter=blob:none",
@@ -67,7 +71,7 @@ vim.filetype.add({
   },
 })
 
-require("settings").setup()
+require("settings").setup(undo_dir)
 require("mappings").setup()
 require("lazy").setup("plugins", {
   change_detection = {

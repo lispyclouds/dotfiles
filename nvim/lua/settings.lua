@@ -1,18 +1,7 @@
-local function setopts(opts)
-  for opt, val in pairs(opts) do
-    vim.o[opt] = val
-  end
-end
-
 return {
-  setup = function()
+  setup = function(undo_dir)
     local encoding = "utf-8"
-    local undo_dir = vim.loop.os_homedir() .. "/.vim/undodir"
-    local fn = vim.fn
-
-    if not fn.isdirectory(undo_dir) then fn.mkdir(undo_dir, "", 0700) end
-
-    setopts({
+    local opts = {
       autoindent = true,
       background = "dark",
       backup = false,
@@ -55,8 +44,13 @@ return {
       visualbell = false,
       wrap = true,
       writebackup = false,
-    })
+    }
 
+    for opt, val in pairs(opts) do
+      vim.o[opt] = val
+    end
+
+    -- setup fonts for GUIs
     if vim.fn.has("gui_running") == 1 or vim.g.neovide then
       local font_name = "JetBrainsMono Nerd Font Mono"
       local font = font_name .. ":h10:b"
