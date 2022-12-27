@@ -24,7 +24,7 @@ return {
     lazy = true,
     build = ":TSUpdate",
     cmd = { "TSUpdate", "TSUpdateSync" },
-    config = function() require("treesitter") end,
+    config = function() require("treesitter").setup() end,
   },
   {
     "nvim-telescope/telescope.nvim",
@@ -86,12 +86,12 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     event = buf_read,
-    config = function() require("statusline") end,
+    config = function() require("statusline").setup() end,
   },
   {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
-    config = function() require("completion") end,
+    config = function() require("completion").setup() end,
     dependencies = {
       "L3MON4D3/LuaSnip",
       "hrsh7th/cmp-nvim-lsp",
@@ -108,7 +108,7 @@ return {
     dependencies = {
       "hrsh7th/nvim-cmp",
     },
-    config = function() require("lsp") end,
+    config = function() require("lsp").setup() end,
   },
   {
     "lewis6991/gitsigns.nvim",

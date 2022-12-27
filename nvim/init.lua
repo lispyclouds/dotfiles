@@ -67,9 +67,9 @@ vim.filetype.add({
   },
 })
 
-require("general")
-require("ux")
-require("mappings")
+require("general").setup()
+require("ux").setup()
+require("mappings").setup()
 require("lazy").setup("plugins", {
   change_detection = {
     notify = false,
