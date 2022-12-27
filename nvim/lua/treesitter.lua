@@ -4,17 +4,16 @@ require("nvim-treesitter.configs").setup({
     "clojure",
     "go",
     "hcl",
-    "javascript",
     "json",
     "lua",
     "markdown",
     "ocaml",
     "python",
-    "typescript",
     "yaml",
   },
 
   highlight = {
+    additional_vim_regex_highlighting = false,
     enable = true,
   },
 })
