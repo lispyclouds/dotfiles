@@ -13,9 +13,4 @@ return {
       vim.keymap.set({ "n", "v" }, mapping, action, opts)
     end
   end,
-  setopts = function(opts)
-    for opt, val in pairs(opts) do
-      vim.o[opt] = val
-    end
-  end,
 }

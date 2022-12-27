@@ -1,14 +1,29 @@
+local function setopts(opts)
+  for opt, val in pairs(opts) do
+    vim.o[opt] = val
+  end
+end
+
 return {
   setup = function()
-    require("impl").setopts({
+    local encoding = "utf-8"
+    local undo_dir = vim.loop.os_homedir() .. "/.vim/undodir"
+    local fn = vim.fn
+
+    if not fn.isdirectory(undo_dir) then fn.mkdir(undo_dir, "", 0700) end
+
+    setopts({
       autoindent = true,
       background = "dark",
+      backup = false,
       clipboard = "unnamedplus",
       cmdheight = 1,
       completeopt = "menuone,noselect",
       cursorline = true,
+      encoding = encoding,
       errorbells = false,
       expandtab = true,
+      fileencoding = encoding,
       fileformats = "unix,dos,mac",
       foldcolumn = "1",
       hidden = true,
@@ -30,12 +45,16 @@ return {
       showmatch = true,
       smartindent = true,
       smarttab = true,
+      swapfile = false,
       tabstop = 2,
       termguicolors = true,
       timeoutlen = 500,
+      undodir = undo_dir,
+      undofile = true,
       updatetime = 100,
       visualbell = false,
       wrap = true,
+      writebackup = false,
     })
 
     if vim.fn.has("gui_running") == 1 or vim.g.neovide then
@@ -46,11 +65,13 @@ return {
       vim.o.guifont = font
     end
 
+    -- highlight yanked region temporarily
     vim.api.nvim_create_autocmd("TextYankPost", {
       pattern = "*",
       callback = function() vim.highlight.on_yank({ higroup = "IncSearch", timeout = 100 }) end,
     })
 
+    -- clean up trailing whitespace before saving
     vim.api.nvim_create_autocmd("BufWritePre", {
       pattern = "*",
       callback = function()
