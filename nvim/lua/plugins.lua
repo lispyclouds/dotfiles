@@ -1,4 +1,5 @@
 local buf_read = "BufRead"
+local lisps = { "clojure", "fennel" }
 
 return {
   "kyazdani42/nvim-web-devicons",
@@ -120,11 +121,11 @@ return {
   },
   {
     "Olical/conjure",
-    event = buf_read,
+    ft = { "python", unpack(lisps) },
   },
   {
     "gpanders/nvim-parinfer",
-    event = buf_read,
+    ft = lisps,
     config = function() vim.g.parinfer_force_balance = true end,
   },
   {
