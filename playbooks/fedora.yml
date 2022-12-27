@@ -26,6 +26,7 @@
       - neofetch
       - neovim
       - nodejs
+      - nodejs-bash-language-server
       - npm
       - papirus-icon-theme
       - podman-compose

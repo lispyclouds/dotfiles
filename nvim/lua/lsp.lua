@@ -1,6 +1,7 @@
 local lspconfig = require("lspconfig")
 local nls = require("null-ls")
 local lsps = {
+  "bashls", -- https://github.com/bash-lsp/bash-language-server#installation
   "clojure_lsp", -- https://clojure-lsp.io/installation/
   "gopls", -- https://pkg.go.dev/golang.org/x/tools/gopls#readme-installation
   "pyright", -- https://github.com/microsoft/pyright#installation
@@ -50,9 +51,6 @@ end
 
 nls.setup({
   sources = {
-    nls.builtins.diagnostics.shellcheck.with({
-      extra_filetypes = { "zsh" },
-    }),
     nls.builtins.diagnostics.hadolint,
   },
 })

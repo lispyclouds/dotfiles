@@ -14,8 +14,6 @@
       - black
       - borkdude/brew/babashka
       - bottom
-      - boxes
-      - cfr-decompiler
       - clojure
       - clojure-lsp/brew/clojure-lsp-native
       - cmatrix
@@ -43,7 +41,6 @@
       - git-extras
       - git-quick-stats
       - glances
-      - glow
       - gnu-sed
       - go
       - gopls
@@ -66,7 +63,6 @@
       - libscrypt
       - libuv
       - llvm
-      - lolcat
       - lsd
       - magic-wormhole
       - make
@@ -120,7 +116,6 @@
       - ferdium
       - flux
       - font-fantasque-sans-mono-nerd-font
-      - font-fira-code-nerd-font
       - font-jetbrains-mono-nerd-font
       - graalvm-ce-java17
       - maccy
@@ -154,4 +149,5 @@
       register: result
       until: result is successful
       with_items:
+        - bash-language-server
         - yaml-language-server
