@@ -32,6 +32,7 @@ return {
       shiftwidth = 2,
       shortmess = "I",
       showmatch = true,
+      showmode = false,
       smartindent = true,
       smarttab = true,
       swapfile = false,

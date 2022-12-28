@@ -4,20 +4,20 @@
 return {
   setup = function()
     local colors = {
+      black = "#080808",
       blue = "#80a0ff",
       cyan = "#79dac8",
-      black = "#080808",
-      white = "#c6c6c6",
+      grey = "#303030",
       red = "#ff5189",
       violet = "#d183e8",
-      grey = "#303030",
+      white = "#c6c6c6",
     }
 
-    local bubbles_theme = {
+    local bubbles = {
       normal = {
         a = { fg = colors.black, bg = colors.violet },
         b = { fg = colors.white, bg = colors.grey },
-        c = { fg = colors.black, bg = colors.black },
+        c = { fg = colors.black, bg = "None" },
       },
 
       insert = { a = { fg = colors.black, bg = colors.blue } },
@@ -33,7 +33,7 @@ return {
 
     require("lualine").setup({
       options = {
-        theme = bubbles_theme,
+        theme = bubbles,
         component_separators = "|",
         section_separators = { left = "", right = "" },
       },
@@ -41,10 +41,10 @@ return {
         lualine_a = {
           { "mode", separator = { left = "" }, right_padding = 2 },
         },
-        lualine_b = { "filename", "branch" },
-        lualine_c = { "fileformat" },
+        lualine_b = { "filename", "diagnostics" },
+        lualine_c = {},
         lualine_x = {},
-        lualine_y = { "diagnostics", "filetype", "progress" },
+        lualine_y = { "branch", "filetype", "progress" },
         lualine_z = {
           { "location", separator = { right = "" }, left_padding = 2 },
         },
