@@ -50,7 +50,6 @@ return {
       vim.o[opt] = val
     end
 
-    -- setup fonts for GUIs
     if vim.fn.has("gui_running") == 1 or vim.g.neovide then
       local font_name = "JetBrainsMono Nerd Font Mono"
       local font = font_name .. ":h10:b"
@@ -59,14 +58,14 @@ return {
       vim.o.guifont = font
     end
 
-    -- highlight yanked region temporarily
     vim.api.nvim_create_autocmd("TextYankPost", {
+      desc = "highlight yanked region temporarily",
       pattern = "*",
       callback = function() vim.highlight.on_yank({ higroup = "IncSearch", timeout = 100 }) end,
     })
 
-    -- clean up trailing whitespace before saving
     vim.api.nvim_create_autocmd("BufWritePre", {
+      desc = "clean up trailing whitespace before saving",
       pattern = "*",
       callback = function()
         local save = vim.fn.winsaveview()

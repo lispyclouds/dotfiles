@@ -30,6 +30,7 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     lazy = true,
+    cmd = { "Telescope" },
     dependencies = {
       "nvim-lua/popup.nvim",
       "nvim-lua/plenary.nvim",
@@ -86,7 +87,7 @@ return {
   },
   {
     "nvim-lualine/lualine.nvim",
-    event = buf_read,
+    event = "VeryLazy",
     config = function() require("statusline").setup() end,
   },
   {
