@@ -7,7 +7,7 @@ return {
 
     require("impl").map({
       ["<leader>bf"] = {
-        action = function() require("telescope").extensions.file_browser.file_browser() end,
+        action = function() require("telescope").extensions.file_browser.file_browser({ initial_mode = "normal" }) end,
         opts = {
           desc = "[B]rowse [F]iles",
         },

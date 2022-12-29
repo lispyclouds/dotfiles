@@ -40,7 +40,6 @@ return {
         layout_config = {
           prompt_position = "top",
         },
-        initial_mode = "normal",
       },
       pickers = {
         find_files = {
