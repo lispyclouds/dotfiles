@@ -1,6 +1,3 @@
--- Bubbles config for lualine
--- Author: lokesh-krishna, MIT Licensed
-
 return {
   setup = function()
     local colors = {
@@ -12,8 +9,8 @@ return {
       violet = "#d183e8",
       white = "#c6c6c6",
     }
-
-    local bubbles = {
+    local left_sep, right_sep = "", ""
+    local theme = {
       normal = {
         a = { fg = colors.black, bg = colors.violet },
         b = { fg = colors.white, bg = colors.grey },
@@ -33,20 +30,20 @@ return {
 
     require("lualine").setup({
       options = {
-        theme = bubbles,
+        theme = theme,
         component_separators = "|",
-        section_separators = { left = "", right = "" },
+        section_separators = { left = left_sep, right = right_sep },
       },
       sections = {
         lualine_a = {
-          { "mode", separator = { left = "" }, right_padding = 2 },
+          { "mode", separator = { left = left_sep }, right_padding = 2 },
         },
         lualine_b = { "filename", "diagnostics" },
         lualine_c = {},
         lualine_x = {},
         lualine_y = { "branch", "filetype", "progress" },
         lualine_z = {
-          { "location", separator = { right = "" }, left_padding = 2 },
+          { "location", separator = { right = right_sep }, left_padding = 2 },
         },
       },
       inactive_sections = {
