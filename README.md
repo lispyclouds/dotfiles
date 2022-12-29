@@ -15,12 +15,12 @@ Welcome to my dotfiles, this is my setup on MacOS/Fedora 35+, Neovim 0.8+ and zs
 
 ### Eye Candy
 
-<img width="1780" alt="Screenshot 2022-12-28 at 13 19 30" src="https://user-images.githubusercontent.com/5615588/209819061-857cf34f-ed16-449b-8fae-ddf5a4b5b7a3.png">
-<img width="1780" alt="Screenshot 2022-12-28 at 13 19 42" src="https://user-images.githubusercontent.com/5615588/209819074-f6038f41-d384-4ff9-8bf3-daab3d170744.png">
-<img width="1780" alt="Screenshot 2022-12-28 at 13 19 56" src="https://user-images.githubusercontent.com/5615588/209819080-aded81f9-37c3-4d79-b577-94a5c020c8d1.png">
-<img width="1780" alt="Screenshot 2022-12-28 at 13 20 13" src="https://user-images.githubusercontent.com/5615588/209819088-8d081574-e5fb-4fc5-990a-aaf9ccef44cf.png">
-<img width="1780" alt="Screenshot 2022-12-28 at 13 20 25" src="https://user-images.githubusercontent.com/5615588/209819096-547996f4-b4e7-4ccf-9b54-ddca963a8500.png">
-<img width="1780" alt="Screenshot 2022-12-28 at 13 20 48" src="https://user-images.githubusercontent.com/5615588/209819103-ea2b715a-d700-4f44-9c02-efce9a34e1cb.png">
+<img width="1780" alt="Screenshot 2022-12-29 at 10 44 13" src="https://user-images.githubusercontent.com/5615588/209940848-b10026e4-1371-4e3f-9b16-ffff551a023c.png">
+<img width="1780" alt="Screenshot 2022-12-29 at 10 45 41" src="https://user-images.githubusercontent.com/5615588/209940854-6ad70ed1-7987-4233-a9ba-8541c89bf791.png">
+<img width="1780" alt="Screenshot 2022-12-29 at 10 45 46" src="https://user-images.githubusercontent.com/5615588/209940860-cb673638-bef6-4ffd-a845-8e46239c5e63.png">
+<img width="1780" alt="Screenshot 2022-12-29 at 10 43 25" src="https://user-images.githubusercontent.com/5615588/209940828-30ac459c-7a0d-46e9-8262-2e98ce5d8576.png">
+<img width="1780" alt="Screenshot 2022-12-29 at 10 43 38" src="https://user-images.githubusercontent.com/5615588/209940832-37a697f0-6c9b-426c-be05-6c07d677e065.png">
+<img width="1780" alt="Screenshot 2022-12-29 at 10 44 03" src="https://user-images.githubusercontent.com/5615588/209940838-20ec0847-a1dc-4d8c-9ae3-19797ae8455b.png">
 
 ### Bootstrapping new Fedora 35+ or MacOS installations
 
