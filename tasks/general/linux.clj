@@ -1,10 +1,11 @@
 (ns general.linux
-  (:require [babashka.cli :as cli]
-            [babashka.fs :as fs]
-            [cheshire.core :as json]
-            [clojure.java.io :as io]
-            [clojure.string :as str]
-            [org.httpkit.client :as http]))
+  (:require
+    [babashka.cli :as cli]
+    [babashka.fs :as fs]
+    [babashka.http-client :as http]
+    [cheshire.core :as json]
+    [clojure.java.io :as io]
+    [clojure.string :as str]))
 
 (def downloads
   {:nerd-fonts {:repo     "ryanoasis/nerd-fonts"
@@ -14,8 +15,8 @@
 
 (defn get-assets
   [repo]
-  (-> @(http/get (format "https://api.github.com/repos/%s/releases/latest" repo)
-                 {:as :stream})
+  (-> (http/get (format "https://api.github.com/repos/%s/releases/latest" repo)
+                {:as :stream})
       :body
       io/reader
       (json/parse-stream true)
@@ -31,7 +32,7 @@
                                :browser_download_url)
           zip-file        (str (fs/create-temp-file))
           _ (fs/delete-on-exit zip-file)
-          download-stream (:body @(http/get download-link {:as :stream}))]
+          download-stream (:body (http/get download-link {:as :stream}))]
       (io/copy download-stream (io/file zip-file))
       (fs/create-dirs location)
       (println (str "Extracting " item))
