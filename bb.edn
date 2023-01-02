@@ -1,5 +1,5 @@
 {:paths ["tasks"]
- :deps  {io.github.babashka/http-client {:git/sha "dcfa8a46d798b8a23406193745fea88f3f98311a"}}
+ :deps  {org.babashka/http-client {:mvn/version "0.0.1"}}
  :tasks {:requires ([babashka.cli :as cli]
                     [general.commit :as commit]
                     [general.linux :as linux]
