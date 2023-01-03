@@ -11,6 +11,7 @@ return {
         "markdown",
         "ocaml",
         "python",
+        "terraform",
         "yaml",
       },
 
