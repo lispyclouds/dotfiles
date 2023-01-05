@@ -15,12 +15,13 @@ Welcome to my dotfiles, this is my setup on MacOS/Fedora 35+, Neovim 0.8+ and zs
 
 ### Eye Candy
 
-<img width="1780" alt="Screenshot 2022-12-29 at 10 44 13" src="https://user-images.githubusercontent.com/5615588/209940848-b10026e4-1371-4e3f-9b16-ffff551a023c.png">
-<img width="1780" alt="Screenshot 2022-12-29 at 10 45 41" src="https://user-images.githubusercontent.com/5615588/209940854-6ad70ed1-7987-4233-a9ba-8541c89bf791.png">
-<img width="1780" alt="Screenshot 2022-12-29 at 10 45 46" src="https://user-images.githubusercontent.com/5615588/209940860-cb673638-bef6-4ffd-a845-8e46239c5e63.png">
-<img width="1780" alt="Screenshot 2022-12-29 at 10 43 25" src="https://user-images.githubusercontent.com/5615588/209940828-30ac459c-7a0d-46e9-8262-2e98ce5d8576.png">
-<img width="1780" alt="Screenshot 2022-12-29 at 10 43 38" src="https://user-images.githubusercontent.com/5615588/209940832-37a697f0-6c9b-426c-be05-6c07d677e065.png">
-<img width="1780" alt="Screenshot 2022-12-29 at 10 44 03" src="https://user-images.githubusercontent.com/5615588/209940838-20ec0847-a1dc-4d8c-9ae3-19797ae8455b.png">
+<img width="890" alt="Screenshot 2023-01-05 at 11 57 27" src="https://user-images.githubusercontent.com/5615588/210775606-23715daa-63c8-4635-ac5d-86c1ff56bfb3.png">
+<img width="890" alt="Screenshot 2023-01-05 at 11 57 42" src="https://user-images.githubusercontent.com/5615588/210775617-5bfdeace-55f4-4836-8c02-4e314b7edd9a.png">
+<img width="890" alt="Screenshot 2023-01-05 at 11 57 59" src="https://user-images.githubusercontent.com/5615588/210775628-38b0dba2-9bd7-4c15-a30e-46487c84d49c.png">
+<img width="890" alt="Screenshot 2023-01-05 at 11 58 21" src="https://user-images.githubusercontent.com/5615588/210775637-38ba0f75-ad78-4e95-8191-9435f67d9cee.png">
+<img width="890" alt="Screenshot 2023-01-05 at 11 58 35" src="https://user-images.githubusercontent.com/5615588/210775642-9f9b2476-0982-4f74-93ef-3bea74dc1303.png">
+<img width="890" alt="Screenshot 2023-01-05 at 11 58 46" src="https://user-images.githubusercontent.com/5615588/210775651-21681647-1874-45b0-9c21-73b2bd78bcf5.png">
+<img width="890" alt="Screenshot 2023-01-05 at 11 59 23" src="https://user-images.githubusercontent.com/5615588/210775658-56db6a65-59d4-4910-bc5e-947c1c290ad8.png">
 
 ### Bootstrapping new Fedora 35+ or MacOS installations
 
