@@ -2,7 +2,7 @@ local buf_read = "BufRead"
 local lisps = { "clojure", "fennel" }
 
 return {
-  "kyazdani42/nvim-web-devicons",
+  "nvim-tree/nvim-web-devicons",
   {
     "folke/tokyonight.nvim",
     config = function()
