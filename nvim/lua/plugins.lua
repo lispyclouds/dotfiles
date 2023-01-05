@@ -100,14 +100,9 @@ return {
     end,
   },
   {
-    "akinsho/bufferline.nvim",
+    "romgrk/barbar.nvim",
     event = buf_read,
-    cmd = { "BufferLineCyclePrev", "BufferLineCycleNext" },
-    config = true,
-  },
-  {
-    "famiu/bufdelete.nvim",
-    cmd = { "Bwipeout" },
+    cmd = { "BufferClose", "BufferPrevious", "BufferNext" },
   },
   {
     "nvim-lualine/lualine.nvim",
