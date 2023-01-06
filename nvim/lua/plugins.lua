@@ -75,6 +75,8 @@ return {
             ".terraform/",
             ".mypy_cache/",
             "__pycache__/",
+            ".cache/",
+            ".cpcache/",
           },
         },
       },
