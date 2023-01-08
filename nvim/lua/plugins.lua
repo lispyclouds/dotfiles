@@ -60,7 +60,7 @@ return {
       "nvim-lua/popup.nvim",
       "nvim-lua/plenary.nvim",
     },
-    config = {
+    opts = {
       defaults = {
         layout_config = {
           prompt_position = "top",
