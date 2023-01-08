@@ -64,6 +64,7 @@
       - libuv
       - llvm
       - lsd
+      - lua-language-server
       - magic-wormhole
       - make
       - markdown

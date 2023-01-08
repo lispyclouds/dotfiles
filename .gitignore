@@ -1,5 +1,6 @@
-.DS_Store
-nvim/lazy-lock.json
-.nrepl-port
 .clj-kondo/
+.DS_Store
 .lsp/
+.luarc.json
+.nrepl-port
+nvim/lazy-lock.json
