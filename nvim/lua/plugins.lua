@@ -166,7 +166,7 @@ return {
     end,
   },
   {
-    url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
     event = buf_read,
     dependencies = {
       "neovim/nvim-lspconfig",

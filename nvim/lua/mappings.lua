@@ -8,9 +8,7 @@ return {
     require("impl").map({
       ["<leader>bf"] = {
         action = function() require("telescope").extensions.file_browser.file_browser({ initial_mode = "normal" }) end,
-        opts = {
-          desc = "[B]rowse [F]iles",
-        },
+        opts = { desc = "[B]rowse [F]iles" },
       },
       ["c"] = '"_c', -- blackhole
       ["C"] = '"_C', -- blackhole
@@ -26,9 +24,7 @@ return {
       ["<leader>D"] = "D", -- usual
       ["<leader>ff"] = {
         action = function() require("telescope.builtin").find_files() end,
-        opts = {
-          desc = "[F]ind [F]ile",
-        },
+        opts = { desc = "[F]ind [F]ile" },
       },
       ["<leader>f"] = {
         action = function() require("telescope.builtin").live_grep() end,
@@ -39,9 +35,7 @@ return {
       ["<leader>p"] = '"_dP', -- blackhole
       ["<leader>pm"] = {
         action = function() vim.o.relativenumber = not vim.o.relativenumber end,
-        opts = {
-          desc = "[P]airing [M]ode",
-        },
+        opts = { desc = "[P]airing [M]ode" },
       },
     })
   end,
