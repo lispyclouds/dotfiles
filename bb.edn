@@ -1,5 +1,5 @@
 {:paths ["tasks"]
- :deps  {org.babashka/http-client {:mvn/version "0.0.1"}}
+ :deps  {org.babashka/http-client {:mvn/version "0.0.2"}}
  :tasks {:requires ([babashka.cli :as cli]
                     [general.commit :as commit]
                     [general.linux :as linux]
