@@ -41,8 +41,6 @@ WO;     dN   No        dN                 WKl         :OW             Nx,    ,kW
                           WX0kdl:,,          ,,:cox0XWW
 --]]
 
-vim.o.shadafile = "NONE"
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 local undo_dir = vim.loop.os_homedir() .. "/.vim/undodir"
 
@@ -98,5 +96,3 @@ require("lazy").setup("plugins", {
     },
   },
 })
-
-vim.o.shadafile = ""
