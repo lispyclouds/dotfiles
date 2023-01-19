@@ -17,6 +17,7 @@
       - gnome-shell-extension-gpaste
       - gnome-tweaks
       - gpaste
+      - gum
       - hadolint
       - ImageMagick
       - java-latest-openjdk-devel
@@ -55,6 +56,14 @@
       with_items:
         - dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ fedora_version.stdout }}.noarch.rpm
         - dnf config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
+    - name: Add charm repo
+      ansible.builtin.yum_repository:
+        name: Charm
+        description: RPM repo for Charm
+        file: charm
+        baseurl: https://repo.charm.sh/yum/
+        gpgcheck: 1
+        gpgkey: https://repo.charm.sh/yum/gpg.key
     - name: Installing packages
       dnf:
         name: "{{ packages }}"

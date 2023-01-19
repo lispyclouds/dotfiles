@@ -48,6 +48,7 @@
       - gradle
       - grep
       - gromgit/fuse/ntfs-3g-mac
+      - gum
       - hadolint
       - hashicorp/tap/terraform-ls
       - haskell-stack
