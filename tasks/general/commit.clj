@@ -36,23 +36,21 @@
 (defn exec
   [cmd]
   (-> cmd
-      (p/sh)
-      (p/check)
+      (p/shell {:out :string})
       (:out)
       (str/trim)))
 
 (defn prompt
   [message default]
-  (printf "%s%s: "
-          message
-          (if default
-            (format "[%s]" default)
-            ""))
-  (flush)
-  (let [answer (read-line)]
-    (if (empty? answer)
-      (or default "")
-      answer)))
+  (try
+    (let [cmd ["gum" "input" "--placeholder" message]
+          cmd (if default
+                (conj cmd "--value" default)
+                cmd)]
+      (exec cmd))
+    (catch Throwable _
+      (println "Error reading input")
+      (System/exit 1))))
 
 (defn bail!
   [msg]
