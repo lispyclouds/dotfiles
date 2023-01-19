@@ -9,13 +9,19 @@
 
 (def cache-path (str (fs/expand-home "~/.cache/commit/cache.edn")))
 
+(defn bail!
+  [msg]
+  (binding [*out* *err*]
+    (println msg))
+  (System/exit 1))
+
 (defn read-edn
   [path]
   (if (fs/exists? path)
     (with-open [r (io/reader path)]
       (try
         (edn/read (PushbackReader. r))
-        (catch Exception _ {})))
+        (catch Throwable _ {})))
     {}))
 
 (defn write-cache
@@ -26,19 +32,24 @@
               *out*          w]
       (pr data))))
 
-(defn get-authors
-  []
-  (let [default {"rd" {:name  "Rahul De"
-                       :email "rahul080327@gmail.com"}}
-        conf    (read-edn (str (fs/expand-home "~/.config/commit/conf.edn")))]
-    (into default (:authors conf))))
-
 (defn exec
   [cmd]
   (-> cmd
       (p/shell {:out :string})
       (:out)
       (str/trim)))
+
+(defn get-co-authors
+  []
+  (let [default {"rahul080327@gmail.com" {:name "Rahul De"}}
+        conf    (read-edn (str (fs/expand-home "~/.config/commit/conf.edn")))
+        authors (into default (:authors conf))]
+    (->> (exec "git config --get user.email")
+         (dissoc authors)
+         (map #(format "%s <%s>"
+                       (key %)
+                       (:name (val %))))
+         (into ["none"]))))
 
 (defn prompt
   [message default]
@@ -49,66 +60,59 @@
                 cmd)]
       (exec cmd))
     (catch Throwable _
-      (println "Error reading input")
-      (System/exit 1))))
+      (bail! "Error reading input"))))
 
-(defn bail!
-  [msg]
-  (binding [*out* *err*]
-    (println msg))
-  (System/exit 1))
+(defn choose-from
+  [message options selected]
+  (println message)
+  (try
+    (let [cmd ["gum" "choose" "--no-limit"]
+          cmd (if (seq selected)
+                (->> selected
+                     (str/join ",")
+                     (vector "--selected")
+                     (into cmd))
+                cmd)]
+      (->> (into cmd options)
+           (exec)
+           (str/split-lines)))
+    (catch Throwable _
+      (bail! "Error in choosing"))))
 
-(defn primary-author?
-  [authors email short-name]
-  (= email (get-in authors [short-name :email])))
-
-(defn git-status
+(defn check-git
   []
   (try
-    (exec "git status --porcelain")
-    (catch Exception _ "")))
-
-(defn validate-author
-  [authors short-name]
-  (when-not (contains? authors short-name)
-    (bail! (format "Unrecognised author %s. Choose from: %s"
-                   short-name
-                   (str/join ", " (keys authors))))))
+    (when (empty? (exec "git status --porcelain"))
+      (bail! "No changes to commit"))
+    (catch Throwable _
+      (bail! "Error running git or not a valid git repo"))))
 
 (defn make-co-author-msg
-  [authors co-authors]
-  (let [email (exec "git config --get user.email")]
-    (->> co-authors
-         (filter #(not (primary-author? authors email %)))
-         (map #(authors %))
-         (map #(format "Co-authored-by: %s <%s>"
-                       (% :name)
-                       (% :email)))
-         (str/join \newline))))
+  [co-authors]
+  (->> co-authors
+       (map #(format "Co-authored-by: %s" %))
+       (str/join \newline)))
 
 (defn -main
   [{:keys [opts]}]
-  (when (empty? (git-status))
-    (bail! "Not a valid git repo or no changes to commit."))
-
+  (check-git)
   (let [{:keys [no-cache]}         opts
         {:keys [story co-authors]} (if no-cache
                                      {}
                                      (read-edn cache-path))
-        authors                    (get-authors)
         story                      (prompt "Story/Feature" story)
-        co-authors                 (prompt "Co-authors (short-names separated by ,)" co-authors)
-        co-authors                 (filter seq (str/split co-authors #"\s*,\s*"))
-        _ (run! #(validate-author authors %) co-authors)
+        co-authors                 (->> co-authors
+                                        (choose-from "Co-author(s)" (get-co-authors))
+                                        (filter #(not= "none" %)))
         commit-message             (prompt "Message" nil)]
     (try
       (exec (format "git commit --cleanup=verbatim -m \"[%s] %s\n\n%s\""
                     story
                     commit-message
-                    (make-co-author-msg authors co-authors)))
+                    (make-co-author-msg co-authors)))
       (when-not no-cache
-        (write-cache {:story story :co-authors (str/join ", " co-authors)}))
-      (catch Exception ex
+        (write-cache {:story story :co-authors co-authors}))
+      (catch Throwable ex
         (-> ex
             (ex-data)
             (:out)
