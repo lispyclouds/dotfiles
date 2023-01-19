@@ -46,10 +46,10 @@
         authors (into default (:authors conf))]
     (->> (exec "git config --get user.email")
          (dissoc authors)
-         (map #(format "%s <%s>"
-                       (key %)
-                       (:name (val %))))
-         (into ["none"]))))
+         (map (fn [[email {:keys [name]}]]
+                (format "%s <%s>"
+                        email
+                        name))))))
 
 (defn prompt
   [message default]
@@ -101,9 +101,9 @@
                                      {}
                                      (read-edn cache-path))
         story                      (prompt "Story/Feature" story)
-        co-authors                 (->> co-authors
-                                        (choose-from "Co-author(s)" (get-co-authors))
-                                        (filter #(not= "none" %)))
+        co-authors                 (choose-from "Co-author(s)"
+                                                (get-co-authors)
+                                                co-authors)
         commit-message             (prompt "Message" nil)]
     (try
       (exec (format "git commit --cleanup=verbatim -m \"[%s] %s\n\n%s\""
