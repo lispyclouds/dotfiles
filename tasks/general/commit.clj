@@ -53,9 +53,12 @@
                         name))))))
 
 (defn prompt
-  [message default]
+  [{:keys [message default multiline]}]
   (try
-    (let [cmd ["gum" "input" "--placeholder" message]
+    (let [opt (if multiline
+                "write"
+                "input")
+          cmd ["gum" opt "--placeholder" message]
           cmd (if default
                 (conj cmd "--value" default)
                 cmd)]
@@ -66,7 +69,9 @@
 (defn choose-from
   [message options selected]
   (if (empty? options)
-    options
+    (do
+      (println "No co-authors configured, skipping")
+      options)
     (try
       (println message)
       (let [cmd ["gum" "choose" "--no-limit"]
@@ -82,8 +87,10 @@
       (catch Throwable _
         (bail! "Error in choosing")))))
 
-(defn check-git
+(defn pre-checks
   []
+  (when-not (fs/which "gum")
+    (bail! "Cannot find `gum` on the PATH. Make sure https://github.com/charmbracelet/gum is installed"))
   (try
     (when (empty? (exec "git status --porcelain"))
       (bail! "No changes to commit"))
@@ -98,16 +105,16 @@
 
 (defn -main
   [{:keys [opts]}]
-  (check-git)
+  (pre-checks)
   (let [{:keys [no-cache]}         opts
         {:keys [story co-authors]} (if no-cache
                                      {}
                                      (read-edn cache-path))
-        story                      (prompt "Story/Feature" story)
+        story                      (prompt {:message "Story/Feature" :default story})
         co-authors                 (choose-from "Co-author(s)"
                                                 (get-co-authors)
                                                 co-authors)
-        commit-message             (prompt "Commit message" nil)]
+        commit-message             (prompt {:message "Commit message (Esc or Ctrl-D to complete)" :multiline true})]
     (try
       (exec (format "git commit --cleanup=verbatim -m \"[%s] %s\n\n%s\""
                     story
@@ -122,4 +129,6 @@
             (bail!))))))
 
 (comment
+  (fs/which "gum")
+
   (write-cache {:foo "bar"}))
