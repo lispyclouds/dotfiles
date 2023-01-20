@@ -49,8 +49,8 @@
          (dissoc authors)
          (map (fn [[email {:keys [name]}]]
                 (format "%s <%s>"
-                        email
-                        name))))))
+                        name
+                        email))))))
 
 (defn prompt
   [{:keys [message default multiline]}]
