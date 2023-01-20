@@ -81,9 +81,12 @@
                        (vector "--selected")
                        (into cmd))
                   cmd)]
-        (->> (into cmd options)
+        (->> options
+             (cons "none")
+             (into cmd)
              (exec)
-             (str/split-lines)))
+             (str/split-lines)
+             (filter #(not= "none" %))))
       (catch Throwable _
         (bail! "Error in choosing")))))
 
