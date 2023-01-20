@@ -1,6 +1,7 @@
 (ns general.zsh
-  (:require [clojure.java.io :as io]
-            [clojure.string :as s]))
+  (:require
+    [clojure.java.io :as io]
+    [clojure.string :as s]))
 
 (defn line->cmd
   [line]

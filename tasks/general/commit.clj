@@ -1,9 +1,10 @@
 (ns general.commit
-  (:require [babashka.fs :as fs]
-            [babashka.process :as p]
-            [clojure.edn :as edn]
-            [clojure.java.io :as io]
-            [clojure.string :as str]))
+  (:require
+    [babashka.fs :as fs]
+    [babashka.process :as p]
+    [clojure.edn :as edn]
+    [clojure.java.io :as io]
+    [clojure.string :as str]))
 
 (import '[java.io PushbackReader])
 
@@ -64,20 +65,22 @@
 
 (defn choose-from
   [message options selected]
-  (println message)
-  (try
-    (let [cmd ["gum" "choose" "--no-limit"]
-          cmd (if (seq selected)
-                (->> selected
-                     (str/join ",")
-                     (vector "--selected")
-                     (into cmd))
-                cmd)]
-      (->> (into cmd options)
-           (exec)
-           (str/split-lines)))
-    (catch Throwable _
-      (bail! "Error in choosing"))))
+  (if (empty? options)
+    options
+    (try
+      (println message)
+      (let [cmd ["gum" "choose" "--no-limit"]
+            cmd (if (seq selected)
+                  (->> selected
+                       (str/join ",")
+                       (vector "--selected")
+                       (into cmd))
+                  cmd)]
+        (->> (into cmd options)
+             (exec)
+             (str/split-lines)))
+      (catch Throwable _
+        (bail! "Error in choosing")))))
 
 (defn check-git
   []
@@ -104,7 +107,7 @@
         co-authors                 (choose-from "Co-author(s)"
                                                 (get-co-authors)
                                                 co-authors)
-        commit-message             (prompt "Message" nil)]
+        commit-message             (prompt "Commit message" nil)]
     (try
       (exec (format "git commit --cleanup=verbatim -m \"[%s] %s\n\n%s\""
                     story
