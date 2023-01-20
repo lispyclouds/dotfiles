@@ -114,7 +114,7 @@
         co-authors                 (choose-from "Co-author(s)"
                                                 (get-co-authors)
                                                 co-authors)
-        commit-message             (prompt {:message "Commit message (Esc or Ctrl-D to complete)" :multiline true})]
+        commit-message             (prompt {:message "Commit message (Ctrl-D to complete)" :multiline true})]
     (try
       (exec (format "git commit --cleanup=verbatim -m \"[%s] %s\n\n%s\""
                     story

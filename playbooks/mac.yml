@@ -5,10 +5,7 @@
   vars:
     brews:
       - ansible
-      - astyle
-      - autoconf
       - awscli
-      - aws-vault
       - bash
       - bat
       - black
@@ -23,12 +20,10 @@
       - deviceinsight/packages/kafkactl
       - difftastic
       - docker
-      - dog
       - elixir
       - exiftool
       - faac
       - fd
-      - fennel
       - ffmpeg
       - flex
       - fortune
@@ -36,11 +31,8 @@
       - gcc
       - ghc
       - git
-      - git-crypt
-      - git-delta
       - git-extras
       - git-quick-stats
-      - glances
       - gnu-sed
       - go
       - gopls
@@ -81,7 +73,6 @@
       - p7zip
       - packer
       - parallel
-      - pgcli
       - planck
       - podman
       - prettier
@@ -98,7 +89,6 @@
       - speedtest-cli
       - stylua
       - telnet
-      - terminal-notifier
       - tfsec
       - thefuck
       - tig
@@ -119,10 +109,9 @@
       - flux
       - font-fantasque-sans-mono-nerd-font
       - font-jetbrains-mono-nerd-font
-      - graalvm-ce-java17
+      - graalvm-ce-java19
       - maccy
       - macfuse
-      - macpass
       - qlvideo
       - temurin
       - vimr
