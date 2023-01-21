@@ -2,6 +2,7 @@
   (:require
     [babashka.fs :as fs]
     [babashka.process :as p]
+    [bblgum.core :as b]
     [clojure.edn :as edn]
     [clojure.java.io :as io]
     [clojure.string :as str]))
@@ -54,17 +55,19 @@
 
 (defn prompt
   [{:keys [message default multiline]}]
-  (try
-    (let [opt (if multiline
-                "write"
-                "input")
-          cmd ["gum" opt "--placeholder" message]
-          cmd (if default
-                (conj cmd "--value" default)
-                cmd)]
-      (exec cmd))
-    (catch Throwable _
-      (bail! "Error reading input"))))
+  (let [cmd                     (if multiline
+                                  :write
+                                  :input)
+        opts                    {:placeholder message}
+        opts                    (if default
+                                  (assoc opts :value default)
+                                  opts)
+        {:keys [status result]} (b/gum {:cmd cmd :opts opts})]
+    (if (not (zero? status))
+      (bail! "Error reading input")
+      (if multiline
+        (str/join \newline result)
+        (first result)))))
 
 (defn choose-from
   [message options selected]
@@ -72,23 +75,18 @@
     (do
       (println "No co-authors configured, skipping")
       options)
-    (try
+    (do
       (println message)
-      (let [cmd ["gum" "choose" "--no-limit"]
-            cmd (if (seq selected)
-                  (->> selected
-                       (str/join ",")
-                       (vector "--selected")
-                       (into cmd))
-                  cmd)]
-        (->> options
-             (cons "none")
-             (into cmd)
-             (exec)
-             (str/split-lines)
-             (filter #(not= "none" %))))
-      (catch Throwable _
-        (bail! "Error in choosing")))))
+      (let [opts                    {:no-limit true}
+            opts                    (if (seq selected)
+                                      (assoc opts :selected selected)
+                                      opts)
+            {:keys [status result]} (b/gum {:cmd  :choose
+                                            :opts opts
+                                            :args (cons "name" opts)})]
+        (if (not (zero? status))
+          (bail! "Error in choosing")
+          (filter #(not= "none" %) result))))))
 
 (defn pre-checks
   []
