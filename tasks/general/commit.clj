@@ -81,12 +81,13 @@
             opts                    (if (seq selected)
                                       (assoc opts :selected selected)
                                       opts)
+            none-value              "none"
             {:keys [status result]} (b/gum {:cmd  :choose
                                             :opts opts
-                                            :args (cons "name" opts)})]
+                                            :args (cons none-value options)})]
         (if (not (zero? status))
           (bail! "Error in choosing")
-          (filter #(not= "none" %) result))))))
+          (filter #(not= none-value %) result))))))
 
 (defn pre-checks
   []
