@@ -1,6 +1,5 @@
 {:paths ["tasks"]
- :deps  {org.babashka/http-client     {:mvn/version "0.0.2"}
-         io.github.lispyclouds/bblgum {:local/root "../bblgum"}}
+ :deps  {io.github.lispyclouds/bblgum {:local/root "../bblgum"}}
  :tasks {:requires ([babashka.cli :as cli]
                     [general.commit :as commit]
                     [general.linux :as linux]
