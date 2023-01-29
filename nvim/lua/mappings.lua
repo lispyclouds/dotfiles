@@ -6,9 +6,9 @@ return {
     vim.g.maplocalleader = leader
 
     require("impl").map({
-      ["<leader>bf"] = {
+      ["<leader>fb"] = {
         action = function() require("telescope").extensions.file_browser.file_browser({ initial_mode = "normal" }) end,
-        opts = { desc = "[B]rowse [F]iles" },
+        opts = { desc = "[F]ile [B]rowser" },
       },
       ["c"] = '"_c', -- blackhole
       ["C"] = '"_C', -- blackhole
