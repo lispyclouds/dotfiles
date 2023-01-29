@@ -17,6 +17,13 @@ return {
 
       require("impl").map({
         ["gd"] = buf.definition,
+        ["<leader>bf"] = {
+          action = buf.format,
+          opts = {
+            desc = "LSP [B]uffer [F]ormat",
+            buffer = buffer,
+          },
+        },
         ["<leader>ca"] = {
           action = buf.code_action,
           opts = {
