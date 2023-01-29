@@ -17,10 +17,10 @@ return {
 
       require("impl").map({
         ["gd"] = buf.definition,
-        ["<leader>bf"] = {
+        ["<leader>fb"] = {
           action = buf.format,
           opts = {
-            desc = "LSP [B]uffer [F]ormat",
+            desc = "LSP [F]ormat [B]uffer",
             buffer = buffer,
           },
         },
