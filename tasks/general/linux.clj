@@ -1,17 +1,17 @@
 (ns general.linux
   (:require
-    [babashka.cli :as cli]
-    [babashka.fs :as fs]
-    [babashka.http-client :as http]
-    [cheshire.core :as json]
-    [clojure.java.io :as io]
-    [clojure.string :as str]))
+   [babashka.cli :as cli]
+   [babashka.fs :as fs]
+   [babashka.http-client :as http]
+   [cheshire.core :as json]
+   [clojure.java.io :as io]
+   [clojure.string :as str]))
 
 (def downloads
-  {:nerd-fonts {:repo     "ryanoasis/nerd-fonts"
+  {:nerd-fonts {:repo "ryanoasis/nerd-fonts"
                 :location (fs/expand-home "~/.local/share/fonts/NerdFonts")}
-   :themes     {:repo     "catppuccin/gtk"
-                :location (fs/expand-home "~/.themes")}})
+   :themes {:repo "catppuccin/gtk"
+            :location (fs/expand-home "~/.themes")}})
 
 (defn get-assets
   [repo]
@@ -26,11 +26,11 @@
   [repo location items]
   (doseq [item items]
     (println (str "Downloading " item))
-    (let [download-link   (->> (get-assets repo)
-                               (filter #(= (str item ".zip") (:name %)))
-                               first
-                               :browser_download_url)
-          zip-file        (str (fs/create-temp-file))
+    (let [download-link (->> (get-assets repo)
+                             (filter #(= (str item ".zip") (:name %)))
+                             first
+                             :browser_download_url)
+          zip-file (str (fs/create-temp-file))
           _ (fs/delete-on-exit zip-file)
           download-stream (:body (http/get download-link {:as :stream}))]
       (io/copy download-stream (io/file zip-file))

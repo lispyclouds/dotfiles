@@ -1,5 +1,5 @@
 {:paths ["tasks"]
- :deps  {io.github.lispyclouds/bblgum {:git/sha "da049b2bf1bd7dad1c8296fd97c34e9401707719"}}
+ :deps  {io.github.lispyclouds/bblgum {:git/sha "ed3dfbfdf02ef74a425b739cbc6d8217c36a3ac9"}}
  :tasks {:requires ([babashka.cli :as cli]
                     [general.commit :as commit]
                     [general.linux :as linux]

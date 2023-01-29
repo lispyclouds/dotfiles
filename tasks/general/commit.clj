@@ -1,11 +1,11 @@
 (ns general.commit
   (:require
-    [babashka.fs :as fs]
-    [babashka.process :as p]
-    [bblgum.core :as b]
-    [clojure.edn :as edn]
-    [clojure.java.io :as io]
-    [clojure.string :as str]))
+   [babashka.fs :as fs]
+   [babashka.process :as p]
+   [bblgum.core :as b]
+   [clojure.edn :as edn]
+   [clojure.java.io :as io]
+   [clojure.string :as str]))
 
 (import '[java.io PushbackReader])
 
@@ -31,7 +31,7 @@
   (fs/create-dirs (fs/expand-home "~/.cache/commit"))
   (with-open [w (io/writer cache-path)]
     (binding [*print-length* false
-              *out*          w]
+              *out* w]
       (pr data))))
 
 (defn exec
@@ -44,7 +44,7 @@
 (defn get-co-authors
   []
   (let [default {"rahul080327@gmail.com" {:name "Rahul De"}}
-        conf    (read-edn (str (fs/expand-home "~/.config/commit/conf.edn")))
+        conf (read-edn (str (fs/expand-home "~/.config/commit/conf.edn")))
         authors (into default (:authors conf))]
     (->> (exec "git config --get user.email")
          (dissoc authors)
@@ -55,13 +55,13 @@
 
 (defn prompt
   [{:keys [message default multiline]}]
-  (let [cmd                     (if multiline
-                                  :write
-                                  :input)
-        opts                    {:placeholder message}
-        opts                    (if default
-                                  (assoc opts :value default)
-                                  opts)
+  (let [cmd (if multiline
+              :write
+              :input)
+        opts {:placeholder message}
+        opts (if default
+               (assoc opts :value default)
+               opts)
         {:keys [status result]} (b/gum {:cmd cmd :opts opts})]
     (if (not (zero? status))
       (bail! "Error reading input")
@@ -77,12 +77,12 @@
       options)
     (do
       (println message)
-      (let [opts                    {:no-limit true}
-            opts                    (if (seq selected)
-                                      (assoc opts :selected selected)
-                                      opts)
-            none-value              "none"
-            {:keys [status result]} (b/gum {:cmd  :choose
+      (let [opts {:no-limit true}
+            opts (if (seq selected)
+                   (assoc opts :selected selected)
+                   opts)
+            none-value "none"
+            {:keys [status result]} (b/gum {:cmd :choose
                                             :opts opts
                                             :args (cons none-value options)})]
         (if (not (zero? status))
@@ -108,15 +108,15 @@
 (defn -main
   [{:keys [opts]}]
   (pre-checks)
-  (let [{:keys [no-cache]}         opts
+  (let [{:keys [no-cache]} opts
         {:keys [story co-authors]} (if no-cache
                                      {}
                                      (read-edn cache-path))
-        story                      (prompt {:message "Story/Feature" :default story})
-        co-authors                 (choose-from "Co-author(s)"
-                                                (get-co-authors)
-                                                co-authors)
-        commit-message             (prompt {:message "Commit message (Ctrl-D to complete)" :multiline true})]
+        story (prompt {:message "Story/Feature" :default story})
+        co-authors (choose-from "Co-author(s)"
+                                (get-co-authors)
+                                co-authors)
+        commit-message (prompt {:message "Commit message (Ctrl-D to complete)" :multiline true})]
     (try
       (exec (format "git commit --cleanup=verbatim -m \"[%s] %s\n\n%s\""
                     story
