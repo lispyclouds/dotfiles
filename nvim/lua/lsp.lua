@@ -2,6 +2,7 @@ return {
   setup = function()
     local lspconfig = require("lspconfig")
     local nls = require("null-ls")
+    local group = vim.api.nvim_create_augroup("Diagnostics", { clear = true })
     local lsps = {
       "bashls", -- https://github.com/bash-lsp/bash-language-server#installation
       "clojure_lsp", -- https://clojure-lsp.io/installation/
@@ -47,6 +48,17 @@ return {
         },
       })
     end
+
+    vim.diagnostic.config({
+      virtual_text = false,
+    })
+
+    vim.api.nvim_create_autocmd({ "CursorHold" }, {
+      desc = "Show LSP diagnostics on hover in normal mode",
+      pattern = "*",
+      group = group,
+      callback = function() vim.diagnostic.open_float(nil, { focus = false }) end,
+    })
 
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
