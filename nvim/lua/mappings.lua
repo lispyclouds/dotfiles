@@ -17,6 +17,8 @@ return {
       ["dd"] = '"_dd', -- blackhole
       ["H"] = ":BufferPrevious<CR>",
       ["L"] = ":BufferNext<CR>",
+      ["<C-h>"] = ":vertical resize -8<cr>",
+      ["<C-l>"] = ":vertical resize +8<cr>",
       ["<leader>bc"] = ":BufferClose<CR>",
       ["<leader><CR>"] = ":noh<CR>",
       ["<leader>dd"] = "dd", -- usual

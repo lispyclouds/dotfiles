@@ -49,6 +49,14 @@ return {
       })
     end
 
+    -- setup null-ls
+    nls.setup({
+      sources = {
+        nls.builtins.diagnostics.hadolint,
+      },
+    })
+
+    -- setup LSP diagnostics as a floating window on hover
     vim.diagnostic.config({
       virtual_text = false,
     })
@@ -60,6 +68,7 @@ return {
       callback = function() vim.diagnostic.open_float(nil, { focus = false }) end,
     })
 
+    -- add the basic capabilities to cmp
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
     for _, lsp in pairs(lsps) do
@@ -69,12 +78,14 @@ return {
       })
     end
 
+    -- setup lua-language-server
     local runtime_path = vim.split(package.path, ";")
     local cmd = "lua-language-server"
 
     table.insert(runtime_path, "lua/?.lua")
     table.insert(runtime_path, "lua/?/init.lua")
 
+    -- TODO: get rid of this
     if vim.loop.os_uname().sysname == "Linux" then
       cmd = vim.loop.os_homedir() .. "/Downloads/lua-language-server/bin/lua-language-server"
     end
@@ -99,12 +110,6 @@ return {
             enable = false,
           },
         },
-      },
-    })
-
-    nls.setup({
-      sources = {
-        nls.builtins.diagnostics.hadolint,
       },
     })
   end,
