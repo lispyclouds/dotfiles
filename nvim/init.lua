@@ -82,6 +82,7 @@ require("lazy").setup("plugins", {
         "getscript",
         "getscriptPlugin",
         "logipat",
+        "man",
         "netrw",
         "netrwFileHandlers",
         "netrwPlugin",
