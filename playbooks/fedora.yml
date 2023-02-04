@@ -9,6 +9,7 @@
       - black
       - bottom
       - "@development-tools"
+      - difftastic
       - fd-find
       - fontconfig-devel
       - freetype-devel
