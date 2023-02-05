@@ -85,17 +85,19 @@ return {
     table.insert(runtime_path, "lua/?.lua")
     table.insert(runtime_path, "lua/?/init.lua")
 
-    -- TODO: get rid of this
-    if vim.loop.os_uname().sysname == "Linux" then
-      cmd = vim.loop.os_homedir() .. "/Downloads/lua-language-server/bin/lua-language-server"
-    end
-
     lspconfig.sumneko_lua.setup({
       capabilities = capabilities,
       cmd = { cmd },
       on_attach = on_attach,
       settings = {
         Lua = {
+          format = {
+            enable = true,
+            defaultConfig = {
+              indent_style = "space",
+              indent_size = "2",
+            }
+          },
           runtime = {
             path = runtime_path,
             version = "LuaJIT",
