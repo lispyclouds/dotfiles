@@ -104,7 +104,11 @@ return {
   {
     "romgrk/barbar.nvim",
     event = buf_read,
-    cmd = { "BufferClose", "BufferPrevious", "BufferNext" },
+    cmd = {
+      "BufferClose",
+      "BufferPrevious",
+      "BufferNext",
+    },
   },
   {
     "nvim-lualine/lualine.nvim",
@@ -148,21 +152,6 @@ return {
     "gpanders/nvim-parinfer",
     ft = lisps,
     config = function() vim.g.parinfer_force_balance = true end,
-  },
-  {
-    "p00f/nvim-ts-rainbow",
-    event = buf_read,
-    dependencies = {
-      "neovim/nvim-lspconfig",
-    },
-    config = function()
-      require("nvim-treesitter.configs").setup({
-        rainbow = {
-          enable = true,
-          extended_mode = true,
-        },
-      })
-    end,
   },
   {
     "j-hui/fidget.nvim",

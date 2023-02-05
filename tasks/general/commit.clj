@@ -49,9 +49,7 @@
     (->> (exec "git config --get user.email")
          (dissoc authors)
          (map (fn [[email {:keys [name]}]]
-                (format "%s <%s>"
-                        name
-                        email))))))
+                (format "%s <%s>" name email))))))
 
 (defn prompt
   [{:keys [message default multiline]}]
