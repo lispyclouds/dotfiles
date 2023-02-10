@@ -83,23 +83,27 @@ return {
     },
   },
   {
-    "nvim-telescope/telescope-file-browser.nvim",
-    lazy = true,
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
     dependencies = {
-      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+      "MunifTanjim/nui.nvim",
     },
-    config = function()
-      local ts = require("telescope")
-
-      ts.setup({
-        extensions = {
-          file_browser = {
-            hijack_netrw = true,
-          },
+    cmd = { "NeoTreeFocusToggle" },
+    opts = {
+      window = {
+        width = 25,
+      },
+      filesystem = {
+        use_libuv_file_watcher = true,
+        follow_current_file = true,
+        filtered_items = {
+          hide_dotfiles = false,
+          hide_gitignored = false,
         },
-      })
-      ts.load_extension("file_browser")
-    end,
+      },
+    },
   },
   {
     "romgrk/barbar.nvim",

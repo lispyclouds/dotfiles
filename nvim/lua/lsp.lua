@@ -94,6 +94,7 @@ return {
           format = {
             enable = true,
             defaultConfig = {
+              continuation_indent = "2",
               indent_style = "space",
               indent_size = "2",
               trailing_table_separator = "smart",

@@ -6,10 +6,7 @@ return {
     vim.g.maplocalleader = leader
 
     require("impl").map({
-      ["<leader>bf"] = {
-        action = function() require("telescope").extensions.file_browser.file_browser({ initial_mode = "normal" }) end,
-        opts = { desc = "[B]rowse [F]iles" },
-      },
+      ["<leader>bf"] = ":NeoTreeFocusToggle<CR>",
       ["c"] = '"_c', -- blackhole
       ["C"] = '"_C', -- blackhole
       ["d"] = '"_d', -- blackhole
