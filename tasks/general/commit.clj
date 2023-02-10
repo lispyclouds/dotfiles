@@ -53,9 +53,7 @@
 
 (defn prompt
   [{:keys [message default multiline]}]
-  (let [cmd (if multiline
-              :write
-              :input)
+  (let [cmd (if multiline :write :input)
         opts {:placeholder message}
         opts (if default
                (assoc opts :value default)
