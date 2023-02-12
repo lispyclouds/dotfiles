@@ -85,7 +85,7 @@ return {
     table.insert(runtime_path, "lua/?.lua")
     table.insert(runtime_path, "lua/?/init.lua")
 
-    lspconfig.sumneko_lua.setup({
+    lspconfig.lua_ls.setup({
       capabilities = capabilities,
       cmd = { cmd },
       on_attach = on_attach,
