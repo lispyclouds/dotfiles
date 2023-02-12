@@ -97,6 +97,7 @@ return {
               continuation_indent = "2",
               indent_style = "space",
               indent_size = "2",
+              quote_style = "double",
               trailing_table_separator = "smart",
             },
           },

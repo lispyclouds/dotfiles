@@ -11,14 +11,15 @@ return {
       tundra.setup({
         plugins = {
           cmp = true,
-          context = false,
-          dbui = false,
           gitsigns = true,
           lsp = true,
-          neogit = false,
-          nvimtree = false,
           telescope = true,
           treesitter = true,
+
+          context = false,
+          dbui = false,
+          neogit = false,
+          nvimtree = false,
         },
       })
 
