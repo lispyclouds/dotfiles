@@ -14,7 +14,6 @@ return {
       expandtab = true,
       fileencoding = encoding,
       fileformats = "unix,dos,mac",
-      foldcolumn = "1",
       hidden = true,
       history = 1000,
       hlsearch = true,
