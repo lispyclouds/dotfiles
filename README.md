@@ -17,8 +17,8 @@ Welcome to my dotfiles, this is my setup on MacOS/Fedora 35+, Neovim 0.8+ and zs
 
 | | | |
 |:-:|:-:|:-:|
-| <img width="890" alt="Screenshot 2023-01-05 at 11 57 42" src="https://user-images.githubusercontent.com/5615588/210775617-5bfdeace-55f4-4836-8c02-4e314b7edd9a.png"> | <img width="890" alt="Screenshot 2023-01-05 at 11 57 27" src="https://user-images.githubusercontent.com/5615588/210775606-23715daa-63c8-4635-ac5d-86c1ff56bfb3.png"> | <img width="890" alt="Screenshot 2023-01-05 at 11 58 21" src="https://user-images.githubusercontent.com/5615588/210775637-38ba0f75-ad78-4e95-8191-9435f67d9cee.png"> |
-| <img width="890" alt="Screenshot 2023-01-05 at 11 58 35" src="https://user-images.githubusercontent.com/5615588/210775642-9f9b2476-0982-4f74-93ef-3bea74dc1303.png"> | <img width="890" alt="Screenshot 2023-01-05 at 11 58 46" src="https://user-images.githubusercontent.com/5615588/210775651-21681647-1874-45b0-9c21-73b2bd78bcf5.png"> | <img width="890" alt="Screenshot 2023-01-05 at 11 59 23" src="https://user-images.githubusercontent.com/5615588/210775658-56db6a65-59d4-4910-bc5e-947c1c290ad8.png"> |
+| <img width="890" alt="1" src="https://user-images.githubusercontent.com/5615588/219899526-8fdd4a82-e3d6-4a29-bd26-defebe0ba876.png"> | <img width="890" alt="2" src="https://user-images.githubusercontent.com/5615588/219899527-56376f4c-f48c-4918-9346-720d3828a868.png"> | <img width="890" alt="3" src="https://user-images.githubusercontent.com/5615588/219899529-a20f823e-72df-4fbe-b78c-0d92833bd6d8.png"> |
+| <img width="890" alt="4" src="https://user-images.githubusercontent.com/5615588/219899530-13fdcc2c-2e85-4967-9dd8-42baccfa8ccf.png"> | <img width="890" alt="5" src="https://user-images.githubusercontent.com/5615588/219899532-7104ae08-f72c-4be4-90b7-25f14e926995.png"> | <img width="890" alt="6" src="https://user-images.githubusercontent.com/5615588/219899533-7f8d3786-d2a0-4ef1-b4c9-09f747c0a3a9.png"> |
 
 ### Bootstrapping new Fedora 35+ or MacOS installations
 
