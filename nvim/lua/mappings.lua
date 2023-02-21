@@ -24,7 +24,7 @@ return {
         opts = { desc = "[F]ind [F]ile" },
       },
       ["<leader>f"] = {
-        action = function() require("telescope.builtin").live_grep() end,
+        action = function() require('telescope').extensions.live_grep_args.live_grep_args() end,
         opts = {
           desc = "[F]ind in files",
         },
