@@ -1,8 +1,10 @@
 local buf_read = "BufRead"
 local lisps = { "clojure", "fennel" }
+local plenary = "nvim-lua/plenary.nvim"
+local nvim_web_devicons = "nvim-tree/nvim-web-devicons"
 
 return {
-  "nvim-tree/nvim-web-devicons",
+  nvim_web_devicons,
   {
     "sam4llis/nvim-tundra",
     config = function()
@@ -38,8 +40,8 @@ return {
     lazy = true,
     cmd = { "Telescope" },
     dependencies = {
+      plenary,
       "nvim-lua/popup.nvim",
-      "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope-live-grep-args.nvim",
     },
     opts = {
@@ -68,8 +70,8 @@ return {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v2.x",
     dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
+      plenary,
+      nvim_web_devicons,
       "MunifTanjim/nui.nvim",
     },
     cmd = { "NeoTreeFocusToggle" },
@@ -90,6 +92,9 @@ return {
   {
     "romgrk/barbar.nvim",
     event = buf_read,
+    dependencies = {
+      nvim_web_devicons,
+    },
     cmd = {
       "BufferClose",
       "BufferPrevious",
@@ -126,7 +131,7 @@ return {
     "lewis6991/gitsigns.nvim",
     event = buf_read,
     dependencies = {
-      "nvim-lua/plenary.nvim",
+      plenary,
     },
     config = true,
   },
