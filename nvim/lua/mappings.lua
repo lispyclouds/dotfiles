@@ -24,10 +24,8 @@ return {
         opts = { desc = "[F]ind [F]ile" },
       },
       ["<leader>f"] = {
-        action = function() require('telescope').extensions.live_grep_args.live_grep_args() end,
-        opts = {
-          desc = "[F]ind in files",
-        },
+        action = function() require("telescope").extensions.live_grep_args.live_grep_args() end,
+        opts = { desc = "[F]ind in files" },
       },
       ["<leader>p"] = '"_dP', -- blackhole
       ["<leader>pm"] = {

@@ -14,10 +14,16 @@ return {
 
     local on_attach = function(_, buffer)
       local buf = vim.lsp.buf
-      local group = vim.api.nvim_create_augroup("lispyclouds_diagnostics", { clear = true })
 
       require("impl").map({
         ["gd"] = buf.definition,
+        ["K"] = {
+          action = function() vim.diagnostic.open_float(nil, { focus = false }) end,
+          opts = {
+            desc = "Show LSP diagnostics",
+            buffer = buffer,
+          },
+        },
         ["<leader>fb"] = {
           action = buf.format,
           opts = {
@@ -48,16 +54,8 @@ return {
         },
       })
 
-      -- setup LSP diagnostics as a floating window on hover
       vim.diagnostic.config({
         virtual_text = false,
-      })
-
-      vim.api.nvim_create_autocmd("CursorHold", {
-        desc = "Show LSP diagnostics on hover in normal mode",
-        pattern = "*",
-        group = group,
-        callback = function() vim.diagnostic.open_float(nil, { focus = false }) end,
       })
     end
 
