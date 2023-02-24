@@ -47,7 +47,7 @@ export GOPATH=$HOME/.go
 export PATH=$PATH:$GOPATH/bin
 
 alias cat=bat
-alias cengine=podman # default
+alias cengine=$(command -v podman || command -v docker || { echo "Warning: Podman or Docker not found." >&2 })
 alias rc='cengine rm -f `cengine ps -aq`'
 alias ri='cengine image rm -f `cengine image ls -aq`'
 alias il='cengine image ls'
