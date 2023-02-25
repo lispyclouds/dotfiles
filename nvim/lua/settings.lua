@@ -58,6 +58,12 @@ return {
       vim.o.guifont = font
     end
 
+    -- Specific to nvim-gtk
+    if vim.g.GtkGuiLoaded == 1 then
+      vim.fn.rpcnotify(1, "Gui", "Font", "JetBrainsMono Nerd Font Mono Bold 10")
+      vim.fn.rpcnotify(1, "Gui", "Option", "Tabline", 0)
+    end
+
     vim.api.nvim_create_autocmd("TextYankPost", {
       desc = "highlight yanked region temporarily",
       pattern = "*",

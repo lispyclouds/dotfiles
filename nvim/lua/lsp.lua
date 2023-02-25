@@ -53,10 +53,6 @@ return {
           },
         },
       })
-
-      vim.diagnostic.config({
-        virtual_text = false,
-      })
     end
 
     -- setup null-ls
