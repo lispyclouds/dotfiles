@@ -1,16 +1,14 @@
-local buf_read = "BufRead"
-
 return {
   {
     "j-hui/fidget.nvim",
-    event = buf_read,
+    event = "BufRead",
     config = true,
   },
   {
     "neovim/nvim-lspconfig",
-    event = buf_read,
+    event = "InsertEnter",
     dependencies = {
-      "hrsh7th/nvim-cmp",
+      "jose-elias-alvarez/null-ls.nvim",
     },
     config = function()
       local lspconfig = require("lspconfig")

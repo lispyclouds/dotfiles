@@ -8,7 +8,6 @@ return {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-nvim-lua",
       "hrsh7th/cmp-path",
-      "jose-elias-alvarez/null-ls.nvim",
     },
     config = function()
       local cmp = require("cmp")

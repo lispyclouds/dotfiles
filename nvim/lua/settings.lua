@@ -50,18 +50,35 @@ return {
       vim.o[opt] = val
     end
 
-    if vim.fn.has("gui_running") == 1 or vim.g.neovide then
-      local font_name = "JetBrainsMono Nerd Font Mono"
-      local font = font_name .. ":h10:b"
+    local font_name = "JetBrainsMono Nerd Font Mono"
 
-      if vim.loop.os_uname().sysname == "Darwin" then font = font_name .. ":h14" end
-      vim.o.guifont = font
-    end
-
-    -- Specific to nvim-gtk
     if vim.g.GtkGuiLoaded == 1 then
-      vim.fn.rpcnotify(1, "Gui", "Font", "JetBrainsMono Nerd Font Mono Bold 10")
-      vim.fn.rpcnotify(1, "Gui", "Option", "Tabline", 0)
+      local font_size = 10
+      local rpcnotify = vim.fn.rpcnotify
+
+      font_name = font_name .. " Bold"
+
+      rpcnotify(1, "Gui", "Font", string.format("%s %d", font_name, font_size))
+      rpcnotify(1, "Gui", "Option", "Tabline", 0)
+
+      require("impl").map({
+        ["z"] = {
+          action = function()
+            font_size = font_size + 1
+            rpcnotify(1, "Gui", "Font", string.format("%s %d", font_name, font_size))
+          end,
+          opts = { desc = "[Z]oom in" },
+        },
+        ["Z"] = {
+          action = function()
+            font_size = font_size - 1
+            rpcnotify(1, "Gui", "Font", string.format("%s %d", font_name, font_size))
+          end,
+          opts = { desc = "[Z]oom out" },
+        },
+      })
+    elseif vim.fn.has("gui_running") == 1 then
+      vim.o.guifont = font_name .. ":h14:b"
     end
 
     vim.api.nvim_create_autocmd("TextYankPost", {
