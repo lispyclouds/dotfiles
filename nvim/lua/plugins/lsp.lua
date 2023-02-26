@@ -7,12 +7,8 @@ return {
   {
     "neovim/nvim-lspconfig",
     event = "InsertEnter",
-    dependencies = {
-      "jose-elias-alvarez/null-ls.nvim",
-    },
     config = function()
       local lspconfig = require("lspconfig")
-      local nls = require("null-ls")
       local lsps = {
         "bashls", -- https://github.com/bash-lsp/bash-language-server#installation
         "clojure_lsp", -- https://clojure-lsp.io/installation/
@@ -65,13 +61,6 @@ return {
           },
         })
       end
-
-      -- setup null-ls
-      nls.setup({
-        sources = {
-          nls.builtins.diagnostics.hadolint,
-        },
-      })
 
       -- add the basic capabilities to cmp
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
