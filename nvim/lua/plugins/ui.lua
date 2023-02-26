@@ -5,6 +5,29 @@ local buf_read = "BufRead"
 return {
   nvim_web_devicons,
   {
+    "sam4llis/nvim-tundra",
+    config = function()
+      local tundra = require("nvim-tundra")
+
+      tundra.setup({
+        plugins = {
+          cmp = true,
+          gitsigns = true,
+          lsp = true,
+          telescope = true,
+          treesitter = true,
+
+          context = false,
+          dbui = false,
+          neogit = false,
+          nvimtree = false,
+        },
+      })
+
+      tundra.load()
+    end,
+  },
+  {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v2.x",
     dependencies = {
