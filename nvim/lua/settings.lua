@@ -53,31 +53,39 @@ return {
     local font_name = "JetBrainsMono Nerd Font Mono"
 
     if vim.g.GtkGuiLoaded == 1 then
-      local font_size = 10
-      local rpcnotify = vim.fn.rpcnotify
+      local default_size = 10
+      local font_size = default_size
+      local resize = function(size)
+        vim.fn.rpcnotify(1, "Gui", "Font", string.format("%s Bold %d", font_name, size))
+      end
 
-      font_name = font_name .. " Bold"
-
-      rpcnotify(1, "Gui", "Font", string.format("%s %d", font_name, font_size))
-      rpcnotify(1, "Gui", "Option", "Tabline", 0)
+      resize(default_size)
+      vim.fn.rpcnotify(1, "Gui", "Option", "Tabline", 0)
 
       require("impl").map({
         ["z"] = {
           action = function()
             font_size = font_size + 1
-            rpcnotify(1, "Gui", "Font", string.format("%s %d", font_name, font_size))
+            resize(font_size)
           end,
-          opts = { desc = "[Z]oom in" },
+          opts = { desc = "[z]oom in" },
         },
         ["Z"] = {
           action = function()
             font_size = font_size - 1
-            rpcnotify(1, "Gui", "Font", string.format("%s %d", font_name, font_size))
+            resize(font_size)
           end,
           opts = { desc = "[Z]oom out" },
         },
+        ["<C-z>"] = {
+          action = function()
+            font_size = default_size
+            resize(font_size)
+          end,
+          opts = { desc = "Reset zoom" },
+        },
       })
-    elseif vim.fn.has("gui_running") == 1 then
+    elseif vim.fn.has("gui_vimr") == 1 then
       vim.o.guifont = font_name .. ":h14:b"
     end
 
