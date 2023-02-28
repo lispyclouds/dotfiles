@@ -1,12 +1,14 @@
+local buf_read = "BufRead"
+
 return {
   {
     "j-hui/fidget.nvim",
-    event = "BufRead",
+    event = buf_read,
     config = true,
   },
   {
     "neovim/nvim-lspconfig",
-    event = "InsertEnter",
+    event = buf_read,
     config = function()
       local lspconfig = require("lspconfig")
       local lsps = {

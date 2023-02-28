@@ -32,7 +32,7 @@ return {
     branch = "v2.x",
     dependencies = {
       nvim_web_devicons,
-      "nvim-lua/plenary.nvim",
+      plenary,
       "MunifTanjim/nui.nvim",
     },
     cmd = { "NeoTreeFocusToggle" },
