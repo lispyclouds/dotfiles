@@ -112,6 +112,7 @@ else
   zstyle ':z4h:bindkey' keyboard 'pc'
   source /usr/share/fzf/shell/key-bindings.zsh
   alias u="sudo dnf update -y --refresh && \
+           sudo dnf clean packages && \
            flatpak update -y && \
            rustup self update || true && \
            rustup update || true && \
