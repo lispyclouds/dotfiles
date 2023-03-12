@@ -5,26 +5,45 @@ local buf_read = "BufRead"
 return {
   nvim_web_devicons,
   {
-    "sam4llis/nvim-tundra",
+    "folke/tokyonight.nvim",
     config = function()
-      local tundra = require("nvim-tundra")
+      local tok = require("tokyonight")
 
-      tundra.setup({
-        plugins = {
-          cmp = true,
-          gitsigns = true,
-          lsp = true,
-          telescope = true,
-          treesitter = true,
+      tok.setup({
+        on_highlights = function(hl, c)
+          local prompt = "#2d3149"
 
-          context = false,
-          dbui = false,
-          neogit = false,
-          nvimtree = false,
-        },
+          hl.TelescopeNormal = {
+            bg = c.bg_dark,
+            fg = c.fg_dark,
+          }
+          hl.TelescopeBorder = {
+            bg = c.bg_dark,
+            fg = c.bg_dark,
+          }
+          hl.TelescopePromptNormal = {
+            bg = prompt,
+          }
+          hl.TelescopePromptBorder = {
+            bg = prompt,
+            fg = prompt,
+          }
+          hl.TelescopePromptTitle = {
+            bg = prompt,
+            fg = prompt,
+          }
+          hl.TelescopePreviewTitle = {
+            bg = c.bg_dark,
+            fg = c.bg_dark,
+          }
+          hl.TelescopeResultsTitle = {
+            bg = c.bg_dark,
+            fg = c.bg_dark,
+          }
+        end,
       })
 
-      tundra.load()
+      tok._load("night")
     end,
   },
   {
