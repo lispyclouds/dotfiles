@@ -74,21 +74,21 @@ return {
       end
 
       require("impl").map({
-        ["z"] = {
+        ["<C-z>"] = {
           action = function()
             font_size = font_size + 1
             resize(font_size)
           end,
-          opts = { desc = "[z]oom in" },
+          opts = { desc = "[Z]oom in" },
         },
-        ["Z"] = {
+        ["<C-S-z>"] = {
           action = function()
             font_size = font_size - 1
             resize(font_size)
           end,
           opts = { desc = "[Z]oom out" },
         },
-        ["<C-z>"] = {
+        ["Z"] = {
           action = function()
             font_size = default_font_size
             resize(font_size)
