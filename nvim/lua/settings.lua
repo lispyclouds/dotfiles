@@ -47,6 +47,7 @@ return {
       shortmess = "I",
       showmatch = true,
       showmode = false,
+      signcolumn = "yes:1",
       smartindent = true,
       smarttab = true,
       swapfile = false,
