@@ -1,13 +1,6 @@
 local font_name = "JetBrainsMono Nerd Font Mono"
 local default_font_size = 14
 local function is_gtk() return vim.g.GtkGuiLoaded == 1 end
-local function resize(size)
-  if is_gtk() then
-    vim.fn.rpcnotify(1, "Gui", "Font", string.format("%s Bold %d", font_name, size))
-  else
-    vim.cmd(string.format('VimRSetFontAndSize "%s", %d', font_name, size))
-  end
-end
 
 if is_gtk() then
   default_font_size = 10
@@ -70,33 +63,37 @@ return {
       local font_size = default_font_size
 
       if is_gtk() then
+        local function resize(size)
+          vim.fn.rpcnotify(1, "Gui", "Font", string.format("%s Bold %d", font_name, size))
+        end
+
         vim.fn.rpcnotify(1, "Gui", "Option", "Tabline", 0)
         resize(font_size)
-      end
 
-      require("impl").map({
-        ["<C-z>"] = {
-          action = function()
-            font_size = font_size + 1
-            resize(font_size)
-          end,
-          opts = { desc = "[Z]oom in" },
-        },
-        ["<C-S-z>"] = {
-          action = function()
-            font_size = font_size - 1
-            resize(font_size)
-          end,
-          opts = { desc = "[Z]oom out" },
-        },
-        ["Z"] = {
-          action = function()
-            font_size = default_font_size
-            resize(font_size)
-          end,
-          opts = { desc = "Reset zoom" },
-        },
-      })
+        require("impl").map({
+          ["<C-z>"] = {
+            action = function()
+              font_size = font_size + 1
+              resize(font_size)
+            end,
+            opts = { desc = "[Z]oom in" },
+          },
+          ["<C-S-z>"] = {
+            action = function()
+              font_size = font_size - 1
+              resize(font_size)
+            end,
+            opts = { desc = "[Z]oom out" },
+          },
+          ["Z"] = {
+            action = function()
+              font_size = default_font_size
+              resize(font_size)
+            end,
+            opts = { desc = "Reset zoom" },
+          },
+        })
+      end
     end
 
     vim.api.nvim_create_autocmd("TextYankPost", {
