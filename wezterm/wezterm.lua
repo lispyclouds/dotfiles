@@ -1,9 +1,6 @@
 local wezterm = require("wezterm")
-
 local act = wezterm.action
-
 local function is_linux() return wezterm.target_triple == "x86_64-unknown-linux-gnu" end
-
 local function font_conf()
   local font = "JetBrainsMono Nerd Font Mono"
   local size = 14.0
@@ -12,7 +9,6 @@ local function font_conf()
 
   return font, size
 end
-
 local keymap = {
   {
     key = "Backspace",
@@ -45,49 +41,13 @@ local keymap = {
     action = "ScrollToTop",
   },
 }
-
 local font, font_size = font_conf()
-
 local window_decoration = "TITLE | RESIZE"
+
 if is_linux() then window_decoration = "RESIZE" end
 
 return {
-  colors = {
-    foreground = "#c0caf5",
-    background = "#1a1b26",
-    cursor_bg = "#c0caf5",
-    cursor_border = "#c0caf5",
-    cursor_fg = "#1a1b26",
-    selection_bg = "#33467c",
-    selection_fg = "#c0caf5",
-    scrollbar_thumb = "#6B7280",
-    ansi = { "#15161e", "#f7768e", "#9ece6a", "#e0af68", "#7aa2f7", "#bb9af7", "#7dcfff", "#a9b1d6" },
-    brights = { "#414868", "#f7768e", "#9ece6a", "#e0af68", "#7aa2f7", "#bb9af7", "#7dcfff", "#c0caf5" },
-    tab_bar = {
-      inactive_tab_edge = "#16161e",
-      background = "#191b28",
-      active_tab = {
-        fg_color = "#7aa2f7",
-        bg_color = "#1a1b26",
-      },
-      inactive_tab = {
-        bg_color = "#16161e",
-        fg_color = "#545c7e",
-      },
-      inactive_tab_hover = {
-        bg_color = "#16161e",
-        fg_color = "#7aa2f7",
-      },
-      new_tab_hover = {
-        bg_color = "#16161e",
-        fg_color = "#7aa2f7",
-      },
-      new_tab = {
-        bg_color = "#16161e",
-        fg_color = "#7aa2f7",
-      },
-    },
-  },
+  color_scheme = "tokyonight_night",
   enable_wayland = true,
   font_size = font_size,
   font = wezterm.font(font, { weight = "Bold" }),
