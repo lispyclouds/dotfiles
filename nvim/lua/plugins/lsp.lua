@@ -12,13 +12,54 @@ return {
     config = function()
       local lspconfig = require("lspconfig")
       local lsps = {
-        "bashls", -- https://github.com/bash-lsp/bash-language-server#installation
+        "bashls",      -- https://github.com/bash-lsp/bash-language-server#installation
         "clojure_lsp", -- https://clojure-lsp.io/installation/
-        "gopls", -- https://pkg.go.dev/golang.org/x/tools/gopls#readme-installation
-        "pyright", -- https://github.com/microsoft/pyright#installation
-        "ocamllsp", -- opam install ocaml-lsp-server
+        "gopls",       -- https://pkg.go.dev/golang.org/x/tools/gopls#readme-installation
+        "lua_ls",      -- https://github.com/LuaLS/lua-language-server
+        "pyright",     -- https://github.com/microsoft/pyright#installation
+        "ocamllsp",    -- opam install ocaml-lsp-server
         "terraformls", -- https://github.com/hashicorp/terraform-ls/blob/main/docs/installation.md
-        "yamlls", -- npm install -g yaml-language-server
+        "yamlls",      -- npm install -g yaml-language-server
+      }
+
+      local runtime_path = vim.split(package.path, ";")
+
+      table.insert(runtime_path, "lua/?.lua")
+      table.insert(runtime_path, "lua/?/init.lua")
+
+      local settings = {
+        yamlls = {
+          yaml = {
+            keyOrdering = false,
+          },
+        },
+        lua_ls = {
+          Lua = {
+            format = {
+              enable = true,
+              defaultConfig = {
+                continuation_indent = "2",
+                indent_style = "space",
+                indent_size = "2",
+                quote_style = "double",
+                trailing_table_separator = "smart",
+              },
+            },
+            runtime = {
+              path = runtime_path,
+              version = "LuaJIT",
+            },
+            diagnostics = {
+              globals = { "vim" },
+            },
+            workspace = {
+              library = vim.api.nvim_get_runtime_file("", true),
+            },
+            telemetry = {
+              enable = false,
+            },
+          },
+        },
       }
 
       local on_attach = function(_, buffer)
@@ -71,48 +112,9 @@ return {
         lspconfig[lsp].setup({
           capabilities = capabilities,
           on_attach = on_attach,
+          settings = settings[lsp],
         })
       end
-
-      -- setup lua-language-server
-      local runtime_path = vim.split(package.path, ";")
-      local cmd = "lua-language-server"
-
-      table.insert(runtime_path, "lua/?.lua")
-      table.insert(runtime_path, "lua/?/init.lua")
-
-      lspconfig.lua_ls.setup({
-        capabilities = capabilities,
-        cmd = { cmd },
-        on_attach = on_attach,
-        settings = {
-          Lua = {
-            format = {
-              enable = true,
-              defaultConfig = {
-                continuation_indent = "2",
-                indent_style = "space",
-                indent_size = "2",
-                quote_style = "double",
-                trailing_table_separator = "smart",
-              },
-            },
-            runtime = {
-              path = runtime_path,
-              version = "LuaJIT",
-            },
-            diagnostics = {
-              globals = { "vim" },
-            },
-            workspace = {
-              library = vim.api.nvim_get_runtime_file("", true),
-            },
-            telemetry = {
-              enable = false,
-            },
-          },
-        },
-      })
     end,
   },
 }
