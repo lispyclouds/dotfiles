@@ -58,11 +58,9 @@ alias repl='clojure -J--enable-preview -Sdeps "{:deps {nrepl/nrepl {:mvn/version
 alias antq="clojure -Sdeps '{:deps {com.github.liquidz/antq {:mvn/version \"RELEASE\"}}}' -M -m antq.core"
 alias task="bb --config ~/code/repos/dotfiles/bb.edn"
 alias commit="task commit"
-alias ou="opam update && opam upgrade -y"
 alias nsync='nvim --headless "+Lazy! sync" +TSUpdateSync +qa'
 
 eval "$(zoxide init zsh)"
-eval "$(opam env)"
 source ~/.cargo/env
 
 function di() {
@@ -117,7 +115,6 @@ else
            rustup self update || true && \
            rustup update || true && \
            nsync && \
-           ou && \
            _raw_update || true && \
            sudo npm update -g  && \
            task linux download nerd-fonts FantasqueSansMono JetBrainsMono && \

@@ -10,6 +10,8 @@
       - bottom
       - "@development-tools"
       - difftastic
+      - dnf5
+      - dnf5-plugins
       - fd-find
       - fontconfig-devel
       - freetype-devel
