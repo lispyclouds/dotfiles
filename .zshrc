@@ -117,7 +117,7 @@ else
            nsync && \
            _raw_update || true && \
            sudo npm update -g  && \
-           task linux download nerd-fonts FantasqueSansMono JetBrainsMono && \
+           task linux download nerd-fonts VictorMono JetBrainsMono && \
            task linux download themes Catppuccin-Mocha-Standard-Blue-Dark && \
            z4h update"
 fi
