@@ -5,7 +5,9 @@
    [babashka.http-client :as http]
    [cheshire.core :as json]
    [clojure.java.io :as io]
-   [clojure.string :as str]))
+   [clojure.string :as str])
+  (:import
+   [java.util.concurrent Executors]))
 
 (def downloads
   {:nerd-fonts {:repo "ryanoasis/nerd-fonts"
@@ -23,20 +25,28 @@
       :assets))
 
 (defn download
+  [repo location item]
+  (let [download-link (->> (get-assets repo)
+                           (filter #(= (str item ".zip") (:name %)))
+                           first
+                           :browser_download_url)
+        zip-file (str (fs/create-temp-file))
+        _ (fs/delete-on-exit zip-file)
+        download-stream (:body (http/get download-link {:as :stream}))]
+    (println "Downloading" item "from" download-link)
+    (io/copy download-stream (io/file zip-file))
+    (fs/create-dirs location)
+    (println "Extracting" item)
+    (fs/unzip zip-file location {:replace-existing true})
+    (println item "installed")))
+
+(defn download-all
   [repo location items]
-  (doseq [item items]
-    (println (str "Downloading " item))
-    (let [download-link (->> (get-assets repo)
-                             (filter #(= (str item ".zip") (:name %)))
-                             first
-                             :browser_download_url)
-          zip-file (str (fs/create-temp-file))
-          _ (fs/delete-on-exit zip-file)
-          download-stream (:body (http/get download-link {:as :stream}))]
-      (io/copy download-stream (io/file zip-file))
-      (fs/create-dirs location)
-      (println (str "Extracting " item))
-      (fs/unzip zip-file location {:replace-existing true}))))
+  (let [executor (Executors/newVirtualThreadPerTaskExecutor)]
+    (->> items
+         (map #(fn [] (download repo location %)))
+         (.invokeAll executor)
+         (run! deref))))
 
 (defn ls
   [repo]
@@ -47,12 +57,15 @@
 
 (defn get-download-meta
   [args]
-  (get downloads (keyword (first args))))
+  (-> args
+      first
+      keyword
+      downloads))
 
 (defn dispatch-download
   [{:keys [args]}]
   (let [{:keys [repo location]} (get-download-meta args)]
-    (download repo location (rest args))))
+    (download-all repo location (rest args))))
 
 (defn dispatch-ls
   [{:keys [args]}]
