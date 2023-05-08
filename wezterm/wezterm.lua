@@ -2,10 +2,10 @@ local wezterm = require("wezterm")
 local act = wezterm.action
 local function is_linux() return wezterm.target_triple == "x86_64-unknown-linux-gnu" end
 local function font_conf()
-  local font = "VictorMono Nerd Font Mono"
+  local font = "Iosevka Nerd Font Mono"
   local size = 14.0
 
-  if is_linux() then size = size - 4.0 end
+  if is_linux() then size = size - 3.0 end
 
   return font, size
 end

@@ -1,9 +1,9 @@
-local font_name = "VictorMono Nerd Font Mono"
+local font_name = "Iosevka Nerd Font Mono"
 local default_font_size = 14
 local function is_gtk() return vim.g.GtkGuiLoaded == 1 end
 
 if is_gtk() then
-  default_font_size = 10
+  default_font_size = default_font_size - 3
 end
 
 return {
