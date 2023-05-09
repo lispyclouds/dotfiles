@@ -17,8 +17,8 @@ Welcome to my dotfiles, this is my setup on MacOS/Fedora 38+, Neovim 0.8+ and zs
 
 | | | |
 |:-:|:-:|:-:|
-| <img width="890" alt="1" src="https://user-images.githubusercontent.com/5615588/219899526-8fdd4a82-e3d6-4a29-bd26-defebe0ba876.png"> | <img width="890" alt="2" src="https://user-images.githubusercontent.com/5615588/219899527-56376f4c-f48c-4918-9346-720d3828a868.png"> | <img width="890" alt="3" src="https://user-images.githubusercontent.com/5615588/219899529-a20f823e-72df-4fbe-b78c-0d92833bd6d8.png"> |
-| <img width="890" alt="4" src="https://user-images.githubusercontent.com/5615588/219899530-13fdcc2c-2e85-4967-9dd8-42baccfa8ccf.png"> | <img width="890" alt="5" src="https://user-images.githubusercontent.com/5615588/219899532-7104ae08-f72c-4be4-90b7-25f14e926995.png"> | <img width="890" alt="6" src="https://user-images.githubusercontent.com/5615588/219899533-7f8d3786-d2a0-4ef1-b4c9-09f747c0a3a9.png"> |
+| <img width="890" alt="1" src="https://user-images.githubusercontent.com/5615588/237025188-0fa28f40-8773-4865-a2f6-d6e052593ade.png"> | <img width="890" alt="2" src="https://user-images.githubusercontent.com/5615588/237025193-07c15e73-f494-43ec-b450-4720d326fbc6.png"> | <img width="890" alt="3" src="https://user-images.githubusercontent.com/5615588/237025196-f7433b78-f3b7-42ed-8c2a-62222f722649.png"> |
+| <img width="890" alt="4" src="https://user-images.githubusercontent.com/5615588/237025199-33399ca7-a11b-473a-8a4d-446106a773d3.png"> | <img width="890" alt="5" src="https://user-images.githubusercontent.com/5615588/237025208-949e0304-28c3-42a2-b3bd-ccbd471f3458.png"> | <img width="890" alt="6" src="https://user-images.githubusercontent.com/5615588/237025212-91738df0-e298-45b7-8b56-552d74cff452.png"> |
 
 ### Bootstrapping new Fedora or MacOS installations
 
