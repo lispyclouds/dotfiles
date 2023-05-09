@@ -10,7 +10,7 @@ Welcome to my dotfiles, this is my setup on MacOS/Fedora 38+, Neovim 0.8+ and zs
 - Ensure a recent version of git is installed
 - Copy the `nvim` dir in `~/.config/` or wherever `XDG_CONFIG_HOME` environment var is pointing to.
 - Start neovim with `nvim` and follow the bootstrapping messages.
-- Make sure all the installs mentioned in [lsp.lua](/nvim/lua/lsp.lua) are performed too. Amend the list to your liking.
+- Make sure all the installs mentioned in [lsp.lua](/nvim/lua/plugins/lsp.lua) are performed too. Amend the list to your liking.
 - Profit from the **_Blazingly Fast_** startup time optimisations!
 
 ### Eye Candy
