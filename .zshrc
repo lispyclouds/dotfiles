@@ -78,7 +78,6 @@ compdef _bb_tasks bb
 function _raw_update() {
   scripts=(
     "https://raw.githubusercontent.com/clojure-lsp/clojure-lsp/master/install"
-    "https://raw.githubusercontent.com/babashka/babashka/master/install"
     "https://download.clojure.org/install/linux-install.sh"
     "https://raw.githubusercontent.com/ducaale/xh/master/install.sh"
   )
@@ -86,6 +85,12 @@ function _raw_update() {
   for script in ${scripts[*]}; do
     sudo XH_BINDIR="/usr/local/bin" bash < <(curl -s ${script})
   done
+}
+
+function bb_install() {
+  curl -sLO https://raw.githubusercontent.com/babashka/babashka/master/install
+  sudo bash install --dev-build
+  rm -f install
 }
 
 if [[ $(uname) == "Darwin" ]]; then
@@ -116,6 +121,7 @@ else
            rustup update || true && \
            nsync && \
            _raw_update || true && \
+           bb_install && \
            sudo npm update -g  && \
            task linux download nerd-fonts Iosevka && \
            task linux download themes Catppuccin-Mocha-Standard-Blue-Dark && \
