@@ -61,7 +61,6 @@ alias commit="task commit"
 alias nsync='nvim --headless "+Lazy! sync" +TSUpdateSync +qa'
 
 eval "$(zoxide init zsh)"
-source ~/.cargo/env
 
 function di() {
   c image rm $(c images -q | head -${1-"1"})
@@ -99,8 +98,6 @@ if [[ $(uname) == "Darwin" ]]; then
            brew upgrade && \
            brew upgrade --cask --greedy && \
            brew cleanup --prune=1 && \
-           rustup self update || true && \
-           rustup update || true && \
            nsync && \
            ou && \
            npm update -g && \
@@ -117,8 +114,6 @@ else
   alias u="sudo dnf5 update -y && \
            sudo dnf5 clean packages && \
            flatpak update -y && \
-           rustup self update || true && \
-           rustup update || true && \
            nsync && \
            _raw_update || true && \
            bb_install && \
