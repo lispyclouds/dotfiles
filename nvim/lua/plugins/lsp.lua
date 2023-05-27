@@ -12,12 +12,12 @@ return {
     config = function()
       local lspconfig = require("lspconfig")
       local lsps = {
-        "bashls",      -- https://github.com/bash-lsp/bash-language-server#installation
+        "bashls", -- https://github.com/bash-lsp/bash-language-server#installation
         "clojure_lsp", -- https://clojure-lsp.io/installation/
-        "gopls",       -- https://pkg.go.dev/golang.org/x/tools/gopls#readme-installation
-        "pyright",     -- https://github.com/microsoft/pyright#installation
+        "gopls", -- https://pkg.go.dev/golang.org/x/tools/gopls#readme-installation
+        "pyright", -- https://github.com/microsoft/pyright#installation
         "terraformls", -- https://github.com/hashicorp/terraform-ls/blob/main/docs/installation.md
-        "yamlls",      -- npm install -g yaml-language-server
+        "yamlls", -- npm install -g yaml-language-server
       }
 
       local settings = {
@@ -34,7 +34,9 @@ return {
         require("impl").map({
           ["gd"] = buf.definition,
           ["K"] = {
-            action = function() vim.diagnostic.open_float(nil, { focus = false }) end,
+            action = function()
+              vim.diagnostic.open_float(nil, { focus = false })
+            end,
             opts = {
               desc = "Show LSP diagnostics",
               buffer = buffer,

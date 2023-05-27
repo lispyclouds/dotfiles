@@ -8,6 +8,8 @@ return {
   {
     "gpanders/nvim-parinfer",
     ft = lisps,
-    config = function() vim.g.parinfer_force_balance = true end,
+    config = function()
+      vim.g.parinfer_force_balance = true
+    end,
   },
 }

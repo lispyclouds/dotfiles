@@ -27,7 +27,9 @@ return {
           { name = "snippy" },
         },
         snippet = {
-          expand = function(args) require("snippy").expand_snippet(args.body) end,
+          expand = function(args)
+            require("snippy").expand_snippet(args.body)
+          end,
         },
       })
     end,

@@ -1,6 +1,8 @@
 local font_name = "Iosevka Nerd Font Mono"
 local default_font_size = 14
-local function is_gtk() return vim.g.GtkGuiLoaded == 1 end
+local function is_gtk()
+  return vim.g.GtkGuiLoaded == 1
+end
 
 if is_gtk() then
   default_font_size = default_font_size - 3
@@ -99,7 +101,9 @@ return {
     vim.api.nvim_create_autocmd("TextYankPost", {
       desc = "highlight yanked region temporarily",
       pattern = "*",
-      callback = function() vim.highlight.on_yank({ higroup = "IncSearch", timeout = 100 }) end,
+      callback = function()
+        vim.highlight.on_yank({ higroup = "IncSearch", timeout = 100 })
+      end,
     })
 
     vim.api.nvim_create_autocmd("BufWritePre", {

@@ -48,7 +48,9 @@ if not vim.loop.fs_stat(lazypath) then
   print("nvim is bootstrapping.")
 
   local fn = vim.fn
-  if not fn.isdirectory(undo_dir) then fn.mkdir(undo_dir, "", 0700) end
+  if not fn.isdirectory(undo_dir) then
+    fn.mkdir(undo_dir, "", 0700)
+  end
 
   fn.system({
     "git",
