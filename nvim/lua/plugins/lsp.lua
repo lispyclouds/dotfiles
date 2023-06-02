@@ -18,6 +18,7 @@ return {
         "pyright", -- https://github.com/microsoft/pyright#installation
         "terraformls", -- https://github.com/hashicorp/terraform-ls/blob/main/docs/installation.md
         "yamlls", -- npm install -g yaml-language-server
+        "zls", -- https://github.com/zigtools/zls
       }
 
       local settings = {
@@ -30,6 +31,15 @@ return {
 
       local on_attach = function(_, buffer)
         local buf = vim.lsp.buf
+
+        vim.api.nvim_create_autocmd("BufNewFile", {
+          group = vim.api.nvim_create_augroup("conjure_log_disable_lsp", { clear = true }),
+          pattern = { "conjure-log-*" },
+          callback = function()
+            vim.diagnostic.disable(0)
+          end,
+          desc = "Conjure Log disable LSP diagnostics",
+        })
 
         require("impl").map({
           ["gd"] = buf.definition,

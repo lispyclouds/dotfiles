@@ -19,6 +19,7 @@ return {
           "python",
           "terraform",
           "yaml",
+          "zig",
         },
         highlight = {
           additional_vim_regex_highlighting = false,
