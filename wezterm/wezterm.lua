@@ -13,20 +13,21 @@ local function font_conf()
 
   return font, size
 end
+local mods = "CTRL|SHIFT"
 local keymap = {
   {
     key = "Backspace",
-    mods = "CTRL|SHIFT",
+    mods = mods,
     action = act.ClearScrollback("ScrollbackAndViewport"),
   },
   {
     key = "E",
-    mods = "CTRL|SHIFT",
+    mods = mods,
     action = act.CharSelect({ copy_on_select = false }),
   },
   {
     key = "S",
-    mods = "CTRL|SHIFT",
+    mods = mods,
     action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }),
   },
   {
@@ -36,13 +37,38 @@ local keymap = {
   },
   {
     key = "W",
-    mods = "CTRL|SHIFT",
+    mods = mods,
     action = act.CloseCurrentPane({ confirm = false }),
   },
   {
     key = "Home",
-    mods = "CTRL|SHIFT",
+    mods = mods,
     action = "ScrollToTop",
+  },
+  {
+    key = "H",
+    mods = mods,
+    action = act.ActivatePaneDirection("Left"),
+  },
+  {
+    key = "L",
+    mods = mods,
+    action = act.ActivatePaneDirection("Right"),
+  },
+  {
+    key = "K",
+    mods = mods,
+    action = act.ActivatePaneDirection("Up"),
+  },
+  {
+    key = "J",
+    mods = mods,
+    action = act.ActivatePaneDirection("Down"),
+  },
+  {
+    key = "D",
+    mods = mods,
+    action = act.ShowDebugOverlay,
   },
 }
 local font, font_size = font_conf()
