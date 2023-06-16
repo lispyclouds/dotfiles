@@ -9,6 +9,9 @@ return {
     config = function()
       require("fluoromachine").setup({
         theme = "delta",
+        colors = {
+          selection = "#463465",
+        },
       })
     end,
   },
