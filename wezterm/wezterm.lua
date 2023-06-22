@@ -79,7 +79,7 @@ if is_linux() then
 end
 
 return {
-  color_scheme = "synthwave-everything",
+  color_scheme = "catppuccin-mocha",
   enable_wayland = true,
   font_size = font_size,
   font = wezterm.font(font, { weight = "Bold" }),
