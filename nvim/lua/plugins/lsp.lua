@@ -2,11 +2,6 @@ local buf_read = "BufRead"
 
 return {
   {
-    "j-hui/fidget.nvim",
-    event = buf_read,
-    config = true,
-  },
-  {
     "neovim/nvim-lspconfig",
     event = buf_read,
     config = function()
