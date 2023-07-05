@@ -1,13 +1,3 @@
-local font_name = "Iosevka Nerd Font Mono"
-local default_font_size = 14
-local function is_gtk()
-  return vim.g.GtkGuiLoaded == 1
-end
-
-if is_gtk() then
-  default_font_size = default_font_size - 3
-end
-
 return {
   setup = function(undo_dir)
     local encoding = "utf-8"
@@ -59,43 +49,6 @@ return {
 
     for opt, val in pairs(opts) do
       vim.o[opt] = val
-    end
-
-    if is_gtk() or vim.fn.has("gui_vimr") == 1 then
-      local font_size = default_font_size
-
-      if is_gtk() then
-        local function resize(size)
-          vim.fn.rpcnotify(1, "Gui", "Font", string.format("%s Bold %d", font_name, size))
-        end
-
-        vim.fn.rpcnotify(1, "Gui", "Option", "Tabline", 0)
-        resize(font_size)
-
-        require("impl").map({
-          ["<C-z>"] = {
-            action = function()
-              font_size = font_size + 1
-              resize(font_size)
-            end,
-            opts = { desc = "[Z]oom in" },
-          },
-          ["<C-S-z>"] = {
-            action = function()
-              font_size = font_size - 1
-              resize(font_size)
-            end,
-            opts = { desc = "[Z]oom out" },
-          },
-          ["Z"] = {
-            action = function()
-              font_size = default_font_size
-              resize(font_size)
-            end,
-            opts = { desc = "Reset zoom" },
-          },
-        })
-      end
     end
 
     vim.api.nvim_create_autocmd("TextYankPost", {

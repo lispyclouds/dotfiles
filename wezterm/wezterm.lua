@@ -72,11 +72,6 @@ local keymap = {
   },
 }
 local font, font_size = font_conf()
-local window_decoration = "TITLE | RESIZE"
-
-if is_linux() then
-  window_decoration = "RESIZE"
-end
 
 return {
   color_scheme = "catppuccin-mocha",
@@ -88,5 +83,5 @@ return {
   hide_tab_bar_if_only_one_tab = true,
   keys = keymap,
   tab_bar_at_bottom = true,
-  window_decorations = window_decoration,
+  window_decorations = "TITLE | RESIZE",
 }
