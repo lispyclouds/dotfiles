@@ -17,9 +17,9 @@ return {
           "lua",
           "markdown",
           "python",
+          "rust",
           "terraform",
           "yaml",
-          "zig",
         },
         highlight = {
           additional_vim_regex_highlighting = false,
