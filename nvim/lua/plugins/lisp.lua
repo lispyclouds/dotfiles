@@ -17,7 +17,7 @@ return {
   },
   {
     "gpanders/nvim-parinfer",
-    ft = lisps,
+    ft = { "dune", unpack(lisps) },
     config = function()
       vim.g.parinfer_force_balance = true
     end,

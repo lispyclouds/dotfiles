@@ -10,6 +10,7 @@ return {
         "bashls", -- https://github.com/bash-lsp/bash-language-server#installation
         "clojure_lsp", -- https://clojure-lsp.io/installation/
         "gopls", -- https://pkg.go.dev/golang.org/x/tools/gopls#readme-installation
+        "ocamllsp", -- opam install merlin ocaml-lsp-server ocamlformat
         "pyright", -- https://github.com/microsoft/pyright#installation
         "rust_analyzer", -- rustup component add rust-analyzer
         "terraformls", -- https://github.com/hashicorp/terraform-ls/blob/main/docs/installation.md

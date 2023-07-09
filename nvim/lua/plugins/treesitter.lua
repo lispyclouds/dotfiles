@@ -16,6 +16,7 @@ return {
           "json",
           "lua",
           "markdown",
+          "ocaml",
           "python",
           "rust",
           "terraform",
