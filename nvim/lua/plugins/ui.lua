@@ -15,7 +15,6 @@ return {
         flavour = flavour,
         integrations = {
           barbar = true,
-          fidget = true,
         },
         highlight_overrides = {
           [flavour] = {
@@ -39,20 +38,22 @@ return {
   },
   {
     "nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
+    branch = "v3.x",
     dependencies = {
       nvim_web_devicons,
       plenary,
       "MunifTanjim/nui.nvim",
     },
-    cmd = { "NeoTreeFocusToggle" },
+    cmd = "Neotree",
     opts = {
       window = {
         width = 25,
       },
       filesystem = {
         use_libuv_file_watcher = true,
-        follow_current_file = true,
+        follow_current_file = {
+          enabled = true,
+        },
         filtered_items = {
           hide_dotfiles = false,
           hide_gitignored = false,

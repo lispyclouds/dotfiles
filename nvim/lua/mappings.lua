@@ -6,7 +6,7 @@ return {
     vim.g.maplocalleader = leader
 
     require("impl").map({
-      ["<leader>bf"] = ":NeoTreeFocusToggle<CR>",
+      ["<leader>bf"] = ":Neotree toggle<CR>",
       ["c"] = "\"_c", -- blackhole
       ["C"] = "\"_C", -- blackhole
       ["d"] = "\"_d", -- blackhole
