@@ -13,9 +13,6 @@ return {
 
       catppuccin.setup({
         flavour = flavour,
-        integrations = {
-          barbar = true,
-        },
         highlight_overrides = {
           [flavour] = {
             TelescopeBorder = { fg = cp.surface0, bg = cp.surface0 },
@@ -59,18 +56,6 @@ return {
           hide_gitignored = false,
         },
       },
-    },
-  },
-  {
-    "romgrk/barbar.nvim",
-    event = buf_read,
-    dependencies = {
-      nvim_web_devicons,
-    },
-    cmd = {
-      "BufferClose",
-      "BufferPrevious",
-      "BufferNext",
     },
   },
   {

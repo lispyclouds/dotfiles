@@ -12,9 +12,6 @@ return {
       ["d"] = "\"_d", -- blackhole
       ["D"] = "\"_D", -- blackhole
       ["dd"] = "\"_dd", -- blackhole
-      ["H"] = ":BufferPrevious<CR>",
-      ["L"] = ":BufferNext<CR>",
-      ["<leader>bc"] = ":BufferClose<CR>",
       ["<leader><CR>"] = ":noh<CR>",
       ["<leader>dd"] = "dd", -- usual
       ["<leader>d"] = "d", -- usual
@@ -37,6 +34,12 @@ return {
           vim.o.relativenumber = not vim.o.relativenumber
         end,
         opts = { desc = "[P]airing [M]ode" },
+      },
+      ["<leader>sb"] = {
+        action = function()
+          require("telescope.builtin").buffers()
+        end,
+        opts = { desc = "[S]how [B]uffers" },
       },
     })
   end,
