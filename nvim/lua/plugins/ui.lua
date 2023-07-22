@@ -1,6 +1,5 @@
 local nvim_web_devicons = "nvim-tree/nvim-web-devicons"
 local plenary = "nvim-lua/plenary.nvim"
-local buf_read = "BufRead"
 
 return {
   nvim_web_devicons,
@@ -60,7 +59,7 @@ return {
   },
   {
     "lewis6991/gitsigns.nvim",
-    event = buf_read,
+    event = "BufRead",
     dependencies = {
       plenary,
     },

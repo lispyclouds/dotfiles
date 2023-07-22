@@ -5,6 +5,7 @@
   vars:
     packages:
       - ansible
+      - awscli2
       - bat
       - black
       - bottom
@@ -32,6 +33,7 @@
       - nodejs
       - nodejs-bash-language-server
       - npm
+      - opam
       - papirus-icon-theme
       - podman-compose
       - rlwrap
@@ -48,7 +50,6 @@
       - org.ferdium.Ferdium
       - org.mozilla.Thunderbird
       - org.signal.Signal
-      - org.telegram.desktop
       - org.wezfurlong.wezterm
       - us.zoom.Zoom
   tasks:
