@@ -1,12 +1,12 @@
 {:paths ["tasks"]
- :deps  {io.github.lispyclouds/bblgum {:local/root "../bblgum"}}
+ :deps {io.github.lispyclouds/bblgum {:local/root "../bblgum"}}
  :tasks {:requires ([babashka.cli :as cli]
                     [general.commit :as commit]
                     [general.linux :as linux]
                     [general.zsh :as zsh])
-         commit    {:doc  "Interactively write a commit message with co-authors"
-                    :task (commit/-main (cli/parse-args *command-line-args*))}
-         linux     {:doc  "Download things for a Linux system"
-                    :task (linux/-main *command-line-args*)}
-         zsh       {:doc  "Prints out the unique lines from your zsh history"
-                    :task (zsh/-main)}}}
+         commit {:doc "Interactively write a commit message with co-authors"
+                 :task (commit/-main (cli/parse-args *command-line-args*))}
+         linux {:doc "Download things for a Linux system"
+                :task (linux/-main *command-line-args*)}
+         zsh {:doc "Prints out the unique lines from your zsh history"
+              :task (zsh/-main)}}}

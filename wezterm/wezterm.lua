@@ -1,18 +1,5 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
-local function is_linux()
-  return wezterm.target_triple == "x86_64-unknown-linux-gnu"
-end
-local function font_conf()
-  local font = "Iosevka Nerd Font Mono"
-  local size = 14.0
-
-  if is_linux() then
-    size = size - 3.0
-  end
-
-  return font, size
-end
 local mods = "CTRL|SHIFT"
 local keymap = {
   {
@@ -71,17 +58,15 @@ local keymap = {
     action = act.ShowDebugOverlay,
   },
 }
-local font, font_size = font_conf()
 
 return {
   color_scheme = "catppuccin-mocha",
   enable_wayland = true,
-  font_size = font_size,
-  font = wezterm.font(font, { weight = "Bold" }),
+  font_size = 11.0,
+  font = wezterm.font("Iosevka Nerd Font Mono", { weight = "Bold" }),
   force_reverse_video_cursor = true,
   freetype_load_target = "HorizontalLcd",
   hide_tab_bar_if_only_one_tab = true,
   keys = keymap,
   tab_bar_at_bottom = true,
-  window_decorations = "TITLE | RESIZE",
 }
