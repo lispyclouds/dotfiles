@@ -65,4 +65,9 @@ return {
     },
     config = true,
   },
+  {
+    "ThePrimeagen/harpoon",
+    lazy = true,
+    config = true,
+  },
 }

@@ -12,10 +12,11 @@ return {
       ["d"] = "\"_d", -- blackhole
       ["D"] = "\"_D", -- blackhole
       ["dd"] = "\"_dd", -- blackhole
-      ["<leader><CR>"] = ":noh<CR>",
+      ["<leader>p"] = "\"_dP", -- blackhole
       ["<leader>dd"] = "dd", -- usual
       ["<leader>d"] = "d", -- usual
       ["<leader>D"] = "D", -- usual
+      ["<leader><CR>"] = ":noh<CR>",
       ["<leader>ff"] = {
         action = function()
           require("telescope.builtin").find_files()
@@ -28,18 +29,35 @@ return {
         end,
         opts = { desc = "[F]ind in files" },
       },
-      ["<leader>p"] = "\"_dP", -- blackhole
       ["<leader>pm"] = {
         action = function()
           vim.o.relativenumber = not vim.o.relativenumber
         end,
         opts = { desc = "[P]airing [M]ode" },
       },
-      ["<leader>sb"] = {
+      ["<leader>af"] = {
         action = function()
-          require("telescope.builtin").buffers()
+          require("harpoon.mark").add_file()
         end,
-        opts = { desc = "[S]how [B]uffers" },
+        opts = { desc = "[A]dd [F]ile" },
+      },
+      ["<leader>lf"] = {
+        action = function()
+          require("harpoon.ui").toggle_quick_menu()
+        end,
+        opts = { desc = "[L]ist [F]iles" },
+      },
+      ["H"] = {
+        action = function()
+          require("harpoon.ui").nav_prev()
+        end,
+        opts = { desc = "Prev File" },
+      },
+      ["L"] = {
+        action = function()
+          require("harpoon.ui").nav_next()
+        end,
+        opts = { desc = "Next File" },
       },
     })
   end,
