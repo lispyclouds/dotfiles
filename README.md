@@ -17,8 +17,8 @@ Welcome to my dotfiles, this is my setup on MacOS/Fedora 38+, Neovim 0.8+ and zs
 
 | | | |
 |:-:|:-:|:-:|
-| <img width="890" alt="1" src="https://user-images.githubusercontent.com/5615588/237025188-0fa28f40-8773-4865-a2f6-d6e052593ade.png"> | <img width="890" alt="2" src="https://user-images.githubusercontent.com/5615588/237025193-07c15e73-f494-43ec-b450-4720d326fbc6.png"> | <img width="890" alt="3" src="https://user-images.githubusercontent.com/5615588/237025196-f7433b78-f3b7-42ed-8c2a-62222f722649.png"> |
-| <img width="890" alt="4" src="https://user-images.githubusercontent.com/5615588/237025199-33399ca7-a11b-473a-8a4d-446106a773d3.png"> | <img width="890" alt="5" src="https://user-images.githubusercontent.com/5615588/237025208-949e0304-28c3-42a2-b3bd-ccbd471f3458.png"> | <img width="890" alt="6" src="https://user-images.githubusercontent.com/5615588/237025212-91738df0-e298-45b7-8b56-552d74cff452.png"> |
+|<img width="890" alt="1" src="https://github.com/lispyclouds/dotfiles/assets/5615588/7543fda2-61ac-45d6-8fcd-b25a718ce68d">|<img width="890" alt="2" src="https://github.com/lispyclouds/dotfiles/assets/5615588/363c7897-6dc1-4255-8418-8f0fcb5e2b2d">|<img width="890" alt="3" src="https://github.com/lispyclouds/dotfiles/assets/5615588/565a87cf-8e7e-4015-92a4-3c3bfb7273e2">|
+|<img width="890" alt="1" src="https://github.com/lispyclouds/dotfiles/assets/5615588/3f367ffd-e388-45ce-9be1-719c942c966d">|<img width="890" alt="2" src="https://github.com/lispyclouds/dotfiles/assets/5615588/73fa9cc8-c69f-4b14-abd6-1b7b43cc1181">|<img width="890" alt="3" src="https://github.com/lispyclouds/dotfiles/assets/5615588/03fb2760-2d74-4c13-9d46-dc8e93eb1402">|
 
 ### Bootstrapping new Fedora or MacOS installations
 
