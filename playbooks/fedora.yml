@@ -40,7 +40,6 @@
       - ShellCheck
       - terraform
       - terraform-ls
-      - vlc
       - xsel
       - youtube-dl
       - zsh
@@ -50,6 +49,7 @@
       - org.ferdium.Ferdium
       - org.mozilla.Thunderbird
       - org.signal.Signal
+      - org.videolan.VLC
       - org.wezfurlong.wezterm
       - us.zoom.Zoom
   tasks:
