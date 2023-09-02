@@ -59,11 +59,11 @@ return {
         end,
         opts = { desc = "Next File" },
       },
-      ["<leader>fb"] = {
+      ["<leader>b"] = {
         action = function()
           require("telescope.builtin").buffers()
         end,
-        opts = { desc = "[F]ind [B]uffers" },
+        opts = { desc = "[B]uffers" },
       },
     })
   end,
