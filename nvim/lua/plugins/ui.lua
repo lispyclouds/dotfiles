@@ -4,23 +4,9 @@ local plenary = "nvim-lua/plenary.nvim"
 return {
   nvim_web_devicons,
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
+    "olivercederborg/poimandres.nvim",
     config = function()
-      local catppuccin, flavour = require("catppuccin"), "mocha"
-      local cp = require("catppuccin.palettes").get_palette(flavour)
-
-      catppuccin.setup({
-        flavour = flavour,
-        integrations = {
-          harpoon = true,
-          neotree = true,
-          nvimtree = false,
-          telescope = { style = "nvchad" },
-        },
-      })
-
-      catppuccin.load(flavour)
+      require("poimandres").colorscheme()
     end,
   },
   {
