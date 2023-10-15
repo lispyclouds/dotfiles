@@ -63,7 +63,7 @@ return {
         action = function()
           require("telescope.builtin").buffers()
         end,
-        opts = { desc = "[B]uffers" },
+        opts = { desc = "[B]rowse [B]uffers" },
       },
     })
   end,
