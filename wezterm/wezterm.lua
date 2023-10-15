@@ -60,7 +60,7 @@ local keymap = {
 }
 
 return {
-  color_scheme = "Tokyo Night",
+  color_scheme = "Catppuccin Mocha",
   enable_wayland = true,
   font_size = 11.0,
   font = wezterm.font("Iosevka Nerd Font Mono", { weight = "Bold" }),
