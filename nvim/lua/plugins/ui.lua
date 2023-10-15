@@ -3,7 +3,7 @@ local plenary = "nvim-lua/plenary.nvim"
 
 return {
   nvim_web_devicons,
-{
+  {
     "catppuccin/nvim",
     name = "catppuccin",
     config = function()
@@ -54,11 +54,6 @@ return {
     dependencies = {
       plenary,
     },
-    config = true,
-  },
-  {
-    "ThePrimeagen/harpoon",
-    lazy = true,
     config = true,
   },
 }
