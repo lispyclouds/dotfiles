@@ -1,7 +1,7 @@
 (ns general.zsh
   (:require
-    [clojure.java.io :as io]
-    [clojure.string :as s]))
+   [clojure.java.io :as io]
+   [clojure.string :as s]))
 
 (defn line->cmd
   [line]
@@ -14,8 +14,8 @@
   []
   (with-open [rdr (io/reader (str (System/getProperty "user.home") "/.zsh_history"))]
     (let [lines (loop [[line & lines] (line-seq rdr)
-                       uniq-cmds      (transient #{})
-                       uniq-lines     (transient [])]
+                       uniq-cmds (transient #{})
+                       uniq-lines (transient [])]
                   #_(println (format "Remaining: %d Unique: %d"
                                      (count lines)
                                      (count uniq-cmds)))

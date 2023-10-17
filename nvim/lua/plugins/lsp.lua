@@ -22,47 +22,19 @@ return {
       }
 
       local on_attach = function(_, buffer)
-        local buf = vim.lsp.buf
-
         require("impl").map({
-          ["gd"] = buf.definition,
-          ["K"] = {
-            action = function()
-              vim.diagnostic.open_float(nil, { focus = false })
-            end,
-            opts = {
-              desc = "Show LSP diagnostics",
-              buffer = buffer,
-            },
-          },
           ["<leader>fb"] = {
-            action = buf.format,
+            action = vim.lsp.buf.format,
             opts = {
               desc = "LSP [F]ormat [B]uffer",
               buffer = buffer,
             },
           },
-          ["<leader>ca"] = {
-            action = buf.code_action,
-            opts = {
-              desc = "LSP [C]ode [A]ction",
-              buffer = buffer,
-            },
-          },
-          ["<leader>h"] = {
-            action = buf.hover,
-            opts = {
-              desc = "Show [H]elp",
-              buffer = buffer,
-            },
-          },
-          ["<leader>r"] = {
-            action = buf.rename,
-            opts = {
-              desc = "LSP [R]ename",
-              buffer = buffer,
-            },
-          },
+          ["gd"] = ":Lspsaga goto_definition<CR>",
+          ["<leader>ca"] = ":Lspsaga code_action<CR>",
+          ["<leader>d"] = ":Lspsaga diagnostic_jump_next<CR>",
+          ["<leader>h"] = ":Lspsaga hover_doc<CR>",
+          ["<leader>r"] = ":Lspsaga rename<CR>",
         })
       end
 
@@ -77,5 +49,14 @@ return {
         })
       end
     end,
+  },
+  {
+    "nvimdev/lspsaga.nvim",
+    event = "LspAttach",
+    opts = {
+      lightbulb = {
+        enable = false,
+      },
+    },
   },
 }
