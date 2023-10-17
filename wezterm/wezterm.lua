@@ -62,8 +62,8 @@ local keymap = {
 return {
   color_scheme = "Catppuccin Mocha",
   enable_wayland = true,
-  font_size = 11.0,
   font = wezterm.font("Iosevka Nerd Font Mono", { weight = "Bold" }),
+  font_size = 11.0,
   force_reverse_video_cursor = true,
   freetype_load_target = "HorizontalLcd",
   hide_tab_bar_if_only_one_tab = true,

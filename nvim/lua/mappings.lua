@@ -6,7 +6,8 @@ return {
     vim.g.maplocalleader = leader
 
     require("impl").map({
-      ["<leader>bf"] = ":Neotree toggle<CR>",
+      ["H"] = ":tabprevious<CR>",
+      ["L"] = ":tabnext<CR>",
       ["c"] = "\"_c", -- blackhole
       ["C"] = "\"_C", -- blackhole
       ["d"] = "\"_d", -- blackhole
@@ -17,6 +18,7 @@ return {
       ["<leader>d"] = "d", -- usual
       ["<leader>D"] = "D", -- usual
       ["<leader><CR>"] = ":noh<CR>",
+      ["<leader>bf"] = ":Neotree toggle<CR>",
       ["<leader>ff"] = {
         action = function()
           require("telescope.builtin").find_files()
@@ -35,13 +37,11 @@ return {
         end,
         opts = { desc = "[P]airing [M]ode" },
       },
-      ["H"] = ":tabprevious<CR>",
-      ["L"] = ":tabnext<CR>",
-      ["<leader>bb"] = {
+      ["<leader><leader>"] = {
         action = function()
           require("telescope.builtin").buffers()
         end,
-        opts = { desc = "[B]rowse [B]uffers" },
+        opts = { desc = "Show open buffers" },
       },
     })
   end,
