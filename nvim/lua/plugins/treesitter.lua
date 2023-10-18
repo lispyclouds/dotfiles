@@ -4,6 +4,7 @@ return {
     lazy = true,
     build = ":TSUpdate",
     cmd = { "TSUpdate", "TSUpdateSync" },
+    event = "VeryLazy",
     config = function()
       require("nvim-treesitter.configs").setup({
         ensure_installed = {
