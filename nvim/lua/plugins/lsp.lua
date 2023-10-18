@@ -30,11 +30,11 @@ return {
               buffer = buffer,
             },
           },
-          ["gd"] = ":Lspsaga goto_definition<CR>",
           ["<leader>ca"] = ":Lspsaga code_action<CR>",
-          ["<leader>d"] = ":Lspsaga diagnostic_jump_next<CR>",
+          ["<leader>d"] = ":Lspsaga show_cursor_diagnostics<CR>",
           ["<leader>h"] = ":Lspsaga hover_doc<CR>",
           ["<leader>r"] = ":Lspsaga rename<CR>",
+          ["gd"] = ":Lspsaga goto_definition<CR>",
         })
       end
 
