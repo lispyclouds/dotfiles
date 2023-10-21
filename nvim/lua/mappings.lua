@@ -6,6 +6,10 @@ return {
     vim.g.maplocalleader = leader
 
     require("impl").map({
+      ["<C-h>"] = "<C-w>h",
+      ["<C-j>"] = "<C-w>j",
+      ["<C-k>"] = "<C-w>k",
+      ["<C-l>"] = "<C-w>l",
       ["H"] = ":tabprevious<CR>",
       ["L"] = ":tabnext<CR>",
       ["c"] = "\"_c", -- blackhole
