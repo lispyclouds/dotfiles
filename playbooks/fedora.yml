@@ -4,12 +4,15 @@
   become: true
   vars:
     packages:
+      - "@development-tools"
+      - ImageMagick
+      - ShellCheck
       - ansible
       - awscli2
       - bat
       - black
       - bottom
-      - "@development-tools"
+      - btop
       - difftastic
       - dnf5
       - dnf5-plugins
@@ -23,7 +26,6 @@
       - gpaste
       - gum
       - hadolint
-      - ImageMagick
       - java-latest-openjdk-devel
       - libstdc++-devel
       - libxcb-devel
@@ -37,9 +39,9 @@
       - papirus-icon-theme
       - podman-compose
       - rlwrap
-      - ShellCheck
       - terraform
       - terraform-ls
+      - v4l-utils
       - xsel
       - youtube-dl
       - zsh
@@ -47,6 +49,7 @@
       - com.github.johnfactotum.Foliate
       - com.spotify.Client
       - org.ferdium.Ferdium
+      - org.localsend.localsend_app
       - org.mozilla.Thunderbird
       - org.signal.Signal
       - org.videolan.VLC
