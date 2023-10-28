@@ -23,6 +23,7 @@ return {
       ["<leader>D"] = "D", -- usual
       ["<leader><CR>"] = ":noh<CR>",
       ["<leader>bf"] = ":Neotree toggle<CR>",
+      ["<leader>bc"] = ":bwipeout<CR>",
       ["<leader>ff"] = {
         action = function()
           require("telescope.builtin").find_files()
