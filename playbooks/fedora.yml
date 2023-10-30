@@ -47,7 +47,6 @@
       - zsh
     flatpaks:
       - com.github.johnfactotum.Foliate
-      - com.spotify.Client
       - org.ferdium.Ferdium
       - org.localsend.localsend_app
       - org.mozilla.Thunderbird

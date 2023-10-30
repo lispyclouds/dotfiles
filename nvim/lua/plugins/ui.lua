@@ -1,5 +1,4 @@
 local nvim_web_devicons = "nvim-tree/nvim-web-devicons"
-local plenary = "nvim-lua/plenary.nvim"
 
 return {
   nvim_web_devicons,
@@ -13,7 +12,7 @@ return {
       catppuccin.setup({
         flavour = flavour,
         integrations = {
-          harpoon = true,
+          lsp_saga = true,
           neotree = true,
           nvimtree = false,
           telescope = { style = "nvchad" },
@@ -28,7 +27,7 @@ return {
     branch = "v3.x",
     dependencies = {
       nvim_web_devicons,
-      plenary,
+      "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
     },
     cmd = "Neotree",
@@ -51,9 +50,6 @@ return {
   {
     "lewis6991/gitsigns.nvim",
     event = "BufRead",
-    dependencies = {
-      plenary,
-    },
     config = true,
   },
 }

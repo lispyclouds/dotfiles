@@ -1,9 +1,7 @@
-local buf_read = "BufRead"
-
 return {
   {
     "neovim/nvim-lspconfig",
-    event = buf_read,
+    event = "BufRead",
     config = function()
       local lspconfig = require("lspconfig")
       local lsps = {
@@ -53,10 +51,15 @@ return {
   {
     "nvimdev/lspsaga.nvim",
     event = "LspAttach",
-    opts = {
-      lightbulb = {
-        enable = false,
-      },
-    },
+    config = function()
+      require("lspsaga").setup({
+        ui = {
+          kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
+        },
+        lightbulb = {
+          enable = false,
+        },
+      })
+    end,
   },
 }
