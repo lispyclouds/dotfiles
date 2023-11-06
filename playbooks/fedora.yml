@@ -16,6 +16,7 @@
       - difftastic
       - dnf5
       - dnf5-plugins
+      - evolution
       - fd-find
       - fontconfig-devel
       - freetype-devel
@@ -49,7 +50,6 @@
       - com.github.johnfactotum.Foliate
       - org.ferdium.Ferdium
       - org.localsend.localsend_app
-      - org.mozilla.Thunderbird
       - org.signal.Signal
       - org.videolan.VLC
       - org.wezfurlong.wezterm
