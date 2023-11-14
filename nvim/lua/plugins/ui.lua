@@ -13,7 +13,6 @@ return {
         flavour = flavour,
         integrations = {
           lsp_saga = true,
-          neotree = true,
           nvimtree = false,
           telescope = { style = "nvchad" },
         },
@@ -23,29 +22,9 @@ return {
     end,
   },
   {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    dependencies = {
-      nvim_web_devicons,
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-    },
-    cmd = "Neotree",
-    opts = {
-      window = {
-        width = 25,
-      },
-      filesystem = {
-        use_libuv_file_watcher = true,
-        follow_current_file = {
-          enabled = true,
-        },
-        filtered_items = {
-          hide_dotfiles = false,
-          hide_gitignored = false,
-        },
-      },
-    },
+    "echasnovski/mini.files",
+    config = true,
+    lazy = true,
   },
   {
     "lewis6991/gitsigns.nvim",

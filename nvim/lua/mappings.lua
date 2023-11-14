@@ -22,8 +22,13 @@ return {
       ["<leader>d"] = "d", -- usual
       ["<leader>D"] = "D", -- usual
       ["<leader><CR>"] = ":noh<CR>",
-      ["<leader>bf"] = ":Neotree toggle<CR>",
       ["<leader>bc"] = ":bwipeout<CR>",
+      ["<leader>bf"] = {
+        action = function()
+          require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
+        end,
+        opts = { desc = "[B]rowse [F]iles" },
+      },
       ["<leader>ff"] = {
         action = function()
           require("telescope.builtin").find_files()
