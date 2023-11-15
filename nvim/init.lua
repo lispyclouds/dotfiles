@@ -82,6 +82,7 @@ require("lazy").setup("plugins", {
     rtp = {
       disabled_plugins = {
         "2html_plugin",
+        "editorconfig",
         "getscript",
         "getscriptPlugin",
         "logipat",

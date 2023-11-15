@@ -1,7 +1,8 @@
-local nvim_web_devicons = "nvim-tree/nvim-web-devicons"
-
 return {
-  nvim_web_devicons,
+  {
+    "nvim-tree/nvim-web-devicons",
+    lazy = true,
+  },
   {
     "catppuccin/nvim",
     name = "catppuccin",

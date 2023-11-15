@@ -5,7 +5,6 @@ return {
     cmd = { "Telescope" },
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "nvim-lua/popup.nvim",
       "nvim-telescope/telescope-live-grep-args.nvim",
     },
     opts = {
