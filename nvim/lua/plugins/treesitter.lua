@@ -1,7 +1,6 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    lazy = true,
     build = ":TSUpdate",
     cmd = { "TSUpdate", "TSUpdateSync" },
     event = "VeryLazy",
