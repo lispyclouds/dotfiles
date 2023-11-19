@@ -31,13 +31,13 @@ return {
       },
       ["<leader>ff"] = {
         action = function()
-          require("telescope.builtin").find_files()
+          require("mini.pick").builtin.files()
         end,
         opts = { desc = "[F]ind [F]ile" },
       },
       ["<leader>f"] = {
         action = function()
-          require("telescope").extensions.live_grep_args.live_grep_args()
+          require("mini.pick").builtin.grep_live()
         end,
         opts = { desc = "[F]ind in files" },
       },
@@ -49,7 +49,7 @@ return {
       },
       ["<leader><leader>"] = {
         action = function()
-          require("telescope.builtin").buffers()
+          require("mini.pick").builtin.buffers()
         end,
         opts = { desc = "Show open buffers" },
       },

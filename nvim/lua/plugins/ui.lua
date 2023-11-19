@@ -15,7 +15,7 @@ return {
         integrations = {
           lsp_saga = true,
           nvimtree = false,
-          telescope = { style = "nvchad" },
+          telescope = false,
         },
       })
 

@@ -1,32 +1,15 @@
 return {
   {
-    "nvim-telescope/telescope.nvim",
-    cmd = { "Telescope" },
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope-live-grep-args.nvim",
-    },
+    "echasnovski/mini.pick",
+    config = true,
+    lazy = true,
     opts = {
-      defaults = {
-        layout_config = {
-          prompt_position = "top",
-        },
+      mappings = {
+        move_down = "<C-j>",
+        move_up = "<C-k>",
       },
-      pickers = {
-        find_files = {
-          hidden = true,
-          file_ignore_patterns = {
-            "_build/",
-            ".cache/",
-            ".cpcache/",
-            ".git/",
-            ".mypy_cache/",
-            ".node_modules/",
-            "__pycache__/",
-            "target/classes/",
-            ".terraform/",
-          },
-        },
+      options = {
+        use_cache = true,
       },
     },
   },
