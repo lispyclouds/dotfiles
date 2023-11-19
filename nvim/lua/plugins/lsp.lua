@@ -20,6 +20,8 @@ return {
       }
 
       local on_attach = function(_, buffer)
+        local buf = vim.lsp.buf
+
         require("impl").map({
           ["<leader>fb"] = {
             action = vim.lsp.buf.format,
@@ -28,11 +30,11 @@ return {
               buffer = buffer,
             },
           },
-          ["<leader>ca"] = ":Lspsaga code_action<CR>",
-          ["<leader>d"] = ":Lspsaga show_cursor_diagnostics<CR>",
-          ["<leader>h"] = ":Lspsaga hover_doc<CR>",
-          ["<leader>r"] = ":Lspsaga rename<CR>",
-          ["gd"] = ":Lspsaga goto_definition<CR>",
+          ["<leader>ca"] = buf.code_action,
+          ["<leader>d"] = vim.diagnostic.open_float,
+          ["<leader>h"] = buf.hover,
+          ["<leader>r"] = buf.rename,
+          ["gd"] = buf.definition,
         })
       end
 
@@ -46,20 +48,6 @@ return {
           settings = settings,
         })
       end
-    end,
-  },
-  {
-    "nvimdev/lspsaga.nvim",
-    event = "LspAttach",
-    config = function()
-      require("lspsaga").setup({
-        ui = {
-          kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
-        },
-        lightbulb = {
-          enable = false,
-        },
-      })
     end,
   },
 }
