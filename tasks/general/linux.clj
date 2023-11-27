@@ -3,6 +3,7 @@
    [babashka.cli :as cli]
    [babashka.fs :as fs]
    [babashka.http-client :as http]
+   [babashka.process :as p]
    [cheshire.core :as json]
    [clojure.java.io :as io]
    [clojure.string :as str])
@@ -27,17 +28,17 @@
 (defn download
   [repo location item]
   (let [download-link (->> (get-assets repo)
-                           (filter #(= (str item ".zip") (:name %)))
+                           (filter #(= (str item ".tar.xz") (:name %)))
                            first
                            :browser_download_url)
-        zip-file (str (fs/create-temp-file))
-        _ (fs/delete-on-exit zip-file)
+        archive (str (fs/create-temp-file))
+        _ (fs/delete-on-exit archive)
         download-stream (:body (http/get download-link {:as :stream}))]
     (println "Downloading" item "from" download-link)
-    (io/copy download-stream (io/file zip-file))
+    (io/copy download-stream (io/file archive))
     (fs/create-dirs location)
     (println "Extracting" item)
-    (fs/unzip zip-file location {:replace-existing true})
+    (p/shell "tar" "-xf" archive "-C" location)
     (println item "installed")))
 
 (defn download-all
@@ -52,7 +53,8 @@
   [repo]
   (->> (get-assets repo)
        (eduction (map :name)
-                 (map #(str/replace % #"(.zip)" "")))
+                 (map #(str/replace % #"(.tar.xz)|(.zip)" ""))
+                 (distinct))
        (run! println)))
 
 (defn get-download-meta
@@ -81,10 +83,12 @@
 (comment
   (download "ryanoasis/nerd-fonts"
             (fs/expand-home "~/.local/share/fonts/NerdFonts")
-            ["JetBrainsMono"])
+            "Iosevka")
 
   (ls "ryanoasis/nerd-fonts")
 
   (ls "catppuccin/gtk")
 
-  (get-assets "catppuccin/gtk"))
+  (get-assets "catppuccin/gtk")
+
+  (get-assets "ryanoasis/nerd-fonts"))
