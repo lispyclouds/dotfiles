@@ -12,9 +12,11 @@
 
 (def downloads
   {:nerd-fonts {:repo "ryanoasis/nerd-fonts"
-                :location (fs/expand-home "~/.local/share/fonts/NerdFonts")}
+                :location (fs/expand-home "~/.local/share/fonts/NerdFonts")
+                :extension ".tar.xz"}
    :themes {:repo "catppuccin/gtk"
-            :location (fs/expand-home "~/.themes")}})
+            :location (fs/expand-home "~/.themes")
+            :extension ".zip"}})
 
 (defn get-assets
   [repo]
@@ -26,9 +28,9 @@
       :assets))
 
 (defn download
-  [repo location item]
+  [repo location item extension]
   (let [download-link (->> (get-assets repo)
-                           (filter #(= (str item ".tar.xz") (:name %)))
+                           (filter #(= (str item extension) (:name %)))
                            first
                            :browser_download_url)
         archive (str (fs/create-temp-file))
@@ -38,14 +40,16 @@
     (io/copy download-stream (io/file archive))
     (fs/create-dirs location)
     (println "Extracting" item)
-    (p/shell "tar" "-xf" archive "-C" location)
+    (if (= extension ".zip")
+      (fs/unzip archive location {:replace-existing true})
+      (p/shell "tar" "-xf" archive "-C" location))
     (println item "installed")))
 
 (defn download-all
-  [repo location items]
+  [repo location items extension]
   (let [executor (Executors/newVirtualThreadPerTaskExecutor)]
     (->> items
-         (map #(fn [] (download repo location %)))
+         (map #(fn [] (download repo location % extension)))
          (.invokeAll executor)
          (run! deref))))
 
@@ -66,8 +70,8 @@
 
 (defn dispatch-download
   [{:keys [args]}]
-  (let [{:keys [repo location]} (get-download-meta args)]
-    (download-all repo location (rest args))))
+  (let [{:keys [repo location extension]} (get-download-meta args)]
+    (download-all repo location (rest args) extension)))
 
 (defn dispatch-ls
   [{:keys [args]}]
@@ -83,7 +87,8 @@
 (comment
   (download "ryanoasis/nerd-fonts"
             (fs/expand-home "~/.local/share/fonts/NerdFonts")
-            "Iosevka")
+            "Iosevka"
+            ".tar.xz")
 
   (ls "ryanoasis/nerd-fonts")
 
