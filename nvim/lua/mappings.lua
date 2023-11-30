@@ -29,17 +29,17 @@ return {
         end,
         opts = { desc = "[B]rowse [F]iles" },
       },
-      ["<leader>ff"] = {
+      ["<leader>f"] = {
         action = function()
           require("mini.pick").builtin.files()
         end,
-        opts = { desc = "[F]ind [F]ile" },
+        opts = { desc = "Find [F]ile" },
       },
-      ["<leader>f"] = {
+      ["<leader>s"] = {
         action = function()
           require("mini.pick").builtin.grep_live()
         end,
-        opts = { desc = "[F]ind in files" },
+        opts = { desc = "[S]earch in files" },
       },
       ["<leader>pm"] = {
         action = function()
