@@ -10,7 +10,6 @@ return {
           "bash",
           "clojure",
           "go",
-          "haskell",
           "hcl",
           "java",
           "json",

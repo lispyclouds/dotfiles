@@ -4,22 +4,10 @@ return {
     lazy = true,
   },
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
+    "rose-pine/neovim",
+    name = "rose-pine",
     config = function()
-      local catppuccin, flavour = require("catppuccin"), "mocha"
-      local cp = require("catppuccin.palettes").get_palette(flavour)
-
-      catppuccin.setup({
-        flavour = flavour,
-        integrations = {
-          lsp_saga = true,
-          nvimtree = false,
-          telescope = false,
-        },
-      })
-
-      catppuccin.load(flavour)
+      require("rose-pine").colorscheme()
     end,
   },
   {
