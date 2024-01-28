@@ -1,14 +1,15 @@
 return {
   {
-    "nvim-tree/nvim-web-devicons",
-    lazy = true,
-  },
-  {
+    -- colorscheme
     "rose-pine/neovim",
     name = "rose-pine",
     config = function()
       require("rose-pine").colorscheme()
     end,
+  },
+  {
+    "nvim-tree/nvim-web-devicons",
+    lazy = true,
   },
   {
     "echasnovski/mini.files",
