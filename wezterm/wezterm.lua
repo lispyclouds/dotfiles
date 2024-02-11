@@ -60,7 +60,7 @@ local keymap = {
 }
 
 return {
-  color_scheme = "Rosé Pine (Gogh)",
+  color_scheme = "kanagawabones",
   enable_wayland = true,
   font = wezterm.font("Iosevka Nerd Font Mono", { weight = "Bold" }),
   font_size = 11.0,
