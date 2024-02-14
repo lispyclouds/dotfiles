@@ -12,7 +12,7 @@ return {
         violet = "#d183e8",
         white = "#c6c6c6",
       }
-      local left_sep, right_sep = "", ""
+      local left_sep, right_sep = "", ""
       local theme = {
         normal = {
           a = { fg = colors.black, bg = colors.violet },
@@ -33,7 +33,7 @@ return {
         options = {
           theme = theme,
           component_separators = "|",
-          section_separators = { left = left_sep, right = right_sep },
+          section_separators = { left = right_sep, right = left_sep },
         },
         sections = {
           lualine_a = {
