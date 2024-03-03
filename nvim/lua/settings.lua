@@ -53,15 +53,15 @@ return {
 
     vim.api.nvim_create_autocmd("TextYankPost", {
       desc = "highlight yanked region temporarily",
-      pattern = "*",
+      group = vim.api.nvim_create_augroup("lispyclouds-hl-yank", { clear = true }),
       callback = function()
-        vim.highlight.on_yank({ higroup = "IncSearch", timeout = 100 })
+        vim.highlight.on_yank()
       end,
     })
 
     vim.api.nvim_create_autocmd("BufWritePre", {
       desc = "clean up trailing whitespace before saving",
-      pattern = "*",
+      group = vim.api.nvim_create_augroup("lispyclouds-clean-ws", { clear = true }),
       callback = function()
         local save = vim.fn.winsaveview()
         -- See: https://github.com/cappyzawa/trim.nvim/blob/master/lua/trim/config.lua

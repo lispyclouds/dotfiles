@@ -6,7 +6,7 @@ return {
     ft = { "python", unpack(lisps) },
     config = function()
       vim.api.nvim_create_autocmd("BufNewFile", {
-        group = vim.api.nvim_create_augroup("conjure_log_disable_lsp", { clear = true }),
+        group = vim.api.nvim_create_augroup("conjure-log-disable-lsp", { clear = true }),
         pattern = { "conjure-log-*" },
         callback = function(event)
           vim.diagnostic.disable(event.buf)
