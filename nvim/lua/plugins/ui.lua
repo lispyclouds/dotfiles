@@ -11,27 +11,33 @@ return {
     lazy = true,
   },
   {
-    "echasnovski/mini.files",
-    config = true,
-    lazy = true,
-  },
-  {
     "lewis6991/gitsigns.nvim",
     event = "BufRead",
     config = true,
   },
   {
-    "echasnovski/mini.pick",
-    config = true,
+    "echasnovski/mini.nvim",
+    event = "BufRead",
     lazy = true,
-    opts = {
-      mappings = {
-        move_down = "<C-j>",
-        move_up = "<C-k>",
-      },
-      options = {
-        use_cache = true,
-      },
-    },
+    config = function()
+      local next, prev = "<C-j>", "<C-k>"
+      local s = vim.keymap.set
+
+      require("mini.completion").setup()
+      require("mini.files").setup()
+      require("mini.pick").setup({
+        mappings = {
+          move_down = next,
+          move_up = prev,
+        },
+        options = {
+          use_cache = true,
+        },
+      })
+
+      -- better mini.completion nav
+      s("i", next, [[pumvisible() ? "\<C-n>" : "\]] .. next .. [["]], { expr = true })
+      s("i", prev, [[pumvisible() ? "\<C-p>" : "\]] .. prev .. [["]], { expr = true })
+    end,
   },
 }
