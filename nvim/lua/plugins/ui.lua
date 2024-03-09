@@ -1,3 +1,5 @@
+local buf_read = "BufRead"
+
 return {
   {
     -- colorscheme
@@ -12,12 +14,12 @@ return {
   },
   {
     "lewis6991/gitsigns.nvim",
-    event = "BufRead",
+    event = buf_read,
     config = true,
   },
   {
     "echasnovski/mini.nvim",
-    event = "BufRead",
+    event = buf_read,
     lazy = true,
     config = function()
       local next, prev = "<C-j>", "<C-k>"

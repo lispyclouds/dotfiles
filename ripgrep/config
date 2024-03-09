@@ -1,0 +1,8 @@
+--hidden
+
+--glob=!.clj-kondo/*
+--glob=!.cpcache/*
+--glob=!.git/*
+--glob=!.lsp/*
+--glob=!.mypy_cache/*
+--glob=!.node_modules/*
