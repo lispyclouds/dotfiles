@@ -1,0 +1,7 @@
+---
+- name: Make symlinks
+  ansible.builtin.file:
+    src: "{{ src_dir }}/{{ item }}"
+    dest: "{{ conf_dir }}/{{ item }}"
+    state: link
+  with_list: "{{ symlinks }}"

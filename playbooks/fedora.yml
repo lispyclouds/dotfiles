@@ -1,7 +1,7 @@
 ---
-- name: Install Fedora packages
+- name: Setup Fedora
   hosts: localhost
-  become: true
+  gather_facts: false
   vars:
     packages:
       - "@development-tools"
@@ -59,11 +59,13 @@
       shell: rpm -E %fedora
       register: fedora_version
     - name: Prep dnf
+      become: true
       command: "{{ item }}"
       with_items:
         - dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ fedora_version.stdout }}.noarch.rpm
         - dnf config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
     - name: Add charm repo
+      become: true
       ansible.builtin.yum_repository:
         name: Charm
         description: RPM repo for Charm
@@ -72,6 +74,7 @@
         gpgcheck: 1
         gpgkey: https://repo.charm.sh/yum/gpg.key
     - name: Installing packages
+      become: true
       dnf:
         name: "{{ packages }}"
         state: present
@@ -79,12 +82,14 @@
       register: result
       until: result is successful
     - name: Installing flatpaks
+      become: true
       flatpak:
         name: "{{ flatpaks }}"
         state: present
       register: result
       until: result is successful
     - name: Installing npm packages
+      become: true
       npm:
         name: "{{ item }}"
         state: present
@@ -95,3 +100,13 @@
         - prettier
         - pyright
         - yaml-language-server
+    - name: Common tasks
+      include_tasks: "common.yml"
+      vars:
+        conf_dir: "{{ lookup('env','HOME') }}/.config"
+        src_dir: "{{ playbook_dir | dirname }}"
+        symlinks:
+          - git
+          - nvim
+          - ripgrep
+          - wezterm

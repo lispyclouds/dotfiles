@@ -1,7 +1,6 @@
 ---
-- name: Install Mac packages
+- name: Setup Mac
   hosts: localhost
-  become: false
   vars:
     brews:
       - ansible
@@ -142,3 +141,15 @@
       with_items:
         - bash-language-server
         - yaml-language-server
+    - name: Common tasks
+      include_tasks: "common.yml"
+      vars:
+        conf_dir: "{{ lookup('env','HOME') }}/.config"
+        src_dir: "{{ playbook_dir | dirname }}"
+        symlinks:
+          - git
+          - nvim
+          - ripgrep
+          - skhd
+          - wezterm
+          - yabai
