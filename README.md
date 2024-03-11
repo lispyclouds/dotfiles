@@ -2,7 +2,7 @@
   <img src="https://neovim.io/logos/neovim-mark-flat.png" width=200 />
 </div>
 
-Welcome to my dotfiles, this is my setup on MacOS/Fedora 38+, Neovim 0.8+ and zsh. Also some random configs.
+Welcome to my dotfiles, this is my setup on MacOS/Fedora 39+, Neovim latest and zsh. Also some random configs.
 
 ### Setting up Neovim
 

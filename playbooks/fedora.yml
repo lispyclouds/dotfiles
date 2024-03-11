@@ -62,8 +62,8 @@
       become: true
       command: "{{ item }}"
       with_items:
-        - dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ fedora_version.stdout }}.noarch.rpm
-        - dnf config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
+        - dnf5 install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ fedora_version.stdout }}.noarch.rpm
+        - dnf-3 config-manager --add-repo=https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
     - name: Add charm repo
       become: true
       ansible.builtin.yum_repository:
@@ -75,7 +75,7 @@
         gpgkey: https://repo.charm.sh/yum/gpg.key
     - name: Installing packages
       become: true
-      dnf:
+      ansible.builtin.dnf5:
         name: "{{ packages }}"
         state: present
         install_weak_deps: no
