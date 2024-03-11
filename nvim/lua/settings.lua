@@ -63,19 +63,7 @@ return {
       desc = "clean up trailing whitespace before saving",
       group = vim.api.nvim_create_augroup("lispyclouds-clean-ws", { clear = true }),
       callback = function()
-        local save = vim.fn.winsaveview()
-        -- See: https://github.com/cappyzawa/trim.nvim/blob/master/lua/trim/config.lua
-        local patterns = {
-          [[%s/\s\+$//e]],
-          [[%s/\($\n\s*\)\+\%$//]],
-          [[%s/\%^\n\+//]],
-        }
-
-        for _, pattern in pairs(patterns) do
-          vim.api.nvim_exec(string.format("silent! %s", pattern), false)
-        end
-
-        vim.fn.winrestview(save)
+        require("mini.trailspace").trim()
       end,
     })
   end,

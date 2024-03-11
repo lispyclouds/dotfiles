@@ -27,6 +27,7 @@ return {
 
       require("mini.completion").setup()
       require("mini.files").setup()
+      require("mini.trailspace").setup()
       require("mini.pick").setup({
         mappings = {
           move_down = next,
