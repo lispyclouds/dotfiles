@@ -64,6 +64,9 @@
         name: "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ fedora_version.stdout }}.noarch.rpm"
         state: present
         install_weak_deps: no
+    - name: Install Hashicorp repo
+      become: true
+      command: dnf config-manager --add-repo=https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
     - name: Add charm repo
       become: true
       ansible.builtin.yum_repository:
@@ -73,14 +76,6 @@
         baseurl: https://repo.charm.sh/yum/
         gpgcheck: 1
         gpgkey: https://repo.charm.sh/yum/gpg.key
-    - name: Add Hashicorp repo
-      become: true
-      ansible.builtin.yum_repository:
-        name: Hashicorp
-        description: RPM repo for Hashicorp
-        file: hashicorp
-        baseurl: https://rpm.releases.hashicorp.com/fedora/
-        gpgcheck: 0
     - name: Installing packages
       become: true
       ansible.builtin.dnf5:
