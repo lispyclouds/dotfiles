@@ -58,12 +58,15 @@
     - name: Get Fedora version
       shell: rpm -E %fedora
       register: fedora_version
-    - name: Prep dnf
+    - name: Install RPM fusion
       become: true
-      command: "{{ item }}"
-      with_items:
-        - dnf5 install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ fedora_version.stdout }}.noarch.rpm
-        - dnf-3 config-manager --add-repo=https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
+      ansible.builtin.dnf5:
+        name: "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ fedora_version.stdout }}.noarch.rpm"
+        state: present
+        install_weak_deps: no
+    - name: Install Hashicorp repo
+      become: true
+      command: dnf config-manager --add-repo=https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
     - name: Add charm repo
       become: true
       ansible.builtin.yum_repository:
@@ -77,7 +80,7 @@
       become: true
       ansible.builtin.dnf5:
         name: "{{ packages }}"
-        state: present
+        state: latest
         install_weak_deps: no
       register: result
       until: result is successful
