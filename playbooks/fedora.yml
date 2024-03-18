@@ -22,6 +22,7 @@
       - freetype-devel
       - fzf
       - gcc-c++
+      - git-delta
       - gnome-shell-extension-gpaste
       - gnome-tweaks
       - gpaste
