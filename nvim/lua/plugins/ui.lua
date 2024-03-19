@@ -43,4 +43,9 @@ return {
       s("i", prev, [[pumvisible() ? "\<C-p>" : "\]] .. prev .. [["]], { expr = true })
     end,
   },
+  {
+    "sindrets/diffview.nvim",
+    event = buf_read,
+    config = true,
+  },
 }
