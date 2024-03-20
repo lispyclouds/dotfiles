@@ -22,7 +22,7 @@ return {
       ["<leader>d"] = "d", -- usual
       ["<leader>D"] = "D", -- usual
       ["<leader><CR>"] = ":noh<CR>",
-      ["<leader>bc"] = ":bwipeout<CR>",
+      ["<leader>bc"] = ":bdelete<CR>",
       ["<leader>bf"] = {
         action = function()
           require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
