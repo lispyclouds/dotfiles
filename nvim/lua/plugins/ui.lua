@@ -3,9 +3,9 @@ local buf_read = "BufRead"
 return {
   {
     -- colorscheme
-    "rebelot/kanagawa.nvim",
+    "tiagovla/tokyodark.nvim",
     config = function()
-      require("kanagawa").load("wave")
+      require("tokyodark").colorscheme()
     end,
   },
   {
