@@ -3,20 +3,11 @@
 	email = rahul080327@gmail.com
 [pull]
 	rebase = true
-[init]
-	defaultBranch = main
+[diff]
+	external = difft
 [push]
 	autoSetupRemote = true
-[core]
-  pager = delta
-[interactive]
-  diffFilter = delta --color-only
-[delta]
-  navigate = true
-  side-by-side = true
 [merge]
   conflictstyle = diff3
-[diff]
-  colorMoved = default
 [rerere]
   enabled = true

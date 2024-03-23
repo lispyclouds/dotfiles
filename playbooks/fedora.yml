@@ -22,7 +22,6 @@
       - freetype-devel
       - fzf
       - gcc-c++
-      - git-delta
       - gnome-shell-extension-gpaste
       - gnome-tweaks
       - gpaste
@@ -49,6 +48,7 @@
       - zsh
     flatpaks:
       - com.github.johnfactotum.Foliate
+      - com.github.tchx84.Flatseal
       - org.ferdium.Ferdium
       - org.localsend.localsend_app
       - org.signal.Signal
