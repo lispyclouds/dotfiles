@@ -72,7 +72,10 @@ return {
     brights = { "#212234", "#ee6d85", "#95c561", "#d7a65f", "#7199ee", "#a485dd", "#38a89d", "#a0a8cd" },
   },
   enable_wayland = true,
-  font = wezterm.font("Iosevka Nerd Font Mono", { weight = "Bold" }),
+  font = wezterm.font_with_fallback({
+    { family = "Iosevka", weight = "Bold" },
+    "Symbols Nerd Font Mono",
+  }),
   font_size = 11.0,
   force_reverse_video_cursor = true,
   freetype_load_target = "HorizontalLcd",

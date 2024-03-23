@@ -27,6 +27,7 @@
       - gpaste
       - gum
       - hadolint
+      - iosevka-fonts
       - java-latest-openjdk-devel
       - libstdc++-devel
       - libxcb-devel
@@ -77,6 +78,11 @@
         baseurl: https://repo.charm.sh/yum/
         gpgcheck: 1
         gpgkey: https://repo.charm.sh/yum/gpg.key
+    - name: Enable iosevka copr
+      become: true
+      community.general.copr:
+        state: enabled
+        name: peterwu/iosevka
     - name: Installing packages
       become: true
       ansible.builtin.dnf5:

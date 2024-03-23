@@ -119,7 +119,7 @@ else
            _raw_update || true && \
            bb_install && \
            sudo npm update -g  && \
-           task linux download nerd-fonts Iosevka && \
+           task linux download nerd-fonts NerdFontsSymbolsOnly && \
            task linux download themes Catppuccin-Mocha-Standard-Blue-Dark && \
            z4h update"
 fi
