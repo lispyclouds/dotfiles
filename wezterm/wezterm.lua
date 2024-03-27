@@ -73,7 +73,7 @@ return {
   },
   enable_wayland = true,
   font = wezterm.font_with_fallback({
-    { family = "Iosevka", weight = "Bold" },
+    { family = "Iosevka Term", weight = "Bold" },
     "Symbols Nerd Font Mono",
   }),
   font_size = 11.0,

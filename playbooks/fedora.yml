@@ -27,7 +27,7 @@
       - gpaste
       - gum
       - hadolint
-      - iosevka-fonts
+      - iosevka-term-fonts
       - java-latest-openjdk-devel
       - libstdc++-devel
       - libxcb-devel
