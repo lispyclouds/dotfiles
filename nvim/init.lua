@@ -45,7 +45,7 @@ local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 local undo_dir = vim.loop.os_homedir() .. "/.vim/undodir"
 
 if not vim.loop.fs_stat(lazypath) then
-  print("nvim is bootstrapping.")
+  print("nvim is bootstrapping, please restart it when completed.")
 
   local fn = vim.fn
   if not fn.isdirectory(undo_dir) then
