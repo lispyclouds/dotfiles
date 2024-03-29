@@ -79,11 +79,10 @@ function _raw_update() {
   scripts=(
     "https://raw.githubusercontent.com/clojure-lsp/clojure-lsp/master/install"
     "https://download.clojure.org/install/linux-install.sh"
-    "https://raw.githubusercontent.com/ducaale/xh/master/install.sh"
   )
 
   for script in ${scripts[*]}; do
-    sudo XH_BINDIR="/usr/local/bin" bash < <(curl -s ${script})
+    sudo bash < <(curl -s ${script})
   done
 }
 
