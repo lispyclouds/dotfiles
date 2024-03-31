@@ -38,7 +38,7 @@ return {
           lualine_a = {
             { "mode", separator = { left = left_sep }, right_padding = 2 },
           },
-          lualine_b = { "filename", "diagnostics" },
+          lualine_b = { { "filename", path = 4 }, "diagnostics" },
           lualine_c = {},
           lualine_x = {},
           lualine_y = { "branch", "filetype", "progress" },
