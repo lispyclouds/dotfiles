@@ -60,6 +60,7 @@ alias antq="clojure -Sdeps '{:deps {com.github.liquidz/antq {:mvn/version \"RELE
 alias task="bb --config ~/code/repos/dotfiles/bb.edn"
 alias commit="task commit"
 alias nsync='nvim --headless "+Lazy! sync" +TSUpdateSync +qa'
+alias vim=nvim
 
 eval "$(zoxide init zsh)"
 
