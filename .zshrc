@@ -1,20 +1,23 @@
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
 
 zstyle ':z4h:' auto-update 'no'
-zstyle ':z4h:' prompt-at-bottom 'no'
+zstyle ':z4h:' auto-update-days '28'
+zstyle ':z4h:bindkey' keyboard 'pc'
+zstyle ':z4h:' start-tmux no
+zstyle ':z4h:' term-shell-integration 'yes'
 zstyle ':z4h:autosuggestions' forward-char 'accept'
 zstyle ':z4h:fzf-complete' recurse-dirs 'no'
-zstyle :z4h: start-tmux 'no'
-
 zstyle ':z4h:direnv' enable 'no'
+zstyle ':z4h:direnv:success' notify 'no'
+zstyle ':z4h:ssh:example-hostname1' enable 'no'
+zstyle ':z4h:ssh:*' enable 'no'
+zstyle ':z4h:ssh:*' send-extra-files '~/.env.zsh'
 
 z4h install ohmyzsh/ohmyzsh || return
 
 z4h init || return
 
 path=(~/bin $path)
-
-export GPG_TTY=$TTY
 
 z4h source ~/.env.zsh
 z4h source ohmyzsh/ohmyzsh/lib/diagnostics.zsh
@@ -25,11 +28,8 @@ z4h load ohmyzsh/ohmyzsh/plugins/common-aliases
 
 autoload -Uz zmv
 
-alias tree='tree -I .git'
-
-setopt glob_dots     # no special treatment for file names with a leading dot
-setopt no_auto_menu  # require an extra TAB press to open the completion menu
-
+setopt glob_dots
+setopt no_auto_menu
 setopt EXTENDED_HISTORY
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_IGNORE_DUPS
@@ -61,6 +61,7 @@ alias task="bb --config ~/code/repos/dotfiles/bb.edn"
 alias commit="task commit"
 alias nsync='nvim --headless "+Lazy! sync" +TSUpdateSync +qa'
 alias vim=nvim
+alias tree='eza --tree'
 
 eval "$(zoxide init zsh)"
 
@@ -111,7 +112,7 @@ if [[ $(uname) == "Darwin" ]]; then
   fi
 else
   zstyle ':z4h:bindkey' keyboard 'pc'
-  source /usr/share/fzf/shell/key-bindings.zsh
+  z4h source /usr/share/fzf/shell/key-bindings.zsh
   alias u="sudo dnf5 update -y && \
            sudo dnf5 clean packages && \
            flatpak update -y && \
@@ -125,5 +126,3 @@ else
 fi
 
 bindkey "^[[A" fzf-history-widget
-
-source ~/.extras.sh > /dev/null 2>&1 || true

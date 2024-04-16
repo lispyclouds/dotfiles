@@ -1,12 +1,12 @@
 [user]
-	name = Rahul De
-	email = rahul080327@gmail.com
+  name = Rahul De
+  email = rahul080327@gmail.com
 [pull]
-	rebase = true
+  rebase = true
 [diff]
-	external = difft
+  external = difft
 [push]
-	autoSetupRemote = true
+  autoSetupRemote = true
 [merge]
   conflictstyle = diff3
 [rerere]
