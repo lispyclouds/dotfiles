@@ -60,17 +60,7 @@ local keymap = {
 }
 
 return {
-  colors = { -- https://github.com/tiagovla/tokyodark.nvim
-    background = "#11121d",
-    cursor_bg = "#a0a8cd",
-    cursor_border = "#a0a8cd",
-    cursor_fg = "#11121d",
-    foreground = "#a0a8cd",
-    selection_bg = "#353945", -- better one
-    selection_fg = "#a0a8cd",
-    ansi = { "#06080a", "#ee6d85", "#95c561", "#d7a65f", "#7199ee", "#a485dd", "#38a89d", "#a0a8cd" },
-    brights = { "#212234", "#ee6d85", "#95c561", "#d7a65f", "#7199ee", "#a485dd", "#38a89d", "#a0a8cd" },
-  },
+  color_scheme = "kanagawabones",
   enable_wayland = true,
   font = wezterm.font_with_fallback({
     { family = "Iosevka Term", weight = "Bold" },
