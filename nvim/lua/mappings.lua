@@ -53,6 +53,12 @@ return {
         end,
         opts = { desc = "Show open buffers" },
       },
+      ["<leader>gd"] = {
+        action = function()
+          require("mini.diff").toggle_overlay()
+        end,
+        opts = { desc = "[G]it [D]iff" },
+      },
     })
   end,
 }
