@@ -45,7 +45,7 @@ return {
           completion = {
             dynamicRegistration = false,
             completionItem = {
-              snippetSupport = true,
+              snippetSupport = false,
               commitCharactersSupport = true,
               deprecatedSupport = true,
               preselectSupport = true,

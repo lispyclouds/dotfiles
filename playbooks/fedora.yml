@@ -43,13 +43,13 @@
       - terraform
       - terraform-ls
       - v4l-utils
-      - xsel
       - youtube-dl
       - zoxide
       - zsh
     flatpaks:
       - com.github.johnfactotum.Foliate
       - com.github.tchx84.Flatseal
+      - io.github.ungoogled_software.ungoogled_chromium
       - org.ferdium.Ferdium
       - org.localsend.localsend_app
       - org.signal.Signal
