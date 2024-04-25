@@ -1,9 +1,10 @@
 return {
   {
     -- colorscheme
-    "rebelot/kanagawa.nvim",
+    "catppuccin/nvim",
+    name = "catppuccin",
     config = function()
-      require("kanagawa").load("wave")
+      require("catppuccin").load("mocha")
     end,
   },
   {
