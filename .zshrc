@@ -69,6 +69,10 @@ function di() {
   c image rm $(c images -q | head -${1-"1"})
 }
 
+function replace() {
+  rg "${1}" --files-with-matches | xargs sed -i "s/${1}/${2}/g"
+}
+
 _bb_tasks() {
   local matches=($(bb tasks | tail -n +3 | cut -f1 -d ' '))
   compadd -a matches
