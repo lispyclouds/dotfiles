@@ -1,3 +1,5 @@
+local buf_read = "BufRead"
+
 return {
   {
     -- colorscheme
@@ -12,15 +14,19 @@ return {
     lazy = true,
   },
   {
+    "lewis6991/gitsigns.nvim",
+    event = buf_read,
+    config = true,
+  },
+  {
     "echasnovski/mini.nvim",
-    event = "BufRead",
+    event = buf_read,
     lazy = true,
     config = function()
       local next, prev = "<C-j>", "<C-k>"
       local s = vim.keymap.set
 
       require("mini.completion").setup()
-      require("mini.diff").setup()
       require("mini.files").setup()
       require("mini.trailspace").setup()
       require("mini.pick").setup({

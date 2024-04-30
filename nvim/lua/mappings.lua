@@ -23,6 +23,7 @@ return {
       ["<leader>D"] = "D", -- usual
       ["<leader><CR>"] = ":noh<CR>",
       ["<leader>bc"] = ":bdelete<CR>",
+      ["<leader>gd"] = ":Gitsigns preview_hunk<CR>",
       ["<leader>bf"] = {
         action = function()
           require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
@@ -52,12 +53,6 @@ return {
           require("mini.pick").builtin.buffers()
         end,
         opts = { desc = "Show open buffers" },
-      },
-      ["<leader>gd"] = {
-        action = function()
-          require("mini.diff").toggle_overlay()
-        end,
-        opts = { desc = "[G]it [D]iff" },
       },
     })
   end,
