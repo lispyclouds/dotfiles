@@ -1,5 +1,6 @@
 --hidden
 --follow
+--ignore-case
 
 --glob=!.clj-kondo/*
 --glob=!.cpcache/*
