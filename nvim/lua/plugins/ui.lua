@@ -44,4 +44,9 @@ return {
       s("i", prev, [[pumvisible() ? "\<C-p>" : "\]] .. prev .. [["]], { expr = true })
     end,
   },
+  {
+    "MeanderingProgrammer/markdown.nvim",
+    config = true,
+    ft = "markdown",
+  },
 }
