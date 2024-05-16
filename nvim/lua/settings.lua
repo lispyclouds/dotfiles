@@ -51,6 +51,17 @@ return {
       vim.o[opt] = val
     end
 
+    local disabled_global_opts = {
+      "loaded_node_provider",
+      "loaded_perl_provider",
+      "loaded_python3_provider",
+      "loaded_ruby_provider",
+    }
+
+    for _, opt in ipairs(disabled_global_opts) do
+      vim.g[opt] = 0
+    end
+
     vim.api.nvim_create_autocmd("TextYankPost", {
       desc = "highlight yanked region temporarily",
       group = vim.api.nvim_create_augroup("lispyclouds-hl-yank", { clear = true }),
