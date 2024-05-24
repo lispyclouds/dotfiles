@@ -99,8 +99,6 @@ require("lazy").setup({ import = "plugins" }, {
         "tarPlugin",
         "tohtml",
         "tutor",
-        "vimball",
-        "vimballPlugin",
       },
     },
   },

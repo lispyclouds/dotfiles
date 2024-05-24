@@ -12,9 +12,19 @@ return {
         },
         bashls = {}, -- https://github.com/bash-lsp/bash-language-server#installation
         clojure_lsp = {}, -- https://clojure-lsp.io/installation/
-        gopls = {}, -- https://pkg.go.dev/golang.org/x/tools/gopls#readme-installation
-        ocamllsp = {}, -- opam install merlin ocaml-lsp-server ocamlformat
-        rust_analyzer = {}, -- rustup component add rust-analyzer
+        gopls = { -- https://pkg.go.dev/golang.org/x/tools/gopls#readme-installation
+          gopls = {
+            hints = {
+              assignVariableTypes = true,
+              compositeLiteralFields = true,
+              compositeLiteralTypes = true,
+              constantValues = true,
+              functionTypeParameters = true,
+              parameterNames = true,
+              rangeVariableTypes = true,
+            },
+          },
+        },
         terraformls = {}, -- https://github.com/hashicorp/terraform-ls/blob/main/docs/installation.md
         yamlls = { -- npm install -g yaml-language-server
           yaml = {
@@ -22,8 +32,12 @@ return {
           },
         },
       }
-      local on_attach = function(_, buffer)
+      local on_attach = function(client, buffer)
         local buf = vim.lsp.buf
+
+        if client.supports_method("textDocument/inlayHint") or client.server_capabilities.inlayHintProvider then
+          vim.lsp.inlay_hint.enable(true, { bufnr = buffer })
+        end
 
         require("impl").map({
           ["<leader>fb"] = {
