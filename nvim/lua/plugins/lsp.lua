@@ -34,10 +34,7 @@ return {
       }
       local on_attach = function(client, buffer)
         local buf = vim.lsp.buf
-
-        if client.supports_method("textDocument/inlayHint") or client.server_capabilities.inlayHintProvider then
-          vim.lsp.inlay_hint.enable(true, { bufnr = buffer })
-        end
+        local show_ih = false
 
         require("impl").map({
           ["<leader>fb"] = {
@@ -52,6 +49,18 @@ return {
           ["<leader>h"] = buf.hover,
           ["<leader>r"] = buf.rename,
           ["gd"] = buf.definition,
+          ["<leader>ih"] = {
+            action = function()
+              show_ih = not show_ih
+
+              if client.supports_method("textDocument/inlayHint") or client.server_capabilities.inlayHintProvider then
+                vim.lsp.inlay_hint.enable(show_ih, { bufnr = buffer })
+              else
+                vim.notify("Inlay hints are unsupported by this LSP")
+              end
+            end,
+            opts = { desc = "Toggle [I]nlay [H]ints" },
+          },
         })
       end
       local lsp_capabilities = { -- see: https://github.com/hrsh7th/cmp-nvim-lsp/blob/main/lua/cmp_nvim_lsp/init.lua#L40
