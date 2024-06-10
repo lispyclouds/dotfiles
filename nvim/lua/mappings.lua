@@ -22,7 +22,6 @@ return {
       ["<leader>d"] = "d", -- usual
       ["<leader>D"] = "D", -- usual
       ["<leader><CR>"] = ":noh<CR>",
-      ["<leader>bc"] = ":bdelete<CR>",
       ["<leader>gd"] = ":Gitsigns preview_hunk<CR>",
       ["<leader>bf"] = {
         action = function()
@@ -53,6 +52,12 @@ return {
           require("mini.pick").builtin.buffers()
         end,
         opts = { desc = "Show open buffers" },
+      },
+      ["<leader>bc"] = {
+        action = function()
+          require("mini.bufremove").delete(0, false)
+        end,
+        opts = { desc = "[B]uffer [C]lose" },
       },
     })
   end,

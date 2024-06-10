@@ -26,6 +26,7 @@ return {
       local next, prev = "<C-j>", "<C-k>"
       local s = vim.keymap.set
 
+      require("mini.bufremove").setup()
       require("mini.completion").setup()
       require("mini.files").setup()
       require("mini.trailspace").setup()

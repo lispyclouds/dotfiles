@@ -51,9 +51,8 @@ return {
           ["gd"] = buf.definition,
           ["<leader>ih"] = {
             action = function()
-              show_ih = not show_ih
-
               if client.supports_method("textDocument/inlayHint") or client.server_capabilities.inlayHintProvider then
+                show_ih = not show_ih
                 vim.lsp.inlay_hint.enable(show_ih, { bufnr = buffer })
               else
                 vim.notify("Inlay hints are unsupported by this LSP")
