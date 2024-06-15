@@ -49,9 +49,11 @@
     flatpaks:
       - com.github.johnfactotum.Foliate
       - com.github.tchx84.Flatseal
+      - io.github.amit9838.mousam
       - io.github.ungoogled_software.ungoogled_chromium
       - org.ferdium.Ferdium
       - org.localsend.localsend_app
+      - org.pipewire.Helvum
       - org.signal.Signal
       - org.videolan.VLC
       - org.wezfurlong.wezterm
