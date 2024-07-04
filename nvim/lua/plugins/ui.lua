@@ -3,10 +3,9 @@ local buf_read = "BufRead"
 return {
   {
     -- colorscheme
-    "catppuccin/nvim",
-    name = "catppuccin",
+    "folke/tokyonight.nvim",
     config = function()
-      require("catppuccin").load("mocha")
+      require("tokyonight").load({ style = "moon" })
     end,
   },
   {
