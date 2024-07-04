@@ -9,10 +9,6 @@ return {
     end,
   },
   {
-    "nvim-tree/nvim-web-devicons",
-    lazy = true,
-  },
-  {
     "lewis6991/gitsigns.nvim",
     event = buf_read,
     config = true,
@@ -28,6 +24,7 @@ return {
       require("mini.bufremove").setup()
       require("mini.completion").setup()
       require("mini.files").setup()
+      require("mini.icons").setup()
       require("mini.trailspace").setup()
       require("mini.pick").setup({
         mappings = {
