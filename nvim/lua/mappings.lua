@@ -59,6 +59,12 @@ return {
         end,
         opts = { desc = "[B]uffer [C]lose" },
       },
+      ["<leader>/"] = {
+        action = function()
+          require("grug-far").grug_far({ transient = true })
+        end,
+        opts = { desc = "Search and Replace" },
+      },
     })
   end,
 }

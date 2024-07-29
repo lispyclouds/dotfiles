@@ -46,4 +46,9 @@ return {
     config = true,
     ft = "markdown",
   },
+  {
+    "MagicDuck/grug-far.nvim",
+    config = true,
+    lazy = true,
+  },
 }
