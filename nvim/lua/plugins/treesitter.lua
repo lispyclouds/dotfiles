@@ -9,6 +9,7 @@ return {
         ensure_installed = {
           "bash",
           "clojure",
+          "dockerfile",
           "go",
           "hcl",
           "java",
@@ -19,6 +20,7 @@ return {
           "ocaml",
           "python",
           "rust",
+          "sql",
           "terraform",
           "yaml",
         },
