@@ -14,7 +14,7 @@ return {
     config = true,
   },
   {
-    "MeanderingProgrammer/markdown.nvim",
+    "MeanderingProgrammer/render-markdown.nvim",
     config = true,
     ft = "markdown",
   },
