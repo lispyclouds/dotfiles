@@ -1,6 +1,6 @@
 return {
   "echasnovski/mini.nvim",
-  event = buf_read,
+  event = "BufRead",
   lazy = true,
   config = function()
     local next, prev = "<C-j>", "<C-k>"
