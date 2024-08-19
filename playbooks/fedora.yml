@@ -42,6 +42,7 @@
       - rlwrap
       - terraform
       - terraform-ls
+      - tokei
       - v4l-utils
       - youtube-dl
       - zoxide
