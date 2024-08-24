@@ -61,7 +61,7 @@ alias task="bb --config ~/code/repos/dotfiles/bb.edn"
 alias commit="task commit"
 alias nsync='nvim --headless "+Lazy! sync" +TSUpdateSync +qa'
 alias vim=nvim
-alias tree='eza --tree'
+alias tree='eza --git-ignore --tree'
 
 eval "$(zoxide init zsh)"
 
