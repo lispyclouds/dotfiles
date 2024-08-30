@@ -54,11 +54,8 @@
 (defn prompt
   [{:keys [message default multiline]}]
   (let [cmd (if multiline :write :input)
-        opts {:placeholder message}
-        opts (if default
-               (assoc opts :value default)
-               opts)
-        {:keys [status result]} (b/gum {:cmd cmd :opts opts})]
+        {:keys [status result]} (b/gum {:cmd cmd :opts (cond-> {:placeholder message}
+                                                         default (assoc :value default))})]
     (if (not (zero? status))
       (bail! "Error reading input")
       (if multiline
@@ -71,14 +68,10 @@
     (do
       (println "No co-authors configured, skipping")
       options)
-    (let [opts {:no-limit true
-                :header message}
-          opts (if (seq selected)
-                 (assoc opts :selected selected)
-                 opts)
-          none-value "none"
+    (let [none-value "none"
           {:keys [status result]} (b/gum {:cmd :choose
-                                          :opts opts
+                                          :opts (cond-> {:no-limit true :header message}
+                                                  (seq selected) (assoc :selected selected))
                                           :args (cons none-value options)})]
       (if (not (zero? status))
         (bail! "Error in choosing")
