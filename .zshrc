@@ -108,15 +108,12 @@ if [[ $(uname) == "Darwin" ]]; then
            ou && \
            npm update -g && \
            z4h update"
-  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
   if [ ! -f ~/.lispy_first_setup_complete ]; then
     sudo ln -s /usr/local/sbin/mount_ntfs "/Volumes/Macintosh HD/sbin/mount_ntfs"
-    "$(brew --prefix)/opt/fzf/install"
     touch ~/.lispy_first_setup_complete
   fi
 else
   zstyle ':z4h:bindkey' keyboard 'pc'
-  z4h source /usr/share/fzf/shell/key-bindings.zsh
   alias u="sudo dnf5 update -y && \
            sudo dnf5 clean packages && \
            flatpak update -y && \
@@ -129,4 +126,4 @@ else
            z4h update"
 fi
 
-bindkey "^[[A" fzf-history-widget
+bindkey "^[[A" z4h-fzf-history
