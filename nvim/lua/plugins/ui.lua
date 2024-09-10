@@ -3,9 +3,9 @@ local buf_read = "BufRead"
 return {
   {
     -- colorscheme
-    "eldritch-theme/eldritch.nvim",
+    "folke/tokyonight.nvim",
     config = function()
-      require("eldritch").load()
+      require("tokyonight").load({ style = "night" })
     end,
   },
   {

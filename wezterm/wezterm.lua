@@ -60,7 +60,7 @@ local keymap = {
 }
 
 return {
-  color_scheme = "Eldritch",
+  color_scheme = "tokyonight_night",
   enable_wayland = true,
   font = wezterm.font_with_fallback({
     { family = "Iosevka Term", weight = "Bold" },
