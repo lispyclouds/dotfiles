@@ -57,6 +57,11 @@ local keymap = {
     mods = mods,
     action = act.ShowDebugOverlay,
   },
+  {
+    key = "F",
+    mods = mods,
+    action = act.Search({ CaseInSensitiveString = "" }),
+  },
 }
 
 return {
