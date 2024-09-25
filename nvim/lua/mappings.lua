@@ -29,11 +29,11 @@ return {
         end,
         opts = { desc = "[B]rowse [F]iles" },
       },
-      ["<leader>f"] = {
+      ["<leader><leader>"] = {
         action = function()
           require("mini.pick").builtin.files()
         end,
-        opts = { desc = "Find [F]ile" },
+        opts = { desc = "Find files" },
       },
       ["<leader>s"] = {
         action = function()
@@ -47,11 +47,11 @@ return {
         end,
         opts = { desc = "[P]airing [M]ode" },
       },
-      ["<leader><leader>"] = {
+      ["<leader>bu"] = {
         action = function()
           require("mini.pick").builtin.buffers()
         end,
-        opts = { desc = "Show open buffers" },
+        opts = { desc = "[BU]ffers" },
       },
       ["<leader>bc"] = {
         action = function()
