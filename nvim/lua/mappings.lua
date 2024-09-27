@@ -47,12 +47,6 @@ return {
         end,
         opts = { desc = "[P]airing [M]ode" },
       },
-      ["<leader>bu"] = {
-        action = function()
-          require("mini.pick").builtin.buffers()
-        end,
-        opts = { desc = "[BU]ffers" },
-      },
       ["<leader>bc"] = {
         action = function()
           require("mini.bufremove").delete(0, false)
