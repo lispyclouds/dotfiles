@@ -8,3 +8,4 @@
 --glob=!.lsp/*
 --glob=!.mypy_cache/*
 --glob=!.node_modules/*
+--glob=!target/*
