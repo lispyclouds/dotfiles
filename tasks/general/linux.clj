@@ -8,7 +8,7 @@
    [clojure.java.io :as io]
    [clojure.string :as str])
   (:import
-   [java.util.concurrent Executors]))
+   [java.util.concurrent ExecutorService Executors]))
 
 (def downloads
   {:nerd-fonts {:repo "ryanoasis/nerd-fonts"
@@ -50,7 +50,7 @@
   (let [executor (Executors/newVirtualThreadPerTaskExecutor)]
     (->> items
          (map #(fn [] (download repo location % extension)))
-         (.invokeAll executor)
+         (ExecutorService/.invokeAll executor)
          (run! deref))))
 
 (defn ls

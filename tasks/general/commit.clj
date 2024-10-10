@@ -22,7 +22,7 @@
   (if (fs/exists? path)
     (with-open [r (io/reader path)]
       (try
-        (edn/read (PushbackReader. r))
+        (edn/read (PushbackReader/new r))
         (catch Throwable _ {})))
     {}))
 
