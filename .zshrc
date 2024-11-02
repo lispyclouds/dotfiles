@@ -44,7 +44,7 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export BAT_STYLE=plain
 export GOPATH=$HOME/.go
-export PATH=$PATH:$GOPATH/bin
+export PATH=$GOPATH/bin:$PATH
 export RIPGREP_CONFIG_PATH=$HOME/.config/ripgrep/config
 
 alias cat=bat
