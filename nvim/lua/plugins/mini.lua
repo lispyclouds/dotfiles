@@ -5,14 +5,13 @@ return {
   config = function()
     local next, prev = "<C-j>", "<C-k>"
     local s = vim.keymap.set
+    local none = {}
     local conf = {
-      ["mini.bufremove"] = {},
-      ["mini.files"] = {},
-      ["mini.icons"] = {},
-      ["mini.trailspace"] = {},
-      ["mini.completion"] = {
-        lsp_completion = { source_func = "omnifunc" },
-      },
+      ["mini.bufremove"] = none,
+      ["mini.files"] = none,
+      ["mini.icons"] = none,
+      ["mini.trailspace"] = none,
+      ["mini.completion"] = none,
       ["mini.pick"] = {
         mappings = {
           move_down = next,
