@@ -1,5 +1,6 @@
 return {
   "neovim/nvim-lspconfig",
+  dependencies = { "saghen/blink.cmp" },
   event = "BufRead",
   config = function()
     local lspconfig = require("lspconfig")
@@ -61,51 +62,7 @@ return {
         },
       })
     end
-    local lsp_capabilities = { -- see: https://github.com/hrsh7th/cmp-nvim-lsp/blob/main/lua/cmp_nvim_lsp/init.lua#L40
-      textDocument = {
-        completion = {
-          dynamicRegistration = false,
-          completionItem = {
-            snippetSupport = false,
-            commitCharactersSupport = true,
-            deprecatedSupport = true,
-            preselectSupport = true,
-            tagSupport = {
-              valueSet = { 1 }, -- Deprecated
-            },
-            insertReplaceSupport = true,
-            resolveSupport = {
-              properties = {
-                "documentation",
-                "detail",
-                "additionalTextEdits",
-                "sortText",
-                "filterText",
-                "insertText",
-                "textEdit",
-                "insertTextFormat",
-                "insertTextMode",
-              },
-            },
-            insertTextModeSupport = {
-              valueSet = { 1, 2 },
-            },
-            labelDetailsSupport = true,
-          },
-          contextSupport = true,
-          insertTextMode = 1,
-          completionList = {
-            itemDefaults = {
-              "commitCharacters",
-              "editRange",
-              "insertTextFormat",
-              "insertTextMode",
-              "data",
-            },
-          },
-        },
-      },
-    }
+    local lsp_capabilities = require("blink.cmp").get_lsp_capabilities()
 
     for lsp, settings in pairs(lsps) do
       lspconfig[lsp].setup({

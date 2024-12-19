@@ -31,13 +31,13 @@ return {
       },
       ["<leader><leader>"] = {
         action = function()
-          require("mini.pick").builtin.files()
+          require("fzf-lua").files()
         end,
         opts = { desc = "Find files" },
       },
       ["<leader>s"] = {
         action = function()
-          require("mini.pick").builtin.grep_live()
+          require("fzf-lua").live_grep()
         end,
         opts = { desc = "[S]earch in files" },
       },

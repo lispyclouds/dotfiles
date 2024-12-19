@@ -23,4 +23,36 @@ return {
     config = true,
     lazy = true,
   },
+  {
+    "saghen/blink.cmp",
+    version = "v0.*",
+    event = buf_read,
+    opts = {
+      keymap = {
+        ["<C-k>"] = { "select_prev", "fallback" },
+        ["<C-j>"] = { "select_next", "fallback" },
+        ["<CR>"] = { "accept", "fallback" },
+      },
+      sources = {
+        default = { "lsp", "path", "buffer" },
+      },
+      completion = {
+        list = {
+          selection = "auto_insert",
+        },
+        documentation = {
+          auto_show = true,
+          auto_show_delay_ms = 200,
+        },
+      },
+    },
+  },
+  {
+    "ibhagwan/fzf-lua",
+    lazy = true,
+    cmd = "FzfLua",
+    config = function()
+      require("fzf-lua").setup({})
+    end,
+  },
 }
