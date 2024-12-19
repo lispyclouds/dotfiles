@@ -36,6 +36,9 @@ return {
       sources = {
         default = { "lsp", "path", "buffer" },
       },
+      signature = {
+        enabled = true,
+      },
       completion = {
         list = {
           selection = "auto_insert",
