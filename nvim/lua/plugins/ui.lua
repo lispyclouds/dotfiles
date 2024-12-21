@@ -25,7 +25,7 @@ return {
   },
   {
     "saghen/blink.cmp",
-    version = "v0.*",
+    version = "*",
     event = buf_read,
     opts = {
       keymap = {
