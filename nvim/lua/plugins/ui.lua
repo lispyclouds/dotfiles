@@ -34,6 +34,7 @@ return {
         ["<CR>"] = { "accept", "fallback" },
       },
       sources = {
+        cmdline = {},
         default = { "lsp", "path", "buffer" },
       },
       signature = {
