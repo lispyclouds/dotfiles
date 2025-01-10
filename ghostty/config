@@ -15,4 +15,3 @@ keybind = ctrl+shift+l=goto_split:right
 keybind = ctrl+shift+minus=decrease_font_size:1
 keybind = ctrl+shift+plus=increase_font_size:1
 keybind = ctrl+shift+s=new_split:right
-keybind = ctrl+shift+z=toggle_split_zoom

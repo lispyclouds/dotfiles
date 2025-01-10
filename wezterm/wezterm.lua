@@ -62,6 +62,11 @@ local keymap = {
     mods = mods,
     action = act.Search({ CaseInSensitiveString = "" }),
   },
+  {
+    key = "Enter",
+    mods = mods,
+    action = act.TogglePaneZoomState,
+  },
 }
 
 return {
