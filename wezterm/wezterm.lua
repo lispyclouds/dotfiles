@@ -67,6 +67,16 @@ local keymap = {
     mods = mods,
     action = act.TogglePaneZoomState,
   },
+  {
+    key = "j",
+    mods = "CTRL",
+    action = wezterm.action.SendKey({ key = "DownArrow" }),
+  },
+  {
+    key = "k",
+    mods = "CTRL",
+    action = wezterm.action.SendKey({ key = "UpArrow" }),
+  },
 }
 
 return {

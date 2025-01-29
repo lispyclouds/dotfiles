@@ -25,6 +25,7 @@ return {
           },
         },
       },
+      ruff = {}, -- pip install uv
       terraformls = {}, -- https://github.com/hashicorp/terraform-ls/blob/main/docs/installation.md
       yamlls = { -- npm install -g yaml-language-server
         yaml = {
