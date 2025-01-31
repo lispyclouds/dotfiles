@@ -1,9 +1,7 @@
-local lisps = { "clojure", "fennel" }
-
 return {
   {
     "Olical/conjure",
-    ft = { "python", unpack(lisps) },
+    ft = "clojure",
     config = function()
       vim.api.nvim_create_autocmd("BufNewFile", {
         group = vim.api.nvim_create_augroup("conjure-log-disable-lsp", { clear = true }),
@@ -17,7 +15,7 @@ return {
   },
   {
     "gpanders/nvim-parinfer",
-    ft = { "dune", unpack(lisps) },
+    ft = "clojure",
     config = function()
       vim.g.parinfer_force_balance = true
     end,
