@@ -1,9 +1,9 @@
+background-opacity = 0.9
 cursor-style = "block"
 cursor-style-blink = false
 font-family = "Iosevka Term"
 font-size = 11
 font-style = Heavy
-theme = "tokyonight"
 
 keybind = ctrl+s=new_split:down
 keybind = ctrl+shift+0=reset_font_size
@@ -15,3 +15,27 @@ keybind = ctrl+shift+l=goto_split:right
 keybind = ctrl+shift+minus=decrease_font_size:1
 keybind = ctrl+shift+plus=increase_font_size:1
 keybind = ctrl+shift+s=new_split:right
+
+# https://github.com/scottmckendry/cyberdream.nvim/tree/main/extras/ghostty
+palette = 0=#16181A
+palette = 1=#FF6E5E
+palette = 2=#5EFF6C
+palette = 3=#F1FF5E
+palette = 4=#5EA1FF
+palette = 5=#BD5EFF
+palette = 6=#5EF1FF
+palette = 7=#FFFFFF
+palette = 8=#3C4048
+palette = 9=#FF6E5E
+palette = 10=#5EFF6C
+palette = 11=#F1FF5E
+palette = 12=#5EA1FF
+palette = 13=#BD5EFF
+palette = 14=#5EF1FF
+palette = 15=#FFFFFF
+
+background = #16181A
+cursor-color = #FFFFFF
+foreground = #FFFFFF
+selection-background = #3C4048
+selection-foreground = #FFFFFF

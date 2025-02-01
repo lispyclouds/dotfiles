@@ -3,9 +3,15 @@ local buf_read = "BufRead"
 return {
   {
     -- colorscheme
-    "folke/tokyonight.nvim",
+    "scottmckendry/cyberdream.nvim",
     config = function()
-      require("tokyonight").load({ style = "night" })
+      theme = require("cyberdream")
+
+      theme.setup({
+        cache = true,
+        transparent = true,
+      })
+      theme.load()
     end,
   },
   {
@@ -51,7 +57,6 @@ return {
   {
     "ibhagwan/fzf-lua",
     lazy = true,
-    cmd = "FzfLua",
     config = function()
       require("fzf-lua").setup({})
     end,
