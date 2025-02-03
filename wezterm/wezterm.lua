@@ -110,5 +110,5 @@ return {
   keys = keymap,
   tab_bar_at_bottom = true,
   use_fancy_tab_bar = false,
-  window_background_opacity = 0.9,
+  window_background_opacity = 0.95,
 }
