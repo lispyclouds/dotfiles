@@ -9,12 +9,13 @@ keybind = ctrl+s=new_split:down
 keybind = ctrl+shift+0=reset_font_size
 keybind = ctrl+shift+backspace=clear_screen
 keybind = ctrl+shift+h=goto_split:left
-keybind = ctrl+shift+j=goto_split:bottom
-keybind = ctrl+shift+k=goto_split:top
+keybind = ctrl+shift+j=goto_split:down
+keybind = ctrl+shift+k=goto_split:up
 keybind = ctrl+shift+l=goto_split:right
 keybind = ctrl+shift+minus=decrease_font_size:1
 keybind = ctrl+shift+plus=increase_font_size:1
 keybind = ctrl+shift+s=new_split:right
+keybind = ctrl+shift+w=close_surface
 
 # https://github.com/scottmckendry/cyberdream.nvim/tree/main/extras/ghostty
 palette = 0=#16181A
