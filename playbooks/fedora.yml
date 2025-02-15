@@ -31,6 +31,8 @@
       - heif-pixbuf-loader
       - iosevka-term-fonts
       - java-latest-openjdk-devel
+      - libheif
+      - libheif-tools
       - libstdc++-devel
       - libxcb-devel
       - neovim
