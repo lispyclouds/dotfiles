@@ -40,12 +40,10 @@ return {
         ["<CR>"] = { "accept", "fallback" },
       },
       sources = {
-        cmdline = {},
         default = { "lsp", "path", "buffer" },
       },
-      signature = {
-        enabled = true,
-      },
+      cmdline = { enabled = false },
+      signature = { enabled = true },
       completion = {
         documentation = {
           auto_show = true,
