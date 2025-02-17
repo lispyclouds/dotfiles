@@ -1,4 +1,8 @@
+.DS_Store
+.cache/
+.cpcache
 .git/
 .mypy_cache/
 __pycache__/
+classes/
 target/
