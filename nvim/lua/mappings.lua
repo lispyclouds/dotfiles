@@ -55,7 +55,7 @@ return {
       },
       ["<leader>/"] = {
         action = function()
-          require("grug-far").grug_far({ transient = true })
+          require("grug-far").open({ transient = true })
         end,
         opts = { desc = "Search and Replace" },
       },
