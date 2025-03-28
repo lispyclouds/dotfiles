@@ -43,6 +43,7 @@ return {
       undofile = true,
       updatetime = 100,
       visualbell = false,
+      winborder = "rounded",
       wrap = true,
       writebackup = false,
     }
