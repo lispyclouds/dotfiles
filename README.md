@@ -6,7 +6,7 @@ Welcome to my dotfiles, this is my setup on MacOS/Fedora 39+, Neovim latest and 
 
 ### Setting up Neovim
 
-- Ensure Neovim 0.10+ is [installed](https://github.com/neovim/neovim/wiki/Installing-Neovim)
+- Ensure Neovim 0.11+ is [installed](https://github.com/neovim/neovim/wiki/Installing-Neovim)
 - Ensure a recent version of git is installed
 - Copy the `nvim` dir in `~/.config/` or wherever `XDG_CONFIG_HOME` environment var is pointing to.
 - Start neovim with `nvim` and follow the bootstrapping messages.

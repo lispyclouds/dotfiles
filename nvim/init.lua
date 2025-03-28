@@ -74,6 +74,7 @@ vim.filetype.add({
 
 require("settings").setup(undo_dir)
 require("mappings").setup()
+require("lsp").setup()
 require("lazy").setup({ import = "plugins" }, {
   change_detection = {
     notify = false,
