@@ -72,8 +72,9 @@ return {
         local on_attach = function(client, buffer)
           local buf = vim.lsp.buf
           local show_ih = false
-          local chars = {}
 
+          -- all the chars
+          local chars = {}
           for i = 32, 126 do
             table.insert(chars, string.char(i))
           end
