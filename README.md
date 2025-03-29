@@ -6,7 +6,7 @@ Welcome to my dotfiles, this is my setup on MacOS/Fedora 39+, Neovim latest and 
 
 ### Setting up Neovim
 
-- Ensure Neovim 0.11+ is [installed](https://github.com/neovim/neovim/wiki/Installing-Neovim)
+- Ensure Neovim 0.11+ is [installed](https://github.com/neovim/neovim/blob/master/INSTALL.md)
 - Ensure a recent version of git is installed
 - Copy the `nvim` dir in `~/.config/` or wherever `XDG_CONFIG_HOME` environment var is pointing to.
 - Start neovim with `nvim` and follow the bootstrapping messages.
@@ -21,4 +21,5 @@ Welcome to my dotfiles, this is my setup on MacOS/Fedora 39+, Neovim latest and 
 - Run `ansible-playbook --ask-become-pass playbooks/fedora.yml` or `ansible-playbook playbooks/mac.yml` from the root of this dir based on the OS.
 
 ### License
+
 The [Unlicense](https://unlicense.org/)
