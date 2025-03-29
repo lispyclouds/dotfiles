@@ -6,6 +6,7 @@ return {
       once = true,
       callback = function()
         local lsps = {
+          -- https://docs.basedpyright.com/latest/installation/command-line-and-language-server/
           basedpyright = {
             cmd = { "basedpyright-langserver", "--stdio" },
             filetypes = { "python" },
@@ -20,6 +21,7 @@ return {
               },
             },
           },
+          -- https://clojure-lsp.io/installation/
           clojure_lsp = {
             cmd = { "clojure-lsp" },
             filetypes = { "clojure", "edn" },
@@ -29,6 +31,7 @@ return {
               "project.clj",
             },
           },
+          -- go install golang.org/x/tools/gopls@latest
           gopls = {
             cmd = { "gopls" },
             filetypes = { "go", "gomod", "gowork", "gotmpl" },
@@ -47,6 +50,7 @@ return {
               },
             },
           },
+          -- https://docs.astral.sh/ruff/installation/
           ruff = {
             cmd = { "ruff", "server" },
             filetypes = { "python" },
@@ -56,6 +60,7 @@ return {
               ".ruff.toml",
             },
           },
+          -- npm install --global yaml-language-server
           yamlls = {
             cmd = { "yaml-language-server", "--stdio" },
             filetypes = { "yaml" },
