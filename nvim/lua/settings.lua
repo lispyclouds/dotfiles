@@ -7,7 +7,7 @@ return {
       backup = false,
       clipboard = "unnamedplus",
       cmdheight = 1,
-      completeopt = "menuone,noselect",
+      completeopt = "menuone,noselect,fuzzy",
       cursorline = true,
       encoding = encoding,
       errorbells = false,
@@ -62,6 +62,8 @@ return {
     for _, opt in ipairs(disabled_global_opts) do
       vim.g[opt] = 0
     end
+
+    vim.diagnostic.config({ virtual_text = true })
 
     vim.api.nvim_create_autocmd("TextYankPost", {
       desc = "highlight yanked region temporarily",

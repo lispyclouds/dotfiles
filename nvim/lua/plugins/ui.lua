@@ -1,5 +1,3 @@
-local buf_read = "BufRead"
-
 return {
   {
     -- colorscheme
@@ -16,7 +14,7 @@ return {
   },
   {
     "lewis6991/gitsigns.nvim",
-    event = buf_read,
+    event = "BufRead",
     config = true,
   },
   {
@@ -28,29 +26,6 @@ return {
     "MagicDuck/grug-far.nvim",
     config = true,
     lazy = true,
-  },
-  {
-    "saghen/blink.cmp",
-    version = "*",
-    event = buf_read,
-    opts = {
-      keymap = {
-        ["<C-k>"] = { "select_prev", "fallback" },
-        ["<C-j>"] = { "select_next", "fallback" },
-        ["<CR>"] = { "accept", "fallback" },
-      },
-      sources = {
-        default = { "lsp", "path", "buffer" },
-      },
-      cmdline = { enabled = false },
-      signature = { enabled = true },
-      completion = {
-        documentation = {
-          auto_show = true,
-          auto_show_delay_ms = 200,
-        },
-      },
-    },
   },
   {
     "ibhagwan/fzf-lua",

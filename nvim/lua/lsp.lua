@@ -72,6 +72,14 @@ return {
         local on_attach = function(client, buffer)
           local buf = vim.lsp.buf
           local show_ih = false
+          local chars = {}
+
+          for i = 32, 126 do
+            table.insert(chars, string.char(i))
+          end
+
+          client.server_capabilities.completionProvider.triggerCharacters = chars
+          vim.lsp.completion.enable(true, client.id, buffer, { autotrigger = true })
 
           require("impl").map({
             ["<leader>fb"] = {
@@ -100,8 +108,6 @@ return {
           })
         end
 
-        vim.diagnostic.config({ virtual_text = true })
-
         for lsp, opts in pairs(lsps) do
           opts.capabilities = {
             textDocument = {
@@ -110,7 +116,6 @@ return {
                   commitCharactersSupport = false,
                   deprecatedSupport = true,
                   documentationFormat = { "markdown", "plaintext" },
-                  insertReplaceSupport = true,
                   insertTextModeSupport = { valueSet = { 1 } },
                   labelDetailsSupport = true,
                   preselectSupport = false,
