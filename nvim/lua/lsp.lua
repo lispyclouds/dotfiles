@@ -84,14 +84,13 @@ return {
 
           require("impl").map({
             ["<leader>fb"] = {
-              action = vim.lsp.buf.format,
+              action = buf.format,
               opts = {
                 desc = "LSP [F]ormat [B]uffer",
                 buffer = buffer,
               },
             },
             ["<leader>ca"] = buf.code_action,
-            ["<leader>d"] = vim.diagnostic.open_float,
             ["<leader>h"] = buf.hover,
             ["<leader>r"] = buf.rename,
             ["gd"] = buf.definition,
