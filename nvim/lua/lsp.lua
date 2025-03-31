@@ -18,6 +18,11 @@ return {
             settings = {
               basedpyright = {
                 typeCheckingMode = "standard",
+                analysis = {
+                  autoSearchPaths = true,
+                  diagnosticMode = "openFilesOnly",
+                  useLibraryCodeForTypes = true,
+                },
               },
             },
           },
@@ -73,13 +78,16 @@ return {
           local buf = vim.lsp.buf
           local show_ih = false
 
-          -- all the chars
-          local chars = {}
-          for i = 32, 126 do
-            table.insert(chars, string.char(i))
+          if client.server_capabilities.completionProvider ~= nil then
+            -- trigger on all chars if supported
+            local chars = {}
+            for i = 32, 126 do
+              table.insert(chars, string.char(i))
+            end
+
+            client.server_capabilities.completionProvider.triggerCharacters = chars
           end
 
-          client.server_capabilities.completionProvider.triggerCharacters = chars
           vim.lsp.completion.enable(true, client.id, buffer, { autotrigger = true })
 
           -- better completion nav
