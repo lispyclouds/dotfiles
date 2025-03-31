@@ -82,6 +82,11 @@ return {
           client.server_capabilities.completionProvider.triggerCharacters = chars
           vim.lsp.completion.enable(true, client.id, buffer, { autotrigger = true })
 
+          -- better completion nav
+          local next, prev = "<C-j>", "<C-k>"
+          vim.keymap.set("i", next, [[pumvisible() ? "\<C-n>" : "\]] .. next .. [["]], { expr = true })
+          vim.keymap.set("i", prev, [[pumvisible() ? "\<C-p>" : "\]] .. prev .. [["]], { expr = true })
+
           require("impl").map({
             ["<leader>fb"] = {
               action = buf.format,
@@ -109,6 +114,7 @@ return {
         end
 
         for lsp, opts in pairs(lsps) do
+          opts.on_attach = on_attach
           opts.capabilities = {
             textDocument = {
               completion = {
@@ -145,8 +151,6 @@ return {
               },
             },
           }
-          opts.on_attach = on_attach
-          opts.single_file_support = true
 
           vim.lsp.config(lsp, opts)
           vim.lsp.enable(lsp)
