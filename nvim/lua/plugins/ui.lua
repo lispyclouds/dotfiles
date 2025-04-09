@@ -28,10 +28,22 @@ return {
     lazy = true,
   },
   {
-    "ibhagwan/fzf-lua",
+    "folke/snacks.nvim",
     lazy = true,
-    config = function()
-      require("fzf-lua").setup({})
-    end,
+    opts = {
+      picker = { enabled = true },
+
+      bigfile = { enabled = false },
+      dashboard = { enabled = false },
+      explorer = { enabled = false },
+      indent = { enabled = false },
+      input = { enabled = false },
+      notifier = { enabled = false },
+      quickfile = { enabled = false },
+      scope = { enabled = false },
+      scroll = { enabled = false },
+      statuscolumn = { enabled = false },
+      words = { enabled = false },
+    },
   },
 }

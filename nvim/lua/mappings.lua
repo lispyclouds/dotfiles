@@ -31,13 +31,13 @@ return {
       },
       ["<leader><leader>"] = {
         action = function()
-          require("fzf-lua").files()
+          require("snacks").picker.smart()
         end,
         opts = { desc = "Find files" },
       },
       ["<leader>s"] = {
         action = function()
-          require("fzf-lua").live_grep()
+          require("snacks").picker.grep()
         end,
         opts = { desc = "[S]earch in files" },
       },
