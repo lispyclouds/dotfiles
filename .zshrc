@@ -122,7 +122,6 @@ else
            bb_install && \
            sudo npm update -g  && \
            task linux download nerd-fonts NerdFontsSymbolsOnly && \
-           task linux download themes catppuccin-mocha-blue-standard+default && \
            z4h update"
 fi
 

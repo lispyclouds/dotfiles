@@ -31,7 +31,7 @@ return {
       },
       ["<leader><leader>"] = {
         action = function()
-          require("snacks").picker.smart()
+          require("snacks").picker.smart({ hidden = true })
         end,
         opts = { desc = "Find files" },
       },
