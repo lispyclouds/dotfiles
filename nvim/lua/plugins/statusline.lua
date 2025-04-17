@@ -2,32 +2,30 @@ return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
   config = function()
-    local colours = {
-      black = "#080808",
-      blue = "#80a0ff",
-      cyan = "#79dac8",
-      grey = "#303030",
-      red = "#ff5189",
-      violet = "#d183e8",
-      white = "#c6c6c6",
-    }
+    local black = "#080808"
+    local blue = "#80a0ff"
+    local cyan = "#79dac8"
+    local grey = "#303030"
+    local red = "#ff5189"
+    local violet = "#d183e8"
+    local white = "#c6c6c6"
     local left_sep, right_sep = "", ""
 
     require("lualine").setup({
       options = {
         theme = {
           normal = {
-            a = { fg = colours.black, bg = colours.violet },
-            b = { fg = colours.white, bg = colours.grey },
-            c = { fg = colours.black, bg = "None" },
+            a = { fg = black, bg = violet },
+            b = { fg = white, bg = grey },
+            c = { fg = black, bg = "None" },
           },
-          insert = { a = { fg = colours.black, bg = colours.blue } },
-          visual = { a = { fg = colours.black, bg = colours.cyan } },
-          replace = { a = { fg = colours.black, bg = colours.red } },
+          insert = { a = { fg = black, bg = blue } },
+          visual = { a = { fg = black, bg = cyan } },
+          replace = { a = { fg = black, bg = red } },
           inactive = {
-            a = { fg = colours.white, bg = colours.black },
-            b = { fg = colours.white, bg = colours.black },
-            c = { fg = colours.black, bg = colours.black },
+            a = { fg = white, bg = black },
+            b = { fg = white, bg = black },
+            c = { fg = black, bg = black },
           },
         },
         component_separators = "|",
