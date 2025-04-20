@@ -23,9 +23,7 @@
       - freetype-devel
       - fzf
       - gcc-c++
-      - gnome-shell-extension-gpaste
       - gnome-tweaks
-      - gpaste
       - gum
       - hadolint
       - heif-pixbuf-loader
