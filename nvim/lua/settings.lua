@@ -29,7 +29,7 @@ return {
       ruler = true,
       scrolloff = 7,
       shiftwidth = 2,
-      shortmess = "I",
+      shortmess = "Ic",
       showmatch = true,
       showmode = false,
       signcolumn = "yes:1",
