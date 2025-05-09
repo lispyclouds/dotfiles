@@ -3,7 +3,7 @@ return {
     -- colorscheme
     "scottmckendry/cyberdream.nvim",
     config = function()
-      theme = require("cyberdream")
+      local theme = require("cyberdream")
 
       theme.setup({
         cache = true,
