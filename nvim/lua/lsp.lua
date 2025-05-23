@@ -6,24 +6,13 @@ return {
       once = true,
       callback = function()
         local lsps = {
-          -- https://docs.basedpyright.com/latest/installation/command-line-and-language-server/
-          basedpyright = {
-            cmd = { "basedpyright-langserver", "--stdio" },
+          -- uv pip install ty
+          ty = {
+            cmd = { "ty", "server" },
             filetypes = { "python" },
             root_markers = {
               "pyproject.toml",
-              "pyrightconfig.json",
               "requirements.txt",
-            },
-            settings = {
-              basedpyright = {
-                typeCheckingMode = "standard",
-                analysis = {
-                  autoSearchPaths = true,
-                  diagnosticMode = "openFilesOnly",
-                  useLibraryCodeForTypes = true,
-                },
-              },
             },
           },
           -- https://clojure-lsp.io/installation/
