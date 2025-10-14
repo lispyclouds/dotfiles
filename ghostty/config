@@ -2,6 +2,8 @@ background-opacity = 0.95
 cursor-style = "block"
 cursor-style-blink = false
 font-family = "Iosevka Term"
+# Fallback for symbols
+font-family = "Symbols Nerd Font Mono"
 font-size = 11
 font-style = Heavy
 
