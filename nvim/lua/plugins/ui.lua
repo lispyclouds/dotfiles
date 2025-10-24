@@ -1,3 +1,5 @@
+local disabled = { enabled = false }
+
 return {
   {
     -- colorscheme
@@ -33,17 +35,35 @@ return {
     opts = {
       picker = { enabled = true },
 
-      bigfile = { enabled = false },
-      dashboard = { enabled = false },
-      explorer = { enabled = false },
-      indent = { enabled = false },
-      input = { enabled = false },
-      notifier = { enabled = false },
-      quickfile = { enabled = false },
-      scope = { enabled = false },
-      scroll = { enabled = false },
-      statuscolumn = { enabled = false },
-      words = { enabled = false },
+      animate = disabled,
+      bigfile = disabled,
+      bufdelete = disabled,
+      dashboard = disabled,
+      debug = disabled,
+      dim = disabled,
+      explorer = disabled,
+      git = disabled,
+      gitbrowse = disabled,
+      image = disabled,
+      indent = disabled,
+      input = disabled,
+      layout = disabled,
+      lazygit = disabled,
+      notifier = disabled,
+      notify = disabled,
+      profiler = disabled,
+      quickfile = disabled,
+      rename = disabled,
+      scope = disabled,
+      scratch = disabled,
+      scroll = disabled,
+      statuscolumn = disabled,
+      terminal = disabled,
+      toggle = disabled,
+      util = disabled,
+      win = disabled,
+      words = disabled,
+      zen = disabled,
     },
   },
 }
