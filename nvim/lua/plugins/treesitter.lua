@@ -1,32 +1,35 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
-  cmd = { "TSUpdate", "TSUpdateSync" },
+  cmd = "TSUpdate",
   event = "VeryLazy",
   config = function()
-    require("nvim-treesitter.configs").setup({
-      ensure_installed = {
-        "bash",
-        "clojure",
-        "dockerfile",
-        "go",
-        "hcl",
-        "java",
-        "json",
-        "lua",
-        "markdown",
-        "markdown_inline",
-        "ocaml",
-        "python",
-        "rust",
-        "sql",
-        "terraform",
-        "yaml",
-      },
-      highlight = {
-        additional_vim_regex_highlighting = false,
-        enable = true,
-      },
+    local parsers = {
+      "bash",
+      "clojure",
+      "dockerfile",
+      "go",
+      "hcl",
+      "java",
+      "json",
+      "lua",
+      "markdown",
+      "ocaml",
+      "python",
+      "rust",
+      "sql",
+      "terraform",
+      "yaml",
+    }
+
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = parsers,
+      group = vim.api.nvim_create_augroup("lispyclouds-ts", { clear = true }),
+      callback = function()
+        vim.treesitter.start()
+      end,
     })
+
+    require("nvim-treesitter").install(parsers)
   end,
 }
