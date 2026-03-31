@@ -1,5 +1,3 @@
-vim.g.parinfer_force_balance = true
-
 require("settings")
 require("mappings")
 require("lsp")
@@ -26,17 +24,6 @@ theme.setup({
   transparent = true,
 })
 theme.load()
-
--- clojure
--- TODO: ft clojure
-vim.api.nvim_create_autocmd("BufNewFile", {
-  group = vim.api.nvim_create_augroup("conjure-log-disable-lsp", { clear = true }),
-  pattern = { "conjure-log-*" },
-  callback = function(event)
-    vim.diagnostic.enable(false, { bufnr = event.buf })
-  end,
-  desc = "Conjure Log disable LSP diagnostics",
-})
 
 -- others
 require("mini.icons").setup()
