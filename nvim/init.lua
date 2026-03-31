@@ -1,106 +1,144 @@
---[[
-                        WX0kxol:;,,           ,;:lodk0XW
-                   WNKkdc;,                           ;cokKNW
-                WXOdc,            ,;;;::::;;;,            ,:oOXW
-             WNOo:         ;codkO0KXXXNNNNXXXK0Okdoc;         ;oOXW
-           WKxc         ,oOXNW                    WNX0xc         :xKW
-         WKd;           ,oKW                          W0:          ;dKW
-       WXx;               :OW                          0:            ;dKW
-      NOc      :do,        ;xN                         0:              :kN
-     Xd,     ;xXWNk:        ,oKW                       0:        ::     ,oKW
-   WKl     ,oKW   WKl         :OW                      0:       ,xKo,     c0W
-  W0c     ;xN       Xx;        ;xN                     0:       ,kWNk:     :OW
- W0c     :OW         WO:         lKW                   0:       ,kW W0c     :0W
- Xl     :OW           WKo         :OW                  0:       ;OW  W0c     cK
-Nx,    ;OW              Nx;        ,dX                 O;       ;0    W0:     oN
-O:    ,dN              NKx;          lKW              Wk,       cK     Wk,    ;k
-o     cK            WXkl,             :kXN            Nd        lX      Xl     l
-:    ,xW           Nkc                 ,:dX           Kc       ,xW      Wk,    ;
-,    ;0          WKo,        ;l:          l0W        Nd,       cK        Kc
-     cK         W0c        ;xKWXd,         :kN      Wk;       ;kW        Xl
-     lX         0c        l0W   Nk:         ,dX    Nx;       ,dN         No
-     lX        Kl        lK      W0l          c0WN0l,       ,dN          No
-     cK       Nx,       c0         Xd,         ;lc,        :kN           Kc
-,    ;OW      Kc       ,xW          Nk:                  ;dKW           WO;    ,
-c     dN     Wk,       :0            WKl,              :dKW             Nd     :
-x,    :OW    Nd        lX              X0d,          lkXW               0:     d
-Kc     lX    No        oN                NO:         lKW               Xo     :0
-WO;     dN   No        dN                 WKl         :OW             Nx,    ,kW
- Nx,    ,dN  Xl        dN                   Xx;        ;xN           Nx,    ,dN
-  Nd,    ,oX Xl        dN                    WO:         lKW        Xd,     oX
-   Nd,     c0Xl        dN                     WKl         :ON     WKl     ,dX
-    Nk;     ;o:        dN                       Nx;        ,dX   Xx:     ;xN
-     W0c               dN                        WOc         l0Xkc      cOW
-       Xx;             dN                         WKo,        ;:,     ;dXW
-        WKd;           dN                           Nx;             ,o0W
-          WKd;         c0NW                          Nk;          ;o0N
-            WXkc,       ,:oxOKXNW              WNXKOxo:,       ,cxKW
-               N0dc,         ,;clodxxkkkkkkxxdolc;,         ,:d0N
-                  NKko:,                                ,:lx0NW
-                     WN0kdl:;,                     ,:ldk0XW
-                          WX0kdl:,,          ,,:cox0XWW
---]]
+vim.g.parinfer_force_balance = true
 
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-local undo_dir = vim.loop.os_homedir() .. "/.vim/undodir"
-
-if not vim.loop.fs_stat(lazypath) then
-  print("nvim is bootstrapping, please restart it when completed.")
-
-  local fn = vim.fn
-  if not fn.isdirectory(undo_dir) then
-    fn.mkdir(undo_dir, "", 0700)
-  end
-
-  fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "--single-branch",
-    "https://github.com/folke/lazy.nvim.git",
-    lazypath,
-  })
-end
-
-vim.opt.runtimepath:prepend(lazypath)
-vim.loader.enable()
-
-vim.filetype.add({
-  extension = {
-    edn = "clojure",
-    tfvars = "hcl",
-  },
+vim.pack.add({
+  "https://github.com/MagicDuck/grug-far.nvim",
+  "https://github.com/MeanderingProgrammer/render-markdown.nvim",
+  "https://github.com/Olical/conjure",
+  "https://github.com/folke/snacks.nvim",
+  "https://github.com/gpanders/nvim-parinfer",
+  "https://github.com/lewis6991/gitsigns.nvim",
+  "https://github.com/nvim-lualine/lualine.nvim",
+  "https://github.com/nvim-mini/mini.nvim",
+  "https://github.com/nvim-treesitter/nvim-treesitter",
+  "https://github.com/scottmckendry/cyberdream.nvim",
 })
+
+local undo_dir = vim.loop.os_homedir() .. "/.vim/undodir"
+if not vim.fn.isdirectory(undo_dir) then
+  vim.fn.mkdir(undo_dir, "", 0700)
+end
 
 require("settings").setup(undo_dir)
 require("mappings").setup()
 require("lsp").setup()
-require("lazy").setup({ import = "plugins" }, {
-  change_detection = {
-    notify = false,
-  },
-  performance = {
-    rtp = {
-      disabled_plugins = {
-        "2html_plugin",
-        "editorconfig",
-        "getscript",
-        "getscriptPlugin",
-        "logipat",
-        "man",
-        "netrw",
-        "netrwFileHandlers",
-        "netrwPlugin",
-        "netrwSettings",
-        "rplugin",
-        "rrhelper",
-        "shada",
-        "spec",
-        "tar",
-        "tarPlugin",
-        "tohtml",
-        "tutor",
+
+-- plugins
+
+-- theme
+local theme = require("cyberdream")
+theme.setup({
+  cache = true,
+  transparent = true,
+})
+theme.load()
+
+-- treesitter
+local ts_parsers = {
+  "bash",
+  "clojure",
+  "dockerfile",
+  "go",
+  "hcl",
+  "java",
+  "json",
+  "lua",
+  "markdown",
+  "ocaml",
+  "python",
+  "rust",
+  "sql",
+  "terraform",
+  "yaml",
+}
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = ts_parsers,
+  group = vim.api.nvim_create_augroup("lispyclouds-ts", { clear = true }),
+  callback = function()
+    vim.treesitter.start()
+  end,
+})
+
+vim.api.nvim_create_autocmd("PackChanged", {
+  callback = function(ev)
+    local name, kind = ev.data.spec.name, ev.data.kind
+    if name == "nvim-treesitter" and kind == "update" then
+      if not ev.data.active then
+        vim.cmd.packadd("nvim-treesitter")
+      end
+      vim.cmd("TSUpdate")
+    end
+  end,
+})
+
+require("nvim-treesitter").install(parsers)
+
+-- statusline
+local black = "#080808"
+local blue = "#80a0ff"
+local cyan = "#79dac8"
+local grey = "#303030"
+local red = "#ff5189"
+local violet = "#d183e8"
+local white = "#c6c6c6"
+local left_sep, right_sep = "", ""
+
+require("lualine").setup({
+  options = {
+    theme = {
+      normal = {
+        a = { fg = black, bg = violet },
+        b = { fg = white, bg = grey },
+        c = { fg = black, bg = "None" },
+      },
+      insert = { a = { fg = black, bg = blue } },
+      visual = { a = { fg = black, bg = cyan } },
+      replace = { a = { fg = black, bg = red } },
+      inactive = {
+        a = { fg = white, bg = black },
+        b = { fg = white, bg = black },
+        c = { fg = black, bg = black },
       },
     },
+    component_separators = "|",
+    section_separators = { left = right_sep, right = left_sep },
   },
+  sections = {
+    lualine_a = {
+      { "mode", separator = { left = left_sep }, right_padding = 2 },
+    },
+    lualine_b = { { "filename", path = 4 }, "diagnostics" },
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = { "branch", "filetype", "progress" },
+    lualine_z = {
+      { "location", separator = { right = right_sep }, left_padding = 2 },
+    },
+  },
+  inactive_sections = {
+    lualine_a = { "filename" },
+    lualine_b = {},
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = { "location" },
+  },
+  tabline = {},
+  extensions = {},
+})
+
+-- mini
+require("mini.bufremove").setup()
+require("mini.icons").setup()
+
+-- clojure
+-- TODO: ft clojure
+
+vim.api.nvim_create_autocmd("BufNewFile", {
+  group = vim.api.nvim_create_augroup("conjure-log-disable-lsp", { clear = true }),
+  pattern = { "conjure-log-*" },
+  callback = function(event)
+    vim.diagnostic.enable(false, { bufnr = event.buf })
+  end,
+  desc = "Conjure Log disable LSP diagnostics",
 })
