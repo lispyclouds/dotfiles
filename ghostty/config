@@ -19,26 +19,26 @@ keybind = ctrl+shift+plus=increase_font_size:1
 keybind = ctrl+shift+s=new_split:right
 keybind = ctrl+shift+w=close_surface
 
-# https://github.com/scottmckendry/cyberdream.nvim/tree/main/extras/ghostty
-palette = 0=#16181A
-palette = 1=#FF6E5E
-palette = 2=#5EFF6C
-palette = 3=#F1FF5E
-palette = 4=#5EA1FF
-palette = 5=#BD5EFF
-palette = 6=#5EF1FF
-palette = 7=#FFFFFF
-palette = 8=#3C4048
-palette = 9=#FF6E5E
-palette = 10=#5EFF6C
-palette = 11=#F1FF5E
-palette = 12=#5EA1FF
-palette = 13=#BD5EFF
-palette = 14=#5EF1FF
-palette = 15=#FFFFFF
-
-background = #16181A
-cursor-color = #FFFFFF
-foreground = #FFFFFF
-selection-background = #3C4048
-selection-foreground = #FFFFFF
+# https://github.com/catppuccin/ghostty/blob/main/themes/catppuccin-mocha.conf
+palette = 0=#45475a
+palette = 1=#f38ba8
+palette = 2=#a6e3a1
+palette = 3=#f9e2af
+palette = 4=#89b4fa
+palette = 5=#f5c2e7
+palette = 6=#94e2d5
+palette = 7=#a6adc8
+palette = 8=#585b70
+palette = 9=#f38ba8
+palette = 10=#a6e3a1
+palette = 11=#f9e2af
+palette = 12=#89b4fa
+palette = 13=#f5c2e7
+palette = 14=#94e2d5
+palette = 15=#bac2de
+background = 1e1e2e
+foreground = cdd6f4
+cursor-color = f5e0dc
+cursor-text = 11111b
+selection-background = 353749
+selection-foreground = cdd6f4
