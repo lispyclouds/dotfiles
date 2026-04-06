@@ -29,6 +29,7 @@ require("settings")
 require("mappings")
 require("lsp")
 
+require("vim._core.ui2").enable({})
 require("mini.icons").setup()
 require("snacks").setup({ picker = { enabled = true } })
 require("statusline")

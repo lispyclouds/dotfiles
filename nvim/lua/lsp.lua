@@ -128,7 +128,6 @@ vim.api.nvim_create_autocmd("BufReadPre", {
                   "data",
                 },
               },
-              snippetSupport = true,
               tagSupport = { valueSet = { 1 } },
             },
             completionList = {
