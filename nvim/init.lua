@@ -1,3 +1,18 @@
+disabled = {
+  "editorconfig",
+  "gzip",
+  "man",
+  "netrwPlugin",
+  "rplugin",
+  "shada",
+  "tarPlugin",
+  "tutor_mode_plugin",
+}
+
+for _, p in ipairs(disabled) do
+  vim.g["loaded_" .. p] = true
+end
+
 -- plugins
 vim.pack.add({
   "https://github.com/MagicDuck/grug-far.nvim",
@@ -9,7 +24,7 @@ vim.pack.add({
   { src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
 })
 
--- lazy loaded
+-- lazy loaded on ft
 vim.pack.add({
   "https://github.com/MeanderingProgrammer/render-markdown.nvim",
   "https://github.com/Olical/conjure",
