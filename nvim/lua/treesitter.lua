@@ -18,7 +18,7 @@ local ts_parsers = {
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = ts_parsers,
-  group = vim.api.nvim_create_augroup("lispyclouds-ts", { clear = true }),
+  once = true,
   callback = function()
     vim.treesitter.start()
   end,

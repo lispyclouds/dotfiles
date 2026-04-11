@@ -1,6 +1,5 @@
 vim.api.nvim_create_autocmd("BufReadPre", {
   desc = "Setup LSP",
-  group = vim.api.nvim_create_augroup("lispyclouds-setup-lsp", { clear = true }),
   once = true,
   callback = function()
     local lsps = {

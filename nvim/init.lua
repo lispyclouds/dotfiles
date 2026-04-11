@@ -17,19 +17,27 @@ end
 vim.pack.add({
   "https://github.com/MagicDuck/grug-far.nvim",
   "https://github.com/folke/snacks.nvim",
-  "https://github.com/lewis6991/gitsigns.nvim",
   "https://github.com/nvim-lualine/lualine.nvim",
   "https://github.com/nvim-mini/mini.nvim",
   "https://github.com/nvim-treesitter/nvim-treesitter",
   { src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
 })
 
--- lazy loaded on ft
+-- lazy loaded
 vim.pack.add({
   "https://github.com/MeanderingProgrammer/render-markdown.nvim",
   "https://github.com/Olical/conjure",
   "https://github.com/gpanders/nvim-parinfer",
+  "https://github.com/lewis6991/gitsigns.nvim",
 }, { load = function() end })
+
+-- lazy loaded on buffer events
+vim.api.nvim_create_autocmd("BufReadPre", {
+  once = true,
+  callback = function()
+    vim.cmd.packadd("gitsigns.nvim")
+  end,
+})
 
 -- theme
 local theme = require("catppuccin")
