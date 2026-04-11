@@ -55,14 +55,12 @@ for opt, val in pairs(opts) do
   vim.o[opt] = val
 end
 
-local disabled_global_opts = {
+for _, opt in ipairs({
   "loaded_node_provider",
   "loaded_perl_provider",
   "loaded_python3_provider",
   "loaded_ruby_provider",
-}
-
-for _, opt in ipairs(disabled_global_opts) do
+}) do
   vim.g[opt] = 0
 end
 

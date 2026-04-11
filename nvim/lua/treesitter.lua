@@ -1,4 +1,4 @@
-local ts_parsers = {
+local parsers = {
   "bash",
   "clojure",
   "dockerfile",
@@ -17,7 +17,7 @@ local ts_parsers = {
 }
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = ts_parsers,
+  pattern = parsers,
   once = true,
   callback = function()
     vim.treesitter.start()

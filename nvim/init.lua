@@ -1,4 +1,4 @@
-disabled = {
+for _, p in ipairs({
   "editorconfig",
   "gzip",
   "man",
@@ -7,9 +7,7 @@ disabled = {
   "shada",
   "tarPlugin",
   "tutor_mode_plugin",
-}
-
-for _, p in ipairs(disabled) do
+}) do
   vim.g["loaded_" .. p] = true
 end
 
