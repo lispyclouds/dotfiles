@@ -112,12 +112,10 @@ vim.api.nvim_create_autocmd("BufReadPre", {
         textDocument = {
           completion = {
             completionItem = {
-              commitCharactersSupport = false,
               deprecatedSupport = true,
               documentationFormat = { "markdown", "plaintext" },
               insertTextModeSupport = { valueSet = { 1 } },
               labelDetailsSupport = true,
-              preselectSupport = false,
               resolveSupport = {
                 properties = {
                   "documentation",
@@ -129,17 +127,7 @@ vim.api.nvim_create_autocmd("BufReadPre", {
               },
               tagSupport = { valueSet = { 1 } },
             },
-            completionList = {
-              itemDefaults = {
-                "commitCharacters",
-                "editRange",
-                "insertTextFormat",
-                "insertTextMode",
-                "data",
-              },
-            },
             contextSupport = true,
-            insertTextMode = 1,
           },
         },
       }

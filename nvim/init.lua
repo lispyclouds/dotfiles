@@ -11,7 +11,7 @@ for _, p in ipairs({
   vim.g["loaded_" .. p] = true
 end
 
--- plugins
+-- eagerly loaded
 vim.pack.add({
   "https://github.com/MagicDuck/grug-far.nvim",
   "https://github.com/folke/snacks.nvim",
@@ -21,7 +21,7 @@ vim.pack.add({
   { src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
 })
 
--- lazy loaded
+-- lazily loaded
 vim.pack.add({
   "https://github.com/MeanderingProgrammer/render-markdown.nvim",
   "https://github.com/Olical/conjure",
