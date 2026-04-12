@@ -34,6 +34,9 @@
     "python": {
       "url": "https://github.com/tree-sitter/tree-sitter-python"
     },
+    "regex": {
+      "url": "https://github.com/tree-sitter/tree-sitter-regex"
+    },
     "yaml": {
       "url": "https://github.com/tree-sitter-grammars/tree-sitter-yaml"
     }

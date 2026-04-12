@@ -51,7 +51,19 @@ theme.load("mocha")
 
 -- treesitter, managed externally
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "bash", "clojure", "dockerfile", "go", "java", "json", "lua", "markdown", "python", "yaml" },
+  pattern = {
+    "bash",
+    "clojure",
+    "dockerfile",
+    "go",
+    "java",
+    "json",
+    "lua",
+    "markdown",
+    "python",
+    "regex",
+    "yaml",
+  },
   once = true,
   callback = function()
     vim.treesitter.start()
