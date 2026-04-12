@@ -3,16 +3,11 @@ local parsers = {
   "clojure",
   "dockerfile",
   "go",
-  "hcl",
   "java",
   "json",
   "lua",
   "markdown",
-  "ocaml",
   "python",
-  "rust",
-  "sql",
-  "terraform",
   "yaml",
 }
 
