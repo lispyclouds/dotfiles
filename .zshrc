@@ -59,7 +59,7 @@ alias repl='clojure -J--enable-preview -Sdeps "{:deps {nrepl/nrepl {:mvn/version
 alias antq="clojure -Sdeps '{:deps {com.github.liquidz/antq {:mvn/version \"RELEASE\"}}}' -M -m antq.core"
 alias task="bb --config ~/code/repos/dotfiles/bb.edn"
 alias commit="dei commit"
-alias nsync='nvim --headless "+lua vim.pack.update(nil, { force = true })" +TSUpdate +qa'
+alias nsync='nvim --headless "+lua vim.pack.update(nil, { force = true })" +qa'
 alias vim=nvim
 alias tree='eza --git-ignore --tree'
 

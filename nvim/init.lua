@@ -1,3 +1,4 @@
+-- disable some inbuilt plugins
 for _, p in ipairs({
   "editorconfig",
   "gzip",
@@ -17,7 +18,6 @@ vim.pack.add({
   "https://github.com/folke/snacks.nvim",
   "https://github.com/nvim-lualine/lualine.nvim",
   "https://github.com/nvim-mini/mini.nvim",
-  "https://github.com/nvim-treesitter/nvim-treesitter",
   { src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
 })
 
@@ -49,6 +49,15 @@ theme.setup({
 })
 theme.load("mocha")
 
+-- treesitter, managed externally
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "bash", "clojure", "dockerfile", "go", "java", "json", "lua", "markdown", "python", "yaml" },
+  once = true,
+  callback = function()
+    vim.treesitter.start()
+  end,
+})
+
 -- config
 require("settings")
 require("mappings")
@@ -58,4 +67,3 @@ require("vim._core.ui2").enable({})
 require("mini.icons").setup()
 require("snacks").setup({ picker = { enabled = true } })
 require("statusline")
-require("treesitter")
