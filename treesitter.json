@@ -1,0 +1,41 @@
+{
+  "parsersPath": "~/.local/share/nvim/site/parser",
+  "queriesPath": "~/.local/share/nvim/site/queries",
+  "langs": {
+    "bash": {
+      "url": "https://github.com/tree-sitter/tree-sitter-bash"
+    },
+    "clojure": {
+      "url": "https://github.com/sogaiu/tree-sitter-clojure"
+    },
+    "dockerfile": {
+      "url": "https://github.com/camdencheek/tree-sitter-dockerfile"
+    },
+    "go": {
+      "url": "https://github.com/tree-sitter/tree-sitter-go"
+    },
+    "java": {
+      "url": "https://github.com/tree-sitter/tree-sitter-java"
+    },
+    "json": {
+      "url": "https://github.com/tree-sitter/tree-sitter-json"
+    },
+    "lua": {
+      "url": "https://github.com/tree-sitter-grammars/tree-sitter-lua"
+    },
+    "markdown": {
+      "url": "https://github.com/tree-sitter-grammars/tree-sitter-markdown",
+      "repoPath": "tree-sitter-markdown"
+    },
+    "markdown_inline": {
+      "url": "https://github.com/tree-sitter-grammars/tree-sitter-markdown",
+      "repoPath": "tree-sitter-markdown-inline"
+    },
+    "python": {
+      "url": "https://github.com/tree-sitter/tree-sitter-python"
+    },
+    "yaml": {
+      "url": "https://github.com/tree-sitter-grammars/tree-sitter-yaml"
+    }
+  }
+}
