@@ -94,7 +94,7 @@ vim.api.nvim_create_autocmd("BufReadPre", {
         ["gd"] = buf.definition,
         ["<leader>ih"] = {
           action = function()
-            if client.supports_method("textDocument/inlayHint") or client.server_capabilities.inlayHintProvider then
+            if client:supports_method("textDocument/inlayHint") or client.server_capabilities.inlayHintProvider then
               show_ih = not show_ih
               vim.lsp.inlay_hint.enable(show_ih, { bufnr = buffer })
             else
