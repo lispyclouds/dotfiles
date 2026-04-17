@@ -12,14 +12,31 @@ for _, p in ipairs({
   vim.g["loaded_" .. p] = true
 end
 
--- eagerly loaded
-vim.pack.add({
-  "https://github.com/MagicDuck/grug-far.nvim",
-  "https://github.com/folke/snacks.nvim",
-  "https://github.com/nvim-lualine/lualine.nvim",
-  "https://github.com/nvim-mini/mini.nvim",
-  { src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
-})
+-- deferred load
+vim.schedule(function()
+  vim.pack.add({
+    "https://github.com/nvim-lualine/lualine.nvim",
+    "https://github.com/MagicDuck/grug-far.nvim",
+    "https://github.com/folke/snacks.nvim",
+    "https://github.com/nvim-mini/mini.nvim",
+    { src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
+  })
+
+  local theme = require("catppuccin")
+  theme.setup({
+    flavour = "mocha",
+    transparent_background = true,
+    snacks = { enabled = true },
+    gitsigns = true,
+    grug_far = true,
+    mini = { enabled = true },
+  })
+  theme.load("mocha")
+
+  require("mini.icons").setup()
+  require("snacks").setup({ picker = { enabled = true } })
+  require("statusline")
+end)
 
 -- lazily loaded
 vim.pack.add({
@@ -36,18 +53,6 @@ vim.api.nvim_create_autocmd("BufReadPre", {
     vim.cmd.packadd("gitsigns.nvim")
   end,
 })
-
--- theme
-local theme = require("catppuccin")
-theme.setup({
-  flavour = "mocha",
-  transparent_background = true,
-  snacks = { enabled = true },
-  gitsigns = true,
-  grug_far = true,
-  mini = { enabled = true },
-})
-theme.load("mocha")
 
 -- treesitter, managed externally
 vim.api.nvim_create_autocmd("FileType", {
@@ -74,8 +79,4 @@ vim.api.nvim_create_autocmd("FileType", {
 require("settings")
 require("mappings")
 require("lsp")
-
 require("vim._core.ui2").enable({})
-require("mini.icons").setup()
-require("snacks").setup({ picker = { enabled = true } })
-require("statusline")
