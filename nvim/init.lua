@@ -22,6 +22,23 @@ vim.schedule(function()
     { src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
   })
 
+  -- fully lazy
+  vim.pack.add({
+    "https://github.com/MeanderingProgrammer/render-markdown.nvim",
+    "https://github.com/Olical/conjure",
+    "https://github.com/gpanders/nvim-parinfer",
+    "https://github.com/lewis6991/gitsigns.nvim",
+  }, { load = function() end })
+
+  -- load on buffer events
+  vim.api.nvim_create_autocmd("BufReadPre", {
+    once = true,
+    callback = function()
+      vim.cmd.packadd("gitsigns.nvim")
+    end,
+  })
+
+  -- theme
   local theme = require("catppuccin")
   theme.setup({
     flavour = "mocha",
@@ -33,26 +50,11 @@ vim.schedule(function()
   })
   theme.load("mocha")
 
+  -- plugin setup
   require("mini.icons").setup()
   require("snacks").setup({ picker = { enabled = true } })
   require("statusline")
 end)
-
--- lazily loaded
-vim.pack.add({
-  "https://github.com/MeanderingProgrammer/render-markdown.nvim",
-  "https://github.com/Olical/conjure",
-  "https://github.com/gpanders/nvim-parinfer",
-  "https://github.com/lewis6991/gitsigns.nvim",
-}, { load = function() end })
-
--- lazy loaded on buffer events
-vim.api.nvim_create_autocmd("BufReadPre", {
-  once = true,
-  callback = function()
-    vim.cmd.packadd("gitsigns.nvim")
-  end,
-})
 
 -- treesitter, managed externally
 vim.api.nvim_create_autocmd("FileType", {
