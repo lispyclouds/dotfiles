@@ -3,13 +3,14 @@ for _, p in ipairs({
   "editorconfig",
   "gzip",
   "man",
+  "netrw",
   "netrwPlugin",
   "rplugin",
   "shada",
   "tarPlugin",
   "tutor_mode_plugin",
 }) do
-  vim.g["loaded_" .. p] = true
+  vim.g["loaded_" .. p] = 1
 end
 
 -- deferred load
@@ -17,7 +18,6 @@ vim.schedule(function()
   vim.pack.add({
     "https://github.com/nvim-lualine/lualine.nvim",
     "https://github.com/MagicDuck/grug-far.nvim",
-    "https://github.com/folke/snacks.nvim",
     "https://github.com/nvim-mini/mini.nvim",
     { src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
   })
@@ -43,7 +43,6 @@ vim.schedule(function()
   theme.setup({
     flavour = "mocha",
     transparent_background = true,
-    snacks = { enabled = true },
     gitsigns = true,
     grug_far = true,
     mini = { enabled = true },
@@ -52,7 +51,12 @@ vim.schedule(function()
 
   -- plugin setup
   require("mini.icons").setup()
-  require("snacks").setup({ picker = { enabled = true } })
+  require("mini.pick").setup({
+    mappings = {
+      move_down = "<C-j>",
+      move_up = "<C-k>",
+    },
+  })
   require("statusline")
 end)
 

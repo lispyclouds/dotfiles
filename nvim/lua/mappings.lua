@@ -29,13 +29,13 @@ require("impl").map({
   },
   ["<leader><leader>"] = {
     action = function()
-      require("snacks").picker.smart({ hidden = true })
+      require("mini.pick").builtin.files()
     end,
     opts = { desc = "Find files" },
   },
   ["<leader>s"] = {
     action = function()
-      require("snacks").picker.grep()
+      require("mini.pick").builtin.grep_live()
     end,
     opts = { desc = "[S]earch in files" },
   },
