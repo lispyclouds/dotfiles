@@ -19,26 +19,26 @@ keybind = ctrl+shift+plus=increase_font_size:1
 keybind = ctrl+shift+s=new_split:right
 keybind = ctrl+shift+w=close_surface
 
-# https://github.com/catppuccin/ghostty/blob/main/themes/catppuccin-mocha.conf
-palette = 0=#45475a
-palette = 1=#f38ba8
-palette = 2=#a6e3a1
-palette = 3=#f9e2af
-palette = 4=#89b4fa
-palette = 5=#f5c2e7
-palette = 6=#94e2d5
-palette = 7=#a6adc8
-palette = 8=#585b70
-palette = 9=#f38ba8
-palette = 10=#a6e3a1
-palette = 11=#f9e2af
-palette = 12=#89b4fa
-palette = 13=#f5c2e7
-palette = 14=#94e2d5
-palette = 15=#bac2de
-background = 1e1e2e
-foreground = cdd6f4
-cursor-color = f5e0dc
-cursor-text = 11111b
-selection-background = 353749
-selection-foreground = cdd6f4
+# https://github.com/folke/tokyonight.nvim/blob/main/extras/ghostty/tokyonight_night
+palette = 0=#15161e
+palette = 1=#f7768e
+palette = 2=#9ece6a
+palette = 3=#e0af68
+palette = 4=#7aa2f7
+palette = 5=#bb9af7
+palette = 6=#7dcfff
+palette = 7=#a9b1d6
+palette = 8=#414868
+palette = 9=#ff899d
+palette = 10=#9fe044
+palette = 11=#faba4a
+palette = 12=#8db0ff
+palette = 13=#c7a9ff
+palette = 14=#a4daff
+palette = 15=#c0caf5
+
+background = #1a1b26
+foreground = #c0caf5
+cursor-color = #c0caf5
+selection-background = #283457
+selection-foreground = #c0caf5

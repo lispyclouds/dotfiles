@@ -19,7 +19,7 @@ vim.schedule(function()
     "https://github.com/nvim-lualine/lualine.nvim",
     "https://github.com/MagicDuck/grug-far.nvim",
     "https://github.com/nvim-mini/mini.nvim",
-    { src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
+    "https://github.com/folke/tokyonight.nvim",
   })
 
   -- fully lazy
@@ -39,15 +39,10 @@ vim.schedule(function()
   })
 
   -- theme
-  local theme = require("catppuccin")
-  theme.setup({
-    flavour = "mocha",
-    transparent_background = true,
-    gitsigns = true,
-    grug_far = true,
-    mini = { enabled = true },
+  require("tokyonight").load({
+    transparent = true,
+    style = "night",
   })
-  theme.load("mocha")
 
   -- plugin setup
   require("mini.icons").setup()
