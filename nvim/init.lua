@@ -19,7 +19,7 @@ vim.schedule(function()
     "https://github.com/nvim-lualine/lualine.nvim",
     "https://github.com/MagicDuck/grug-far.nvim",
     "https://github.com/nvim-mini/mini.nvim",
-    "https://github.com/folke/tokyonight.nvim",
+    "https://github.com/mellow-theme/mellow.nvim",
   })
 
   -- fully lazy
@@ -39,10 +39,9 @@ vim.schedule(function()
   })
 
   -- theme
-  require("tokyonight").load({
-    transparent = true,
-    style = "night",
-  })
+  package.loaded["mellow"] = nil
+  vim.g.mellow_transparent = true
+  require("mellow").colorscheme()
 
   -- plugin setup
   require("mini.icons").setup()
