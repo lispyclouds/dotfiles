@@ -43,8 +43,16 @@ vim.api.nvim_create_autocmd("BufReadPre", {
         },
       },
       -- uv pip install ty
-      ty = {
-        cmd = { "ty", "server" },
+      -- ty = {
+      --   cmd = { "ty", "server" },
+      --   filetypes = { "python" },
+      --   root_markers = {
+      --     "pyproject.toml",
+      --   },
+      -- },
+      -- uv pip install pyrefly
+      pyrefly = {
+        cmd = { "pyrefly", "lsp" },
         filetypes = { "python" },
         root_markers = {
           "pyproject.toml",
